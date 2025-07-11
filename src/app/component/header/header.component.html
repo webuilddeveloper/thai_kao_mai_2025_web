@@ -1,0 +1,74 @@
+<div class="div-header d-none d-lg-block" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+  <div class="header">
+    <div class="content-header">
+      <a routerLink="" class="div-logo-header"><img src="./assets/img/logoMain.png" alt="" class="logo-header"></a>
+      <div class="menu-group">
+        <a routerLink="">{{ 'home' | translate }}</a>
+        <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+        <a routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
+        <a routerLink="./about">{{ 'aboutMe' | translate }}</a>
+        <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
+        <!-- <select name="" class="dropdown-lang" #langSelect (change)="changeLanguage(langSelect.value)"
+          [(ngModel)]="langLocal">
+          <option value="{{i.value}}" *ngFor="let i of langList; let idx = index;">
+            {{i.code}}
+          </option>
+        </select> -->
+
+        <div class="dropdown-container">
+          <div class="dropdown-selected" (click)="toggleDropdown()">
+            <img [src]="selected.icon" class="flag"> {{ selected.name }}
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen">
+            <div class="dropdown-option" *ngFor="let option of langList" (click)="selectOption(option)">
+              <img [src]="option.icon" class="flag"> {{ option.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="scroll-watcher"></div> -->
+</div>
+
+<div class="div-header d-block d-lg-none" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+  <div class="header">
+    <div class="content-header">
+      <i class="material-icons ham-icon" (click)="subMenu = !subMenu">
+        menu
+      </i>
+      <img src="./assets/img/logoMain.png" alt="" class="logo-header">
+      <div class="action-right">
+        <!-- <select name="" class="dropdown-lang" #langSelect (change)="changeLanguage(langSelect.value)"
+          [(ngModel)]="langLocal">
+          <option value="{{i.value}}" *ngFor="let i of langList; let idx = index;">{{i.name}}</option>
+        </select> -->
+        <div class="dropdown-container">
+          <div class="dropdown-selected" (click)="toggleDropdown()">
+            <img [src]="selected.icon" class="flag"> {{ selected.name }}
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen">
+            <div class="dropdown-option" *ngFor="let option of langList" (click)="selectOption(option)">
+              <img [src]="option.icon" class="flag"> {{ option.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div-sub-menu" *ngIf="subMenu">
+    <div class="sub-menu">
+      <a (click)="subMenu = !subMenu" routerLink="">{{ 'home' | translate }}</a>
+      <a (click)="subMenu = !subMenu" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+      <a (click)="subMenu = !subMenu" routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
+      <a (click)="subMenu = !subMenu" routerLink="./about">{{ 'aboutMe' | translate }}</a>
+      <a (click)="subMenu = !subMenu" routerLink="./contact">{{ 'contactUs' | translate }}</a>
+    </div>
+  </div>
+
+  <!-- <div class="backdrop" *ngIf="subMenu" (click)="subMenu = false"></div> -->
+</div>
+<div *ngIf="isActiveMarginBTM" [ngStyle]="{'margin-bottom': scrollPosition ? '112px' : '0'}">&nbsp;</div>

@@ -1,0 +1,93 @@
+<div class="main-product">
+  <!-- <div class="div-title">
+    <span class="title">รายละเอียดผลิตภัณฑ์</span>
+  </div> -->
+  <div class="div-img-banner">
+    <img src="{{model.imageBanner}}" alt="" class="img-banner">
+  </div>
+
+  <div class="div-content">
+    <span class="title" *ngIf="translate.currentLang === 'th'">{{model.title}}</span>
+    <span class="title" *ngIf="translate.currentLang === 'en'">{{model.titleEN}}</span>
+
+    <div class="row d-flex">
+      <div class="col-12 col-md-6">
+        <div class="text-content">
+          <div class="spacer"></div>
+          <div class="div-progress">
+            <span class="title-statue">
+              {{ 'progressOfImplementation' | translate }} :
+            </span>
+            <progress id="progressBar" max="100" value="{{model.progress}}"></progress>
+          </div>
+          <div class="div-progress">
+            <span class="title-statue">
+              {{ 'statusOfImplementation' | translate }} :
+            </span>
+            <span class="text-statue" *ngIf="model.progress == '100'">
+              {{ 'doneStatus' | translate }}
+            </span>
+            <span class="text-statue" *ngIf="model.progress != '100'">
+              {{ 'inProgress' | translate }}
+            </span>
+          </div>
+          <div class="spacer"></div>
+        </div>
+        <div class="text-content">
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <h3>
+            {{ 'basicFeatures' | translate }}
+          </h3>
+          <div class="func-item" *ngFor="let i of model.newFunctionList; let idx = index;">
+            <li *ngIf="translate.currentLang === 'th'">{{i.title}}</li>
+            <li *ngIf="translate.currentLang === 'en'">{{i.titleEN}}</li>
+            <span *ngIf="translate.currentLang === 'th'">{{i.description}}</span>
+            <span *ngIf="translate.currentLang === 'en'">{{i.descriptionEN}}</span>
+            <div class="spacer"></div>
+          </div>
+          <div class="spacer"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="div-img-main">
+          <img src="{{model.imageUrl}}" alt="" class="img-main">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-content">
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <h3>
+        {{ 'detail' | translate }}
+      </h3>
+      <div *ngIf="model.description != ''">
+        <div [innerHTML]="model.description" *ngIf="translate.currentLang === 'th'"></div>
+        <div [innerHTML]="model.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+      </div>
+      <span *ngIf="model.description == ''">-</span>
+      <div class="spacer"></div>
+    </div>
+
+    <div class="text-content">
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <h3>
+        {{ 'morePhotos' | translate }}
+      </h3>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3" *ngFor="let i of model.image; let idx = index;">
+          <div class="div-img-more">
+            <img src="{{i.imageUrl}}" alt="" class="img-more">
+          </div>
+        </div>
+
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+  </div>
+
+
+</div>

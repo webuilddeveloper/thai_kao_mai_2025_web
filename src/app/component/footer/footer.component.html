@@ -1,0 +1,83 @@
+<div class="footer">
+  <div class="main-filter">
+    <div class="row gy-5">
+      <!-- <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
+        <span class="title">
+          {{ 'ourServices' | translate }}
+        </span>
+        <div class="sub-menu">
+          <span class="menu">
+            footer works!
+          </span>
+          <span class="menu">
+            footer works!
+          </span>
+          <span class="menu">
+            footer works!
+          </span>
+          <span class="menu">
+            footer works!
+          </span>
+        </div>
+      </div> -->
+      <div class="col-12 col-md-6 col-lg-4 div-menu-footer">
+        <div class="sub-menu">
+          <a class="title" routerLink="">
+            {{ 'home' | translate }}
+          </a>
+          <a class="title" routerLink="./news">
+            {{ 'newsAndEvent' | translate }}
+          </a>
+          <a class="title" routerLink="./product-and-service">
+            {{ 'productAndService' | translate }}
+          </a>
+          <a class="title" routerLink="./about">
+            {{ 'aboutMe' | translate }}
+          </a>
+          <a class="title" routerLink="./contact">
+            {{ 'contactUs' | translate }}
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 div-menu-footer">
+        <!-- <span class="title">
+          {{ 'contactUs' | translate }}
+        </span> -->
+        <div class="sub-menu">
+          <span class="menu" *ngIf="translate.currentLang === 'th'">
+            {{aboutMeModel.title}}
+          </span>
+          <span class="menu" *ngIf="translate.currentLang === 'en'">
+            {{aboutMeModel.titleEN}}
+          </span>
+          <div class="spacer d-none d-lg-block"></div>
+          <span class="menu" *ngIf="translate.currentLang === 'th'">
+            {{aboutMeModel.address}}
+          </span>
+          <span class="menu" *ngIf="translate.currentLang === 'en'">
+            {{aboutMeModel.addressEN}}
+          </span>
+          <div class="spacer d-none d-lg-block"></div>
+          <span class="menu">
+            {{ 'email' | translate }}: {{aboutMeModel.email}}
+          </span>
+          <span class="menu">
+            {{ 'tel' | translate }}: {{aboutMeModel.telephone}}
+          </span>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 div-menu-footer justify-content-end">
+        <div class="div-logo">
+          <img src="./assets/img/logoMain.png" alt="" class="logo-footer">
+          <span class="text-logo">we tech makers</span>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="bottom-footer">
+    <span class="menu">Copyright 2025 © We Tech Makers Co.,Ltd.</span>
+  </div>
+</div>

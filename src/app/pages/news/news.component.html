@@ -1,0 +1,24 @@
+<!-- <div class="bg-circle"></div> -->
+
+<div class="vertical">
+    <div class="news-section">
+        <div class="section-header">
+            <h3>{{ 'newsAndEvent' | translate }}</h3>
+        </div>
+
+        <div class="news-container">
+            <div class="card-news" *ngFor="let item of newsList" [routerLink]="['/newsdetail', item.code]">
+                <div class="card-image">
+                    <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+                    <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'"></div>
+                    <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

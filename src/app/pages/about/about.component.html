@@ -1,0 +1,125 @@
+<!-- <app-header></app-header> -->
+<div class="vertical ">
+  <div class="aboutUs ">
+    <h3>{{ 'aboutMe' | translate }}</h3>
+  </div>
+
+
+  <div class="vertical-line-wrapper ">
+
+    <div class="vertical-line "></div>
+    <div class="text-content ">
+      <h2 *ngIf="translate.currentLang === 'th'">{{aboutMeModel.title}}</h2>
+      <h2 *ngIf="translate.currentLang === 'en'">{{aboutMeModel.titleEN}}</h2>
+      <div class="spacer"></div>
+      <div [innerHTML]="aboutMeModel.description" *ngIf="translate.currentLang === 'th'"></div>
+      <div [innerHTML]="aboutMeModel.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+    </div>
+  </div>
+
+
+
+  <div class="text-content">
+    <div class="spacer"></div>
+    <h3>
+      {{ 'vision' | translate }}
+    </h3>
+    <div class="spacer"></div>
+    <div [innerHTML]="aboutMeModel.vision" *ngIf="translate.currentLang === 'th'"></div>
+    <div [innerHTML]="aboutMeModel.visionEN" *ngIf="translate.currentLang === 'en'"></div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <div class="text-content">
+    <h3>
+      {{ 'mission' | translate }}
+    </h3>
+    <div class="spacer"></div>
+    <ul>
+      <li *ngFor="let i of aboutMeModel.missionList; let idx = index;">
+        <div *ngIf="translate.currentLang === 'th'">{{i.title}}</div>
+        <div *ngIf="translate.currentLang === 'en'">{{i.titleEN}}</div>
+      </li>
+    </ul>
+
+  </div>
+
+
+  <div class="spacer"></div>
+
+  <div class="vertical-line-wrapper">
+    <div class="vertical-line "></div>
+    <h3>{{ 'executive' | translate }}</h3>
+  </div>
+
+  <div class="manager-grid-container">
+    <div class="manager-contain" *ngFor="let i of listEmployee; let idx = index">
+      <img class="manager-contain-img" src="{{i.imageUrl}}" alt="Manager">
+      <h4 class="text-content-manager" *ngIf="translate.currentLang === 'th'">{{i.title}}</h4>
+      <h4 class="text-content-manager" *ngIf="translate.currentLang === 'en'">{{i.titleEN}}</h4>
+      <h4 class="text-content-manager">{{i.position}}</h4>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="text-content">
+    <div class="spacer"></div>
+    <h3>
+      {{ 'certificate' | translate }}
+    </h3>
+    <div class="row">
+      <!-- <div class="col-6 col-md-4 col-lg-3" *ngFor="let i of listCertificate; let idx = index">
+        <a class="div-cer" href="{{i.fileUrl}}" target="_blank">
+          <div class="div-icon">
+            <img src="./../../../assets/icons/icon-pdf.png" alt="">
+          </div>
+          <div class="hidden-des">
+            <span *ngIf="translate.currentLang === 'th'" class="title">{{i.title}}</span>
+            <span *ngIf="translate.currentLang === 'en'" class="title">{{i.titleEN}}</span>
+          </div>
+        </a>
+      </div> -->
+      <ul>
+        <li *ngFor="let i of listCertificate; let idx = index">
+          <a href="{{i.fileUrl}}" target="_blank" style="width: fit-content;" class="no-underline" *ngIf="translate.currentLang === 'th'">
+            {{i.title}}
+          </a>
+          <a href="{{i.fileUrl}}" target="_blank" style="width: fit-content;" class="no-underline" *ngIf="translate.currentLang === 'en'">
+            {{i.titleEN}}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  </div>
+
+
+  <!-- <div class="spacer"></div>
+  <div class="vertical-line-wrapper">
+    <div class="text-content ">
+      <h3>
+        บริการครบจบที่เดียว (One Stop Service)
+      </h3>
+      <span>
+        <div class="spacer"></div>
+        <li>ติดแก็ส LNG รถบรรทุก</li>
+        <li>ตรวจเช็คสภาพ ซ่อมบำรุง</li>
+        <li>แนะนำการจดทะเบียนรถใช้ก๊าซ LNG</li>
+        <li>จำหน่ายชุดอุปกรณ์ถังก๊าซ ชิ้นส่วน อะไหล่</li>
+        <li>สินเชื่อติดถังแก็ส</li>
+        <li>คอร์สฝึกอบรมเกี่ยวกับ LNG</li>
+
+      </span>
+    </div>
+
+  </div>
+  <img class="fixedimg" src="assets/img/about-1.png">
+  <div class="spacer"></div> -->
+
+
+</div>

@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bggrey: #707070;
+  --black: #000000;
+  --white: #ffffff;
+  --main: #00743f;
+  --main-2: #9bdddc;
+  --main-3: #6BC269;
+  --article-text: #282828;
+  --bg-deep: #e8e9e8;
+
+  --font-10: 10px;
+  --font-11: 11px;
+  --font-12: 12px;
+  --font-13: 13px;
+  --font-14: 14px;
+  --font-15: 15px;
+  --font-16: 16px;
+  --font-17: 17px;
+  --font-18: 18px;
+  --font-20: 20px;
+  --font-22: 22px;
+  --font-24: 24px;
+  --font-26: 26px;
+  --font-28: 28px;
+  --font-32: 32px;
+  --font-36: 36px;
+  --font-40: 40px;
+  --font-l-2: 22px;
+  --font-m-2: 20px;
+  --font-s-2: 17px;
+  --font-xxl-2: 32px;
+  --font-xl-2: 24px;
+
+  --font-family-prompt: "Prompt", sans-serif;
+  --font-family-montserrat: "Montserrat", Helvetica;
+  --font-family-noto_sans_thai: "Noto Sans Thai", Helvetica;
+  --font-family-poppins: "Poppins", Helvetica;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Prompt', sans-serif;
+}
+
+html,
+body {
+  overflow: visible;
+  /* ✅ */
+}
+
+.bg-article {
+  background-color: rgb(239, 240, 241);
+  padding: 40px 50px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 9999;
+
+}
+
+h2 {
+  margin: 0;
+}
+
+.c-article {
+  color: var(--article-text);
+  font-weight: 200;
+  text-align: justify;
+  display: inline-block;
+  max-width: -webkit-fill-available;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.text-tab {
+  text-indent: 4em;
+}
+
+.text-tab h2 {
+  text-indent: 0em;
+}
+
+.spacer {
+  height: 20px;
+}
+
+.c-white {
+  color: var(--white);
+}
+
+.w-full {
+  width: -webkit-fill-available;
+}
+
+.bs-x0 {
+  --bs-gutter-x: 0;
+}
+
+.ovf-hide {
+  overflow: hidden;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .text-tab {
+    text-indent: 2em;
+  }
+}
