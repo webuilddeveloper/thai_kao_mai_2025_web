@@ -1,21 +1,17 @@
 <div class="div-header d-none d-lg-block" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
   <div class="header">
     <div class="content-header">
-      <a routerLink="" class="div-logo-header"><img src="./assets/img/logoMain.png" alt="" class="logo-header"></a>
+      <a routerLink="" class="div-logo-header"><img src="./assets/img/logo-notext.png" alt="" class="logo-header"></a>
       <div class="menu-group">
         <a routerLink="">{{ 'home' | translate }}</a>
         <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-        <a routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
         <a routerLink="./about">{{ 'aboutMe' | translate }}</a>
+        <a routerLink="./product-and-service">{{ 'membership' | translate }}</a>
+        <a routerLink="./product-and-service">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
-        <!-- <select name="" class="dropdown-lang" #langSelect (change)="changeLanguage(langSelect.value)"
-          [(ngModel)]="langLocal">
-          <option value="{{i.value}}" *ngFor="let i of langList; let idx = index;">
-            {{i.code}}
-          </option>
-        </select> -->
 
-        <div class="dropdown-container">
+
+        <!-- <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
             <img [src]="selected.icon" class="flag"> {{ selected.name }}
           </div>
@@ -25,7 +21,7 @@
               <img [src]="option.icon" class="flag"> {{ option.name }}
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

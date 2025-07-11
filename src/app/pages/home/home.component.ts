@@ -46,34 +46,34 @@ export class HomeComponent {
   newsList: any = [
     {
       code: "1",
-      title: "ข่าวสาร1;lsjflbjq';erlkgmbwnlfnbvlsjnopwrjkgl;rnlkbnmlrf;mbl;rejopnjwr",
-      describe: "รายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าว",
-      imageUrl: "./../../../assets/img/div-service-bg.png"
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/news-mock.png"
     },
     {
       code: "2",
-      title: "ข่าวสาร2",
-      describe: "รายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าว",
-      imageUrl: "./../../../assets/img/logoMain.png"
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/news-mock.png"
     },
-    // {
-    //   code: "3",
-    //   title: "ข่าวสาร3",
-    //   describe: "รายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าว",
-    //   imageUrl: "./../../../assets/img/logoMain.png"
-    // },
-    // {
-    //   code: "4",
-    //   title: "ข่าวสาร4",
-    //   describe: "รายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าว",
-    //   imageUrl: "./../../../assets/img/logoMain.png"
-    // },
-    // {
-    //   code: "5",
-    //   title: "ข่าวสาร5",
-    //   describe: "รายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าวรายละเอียดข่าว",
-    //   imageUrl: "./../../../assets/img/logoMain.png"
-    // },
+    {
+      code: "2",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/news-mock.png"
+    },
+    {
+      code: "2",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/news-mock.png"
+    },
+    {
+      code: "2",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/news-mock.png"
+    },
   ];
 
   @ViewChild('whoWeTechMakers') whoWeTechMakers!: ElementRef;
@@ -104,8 +104,7 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    this.readNews();
-    this.readAboutMe();
+
   }
 
   readNews() {

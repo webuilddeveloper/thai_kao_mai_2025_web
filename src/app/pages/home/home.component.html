@@ -4,204 +4,42 @@
   <div class="bg">
     <div class="content-main">
       <div class="row w-full bs-x0 justify-content-center">
-        <div class="left d-flex col-12 justify-content-center align-items-center flex-column">
+        <div class="left d-flex col-7 justify-content-center align-items-center flex-column">
           <div class="div-img-logo-main">
-            <img src="./../../../assets/img/logoMain.png" alt="" class="img-logo-main">
-          </div>
-          <span class="title">We Tech Makers</span>
-        </div>
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-        <div class="right">
-          <div class="col-8 col-md-10 d-flex text-center justify-content-center">
-            <div [innerHTML]="aboutMeModel.vision" class="title" *ngIf="translate.currentLang === 'th'"></div>
-            <div [innerHTML]="aboutMeModel.visionEN" class="title" *ngIf="translate.currentLang === 'en'"></div>
+            <img src="./../../../assets/img/logo-full-c2.png" alt="" class="img-logo-main">
           </div>
         </div>
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-        <div class="btn-start" (click)="scrollToSection()">
-          <img src="./../../../assets/icons/icon-down.png" alt="" class="icon-down">
+        <div class="right col-5 d-flex text-center justify-content-center">
+
+          <div [innerHTML]="aboutMeModel.vision" class="title" *ngIf="translate.currentLang === 'th'"></div>
+          <div [innerHTML]="aboutMeModel.visionEN" class="title" *ngIf="translate.currentLang === 'en'"></div>
+
         </div>
+
       </div>
     </div>
   </div>
-  <div class="content" #whoWeTechMakers>
+  <div class="content">
     <div class="content-1">
       <div class="div-content">
-        <div class="row bs-x0">
-          <div class="col-12 ">
-            <div class="card-who-we-tech row bs-x0">
-              <div class="col-12 col-md-6">
-                <div class="div-img">
-                  <img src="./../../../assets/img/logoMain.png" alt="">
-                </div>
+        <div class="top-div row bs-x0">
+          <h2>ข่าวสารแนะนำ</h2>
+          <button class="view-all">ดูทั้งหมด</button>
+        </div>
+
+        <div class="row">
+          <div class="col-4 col-md-4 col-lg-4 d-flex" *ngFor="let i of newsList.slice(0,3); let idx = index;">
+            <div class="card-news">
+              <div class="div-img-news">
+                <img src="{{i.imageUrl}}" alt="" class="news-img">
               </div>
-              <!-- <div class="spacer d-block d-lg-none"></div>
-              <div class="spacer d-block d-lg-none"></div> -->
-              <div class="col-12 col-md-6 text-tab d-flex flex-column">
-                <h2>
-                  {{ 'whoWeTechMakers' | translate }}
-                </h2>
-                <div class="spacer"></div>
-                <!-- <div [innerHTML]="" class="c-article"></div> -->
-                <span class="c-article">
-                  {{ 'whoWeTechMakersArticle' | translate }}
+              <span class="news-title hidden-title" *ngIf="translate.currentLang === 'th'">
+                  {{i.title}}
                 </span>
-              </div>
             </div>
           </div>
+
         </div>
-      </div>
-    </div>
-
-    <div class="content-1" style="background-color: aliceblue;">
-      <div class="div-content">
-        <div class="row bs-x0">
-          <div class="col-12">
-            <div class="card-who-we-tech row bs-x0">
-              <div class="col-12 col-lg-6 text-tab d-flex flex-column">
-                <h2>
-                  {{ 'WhatIsLng' | translate }}
-                </h2>
-                <div class="spacer"></div>
-                <span class="text-tab">
-                  {{ 'WhatIsLngArticle1' | translate }}
-                </span>
-                <div class="spacer d-block d-lg-none"></div>
-                <div class="spacer d-block d-lg-none"></div>
-                <div class="col-12 col-lg-6 d-block d-lg-none">
-                  <div class="div-img-what-lng">
-                    <img src="./../../../assets/img/lng-mock-2.png" alt="">
-                  </div>
-                </div>
-                <div class="spacer d-block d-lg-none"></div>
-                <div class="spacer d-block d-lg-none"></div>
-                <span class="c-article text-tab">
-                  {{ 'WhatIsLngArticle2' | translate }}
-                </span>
-              </div>
-              <div class="col-12 col-lg-6 d-none d-lg-block">
-                <div class="div-img-what-lng">
-                  <img src="./../../../assets/img/lng-mock-2.png" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="content-1">
-      <!-- <div class="div-content">
-        <h2>
-          คุณสมบัติเด่นของ LNG
-        </h2>
-        <div class="spacer"></div>
-        <li>เป็นเชื้อเพลิงที่มีประสิทธิภาพสูง มีการเผาใหม้ที่สมบูรณ์ ไม่เกิดเขม่า</li>
-        <li>เป้นมิตรต่อสิ่งแวดล้อม ลดการปล่อยคาร์บอนไดออกไซต์น้อยกว่า</li>
-        <li>ด้วยคุณสมบัติที่เบากว่าอากาศจึงลอยขึ้นและแพร่กระจายในอากาศเมื่อเกิดการรั่วไหล</li>
-        <li>ช่วยลดต้นทุนมากกว่าการใช้เชื้อเพลิงปิโตรเลียมอื่น ๆ เช่น น้ำมัน น้ำมันเตา</li>
-
-      </div> -->
-
-      <div class="div-content ovf-hide">
-        <div class="row div-title-why-lng card-who-we-tech">
-          <h2>
-            {{ 'WhyLng' | translate }}
-          </h2>
-          <img src="./../../../assets/img/car.png" alt="" class="icon-car d-none d-lg-block">
-        </div>
-        <div class="spacer"></div>
-        <div class="spacer d-block d-lg-none"></div>
-        <div class="spacer d-block d-lg-none"></div>
-        <div class="d-flex why-lng-container row gy-3">
-          <div class="d-flex col-12 col-md-6 col-lg-3">
-            <div class="card-why-lng">
-              {{ 'WhyLngCard1' | translate }}
-            </div>
-          </div>
-          <div class="d-flex col-12 col-md-6 col-lg-3">
-            <div class="card-why-lng">
-              {{ 'WhyLngCard2' | translate }}
-            </div>
-          </div>
-          <div class="d-flex col-12 col-md-6 col-lg-3">
-            <div class="card-why-lng">
-              {{ 'WhyLngCard3' | translate }}
-            </div>
-          </div>
-          <div class="d-flex col-12 col-md-6 col-lg-3">
-            <div class="card-why-lng">
-              {{ 'WhyLngCard4' | translate }}
-            </div>
-          </div>
-        </div>
-        <img src="./../../../assets/img/car.png" alt="" class="icon-car d-block d-lg-none">
-      </div>
-    </div>
-
-    <div class="content-1">
-      <div class="div-content">
-        <div class="div-title-why-lng card-who-we-tech">
-          <h2>
-            {{ 'benefitsOfLng' | translate }}
-          </h2>
-        </div>
-        <div class="spacer"></div>
-        <span class="c-article text-tab">
-          {{ 'benefitsOfLngArticle1' | translate }}
-        </span>
-        <span class="c-article text-tab">
-          {{ 'benefitsOfLngArticle2' | translate }}
-        </span>
-      </div>
-    </div>
-
-    <div class="content-2">
-      <div class="div-content">
-        <div class="row div-title-why-lng card-who-we-tech">
-          <h2 class="c-white">
-            {{ 'WhatDdf' | translate }}
-          </h2>
-        </div>
-        <div class="spacer d-none d-lg-block"></div>
-        <div class="spacer"></div>
-        <div class="d-flex why-lng-container">
-          <span class="c-article text-tab c-white">
-            {{ 'WhatDdfArticle1' | translate }}
-          </span>
-        </div>
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-
-
-        <div class="row bs-x0">
-          <div class="col-12 col-lg-6">
-            <div class="div-img-what-lng">
-              <img src="./../../../assets/img/ddf-mock.png" alt="">
-            </div>
-          </div>
-          <div class="spacer d-block d-lg-none"></div>
-          <div class="spacer d-block d-lg-none"></div>
-          <div class="col-12 col-lg-6">
-            <h2 class="c-white">
-              {{ 'advantagesOfDdf' | translate }}
-            </h2>
-            <div class="spacer"></div>
-            <ul>
-              <li class="check c-white">{{ 'advantagesOfDdf1' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf2' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf3' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf4' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf5' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf6' | translate }}</li>
-              <li class="check c-white">{{ 'advantagesOfDdf7' | translate }}</li>
-            </ul>
-
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -339,46 +177,6 @@
       </div>
 
     </div>
-
-    <div class="content-1">
-      <div class="div-content">
-        <h2 (click)="gotoNewsPage()">
-          {{ 'newsAndEvent' | translate }}
-        </h2>
-        <div class="spacer"></div>
-        <div class="spacer d-none d-lg-block"></div>
-        <div class="spacer d-none d-lg-block"></div>
-        <div class="d-flex row gy-3">
-          <div class="col-12 col-md-6 col-lg-4 d-flex" style="position:relative"
-            *ngFor="let i of newsList.slice(0,3); let idx = index;">
-            <div class="card-news">
-              <div class="div-top-news">
-                <div class="div-img-news">
-                  <img src="{{i.imageUrl}}" alt="" class="news-img">
-                </div>
-                <span class="news-title hidden-title" *ngIf="translate.currentLang === 'th'">
-                  {{i.title}}
-                </span>
-                <span class="news-title hidden-title" *ngIf="translate.currentLang === 'en'">
-                  {{i.titleEN}}
-                </span>
-                <div [innerHTML]="i.description" class="news-text hidden-des" *ngIf="translate.currentLang === 'th'">
-                </div>
-                <div [innerHTML]="i.descriptionEN" class="news-text hidden-des" *ngIf="translate.currentLang === 'en'">
-                </div>
-              </div>
-              <button class="read-news">{{ 'readMore' | translate }} <i
-                  class="material-icons">arrow_forward</i></button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-
-
 
 
   </div>

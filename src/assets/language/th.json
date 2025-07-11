@@ -1,8 +1,9 @@
 {
   "home": "หน้าแรก",
-  "newsAndEvent": "ข่าวสารและกิจกรรม",
-  "productAndService": "ผลิตภัณฑ์และบริการ",
-  "aboutMe": "เกี่ยวกับเรา",
+  "newsAndEvent": "ข่าวสาร",
+  "membership": "ระบบสมาชิก",
+  "aboutMe": "เกี่ยวกับพรรค",
+  "donate": "บริจาค",
   "contactUs": "ติดต่อเรา",
 
   "ourServices": "บริการของเรา",

@@ -1,8 +1,9 @@
 {
   "home": "Home",
-  "newsAndEvent": "News And Event",
-  "productAndService": "Product And Service",
+  "newsAndEvent": "News",
+  "membership": "Membership",
   "aboutMe": "About Me",
+  "donate": "Donate",
   "contactUs": "Contact Us",
 
   "ourServices": "Our Services",
