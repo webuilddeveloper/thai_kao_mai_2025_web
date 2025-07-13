@@ -1,17 +1,19 @@
 <!-- <div class="bg-circle"></div> -->
 <div *ngIf="newsDetail">
+    <div class="contact-background">
+        <img [src]="newsDetail.imageBanner" alt="" class="img-logo-main">
+    </div>
     <div class="vertical">
         <div class="card-newdetail">
-            <div class="content-wrapper">
-                <div class="img-container">
-                    <img class="newdetail-img" [src]="newsDetail.imageUrl" alt="{{newsDetail.title}}">
-                </div>
-                <div class="card-detail">
-                    <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
-                    <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>
-                    <div class="txt-description" [innerHTML]="newsDetail.description" *ngIf="translate.currentLang === 'th'"></div>
-                    <div class="txt-description" [innerHTML]="newsDetail.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
-                </div>
+            <div class="card-detail">
+                <span class="news-date">{{ formatThaiDate(newsDetail.createDate) }} | {{newsDetail.createBy}}</span>
+                <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
+                <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>
+                <img [src]="newsDetail.imageUrl" alt="" class="img-logo-des">
+                <div class="txt-description" [innerHTML]="newsDetail.description"
+                    *ngIf="translate.currentLang === 'th'"></div>
+                <div class="txt-description" [innerHTML]="newsDetail.descriptionEN"
+                    *ngIf="translate.currentLang === 'en'"></div>
             </div>
         </div>
     </div>

@@ -32,4 +32,16 @@ export class NewsDetailComponent implements OnInit {
 
     });
   }
+
+  formatThaiDate(input: string): string {
+    const year = +input.substring(0, 4);
+    const month = +input.substring(4, 6);
+    const day = +input.substring(6, 8);
+    const date = new Date(year, month - 1, day);
+    const thaiMonths = [
+      "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+      "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+    ];
+    return `${date.getDate()} ${thaiMonths[date.getMonth()]} ${date.getFullYear()}`;
+  }
 }

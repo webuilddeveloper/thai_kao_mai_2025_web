@@ -1,9 +1,29 @@
 <!-- <div class="bg-circle"></div> -->
-
+<div class="contact-background">
+    <img src="./../../../assets/img/header_news.png" alt="" class="img-logo-main">
+</div>
 <div class="vertical">
+
     <div class="news-section">
         <div class="section-header">
             <h3>{{ 'newsAndEvent' | translate }}</h3>
+        </div>
+         <div class="news-highlight">
+            <div class="card-highlight" *ngFor="let item of newsHighlight.slice(0, 2)" [routerLink]="['/newsdetail', item.code]">
+                <div class="card-image-highlight">
+                    <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
+                    <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+                    <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+                    </div>
+                    <div class="news-description" [innerHTML]="item.descriptionEN"
+                        *ngIf="translate.currentLang === 'en'"></div>
+                </div>
+            </div>
         </div>
 
         <div class="news-container">
@@ -13,10 +33,13 @@
                     <div class="image-overlay"></div>
                 </div>
                 <div class="card-content">
+                    <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
                     <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
                     <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'"></div>
-                    <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+                    </div>
+                    <div class="news-description" [innerHTML]="item.descriptionEN"
+                        *ngIf="translate.currentLang === 'en'"></div>
                 </div>
             </div>
         </div>

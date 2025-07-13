@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-contact',
@@ -18,9 +20,29 @@ export class ContactComponent {
   ) {
 
   }
+  @ViewChild('contactBox') contactBox!: ElementRef;
+  @ViewChild('linesContainer') linesContainer!: ElementRef; animation: any;
+
+
+
+    donationAmount = 45760741; // ตัวเลขยอดบริจาค
+
 
   ngOnInit(): void {
     this.readAboutMe();
+    gsap.registerPlugin(ScrollTrigger);
+    if (this.animation) this.animation.revert();
+
+    gsap.to(this.contactBox.nativeElement, {
+      y: -80,              // ขยับกล่องขึ้นมากขึ้น (เดิม -40)
+      ease: 'sine.out',
+      scrollTrigger: {
+        trigger: this.contactBox.nativeElement,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.8,        // delay, smooth ตาม scroll มากขึ้น (เดิม 0.8)
+      },
+    });
   }
 
   readAboutMe() {

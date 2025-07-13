@@ -9,6 +9,7 @@
   align-items: center;
   position: relative;
   z-index: 9999;
+  margin-top: 20px;
   // height: -webkit-fill-available;
 }
 
@@ -69,7 +70,7 @@
 
 .vertical-line {
   width: 6px;
-  background: linear-gradient(180deg, var(--main) 0%, #6BC269 50%, var(--main) 100%);
+  background: linear-gradient(180deg, var(--nevy) 0%, var(--main) 90%);
   border-radius: 3px;
   flex-shrink: 0;
   position: relative;
@@ -84,7 +85,7 @@
   transform: translateX(-50%);
   width: 12px;
   height: 12px;
-  background: var(--main);
+  background: var(--nevy);
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(81, 171, 79, 0.2);
 }
@@ -99,28 +100,25 @@
 }
 
 .text-content h2 {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--black);
+  color: var(--nevy);
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 12px;
-  background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-.text-content h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
-  border-radius: 2px;
-}
+// .text-content h2::after {
+//   content: '';
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 3px;
+//   background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
+//   border-radius: 2px;
+// }
 
 .text-content h3 {
   font-size: 1.6rem;
@@ -228,10 +226,11 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+
   .text-content span {
     display: block;
     text-align: justify;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.8;
     color: #4A5568;
   }
@@ -241,15 +240,88 @@
   }
 
   .text-content h2 {
-  font-size: 2.0rem;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 12px;
-  background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+    font-size: 2.0rem;
+    font-weight: 600;
+    color: var(--nevy);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+    display: inline-block;
+  }
 }
+
+.contact-background {
+  width: 100%;
+
+}
+
+.img-logo-main {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+
+/* ปุ่มแต่ละปุ่ม */
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
+}
+
+/* วงกลมที่ห่อไอคอน */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  // background-color: var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+/* Hover แล้ววงกลมเปลี่ยนขอบสี */
+.icon-circle:hover {
+  border-color: var(--nevy);
+  transform: scale(1.05);
+}
+
+/* ไอคอน */
+.icon-circle img {
+  width: 80px;
+  height: 80px;
+}
+
+.social-wrapper {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(81, 171, 79, 0.12);
+  border: 1px solid rgba(81, 171, 79, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: space-around;
+
+   @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center; // จัด icons ให้อยู่กึ่งกลางแนวตั้ง
+  }
+}
+
+.container-map {
+  width: 100%;
+  height: 500px;
 }
