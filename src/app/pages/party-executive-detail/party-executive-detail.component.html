@@ -1,0 +1,48 @@
+<div class="contact-background">
+  <img src="./../../../assets/img/header_executive.png" alt="" class="img-logo-main">
+</div>
+<div class="main">
+  <div class="executive-page">
+    <h2 class="title">กรรมการบริหารพรรคไทยก้าวใหม่</h2>
+
+    <!-- แถว 1: หัวหน้าพรรค -->
+    <div class="executive-row center">
+      <div class="executive-card">
+        <img src="./assets/img/party_leader.png" alt="หัวหน้าพรรค" />
+        <div class="card-footer">
+          <h3>
+            <span class="first-name">ดร.สุชัชวีร์</span><br />
+            <span class="last-name">สุวรรณสวัสดิ์</span>
+          </h3>
+
+          <p>หัวหน้าพรรค</p>
+        </div>
+        <div class="card-overlay">
+          ดูประวัติเพิ่มเติม
+        </div>
+      </div>
+    </div>
+
+    <!-- แถว 2: รองหัวหน้าพรรค -->
+    <div class="executive-row">
+      <div class="executive-card" *ngFor="let member of deputyLeaders">
+        <img [src]="member.image" [alt]="member.firstName" />
+        <div class="card-footer">
+          <h3>
+            <span class="first-name">{{ member.firstName }}</span><br />
+            <span class="last-name">{{ member.lastName }}</span>
+          </h3>
+          <p>{{ member.position }}</p>
+        </div>
+        <div class="card-overlay">
+          ดูประวัติเพิ่มเติม
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<app-go-to-top></app-go-to-top>

@@ -9,6 +9,7 @@ import { NewsDetailComponent } from './pages/newsdetail/newsdetail.component';
 
 import { ProductAndServiceDetailsComponent } from './pages/product-and-service-details/product-and-service-details.component';
 import { PerformanceDetailsComponent } from './pages/performance-details/performance-details.component';
+import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'newsdetail/:code', component: NewsDetailComponent },
   { path: 'product-and-service-details', component: ProductAndServiceDetailsComponent },
   { path: 'performance-details/:code', component: PerformanceDetailsComponent },
+  { path: 'party-executive', component: PartyExecutiveComponent },
+
 ];
 
 @NgModule({

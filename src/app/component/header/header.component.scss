@@ -52,12 +52,12 @@ a {
 
 a:hover {
   /* background-color: linear-gradient(to right, #59C3E1, #1375D7, #1276D7, #8E43F8); */
-  border: 1px solid var(--main);
-  /* z-index: -1; */
-  box-shadow: 0 0 5px var(--main);
-  transition: 0.5s;
-  background-color: var(--main);
-  color: var(--nevy);
+  // border: 1px solid var(--main);
+  // /* z-index: -1; */
+  // box-shadow: 0 0 5px var(--main);
+  // transition: 0.5s;
+  // background-color: var(--main);
+  // color: var(--nevy);
   
 }
 
@@ -263,4 +263,61 @@ a:hover {
 
 .arrow {
   margin-left: auto;
+}
+
+.menu-group {
+  display: flex;
+  gap: 20px;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    padding: 10px;
+    color: --var(--nevy);
+    transition: color 0.3s;
+
+    &:hover {
+      color: #007BFF;
+    }
+  }
+
+  .menu-with-sub {
+    position: relative;
+
+    .sub-menu {
+      display: none;
+      position: absolute;
+      top: 145%;
+      left: 0;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      min-width: 200px;
+      z-index: 1000;
+      border-radius: 6px;
+      overflow: hidden;
+
+      a {
+        display: block;
+        padding: 10px 15px;
+        white-space: nowrap;
+        color: --var(--nevy);
+        border-bottom: 1px solid #e0e0e0; // ✅ เส้นขั้นแต่ละเมนู
+        transition: color 0.3s;
+
+        &:last-child {
+          border-bottom: none; // ✅ เมนูสุดท้ายไม่ต้องมีเส้นขั้น
+        }
+
+        &:hover {
+          color: #007BFF; // ✅ เปลี่ยนสีตัวอักษรตอน hover
+          background-color: transparent; // ✅ ไม่เปลี่ยนพื้นหลัง
+        }
+      }
+    }
+
+    &:hover .sub-menu {
+      display: block;
+    }
+  }
 }

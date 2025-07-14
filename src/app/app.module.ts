@@ -20,6 +20,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 
+import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
@@ -38,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactComponent,
     NewsDetailComponent,
     ProductAndServiceDetailsComponent,
-    PerformanceDetailsComponent
+    PerformanceDetailsComponent,
+    PartyExecutiveComponent
   ],
   imports: [
     BrowserModule,

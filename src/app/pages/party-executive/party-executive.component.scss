@@ -1,0 +1,431 @@
+::ng-deep body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
+  margin-top: 20px;
+  // height: -webkit-fill-available;
+}
+
+.aboutUs {
+  color: var(--black);
+  font-family: var(--font-family-prompt);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.aboutUs h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.aboutUs h3::before {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
+  border-radius: 2px;
+}
+
+.vertical {
+  width: 75%;
+}
+
+.vertical-line-wrapper {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(81, 171, 79, 0.12);
+  border: 1px solid rgba(81, 171, 79, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vertical-line-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(81, 171, 79, 0.18);
+}
+
+
+.vertical-line {
+  width: 6px;
+  background: linear-gradient(180deg, var(--nevy) 0%, var(--main) 90%);
+  border-radius: 3px;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(81, 171, 79, 0.3);
+}
+
+.vertical-line::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--nevy);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(81, 171, 79, 0.2);
+}
+
+
+.text-content {
+  font-family: var(--font-family-prompt);
+  font-size: var(--font-16);
+  line-height: 1.8;
+  color: var(--black);
+  flex: 1;
+}
+
+.text-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--nevy);
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 12px;
+  display: inline-block;
+}
+
+// .text-content h2::after {
+//   content: '';
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 3px;
+//   background: linear-gradient(135deg, var(--main) 0%, #6BC269 100%);
+//   border-radius: 2px;
+// }
+
+.text-content h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--main);
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.text-content h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--main) 0%, #6BC269 100%);
+  border-radius: 2px;
+}
+
+.text-content span {
+  display: block;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4A5568;
+}
+
+.text-content li {
+  margin: 12px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 1.05rem;
+  color: #4A5568;
+  line-height: 1.7;
+  list-style: none;
+}
+
+.text-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--main);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+.spacer {
+  height: 24px;
+}
+
+.div-img-map {
+  width: 100%
+}
+
+.img-map {
+  width: -webkit-fill-available;
+}
+
+.bg-circle-wrapper {
+  /* ทำให้ wrapper อยู่มุมขวาบน และซ่อนส่วนที่ล้น */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* ซ่อนทุกอย่างที่ล้นออกไปจาก wrapper นี้ */
+  z-index: -1;
+  /* ย้าย z-index มาไว้ที่นี่ */
+  pointer-events: none;
+  /* ย้าย pointer-events มาที่นี่ */
+}
+
+.bg-circle {
+  background: linear-gradient(to right, var(--main-2), var(--main));
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  /* ไม่ต้องใช้ z-index และ pointer-events ที่ตัวลูกแล้ว */
+}
+
+@media (max-width: 768px) {
+  .vertical-line-wrapper {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 8px 32px rgba(81, 171, 79, 0.12);
+    border: 1px solid rgba(81, 171, 79, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  .text-content span {
+    display: block;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4A5568;
+  }
+
+  .spacer {
+    height: 5px;
+  }
+
+  .text-content h2 {
+    font-size: 2.0rem;
+    font-weight: 600;
+    color: var(--nevy);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+    display: inline-block;
+  }
+}
+
+.contact-background {
+  width: 100%;
+
+}
+
+.img-logo-main {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+
+/* ปุ่มแต่ละปุ่ม */
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
+}
+
+/* วงกลมที่ห่อไอคอน */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  // background-color: var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+/* Hover แล้ววงกลมเปลี่ยนขอบสี */
+.icon-circle:hover {
+  border-color: var(--nevy);
+  transform: scale(1.05);
+}
+
+/* ไอคอน */
+.icon-circle img {
+  width: 80px;
+  height: 80px;
+}
+
+.social-wrapper {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(81, 171, 79, 0.12);
+  border: 1px solid rgba(81, 171, 79, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center; // จัด icons ให้อยู่กึ่งกลางแนวตั้ง
+  }
+}
+
+.container-map {
+  width: 100%;
+  height: 500px;
+}
+
+.executive-page {
+  padding: 40px 8%;
+  width: 100%;
+  background: #ffffff;
+
+  .title {
+    font-size: 2.6em !important;
+    color: #2D294A;
+    margin-bottom: 10%;
+  }
+
+  .executive-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    &.center {
+      justify-content: center;
+    }
+  }
+
+  .executive-card {
+    width: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    // background-color: var(--nevy);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-footer {
+      background-color: var(--nevy);
+      color: #fff;
+      padding: 15px;
+      border-top: 4px solid #F4ED17;
+      text-align: left;
+
+      h3 {
+        margin: 0;
+        line-height: 0.7;
+
+        .first-name {
+          font-size: 30px;
+          font-weight: 500;
+          display: block;
+          color: #fff;
+          margin-bottom: 2px;
+        }
+
+        .last-name {
+          font-size: 24px;
+          font-weight: normal;
+          display: block;
+          color: #fff;
+          margin-top: 0;
+        }
+      }
+
+      p {
+        margin: 15px 0 0;
+        font-size: 18px;
+        color: var(--main);
+      }
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--nevy); // สีดำแบบโปร่ง
+      color: #F4ED17;
+      font-size: 24px;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+
+      // ✅ แสดง effect เลื่อนซ้าย → ขวา
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+      pointer-events: none;
+    }
+
+    // ✅ เมื่อ hover การ์ด ให้ overlay เลื่อนเข้ามา
+    &:hover .card-overlay {
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+  }
+
+
+}
