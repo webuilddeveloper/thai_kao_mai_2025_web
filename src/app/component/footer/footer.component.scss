@@ -9,7 +9,7 @@
 
 .main-filter {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   max-width: 1440px;
   width: -webkit-fill-available;
   padding: 80px 50px;
@@ -159,6 +159,7 @@ a {
   .main-filter {
     padding: 55px 75px;
     row-gap: 32px;
+    flex-direction: column;
   }
 
   .div-logo {
