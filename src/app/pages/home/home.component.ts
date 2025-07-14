@@ -76,6 +76,24 @@ export class HomeComponent {
     },
   ];
 
+  policyList: any = [
+    {
+      code: "1",
+      title: "นโยบายคมนาคม",
+      description: "คมนาคมที่ทั่วถึง คือเส้นเลือดใหญ่ของประเทศที่เติบโต",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/policy-mock-1.png"
+    },
+    {
+      code: "2",
+      title: "นโยบายการศึกษาไทย",
+      description: "เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ",
+      date: "9 ก.ค. 2668",
+      imageUrl: "./../../../assets/img/policy-mock-2.jpg"
+    },
+
+  ];
+
   @ViewChild('whoWeTechMakers') whoWeTechMakers!: ElementRef;
 
   constructor(
