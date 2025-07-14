@@ -5,7 +5,16 @@
       <div class="menu-group">
         <a routerLink="">{{ 'home' | translate }}</a>
         <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-        <a routerLink="./about">{{ 'aboutMe' | translate }}</a>
+        <div class="menu-with-sub">
+          <a routerLink="#">{{ 'aboutMe' | translate }}</a>
+          <div class="sub-menu">
+            <a routerLink="./about/a">อุดมการณ์ของพรรค</a>
+            <a routerLink="./about/b">ประวัติความเป็นมา</a>
+            <a routerLink="./about/c">นโยบาย</a>
+            <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
+          </div>
+        </div>
+
         <a routerLink="./product-and-service">{{ 'membership' | translate }}</a>
         <a routerLink="./product-and-service">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
