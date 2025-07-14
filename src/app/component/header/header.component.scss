@@ -161,12 +161,18 @@ a:hover {
 }
 
 .div-sub-menu {
-  position: absolute;
-  top: 89px;
-  left: 0;
+  position: fixed;
+  /* top: 0; */
+  right: 0;
+  /* width: -webkit-fill-available; */
+  padding: 20px;
+  /* z-index: 99999; */
+  // background-color: #2d294a;
+
   width: -webkit-fill-available;
-  padding: 16px;
-  z-index: 99999;
+  height: -webkit-fill-available;
+      background-color: rgb(94 94 94 / 53%);
+  backdrop-filter: blur(10px);
 }
 
 .sub-menu {
@@ -179,6 +185,10 @@ a:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.3);
+  // animation: slideToLeft linear forwards;
+  // animation-timeline: view();
+  // animation-range: exit;
+  // transform-origin: center;
 }
 
 @media (max-width: 768px) {
@@ -195,6 +205,11 @@ a:hover {
 
   .sub-menu {
     padding: 20px;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: fit-content;
   }
 
 }
@@ -211,6 +226,20 @@ a:hover {
 
   .sub-menu {
     padding: 20px;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: fit-content;
+    height: -webkit-fill-available;
+    border-radius: 0;
+    background-color: var(--bg-main);
+    z-index: 99999999;
+  }
+
+  .sub-menu a {
+    color: var(--white);
+
   }
 }
 
@@ -263,4 +292,14 @@ a:hover {
 
 .arrow {
   margin-left: auto;
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(-105%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }

@@ -101,6 +101,13 @@ export class HeaderComponent {
     this.isOpen = !this.isOpen;
   }
 
+  openHam() {
+    this.subMenu = !this.subMenu;
+    document.body.style.overflow = this.subMenu ? 'hidden' : '';
+  }
+
+
+
   selectOption(option: any) {
     this.selected = option;
     this.translate.use(option.value);
