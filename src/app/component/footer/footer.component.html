@@ -1,45 +1,45 @@
 <div class="footer">
   <div class="main-filter">
     <div class="row gy-5">
-      <!-- <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
-        <span class="title">
-          {{ 'ourServices' | translate }}
-        </span>
-        <div class="sub-menu">
-          <span class="menu">
-            footer works!
-          </span>
-          <span class="menu">
-            footer works!
-          </span>
-          <span class="menu">
-            footer works!
-          </span>
-          <span class="menu">
-            footer works!
-          </span>
-        </div>
-      </div> -->
-      <div class="col-12 col-md-6 col-lg-4 div-menu-footer">
-        <div class="sub-menu">
-          <a class="title" routerLink="">
-            {{ 'home' | translate }}
-          </a>
-          <a class="title" routerLink="./news">
-            {{ 'newsAndEvent' | translate }}
-          </a>
-          <a class="title" routerLink="./product-and-service">
-            {{ 'productAndService' | translate }}
-          </a>
-          <a class="title" routerLink="./about">
-            {{ 'aboutMe' | translate }}
-          </a>
-          <a class="title" routerLink="./contact">
-            {{ 'contactUs' | translate }}
-          </a>
+      <div class="col-12 col-lg-3 div-menu-footer">
+        <div class="div-logo">
+          <img src="./../../../assets/img/logo-full-c1.png" alt="" class="logo-footer">
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-4 div-menu-footer">
+      <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
+        <div class="sub-menu">
+          <span class="heading" routerLink="">
+            Contact Us
+          </span>
+          <div class="box-menu">
+            <div class="div-icon">
+              <img src="./../../../assets/icons/location_on.png" alt="" class="icon-footer">
+            </div>
+            <span class="title" routerLink="">
+              {{aboutMeModel.location}}
+            </span>
+          </div>
+          <div class="box-menu">
+            <div class="div-icon">
+              <img src="./../../../assets/icons/email.png" alt="" class="icon-footer">
+            </div>
+            <span class="title" routerLink="">
+              {{aboutMeModel.email}}
+            </span>
+          </div>
+          <div class="box-menu">
+            <div class="div-icon">
+              <img src="./../../../assets/icons/call.png" alt="" class="icon-footer">
+            </div>
+            <span class="title" routerLink="">
+              {{aboutMeModel.tel}}
+            </span>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
         <!-- <span class="title">
           {{ 'contactUs' | translate }}
         </span> -->
@@ -66,18 +66,12 @@
           </span>
         </div>
       </div>
-      <div class="col-12 col-lg-4 div-menu-footer justify-content-end">
-        <div class="div-logo">
-          <img src="./assets/img/logoMain.png" alt="" class="logo-footer">
-          <span class="text-logo">we tech makers</span>
-        </div>
 
-      </div>
     </div>
 
 
   </div>
-  <div class="bottom-footer">
+  <!-- <div class="bottom-footer">
     <span class="menu">Copyright 2025 © We Tech Makers Co.,Ltd.</span>
-  </div>
+  </div> -->
 </div>

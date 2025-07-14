@@ -10,17 +10,20 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 })
 export class FooterComponent {
 
-  aboutMeModel: any = {};
+  aboutMeModel: any = {
+    location: "8819 Ohio St. South Gate, CA 90280",
+    email: "Ourstudio@hello.com",
+    tel: "+1 386-688-3295"
+  };
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
     public translate: TranslateService
   ) {
-
   }
 
   ngOnInit(): void {
-    this.readAboutMe();
+    // this.readAboutMe();
   }
 
   readAboutMe() {

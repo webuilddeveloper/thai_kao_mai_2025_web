@@ -34,11 +34,37 @@
                 <img src="{{i.imageUrl}}" alt="" class="news-img">
               </div>
               <span class="news-title hidden-title" *ngIf="translate.currentLang === 'th'">
-                  {{i.title}}
-                </span>
+                {{i.title}}
+              </span>
             </div>
           </div>
-
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="top-div row bs-x0">
+          <h2>นโยบายของพรรค</h2>
+          <button class="view-all">ดูทั้งหมด</button>
+        </div>
+        <div class="spacer"></div>
+        <div class="row gap-3">
+          <div class="col-12 d-flex" *ngFor="let i of policyList.slice(0,2); let idx = index;">
+            <div class="card-policy">
+              <div class="col-12 col-md-6 div-img-policy">
+                <img src="{{i.imageUrl}}" alt="">
+              </div>
+              <div class="col-12 col-md-6 policy-des-box">
+                <span class="title hidden-title">
+                  {{i.title}}
+                </span>
+                <span class="des hidden-title">
+                  {{i.description}}
+                </span>
+                <button class="view-more">ดูเพิ่มเติม <i
+                  class="material-icons">arrow_forward</i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
