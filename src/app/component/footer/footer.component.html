@@ -35,35 +35,40 @@
               {{aboutMeModel.tel}}
             </span>
           </div>
-
-
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
-        <!-- <span class="title">
-          {{ 'contactUs' | translate }}
-        </span> -->
-        <div class="sub-menu">
-          <span class="menu" *ngIf="translate.currentLang === 'th'">
-            {{aboutMeModel.title}}
+        <div class="sub-menu div-social">
+          <div class="row bs-x0 gap-3">
+            <div class="box-social">
+              Dr
+            </div>
+            <div class="box-social">
+              Be
+            </div>
+            <div class="box-social">
+              Ig
+            </div>
+            <div class="box-social">
+              Tw
+            </div>
+          </div>
+          <span class="title" routerLink="">
+            Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod.
           </span>
-          <span class="menu" *ngIf="translate.currentLang === 'en'">
-            {{aboutMeModel.titleEN}}
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
+        <div class="join-us">
+          <span class="heading" routerLink="">
+            Join Us
           </span>
-          <div class="spacer d-none d-lg-block"></div>
-          <span class="menu" *ngIf="translate.currentLang === 'th'">
-            {{aboutMeModel.address}}
-          </span>
-          <span class="menu" *ngIf="translate.currentLang === 'en'">
-            {{aboutMeModel.addressEN}}
-          </span>
-          <div class="spacer d-none d-lg-block"></div>
-          <span class="menu">
-            {{ 'email' | translate }}: {{aboutMeModel.email}}
-          </span>
-          <span class="menu">
-            {{ 'tel' | translate }}: {{aboutMeModel.telephone}}
-          </span>
+          <div class="div-input">
+            <label for="">Your Email</label>
+            <input type="text" placeholder="Enter Your Email">
+          </div>
+
+          <button>Subscribe</button>
         </div>
       </div>
 

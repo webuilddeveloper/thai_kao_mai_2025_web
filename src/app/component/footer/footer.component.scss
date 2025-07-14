@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 0 40px;
 }
 
 .bottom-footer {
@@ -93,6 +94,65 @@ a {
 .div-icon img {
   width: -webkit-fill-available;
   height: auto;
+}
+
+.box-social {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  display: flex;
+  color: var(--bg-main);
+  background-color: var(--main);
+  font-size: var(--font-16);
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-social {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.div-social .title {
+  color: #CFD3D7;
+  font-size: var(--font-16);
+}
+
+.join-us {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.div-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.div-input label {
+  color: #CFD3D7;
+  font-size: var(--font-16);
+}
+
+.div-input input {
+  background-color: #4F5A68;
+  border: 1px solid var(--main);
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.join-us button {
+  background-color: var(--main);
+    outline: none;
+    border: none;
+    padding: 16px 48px;
+    width: fit-content;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
 @media (max-width: 768px) {
