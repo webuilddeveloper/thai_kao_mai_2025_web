@@ -35,6 +35,8 @@ export class HeaderComponent {
         if (event.urlAfterRedirects == '/') {
           this.isActiveMarginBTM = false;
           this.position = "absolute";
+          // this.position = "relative";
+
         } else {
           this.isActiveMarginBTM = true;
           this.position = "inherit"

@@ -3,16 +3,16 @@
 
   <div class="bg">
     <div class="content-main">
-      <div class="row w-full bs-x0 justify-content-center">
+      <div class="row w-full bs-x0 justify-content-center h-full">
         <div class="left d-flex col-7 justify-content-center align-items-center flex-column">
           <div class="div-img-logo-main">
             <img src="./../../../assets/img/logo-full-c2.png" alt="" class="img-logo-main">
           </div>
         </div>
         <div class="right col-5 d-flex text-center justify-content-center">
-
-          <div [innerHTML]="aboutMeModel.vision" class="title" *ngIf="translate.currentLang === 'th'"></div>
-          <div [innerHTML]="aboutMeModel.visionEN" class="title" *ngIf="translate.currentLang === 'en'"></div>
+          <img src="./../../../assets/img/owner.png" alt="" class="img-logo-owner w-full">
+          <!-- <div [innerHTML]="aboutMeModel.vision" class="title" *ngIf="translate.currentLang === 'th'"></div>
+          <div [innerHTML]="aboutMeModel.visionEN" class="title" *ngIf="translate.currentLang === 'en'"></div> -->
 
         </div>
 
@@ -27,8 +27,9 @@
           <button class="view-all">ดูทั้งหมด</button>
         </div>
         <div class="spacer"></div>
-        <div class="row">
-          <div class="col-4 col-md-4 col-lg-4 d-flex" *ngFor="let i of newsList.slice(0,3); let idx = index;">
+        <div class="row row-news-card flex-nowrap">
+          <div class="div-card-news col-4 col-md-4 col-lg-4 d-flex"
+            *ngFor="let i of newsList.slice(0,3); let idx = index;">
             <div class="card-news">
               <div class="div-img-news">
                 <img src="{{i.imageUrl}}" alt="" class="news-img">
@@ -36,6 +37,12 @@
               <span class="news-title hidden-title" *ngIf="translate.currentLang === 'th'">
                 {{i.title}}
               </span>
+              <div class="date">
+                <div class="icon-date">
+                  <img src="./../../../assets/icons/icon-calendar.png" alt="">
+                </div>
+                <span class="text">{{i.date}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -60,8 +67,7 @@
                 <span class="des hidden-title">
                   {{i.description}}
                 </span>
-                <button class="view-more">ดูเพิ่มเติม <i
-                  class="material-icons">arrow_forward</i></button>
+                <button class="view-more">ดูเพิ่มเติม <i class="material-icons">arrow_forward</i></button>
               </div>
             </div>
           </div>

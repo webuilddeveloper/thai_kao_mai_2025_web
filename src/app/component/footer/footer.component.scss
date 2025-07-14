@@ -147,21 +147,18 @@ a {
 
 .join-us button {
   background-color: var(--main);
-    outline: none;
-    border: none;
-    padding: 16px 48px;
-    width: fit-content;
-    border-radius: 8px;
-    font-size: 14px;
+  outline: none;
+  border: none;
+  padding: 16px 48px;
+  width: fit-content;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
   .main-filter {
-    padding: 30px;
-  }
-
-  .div-menu-footer {
-    --bs-gutter-y: 1.5rem;
+    padding: 55px 75px;
+    row-gap: 32px;
   }
 
   .div-logo {
@@ -174,6 +171,12 @@ a {
 
   .menu {
     font-size: var(--font-16);
+  }
+
+  .sub-menu {
+    padding: 0;
+    gap: 10px;
+
   }
 }
 
