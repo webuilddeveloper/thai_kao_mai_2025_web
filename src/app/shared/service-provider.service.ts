@@ -5,6 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ServiceProvider {
+
+  // ng build --base-href "/tkm/"  
+
   server: string = 'http://gateway.we-builds.com/wtm-api/';
 
   constructor(private http: HttpClient) {}
