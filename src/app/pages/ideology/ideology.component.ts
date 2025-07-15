@@ -1,50 +1,29 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { ServiceProvider } from 'src/app/shared/service-provider.service';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-ideology',
   templateUrl: './ideology.component.html',
   styleUrls: ['./ideology.component.scss']
 })
-export class IdeologyComponent {
+export class IdeologyComponent implements OnInit {
 
-  aboutMeModel: any = {};
-  constructor(
-    private serviceProvider: ServiceProvider,
-    private router: Router,
-    public translate: TranslateService
-  ) {
-
-  }
-
- deputyLeaders = [
-  {
-    image: './assets/img/party_leader.png',
-    firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  },
-  {
-    image: './assets/img/party_leader.png',
-     firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  },
-  {
-    image: './assets/img/party_leader.png',
-     firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  }
-];
+  visionItems = [
+    { title: 'ประชาชนคือศูนย์กลาง', desc: 'ทุกนโยบายมุ่งตอบโจทย์ชีวิตจริงของประชาชน' },
+    { title: 'โปร่งใส ตรวจสอบได้', desc: 'สร้างระบบเปิดเผยข้อมูลภาครัฐแบบ real-time' },
+    { title: 'พลังของคนรุ่นใหม่', desc: 'ส่งเสริมการมีส่วนร่วมของคนรุ่นใหม่ทุกระดับ' },
+    { title: 'เศรษฐกิจเท่าเทียม', desc: 'สร้างโอกาสให้ทุกภาคส่วนเติบโตร่วมกัน' },
+  ];
 
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 1000,
+      offset: 80,
+      once: false,
+      mirror: true,
+      easing: 'ease-in-out'
+    });
 
   }
-
 }

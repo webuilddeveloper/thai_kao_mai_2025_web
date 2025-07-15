@@ -1,0 +1,13 @@
+<div class="vision-section" *ngFor="let item of visionItems; let i = index">
+  <div
+    class="vision-box"
+    [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'"
+    [ngClass]="[
+      i % 2 === 0 ? 'step-left' : 'step-right',
+      i % 2 === 0 ? 'bg-blue' : 'bg-red'
+    ]"
+  >
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.desc }}</p>
+  </div>
+</div>
