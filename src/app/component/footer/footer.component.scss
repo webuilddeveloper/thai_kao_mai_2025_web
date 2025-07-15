@@ -55,7 +55,8 @@ a {
 
 .logo-footer {
   width: -webkit-fill-available;
-  height: auto;
+  // height: fit-content
+  height: 100%
 }
 
 .text-logo {
@@ -66,8 +67,9 @@ a {
 
 .div-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  // flex-direction: column;
+  // align-items: flex-end;
+
 }
 
 .heading {
