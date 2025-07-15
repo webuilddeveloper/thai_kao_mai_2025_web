@@ -126,3 +126,25 @@ h2 {
     text-indent: 2em;
   }
 }
+
+/* ความกว้าง scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* สีพื้นหลังราง scrollbar */
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+/* สีของตัว scrollbar (ปุ่มเลื่อน) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-main);
+  border-radius: 6px;
+  // border: 3px solid #f1f1f1; /* เพิ่มช่องว่างรอบ thumb */
+}
+
+/* เมื่อ hover ที่ scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  // background-color: #555;
+}
