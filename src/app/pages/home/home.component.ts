@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -100,7 +101,9 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private serviceProvider: ServiceProvider,
     private router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {
 
   }
@@ -121,8 +124,29 @@ export class HomeComponent {
     observer.observe(this.box.nativeElement);
   }
 
-  ngOnInit(): void {
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+  const triggerElement = this.el.nativeElement.querySelector('.bg');
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
+  if (scrollTop > 0.5) { // ✅ ย่อทันทีที่เลื่อนแม้ 1px
+    this.renderer.addClass(triggerElement, 'shrink');
+  } else {
+    this.renderer.removeClass(triggerElement, 'shrink');
+  }
+}
+
+  ngOnInit(): void {
+    AOS.init({
+      duration: 800,       // ความเร็ว animation
+      once: false,         // ❌ false = ให้เล่นซ้ำได้ ไม่ใช่ครั้งเดียว
+      mirror: true,        // ✅ true = เล่นย้อนกลับตอน scroll ขึ้น
+      offset: 10           // เริ่ม animation เมื่อเข้า viewport 10px
+    });
+
+    setTimeout(() => {
+      AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
+    }, 100);
   }
 
   readNews() {

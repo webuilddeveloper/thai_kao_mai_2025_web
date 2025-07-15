@@ -681,3 +681,15 @@
 // @media (min-width: 769px) and (max-width: 1023px) {
 
 // }
+
+.bg {
+  transition: transform 0.5s ease, border-radius 0.5s ease;
+  border-radius: 0px; // ตอนปกติ ไม่มีขอบมน
+
+  &.shrink {
+    transform: scale(0.85);
+    border-radius: 20px; // ทำให้โค้งมนตอนย่อ
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); // เพิ่มมิติ (ถ้าชอบ)
+    overflow: hidden; // ป้องกันหลุดขอบ
+  }
+}

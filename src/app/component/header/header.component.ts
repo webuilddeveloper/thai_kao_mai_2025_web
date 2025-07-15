@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-header',
@@ -43,7 +44,7 @@ export class HeaderComponent {
         // }
 
         // this.isActiveMarginBTM = false;
-          this.position = "relative";
+        this.position = "relative";
         console.log('Current path:', event.urlAfterRedirects);
       }
     });
@@ -87,7 +88,16 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 10
+    });
 
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
   }
 
   changeLanguage(lang: string) {
