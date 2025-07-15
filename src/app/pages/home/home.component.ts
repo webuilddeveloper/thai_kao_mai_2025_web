@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
@@ -101,7 +101,9 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private serviceProvider: ServiceProvider,
     private router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {
 
   }
@@ -120,6 +122,18 @@ export class HomeComponent {
     });
 
     observer.observe(this.box.nativeElement);
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const triggerElement = this.el.nativeElement.querySelector('.bg');
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > 50) {
+      this.renderer.addClass(triggerElement, 'shrink');
+    } else {
+      this.renderer.removeClass(triggerElement, 'shrink');
+    }
   }
 
   ngOnInit(): void {
