@@ -10,6 +10,7 @@ import { NewsDetailComponent } from './pages/newsdetail/newsdetail.component';
 import { ProductAndServiceDetailsComponent } from './pages/product-and-service-details/product-and-service-details.component';
 import { PerformanceDetailsComponent } from './pages/performance-details/performance-details.component';
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
+import { IdeologyComponent } from './pages/ideology/ideology.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,11 +22,13 @@ const routes: Routes = [
   { path: 'product-and-service-details', component: ProductAndServiceDetailsComponent },
   { path: 'performance-details/:code', component: PerformanceDetailsComponent },
   { path: 'party-executive', component: PartyExecutiveComponent },
+  { path: 'ideology', component: IdeologyComponent },
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash: true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

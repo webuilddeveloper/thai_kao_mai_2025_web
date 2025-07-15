@@ -21,6 +21,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
+import { IdeologyComponent } from './pages/ideology/ideology.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewsDetailComponent,
     ProductAndServiceDetailsComponent,
     PerformanceDetailsComponent,
-    PartyExecutiveComponent
+    PartyExecutiveComponent,
+    IdeologyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+.vision-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.vision-box {
+  max-width: 700px;
+  padding: 40px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition:
+    transform 0.8s ease-in-out,
+    opacity 0.8s ease-in-out;
+
+
+  h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
+// สลับซ้าย-ขวาไม่เท่ากันแบบขั้นบันได
+.step-left {
+  margin-right: 20%;
+  margin-left: 5%;
+}
+
+.step-right {
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+// พื้นหลังสีต่างกันสลับ
+.bg-blue {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.bg-red {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
