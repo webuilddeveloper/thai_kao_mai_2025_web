@@ -20,6 +20,7 @@ export class HeaderComponent {
   position: String = "inherit";
   selectedLang: any;
   subMenu: boolean = false;
+  isOpenNav = false;
   constructor(private router: Router, private route: ActivatedRoute, public translate: TranslateService) {
 
 
@@ -32,15 +33,17 @@ export class HeaderComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // this.currentPath = event.urlAfterRedirects;
-        if (event.urlAfterRedirects == '/') {
-          this.isActiveMarginBTM = false;
-          this.position = "absolute";
-          // this.position = "relative";
+        // if (event.urlAfterRedirects == '/') {
+        //   this.isActiveMarginBTM = false;
+        //   this.position = "absolute";
 
-        } else {
-          this.isActiveMarginBTM = true;
-          this.position = "inherit"
-        }
+        // } else {
+        //   this.isActiveMarginBTM = true;
+        //   this.position = "inherit"
+        // }
+
+        // this.isActiveMarginBTM = false;
+          this.position = "relative";
         console.log('Current path:', event.urlAfterRedirects);
       }
     });
@@ -61,7 +64,7 @@ export class HeaderComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     let docElement = document.documentElement;
-    let scTop = document.documentElement.clientHeight % 90;
+    let scTop = document.documentElement.clientHeight % 100;
     let scrollTotal = docElement.scrollHeight - docElement.clientHeight;
     let aaa =
       docElement.scrollTop /
@@ -102,11 +105,16 @@ export class HeaderComponent {
   }
 
   openHam() {
-    this.subMenu = !this.subMenu;
-    document.body.style.overflow = this.subMenu ? 'hidden' : '';
+    // this.subMenu = !this.subMenu;
+    // document.body.style.overflow = this.isOpenNav ? 'hidden' : '';
+    document.body.style.overflow = 'hidden'
+    this.isOpenNav = !this.isOpenNav;
   }
 
-
+  closeHam() {
+    this.isOpenNav = false;
+    document.body.style.overflow = '';
+  }
 
   selectOption(option: any) {
     this.selected = option;

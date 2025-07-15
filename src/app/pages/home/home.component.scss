@@ -43,7 +43,7 @@
   background-size: cover;
   width: 100vw;
   height: 93vh;
-  margin-top: 80px;
+  // margin-top: 80px;
   top: 0;
   display: flex;
   align-items: center;
@@ -605,7 +605,7 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .div-content {
     padding: 60px;
   }
@@ -641,4 +641,43 @@
   .why-lng-container .card-why-lng {
     font-size: var(--font-18);
   }
+
+  .content-main {
+    height: auto;
+    padding: 30px 0 0 0;
+  }
+
+  .card-news .div-img-news {
+    height: 140px;
+  }
+
+  .policy-des-box {
+    padding: 30px;
+    gap: 14px;
+  }
+
+  .card-policy .div-img-policy {
+    height: 270px;
+  }
+
+  .card-policy .title {
+    font-size: var(--font-22) !important;
+  }
+
+  .card-policy .des {
+    font-size: var(--font-16) !important;
+  }
+
+  .policy-des-box .view-more {
+    font-size: var(--font-14);
+    padding: 6px 25px;
+  }
+
+  .policy-des-box i {
+    font-size: var(--font-14);
+  }
 }
+
+// @media (min-width: 769px) and (max-width: 1023px) {
+
+// }
