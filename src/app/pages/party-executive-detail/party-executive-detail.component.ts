@@ -7,8 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-party-executive',
-  templateUrl: './party-executive.component.html',
-  styleUrls: ['./party-executive.component.scss']
+  templateUrl: './party-executive-detail.component.html',
+  styleUrls: ['./party-executive-detail.component.scss']
 })
 export class PartyExecutiveComponent {
 

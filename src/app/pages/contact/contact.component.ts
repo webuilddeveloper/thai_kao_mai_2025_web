@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import * as AOS from 'aos';
+
 
 @Component({
   selector: 'app-contact',
@@ -25,10 +27,23 @@ export class ContactComponent {
 
 
 
-    donationAmount = 45760741; // ตัวเลขยอดบริจาค
+  donationAmount = 45760741; // ตัวเลขยอดบริจาค
 
 
   ngOnInit(): void {
+
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 120
+    });
+
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+
+
     this.readAboutMe();
     gsap.registerPlugin(ScrollTrigger);
     if (this.animation) this.animation.revert();
