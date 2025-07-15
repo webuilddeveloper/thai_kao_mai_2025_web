@@ -322,7 +322,7 @@ a:hover {
       border: 1px solid #ccc;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       min-width: 200px;
-      z-index: 1000;
+      z-index: 99;
       border-radius: 6px;
       overflow: hidden;
 
@@ -331,16 +331,16 @@ a:hover {
         padding: 10px 15px;
         white-space: nowrap;
         color: --var(--nevy);
-        border-bottom: 1px solid #e0e0e0; // ✅ เส้นขั้นแต่ละเมนู
+        border-bottom: 1px solid #e0e0e0;
         transition: color 0.3s;
 
         &:last-child {
-          border-bottom: none; // ✅ เมนูสุดท้ายไม่ต้องมีเส้นขั้น
+          border-bottom: none; 
         }
 
         &:hover {
-          color: #007BFF; // ✅ เปลี่ยนสีตัวอักษรตอน hover
-          background-color: transparent; // ✅ ไม่เปลี่ยนพื้นหลัง
+          color: #007BFF; 
+          background-color: transparent; 
         }
       }
     }

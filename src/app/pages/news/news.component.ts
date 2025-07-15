@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
+import * as AOS from 'aos';
 
 
 
@@ -18,6 +19,18 @@ export class NewsComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 10
+    });
+
+    setTimeout(() => {
+      AOS.refresh(); 
+    }, 100);
+
     const url = 'm/news/read';
 
     const body = {
