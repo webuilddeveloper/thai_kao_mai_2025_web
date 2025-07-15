@@ -184,9 +184,19 @@ a {
 @media (min-width: 769px) and (max-width: 1023px) {
   .div-logo {
     align-items: center;
+    padding: 0 30px;
   }
 
   .main-filter {
     padding: 60px;
+    row-gap: 30px;
+  }
+
+  .div-menu-footer {
+    justify-content: center;
+  }
+
+  .join-us {
+    padding: 0 30px;
   }
 }
