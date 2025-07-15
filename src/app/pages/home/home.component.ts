@@ -126,15 +126,15 @@ export class HomeComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const triggerElement = this.el.nativeElement.querySelector('.bg');
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const triggerElement = this.el.nativeElement.querySelector('.bg');
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop > 50) {
-      this.renderer.addClass(triggerElement, 'shrink');
-    } else {
-      this.renderer.removeClass(triggerElement, 'shrink');
-    }
+  if (scrollTop > 0.5) { // ✅ ย่อทันทีที่เลื่อนแม้ 1px
+    this.renderer.addClass(triggerElement, 'shrink');
+  } else {
+    this.renderer.removeClass(triggerElement, 'shrink');
   }
+}
 
   ngOnInit(): void {
     AOS.init({
