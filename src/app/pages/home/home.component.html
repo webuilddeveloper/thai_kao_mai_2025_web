@@ -1,16 +1,16 @@
 <div class="main">
   <!-- <div class="bg-circle"></div> -->
 
-  <div class="bg">
+  <div class="bg" data-aos="fade-zoom-in">
     <div class="content-main">
       <div class="row w-full bs-x0 justify-content-center h-full">
         <div class="left d-flex col-7 justify-content-center align-items-center flex-column">
           <div class="div-img-logo-main">
-            <img src="./../../../assets/img/logo-full-c2.png" alt="" class="img-logo-main">
+            <img src="./../../../assets/img/logo-full-c2.png" alt="" class="img-logo-main" data-aos="fade-up">
           </div>
         </div>
         <div class="right col-5 d-flex text-center justify-content-center">
-          <img src="./../../../assets/img/owner.png" alt="" class="img-logo-owner w-full">
+          <img src="./../../../assets/img/owner.png" alt="" class="img-logo-owner w-full" data-aos="fade-left">
           <!-- <div [innerHTML]="aboutMeModel.vision" class="title" *ngIf="translate.currentLang === 'th'"></div>
           <div [innerHTML]="aboutMeModel.visionEN" class="title" *ngIf="translate.currentLang === 'en'"></div> -->
 
@@ -23,13 +23,13 @@
     <div class="content-1">
       <div class="div-content">
         <div class="top-div row bs-x0">
-          <h2>ข่าวสารแนะนำ</h2>
-          <button class="view-all">ดูทั้งหมด</button>
+          <h2 data-aos="fade-right">ข่าวสารแนะนำ</h2>
+          <button class="view-all" data-aos="fade-left">ดูทั้งหมด</button>
         </div>
         <div class="spacer"></div>
         <div class="row row-news-card flex-nowrap">
           <div class="div-card-news col-4 col-md-4 col-lg-4 d-flex"
-            *ngFor="let i of newsList.slice(0,3); let idx = index;">
+            *ngFor="let i of newsList.slice(0,3); let idx = index;" data-aos="zoom-in" data-aos-anchor-placement="center-bottom">
             <div class="card-news">
               <div class="div-img-news">
                 <img src="{{i.imageUrl}}" alt="" class="news-img">
@@ -49,25 +49,28 @@
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
         <div class="top-div row bs-x0">
-          <h2>นโยบายของพรรค</h2>
-          <button class="view-all">ดูทั้งหมด</button>
+          <h2 data-aos="fade-right">นโยบายของพรรค</h2>
+          <button class="view-all" data-aos="fade-left">ดูทั้งหมด</button>
         </div>
         <div class="spacer"></div>
         <div class="row gap-3">
           <div class="col-12 d-flex" *ngFor="let i of policyList.slice(0,2); let idx = index;">
             <div class="card-policy">
               <div class="col-12 col-md-6 div-img-policy">
-                <img src="{{i.imageUrl}}" alt="">
+                <img src="{{i.imageUrl}}" alt="" data-aos="fade-zoom-in" data-aos-delay="200">
               </div>
               <div class="col-12 col-md-6 policy-des-box">
-                <span class="title hidden-title">
+                <span class="title hidden-title" data-aos="fade-right">
                   {{i.title}}
                 </span>
-                <span class="des hidden-title">
+                <span class="des hidden-title" data-aos="fade-right">
                   {{i.description}}
                 </span>
-                <button class="view-more">ดูเพิ่มเติม <i class="material-icons">arrow_forward</i></button>
+                <button class="view-more" data-aos="fade-up">ดูเพิ่มเติม <i class="material-icons">arrow_forward</i></button>
               </div>
             </div>
           </div>

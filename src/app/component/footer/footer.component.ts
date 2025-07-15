@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-footer',
@@ -24,6 +25,16 @@ export class FooterComponent {
 
   ngOnInit(): void {
     // this.readAboutMe();
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 10
+    });
+
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
   }
 
   readAboutMe() {

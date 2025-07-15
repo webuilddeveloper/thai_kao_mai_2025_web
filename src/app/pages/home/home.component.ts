@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -122,7 +123,16 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
+    AOS.init({
+          duration: 800,
+          once: false,
+          mirror: true,
+          offset: 10
+        });
 
+        setTimeout(() => {
+          AOS.refresh();
+        }, 100);
   }
 
   readNews() {
