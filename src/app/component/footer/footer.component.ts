@@ -11,6 +11,8 @@ import * as AOS from 'aos';
 })
 export class FooterComponent {
 
+  isShow = 'false'; // เพิ่มตรงนี้
+
   aboutMeModel: any = {
     location: "8819 Ohio St. South Gate, CA 90280",
     email: "Ourstudio@hello.com",
@@ -35,6 +37,11 @@ export class FooterComponent {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+
+    // ✅ เรียกเช็ก localStorage แบบ real-time ทุก 500ms
+    setInterval(() => {
+      this.isShow = localStorage.getItem("isShow") ?? 'false'; // default เป็น true ถ้าไม่มีค่า
+    }, 500);
   }
 
   readAboutMe() {

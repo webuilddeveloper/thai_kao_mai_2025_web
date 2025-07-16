@@ -1,4 +1,4 @@
-<div class="div-header d-none d-lg-block" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+<div *ngIf="isShow == 'true'" class="div-header d-none d-lg-block" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
   <div class="header">
     <div class="content-header">
       <a routerLink="" class="div-logo-header"  data-aos="fade-down" data-aos-duration="1000"><img src="./assets/img/logo-full-c2.png" alt="" class="logo-header"></a>
@@ -39,7 +39,7 @@
 </div>
 <!-- [ngStyle]="{'position': scrollPosition ? 'fixed' : position}" -->
 
-<div class="div-header d-block d-lg-none" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+<div *ngIf="isShow == 'true'" class="div-header d-block d-lg-none" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
   <div class="header">
     <div class="content-header">
       <img src="./assets/img/logo-full-c2.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="300">

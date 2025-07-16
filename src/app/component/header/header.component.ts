@@ -11,6 +11,8 @@ import * as AOS from 'aos';
 })
 export class HeaderComponent {
 
+  isShow = 'false'; // เพิ่มตรงนี้
+
   langList: any = [
     { code: 1, name: "TH", value: "th", icon: "./assets/icons/flag-th.jpg" },
     { code: 2, name: "EN", value: "en", icon: "./assets/icons/flag-en.jpg" },
@@ -98,6 +100,12 @@ export class HeaderComponent {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+
+    // ✅ เรียกเช็ก localStorage แบบ real-time ทุก 500ms
+    setInterval(() => {
+      
+      this.isShow = localStorage.getItem("isShow") ?? 'false'; // default เป็น true ถ้าไม่มีค่า
+    }, 500);
   }
 
   changeLanguage(lang: string) {

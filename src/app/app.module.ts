@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
 import { IdeologyComponent } from './pages/ideology/ideology.component';
+import { FirstComponent } from './pages/first/first.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductAndServiceDetailsComponent,
     PerformanceDetailsComponent,
     PartyExecutiveComponent,
-    IdeologyComponent
+    IdeologyComponent,
+    FirstComponent,
   ],
   imports: [
     BrowserModule,

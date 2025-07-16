@@ -11,9 +11,11 @@ import { ProductAndServiceDetailsComponent } from './pages/product-and-service-d
 import { PerformanceDetailsComponent } from './pages/performance-details/performance-details.component';
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
 import { IdeologyComponent } from './pages/ideology/ideology.component';
+import { FirstComponent } from './pages/first/first.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: FirstComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },
   { path: 'product-and-service', component: ProductAndServiceComponent },
