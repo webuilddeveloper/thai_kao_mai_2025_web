@@ -74,3 +74,4 @@ ehthumbs.db
 
 # Optional: local history plugins
 .history/
+*.pack
