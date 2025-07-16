@@ -24,7 +24,7 @@ export class NewsComponent implements OnInit {
       duration: 800,
       once: false,
       mirror: true,
-      offset: 100
+      offset: 30
     });
 
     setTimeout(() => {

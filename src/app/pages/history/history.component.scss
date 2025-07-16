@@ -1,0 +1,24 @@
+.party-history {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: left;
+}
+
+.history-title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: #2D294A;
+  margin-bottom: 40px;
+}
+
+.history-content {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #333;
+
+  p {
+    margin-bottom: 24px;
+  }
+}

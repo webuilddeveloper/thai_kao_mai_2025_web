@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
-  selector: 'app-ideology',
-  templateUrl: './ideology.component.html',
-  styleUrls: ['./ideology.component.scss']
+  selector: 'app-history',
+  templateUrl: './history.component.html',
+  styleUrls: ['./history.component.scss']
 })
-export class IdeologyComponent implements OnInit {
+export class HistoryComponent implements OnInit {
 
   visionItems = [
     { title: 'ประชาชนคือศูนย์กลาง', desc: 'ทุกนโยบายมุ่งตอบโจทย์ชีวิตจริงของประชาชน' },

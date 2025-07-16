@@ -1,12 +1,19 @@
+<section class="slogan-wrapper" data-aos="fade-right">
+  <div class="slogan-line"></div>
+  <div class="slogan-text">
+    <p>เพราะประเทศที่ดี</p>
+    <p>เริ่มต้นจากอุดมการณ์ที่ชัดเจน</p>
+  </div>
+</section>
+
+<section class="vision-intro" data-aos="fade-right">
+  <h1 class="vision-title">อุดมการณ์</h1>
+</section>
+
+
 <div class="vision-section" *ngFor="let item of visionItems; let i = index">
-  <div
-    class="vision-box"
-    [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'"
-    [ngClass]="[
-      i % 2 === 0 ? 'step-left' : 'step-right',
-      i % 2 === 0 ? 'bg-blue' : 'bg-red'
-    ]"
-  >
+  <div class="vision-box" [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'" [attr.data-aos-delay]="i * 100"
+    [ngClass]="i % 2 === 0 ? 'left-style' : 'right-style'">
     <h2>{{ item.title }}</h2>
     <p>{{ item.desc }}</p>
   </div>

@@ -1,23 +1,20 @@
 .vision-section {
   display: flex;
-  justify-content: center;
-  padding: 40px 0;
+  justify-content: flex-start;
+  padding: 10px 50px;
 }
 
 .vision-box {
   max-width: 700px;
+  width: 100%;
   padding: 40px;
   border-radius: 20px;
-  color: white;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  position: relative;
-  transition:
-    transform 0.8s ease-in-out,
-    opacity 0.8s ease-in-out;
-
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 
   h2 {
-    font-size: 26px;
+    font-size: 28px;
     margin-bottom: 12px;
   }
 
@@ -27,22 +24,57 @@
   }
 }
 
-// สลับซ้าย-ขวาไม่เท่ากันแบบขั้นบันได
-.step-left {
-  margin-right: 20%;
-  margin-left: 5%;
+/* ซ้าย: พื้นหลังเข้ม ตัวอักษรสีเหลือง */
+.left-style {
+  background-color: #2D294A;
+  color: #F4ED17;
+  margin-left: 0;
+  margin-right: auto;
 }
 
-.step-right {
-  margin-left: 20%;
-  margin-right: 5%;
+/* ขวา: พื้นหลังเหลือง ตัวอักษรเข้ม */
+.right-style {
+  background-color: #F4ED17;
+  color: #2D294A;
+  margin-left: auto;
+  margin-right: 0;
 }
 
-// พื้นหลังสีต่างกันสลับ
-.bg-blue {
-  background: linear-gradient(135deg, #3498db, #2980b9);
+.slogan-wrapper {
+  display: flex;
+  align-items: flex-start;
+  padding: 60px 50px;
+  // max-width: 800px;
+  margin: 0 auto;
 }
 
-.bg-red {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
+.slogan-line {
+  width: 6px;
+  height: 110px;
+  background-color: #F4ED17;
+  margin-right: 20px;
+  border-radius: 3px;
+}
+
+.slogan-text {
+  color: #2D294A;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+  }
+}
+
+.vision-intro {
+  padding: 20px 0 0 50px;
+  text-align: left;
+}
+
+.vision-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #2D294A;
+  margin-bottom: 40px;
 }

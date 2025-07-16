@@ -12,6 +12,7 @@ import { PerformanceDetailsComponent } from './pages/performance-details/perform
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
 import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'performance-details/:code', component: PerformanceDetailsComponent },
   { path: 'party-executive', component: PartyExecutiveComponent },
   { path: 'ideology', component: IdeologyComponent },
+  { path: 'history', component: HistoryComponent },
 
 
 ];
