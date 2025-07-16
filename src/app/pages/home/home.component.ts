@@ -15,32 +15,32 @@ export class HomeComponent {
     {
       title: "ติดตั้ง",
       describe: "บริการรับติดแก๊ส LNG รถบรรทุก",
-      icon: "./../../../assets/icons/icon-install.png"
+      icon: "./assets/icons/icon-install.png"
     },
     {
       title: "ตรวจสภาพ",
       describe: "บริการรับตรวจเช็คสภาพ และซ่อมบำรุงระบบ",
-      icon: "./../../../assets/icons/icon-maintain.png"
+      icon: "./assets/icons/icon-maintain.png"
     },
     {
       title: "จดทะเบียน",
       describe: "บริการแนะนำการจดทะเบียน สำหรับรถใช้ก๊าช LNG",
-      icon: "./../../../assets/icons/icon-recomance.png"
+      icon: "./assets/icons/icon-recomance.png"
     },
     {
       title: "จัดจำหน่าย",
       describe: "บริการจัดจำหน่ายชุดอุปกรณ์ถังก๊าช ชิ้นส่วน และอะไหล่ต่างๆ",
-      icon: "./../../../assets/icons/icon-sale.png"
+      icon: "./assets/icons/icon-sale.png"
     },
     {
       title: "สินเชื่อ",
       describe: "บริการให้คำปรึกษาด้านสินเชื่อสำหรับการติดตั้งแก๊ส",
-      icon: "./../../../assets/icons/icon-credit.png"
+      icon: "./assets/icons/icon-credit.png"
     },
     {
       title: "อบรม",
       describe: "บริการคอร์สฝึกอบรมเกี่ยวกับ LNG",
-      icon: "./../../../assets/icons/icon-course.png"
+      icon: "./assets/icons/icon-course.png"
     },
   ];
 
@@ -49,31 +49,31 @@ export class HomeComponent {
       code: "1",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/news-mock.png"
+      imageUrl: "./assets/img/news-mock.png"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/news-mock.png"
+      imageUrl: "./assets/img/news-mock.png"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/news-mock.png"
+      imageUrl: "./assets/img/news-mock.png"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/news-mock.png"
+      imageUrl: "./assets/img/news-mock.png"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/news-mock.png"
+      imageUrl: "./assets/img/news-mock.png"
     },
   ];
 
@@ -83,14 +83,14 @@ export class HomeComponent {
       title: "นโยบายคมนาคม",
       description: "คมนาคมที่ทั่วถึง คือเส้นเลือดใหญ่ของประเทศที่เติบโต",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/policy-mock-1.png"
+      imageUrl: "./assets/img/policy-mock-1.png"
     },
     {
       code: "2",
       title: "นโยบายการศึกษาไทย",
       description: "เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ",
       date: "9 ก.ค. 2668",
-      imageUrl: "./../../../assets/img/policy-mock-2.jpg"
+      imageUrl: "./assets/img/policy-mock-2.jpg"
     },
 
   ];
