@@ -129,6 +129,22 @@
   white-space: nowrap;
   overflow: hidden;
   z-index: 99;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sloganFadeUp 0.8s ease-out forwards;
+  animation-delay: 1.8s; /* เริ่มหลัง logo เสร็จ */
+}
+
+@keyframes sloganFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -186,8 +202,13 @@
   }
 
   .floating-slogan {
-    font-size: 1.5rem;
-    bottom: 30vh;
+    bottom: 20vh; /* เดิม 30vh ลองขยับลดลง */
+    font-size: 1.4rem;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sloganFadeUp 0.8s ease-out forwards;
+    animation-delay: 2s;
   }
 
   .hero-buttons-floating {
