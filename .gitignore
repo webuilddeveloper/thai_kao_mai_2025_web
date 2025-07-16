@@ -1,46 +1,76 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-/dist
-/tmp
-/out-tsc
-# Only exists if Bazel was run
-/bazel-out
+# Angular build output
+/dist/
+/tmp/
+/out-tsc/
 
-# dependencies
-/node_modules
+# Angular test coverage
+/coverage/
 
-# profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+# Compiled files
+/*.js
+/*.d.ts
+/*.map
+
+# Bazel output
+/bazel-out/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled Sass cache
+.sass-cache/
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
+.idea/
+.vscode/
 *.sublime-workspace
+*.sublime-project
+*.code-workspace
 
-# IDE - VSCode
-.vscode/*
+# VSCode (optional: keep settings if working in team)
+/.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
+# Dependency directories
+/node_modules/
+
+# Angular language service
+.angular/
+
+# Build artifacts from older versions
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+/testem.log
 
-# System Files
-.DS_Store
-Thumbs.db
+# Environment files (you may want to exclude these depending on your team)
+# Uncomment below if you don't want to commit env files
+# src/environments/environment*.ts
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Optional: Mac system file
+Icon?
+
+# Optional: Windows thumbnail cache
+ehthumbs.db
+
+# Optional: Coverage reports
+/.nyc_output/
+
+# Optional: ESLint cache
+.eslintcache
+
+# Optional: local history plugins
+.history/
