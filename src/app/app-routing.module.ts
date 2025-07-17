@@ -14,10 +14,12 @@ import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RegisterFormComponent } from './pages/register-form/register-form.component';
 import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
 import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
 import { DonateComponent } from './pages/donate/donate.component';
 import { PolicyComponent } from './pages/policy/policy.component';
+import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -27,22 +29,28 @@ const routes: Routes = [
   { path: 'product-and-service', component: ProductAndServiceComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'newsdetail/:code', component: NewsDetailComponent },
-  { path: 'product-and-service-details', component: ProductAndServiceDetailsComponent },
+  {
+    path: 'product-and-service-details',
+    component: ProductAndServiceDetailsComponent,
+  },
   { path: 'performance-details/:code', component: PerformanceDetailsComponent },
   { path: 'party-executive', component: PartyExecutiveComponent },
   { path: 'ideology', component: IdeologyComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'register-form', component: RegisterFormComponent },
   { path: 'event-calendar', component: EventCalendarComponent },
-  { path: 'event-calendar-detail/:code', component: EventCalendarDetailComponent },
+  {
+    path: 'event-calendar-detail/:code',
+    component: EventCalendarDetailComponent,
+  },
   { path: 'donate', component: DonateComponent },
   { path: 'policy', component: PolicyComponent },
-
-
+  { path: 'register-member', component: RegisterMemberComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
