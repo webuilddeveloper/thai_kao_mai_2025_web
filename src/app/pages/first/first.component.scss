@@ -393,10 +393,11 @@
   }
 
   .btn-hero.shrink .btn-text {
-    opacity: 0;
-    pointer-events: none;
-    width: 0;
-    overflow: hidden;
+    // opacity: 0;
+    // pointer-events: none;
+    // width: 0;
+    // overflow: hidden;
+    display: none;
   }
 
   .owner-image {
