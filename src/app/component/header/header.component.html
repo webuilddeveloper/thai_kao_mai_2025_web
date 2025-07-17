@@ -23,8 +23,15 @@
             <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
           </div>
         </div>
+        <div class="menu-with-sub pointer">
+          <a>{{ 'membership' | translate }}</a>
+          <div class="sub-menu">
+            <a routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
+            <a routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
+          </div>
+        </div>
 
-        <a routerLink="./product-and-service">{{ 'membership' | translate }}</a>
+
         <a routerLink="./donate">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
@@ -78,13 +85,50 @@
 
   <div class="div-sub-menu-nav">
     <div class="backdrop" *ngIf="isOpenNav" (click)="closeHam()"></div>
-    <div class="sub-menu-nav" [class.open]="isOpenNav">
-      <a (click)="closeHam()" routerLink="./home">{{ 'home' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./donate">{{ 'productAndService' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./about">{{ 'aboutMe' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./contact">{{ 'contactUs' | translate }}</a>
-    </div>
+
+    <nav class="sub-menu-nav" [class.open]="isOpenNav">
+      <ul>
+        <li><a (click)="closeHam()" routerLink="./home">{{ 'home' | translate }}</a></li>
+
+        <li class="has-submenu" [class.open]="activeSubMenu === 'news'">
+          <a (click)="toggleSubMenu('news')">
+            ข่าวสารและกิจกรรม
+            <span class="arrow-down"></span>
+          </a>
+          <ul class="submenu">
+            <li><a (click)="closeHam()" routerLink="./news">{{ 'newsAndEvent' | translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu" [class.open]="activeSubMenu === 'about'">
+          <a (click)="toggleSubMenu('about')">
+            {{ 'aboutMe' | translate }}
+            <span class="arrow-down"></span>
+          </a>
+          <ul class="submenu">
+            <li><a (click)="closeHam()" routerLink="./ideology">{{ 'อุดมการณ์ของพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./history">{{ 'ประวัติความเป็นมา' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./policy">{{ 'นโยบาย' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'กรรมการบริหารพรรค' }}</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu" [class.open]="activeSubMenu === 'membership'">
+          <a (click)="toggleSubMenu('membership')">
+            {{ 'membership' | translate }}
+            <span class="arrow-down"></span>
+          </a>
+          <ul class="submenu">
+            <li><a (click)="closeHam()" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a></li>
+          </ul>
+        </li>
+
+        <li><a (click)="closeHam()" routerLink="./donate">{{ 'donate' | translate }}</a></li>
+        <li><a (click)="closeHam()" routerLink="./contact">{{ 'contactUs' | translate }}</a></li>
+      </ul>
+    </nav>
   </div>
 
   <!-- <div class="backdrop" *ngIf="subMenu" (click)="subMenu = false"></div> -->

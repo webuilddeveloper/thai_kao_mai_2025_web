@@ -1,0 +1,249 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  // position: relative;
+  // z-index: 9999;
+}
+
+.div-main {
+  padding: 80px 100px;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  width: auto;
+  // width: -webkit-fill-available;
+  border-radius: 20px;
+  padding: 60px 50px;
+  box-shadow: rgb(0 0 0 / 9%) 0px 0px 70px 0px;
+}
+
+.div-content .head-title,
+i {
+  color: var(--nevy);
+  font-weight: 600;
+  font-size: var(--font-38);
+}
+
+.div-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.div-input label {
+  font-size: var(--font-16);
+  color: var(--nevy);
+  font-weight: 400;
+}
+
+.div-input .sub-label {
+  font-size: var(--font-14);
+  color: var(--bggrey);
+  font-weight: 400;
+}
+
+.div-input input {
+  font-size: var(--font-16);
+  padding: 8px 10px;
+  border-radius: 13px;
+  border: 1px solid var(--nevy);
+  outline: none;
+}
+
+.row-form-gap {
+  --bs-gutter-x: 1.5rem;
+  // --bs-gutter-y: 1.5rem;
+  row-gap: 24px;
+}
+
+.title {
+  color: var(--black);
+  font-weight: 600;
+  font-size: var(--font-20);
+}
+
+.div-file {
+  height: 200px;
+  width: 160px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    color: var(--bggrey);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.div-file-cardID {
+  height: 200px;
+  width: 350px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    color: var(--bggrey);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.div-file-slip {
+  height: 400px;
+  width: 350px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    color: var(--bggrey);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.div-img-file-slip {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  overflow: hidden;
+  border-radius: 20px;
+
+  img {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: contain;
+  }
+}
+
+.div-img-file {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  overflow: hidden;
+  border-radius: 20px;
+
+  img {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: cover;
+  }
+}
+
+.delete-img {
+  position: relative;
+  top: -5px;
+  right: -5px;
+  background-color: rgb(184 17 17);
+  border-radius: 100px;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 14px;
+    color: var(--white);
+  }
+
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-input-radio {
+  display: flex;
+  gap: 10px;
+
+  label {
+    color: var(--nevy);
+    font-size: var(--font-16);
+    font-weight: 300;
+  }
+}
+
+.qr-code {
+  width: 200px;
+  height: auto;
+}
+
+.btn-main {
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--font-20);
+  background-color: var(--nevy);
+  border: 0;
+  border-radius: 20px;
+  padding: 8px 24px;
+  width: fit-content;
+  min-width: 400px;
+}
+
+.btn-save-qr {
+  color: var(--white);
+  font-weight: 500;
+  font-size: var(--font-14);
+  background-color: var(--nevy);
+  border: 0;
+  border-radius: 10px;
+  padding: 5px 18px;
+  width: fit-content;
+  // min-width: 400px;
+}
+
+.custom-list {
+  list-style: none;
+  padding-left: 1.2em;
+  /* ทำให้ label อยู่ในแนวเดียวกับ li ทั่วไป */
+  margin: 0;
+}
+
+.custom-list li {
+  margin-bottom: 0.5em;
+  /* ระยะห่างระหว่างบรรทัด */
+  line-height: 1.5;
+  /* ทำให้ดูไม่ติดกันเกินไป */
+}
+
+.div-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}

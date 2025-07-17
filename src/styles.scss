@@ -47,6 +47,7 @@ $wtm_web-theme: mat.define-light-theme((
   --article-text: #282828;
   --bg-deep: #e8e9e8;
   --nevy: #2D294A;
+  --nevy-fade: #383787bf;
 
   --font-10: 10px;
   --font-11: 11px;
@@ -65,6 +66,7 @@ $wtm_web-theme: mat.define-light-theme((
   --font-30: 30px;
   --font-32: 32px;
   --font-36: 36px;
+  --font-38: 38px;
   --font-40: 40px;
   --font-l-2: 22px;
   --font-m-2: 20px;
@@ -181,7 +183,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   /* ตั้งเป็นจุดอ้างอิงให้ element ภายใน */
   height: 400px;
   /* กำหนดความสูงของ header (ปรับค่าได้ตามต้องการ) */
-  background-image: url('/assets/img/header_page.png');
+  background-image: url('./assets/img/header_page.png');
   /* <<<<<<< เปลี่ยนเป็น path รูปของคุณ */
 
   /* --- 2. ตั้งค่าการแสดงผลของรูปพื้นหลัง --- */

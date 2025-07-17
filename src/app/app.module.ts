@@ -25,7 +25,8 @@ import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+import { RegisterFormComponent } from './pages/register-form/register-form.component';
+
 
 import { registerLocaleData } from '@angular/common';
 import localeTh from '@angular/common/locales/th';
@@ -35,6 +36,8 @@ import { EventCalendarDetailComponent } from './pages/event-calendar-detail/even
 import { DonateComponent } from './pages/donate/donate.component';
 
 import { PolicyComponent } from './pages/policy/policy.component';
+import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 
 
@@ -63,10 +66,12 @@ registerLocaleData(localeTh);
     FirstComponent,
     HistoryComponent,
     RegisterComponent,
+    RegisterFormComponent,
     EventCalendarComponent,
     EventCalendarDetailComponent,
     DonateComponent,
     PolicyComponent,
+    RegisterMemberComponent,
     PolicyDetailComponent
   ],
   imports: [

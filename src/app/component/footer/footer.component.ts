@@ -18,6 +18,17 @@ export class FooterComponent {
     email: "Ourstudio@hello.com",
     tel: "+1 386-688-3295"
   };
+    contact = {
+    address: 'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio',
+    email: 'xxxxxxxx@gmail.com',
+    phone: '02–123–4567',
+    social: [
+      { img: 'assets/img/icon_Line.png', url: '#' },
+      { img: 'assets/img/icon_Facebook.png', url: '#' },
+      { img: 'assets/img/icon_Ig.png', url: '#' },
+      { img: 'assets/img/icon_X.png', url: '#' }
+    ]
+  };
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
