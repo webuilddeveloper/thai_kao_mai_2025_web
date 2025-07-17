@@ -136,22 +136,45 @@
           <div class="div-input col-lg-6 col-12">
             <span class="title">ช่องการการชำระเงิน</span>
             <span>ชื่อบัญชี: พรรคไทยก้าวใหม่ ฟอร์ เอฟเวอรี่วัน</span>
-            <span>เลขที่บัญชี: 0970000000</span>
+            <span class="d-flex align-items-center gap-2">เลขที่บัญชี: 0970000000
+              <button type="button" class="btn-save-qr" (click)="copyText()">คัดลอก</button>
+              <p *ngIf="copySuccess" style="color: green; margin: 0;">
+                ✅ คัดลอกแล้ว!
+              </p>
+            </span>
             <span>ธนาคาร: กรุงไทย</span>
+            <div class="d-flex align-items-center flex-column">
+              <img src="./../../../assets/img/qr-mock.png" class="qr-code" />
+              <a href="./../../../assets/img/qr-mock.png" download="qr-mock.png">
+                <button type="button" class="btn-save-qr">บันทึก QR-Code</button>
+              </a>
+            </div>
 
           </div>
           <div class="div-input col-lg-6 col-12">
             <span class="title">รูปภาพหลักฐานการโอนชำระเงินค่าสมัครสมาชิก</span>
             <label class="div-file-slip">
-              <span *ngIf="previewProfileUrl == null">* กรุณาเลือกรูป</span>
-              <div class="div-img-file-slip" *ngIf="previewProfileUrl != null">
-                <img [src]="previewProfileUrl" />
+              <span *ngIf="previewSlipUrl == null">* กรุณาเลือกรูป</span>
+              <div class="div-img-file-slip" *ngIf="previewSlipUrl != null">
+                <img [src]="previewSlipUrl" />
               </div>
-              <input type="file" accept="image/*" (change)="onFileProfileSelected($event)">
-              <div class="delete-img" *ngIf="previewProfileUrl != null" (click)="previewProfileUrl = null">
+              <input type="file" accept="image/*" (change)="onFileSlipSelected($event)">
+              <div class="delete-img" *ngIf="previewSlipUrl != null" (click)="previewSlipUrl = null">
                 <i class="material-icons">close</i>
               </div>
             </label>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="row bs-x0 row-form-gap">
+          <div class="div-checkbox">
+            <input type="checkbox" name="" id="">
+            <span>การสมัครสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงิน ค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริง พรรคอาจปฏิเสธการสมัครเป็นสมาชิกพรรค ของข้าพเจ้าได้</span>
+          </div>
+          <div class="div-checkbox">
+            <input type="checkbox" name="" id="">
+            <span>ข้าพเจ้าตกลงยินยอมให้พรรคประชาธิปัตย์สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับ ข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่ เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ และยืนยันตัวตนในการสมัครและเป็นหลักฐานในการสมัครสมาชิกพรรค</span>
           </div>
         </div>
         <div class="spacer"></div>
