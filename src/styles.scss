@@ -43,6 +43,16 @@
   --font-family-poppins: "Poppins", Helvetica;
 }
 
+.dark-theme {
+  --main: #F4ED17;
+  --bg-main: #2D294A;
+}
+
+.blindness-theme {
+  --main: #F4ED17;
+  --bg-main: #2D294A;
+}
+
 html,
 body {
   height: 100%;

@@ -24,6 +24,7 @@ import { PartyExecutiveComponent } from './pages/party-executive/party-executive
 import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PartyExecutiveComponent,
     IdeologyComponent,
     FirstComponent,
-    HistoryComponent
+    HistoryComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
