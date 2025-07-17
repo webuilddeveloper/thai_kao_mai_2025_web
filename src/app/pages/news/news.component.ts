@@ -58,13 +58,71 @@ export class NewsComponent implements OnInit {
           status: "A"
         }
       ]
-    };
+    };   
+
+     this.newsHighlight = [
+    {
+      code: "1",
+      imageUrl: "./assets/img/news_cover.webp",
+       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+     description: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      createDate: "2025-07-16T09:30:00Z",
+      createBy: "admin"
+    },
+    {
+      code: "2",
+      imageUrl: "./assets/img/news_cover.webp",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      description: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      createDate: "2025-07-15T08:00:00Z",
+      createBy: "admin"
+    },
+ 
+  ];
+
+
+    this.newsList = [
+    {
+      code: "1",
+      imageUrl: "./assets/img/policy_cover1.webp",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      titleEN: "Mock News One",
+      description: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+   
+      createDate: "2025-07-16T09:30:00Z",
+      createBy: "admin"
+    },
+    {
+      code: "2",
+      imageUrl: "./assets/img/policy_cover2.webp",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      description: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+      createDate: "2025-07-15T08:00:00Z",
+      createBy: "admin"
+    },
+    {
+      code: "3",
+      imageUrl: "./assets/img/policy_cover1.webp",
+      title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+   
+      description: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
+
+      createDate: "2025-07-14T12:45:00Z",
+      createBy: "editor"
+    }
+  ];
+
+ 
+
 
     this.serviceProvider.post(url, body).subscribe((data) => {
       var model: any = {}
       model = data;
-      this.newsList = model.objectData
-      this.newsHighlight = model.objectData;
+
+      // this.newsList = model.objectData 
+
+      console.log('newsList');
+      // this.newsHighlight = model.objectData;
     });
   }
 
