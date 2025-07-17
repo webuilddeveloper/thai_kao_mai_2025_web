@@ -26,7 +26,7 @@ import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
-import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+
 
 import { registerLocaleData } from '@angular/common';
 import localeTh from '@angular/common/locales/th';
@@ -36,6 +36,7 @@ import { EventCalendarDetailComponent } from './pages/event-calendar-detail/even
 import { DonateComponent } from './pages/donate/donate.component';
 
 import { PolicyComponent } from './pages/policy/policy.component';
+import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -63,7 +64,7 @@ registerLocaleData(localeTh);
     FirstComponent,
     HistoryComponent,
     RegisterComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
     EventCalendarComponent,
     EventCalendarDetailComponent,
     DonateComponent,
