@@ -97,7 +97,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, 'Prompt', sans-serif;
+  font-family: var(--font-family-prompt), Roboto, sans-serif !important;
 }
 
 html,
