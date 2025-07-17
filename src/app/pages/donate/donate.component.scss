@@ -13,6 +13,12 @@
   object-fit: cover;
 }
 
+
+
+
+
+
+
 .wizard-steps {
   display: flex;
   align-items: center;
@@ -20,6 +26,7 @@
   gap: 10px;
   margin: 40px 0;
   font-family: 'Prompt', sans-serif;
+  flex-wrap: wrap; /* ✅ ให้ wrap ได้ในจอเล็ก */
 }
 
 .step {
@@ -63,7 +70,29 @@
   background-color: #e0e0e0;
   margin: 0 8px;
   max-width: 60px;
+  min-width: 40px; /* ✅ เพิ่มขนาดขั้นต่ำ */
 }
+
+@media (max-width: 480px) {
+  // .wizard-steps {
+  //   flex-direction: column;
+  //   gap: 12px;
+  // }
+
+  .line {
+    width: 2px;
+    height: 5px;
+    background-color: #e0e0e0;
+    margin: 8px 0;
+  }
+
+  .step {
+    width: auto;
+  }
+}
+
+
+
 
 
 
