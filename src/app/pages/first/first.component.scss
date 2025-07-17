@@ -129,6 +129,7 @@
   animation-delay: 1.5s;
 }
 
+
 @keyframes slideInOwner {
   from {
     transform: translateX(-80%) scale(1);
@@ -288,7 +289,7 @@
   }
 
   .floating-slogan {
-    bottom: 30%;
+    bottom: 20%;
     /* เดิม 30vh ลองขยับลดลง */
     font-size: 1.4rem;
 
