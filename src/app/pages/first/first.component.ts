@@ -10,10 +10,10 @@ import * as AOS from 'aos';
 export class FirstComponent {
 
   constructor(
-      private router: Router
-    ) {
-  
-    }
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit(): void {
     localStorage.setItem("isShow", "false");
@@ -28,6 +28,13 @@ export class FirstComponent {
     setTimeout(() => {
       AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
     }, 100);
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const buttons = document.querySelectorAll('.btn-hero');
+      buttons.forEach(btn => btn.classList.add('shrink'));
+    }, 4000); // 2 วินาที
   }
 
   goTo(page: string) {

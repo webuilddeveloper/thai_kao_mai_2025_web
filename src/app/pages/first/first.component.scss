@@ -175,6 +175,19 @@
   }
 }
 
+.floating-slogan p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0.5rem 0;
+}
+
+.slogan-title {
+  color: #fff;
+}
+
+.slogan-highlight {
+  color: #F4ED17;
+  /* สีเหลือง */
+}
 
 
 /* ---------- ปุ่มลอยด้านล่าง ---------- */
@@ -230,9 +243,11 @@
 .delay-1 {
   animation-delay: 2.5s;
 }
+
 .delay-2 {
   animation-delay: 2.8s;
 }
+
 .delay-3 {
   animation-delay: 3.1s;
 }
@@ -243,6 +258,7 @@
     transform: translateY(30px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -289,41 +305,98 @@
   }
 
   .floating-slogan {
-    bottom: 20%;
-    /* เดิม 30vh ลองขยับลดลง */
+    position: absolute;
+    bottom: 25%;
+    /* ปรับตามตำแหน่งที่ต้องการ */
+    width: 100%;
+    text-align: center;
     font-size: 1.4rem;
+    color: #fff;
+    z-index: 99;
 
     opacity: 0;
-    transform: translateY(20px);
-    animation: sloganFadeUp 0.8s ease-out forwards;
+    transform: scale(0.7);
+    animation: zoomInSlogan 0.8s ease-out forwards;
     animation-delay: 2s;
+
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes zoomInSlogan {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 
   .hero-buttons-floating {
     position: absolute;
-    top: 20px;            /* ✅ ดันไปข้างบน */
-    right: 10px;          /* ✅ ชิดขอบขวา */
-    left: auto;           /* ✅ ยกเลิกซ้าย */
-    bottom: auto;         /* ✅ ยกเลิกด้านล่าง */
-    transform: none;      /* ✅ ยกเลิก translateX */
+    top: 20px;
+    /* ✅ ดันไปข้างบน */
+    right: 10px;
+    /* ✅ ชิดขอบขวา */
+    left: auto;
+    /* ✅ ยกเลิกซ้าย */
+    bottom: auto;
+    /* ✅ ยกเลิกด้านล่าง */
+    transform: none;
+    /* ✅ ยกเลิก translateX */
     display: flex;
-    flex-direction: column; /* ✅ เรียงแนวตั้ง */
+    flex-direction: column;
+    /* ✅ เรียงแนวตั้ง */
     align-items: flex-end;
     gap: 15px;
     z-index: 10;
   }
 
   .btn-hero {
-    width: 52px;
+    width: auto;
     height: 52px;
-    min-width: unset;
-    border-radius: 50%;
-    padding: 0;
+    padding: 0 16px;
+    border-radius: 30px;
     font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
   }
 
+  /* เริ่มแสดงข้อความปกติ */
   .btn-hero .btn-text {
-    display: none; /* ✅ ซ่อนข้อความ */
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  /* ตั้งเวลา 2 วิแล้วค่อยเริ่มเปลี่ยน */
+  .btn-hero.shrink {
+    min-width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-hero.shrink i {
+    margin: 0;
+    /* ลบ margin ใดๆ ที่เคยมี */
+  }
+
+  .btn-hero.shrink .btn-text {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    overflow: hidden;
   }
 
   .owner-image {
