@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,11 +24,20 @@ import { PartyExecutiveComponent } from './pages/party-executive/party-executive
 import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeTh from '@angular/common/locales/th';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
 }
+
+registerLocaleData(localeTh);
 
 @NgModule({
   declarations: [
@@ -47,24 +56,28 @@ export function HttpLoaderFactory(http: HttpClient) {
     PartyExecutiveComponent,
     IdeologyComponent,
     FirstComponent,
-    HistoryComponent
+    HistoryComponent,
+    RegisterComponent,
+    EventCalendarComponent,
+    EventCalendarDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
-
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [GoToTopComponent, FooterComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ { provide: LOCALE_ID, useValue: 'th-TH' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
