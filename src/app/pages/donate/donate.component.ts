@@ -11,6 +11,9 @@ import * as AOS from 'aos';
 export class DonateComponent {
   selectedMethod: string = 'qr'; // ตั้งค่าเริ่มต้น
 
+  showForm: boolean = false;
+  formType: string = 'person'; // ค่าเริ่มต้นคือบุคคล
+
   constructor(private serviceProvider: ServiceProvider, public translate: TranslateService) { }
 
   ngOnInit(): void {

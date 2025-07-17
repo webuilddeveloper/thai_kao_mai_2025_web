@@ -141,3 +141,57 @@
 .btn-next:hover {
   background-color: #1a1832;
 }
+
+
+.receipt-form {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.form-type-toggle {
+  display: flex;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+
+.form-type-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-type-toggle .active {
+  background-color: #2D294A;
+  color: #fff;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.form-note {
+  background: #e3e9ff;
+  padding: 10px;
+  font-size: 14px;
+  color: #2D294A;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}

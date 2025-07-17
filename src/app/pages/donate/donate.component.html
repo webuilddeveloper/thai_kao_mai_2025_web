@@ -1,7 +1,10 @@
-<div class="row">
-    <div class="contact-background" data-aos="fade-in">
-        <img class="img-logo-main" src="./assets/img/header_donate.png" alt="">
+<div class="header-container" data-aos="zoom-in-up">
+
+    <div class="header-text">
+        <h1>บริจาค</h1>
+        <p>หน้าแรก // <span style="color: #F4ED17;">บริจาค</span></p>
     </div>
+
 </div>
 
 <div class="row">
@@ -23,7 +26,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row"*ngIf="!showForm">
     <div class="payment-methods">
         <h3>เลือกรูปแบบการชำระเงิน</h3>
         <div class="payment-options">
@@ -49,6 +52,43 @@
             </div>
         </div>
 
-        <button class="btn-next">ถัดไป</button>
+        <!-- ปุ่มถัดไป -->
+        <button class="btn-next" (click)="showForm = true">ถัดไป</button>
+
+        
+
     </div>
+</div>
+
+
+<div class="row" *ngIf="showForm">
+    <!-- แบบฟอร์มใบเสร็จ (จะปรากฏเมื่อ showForm = true) -->
+        <div  class="receipt-form">
+            <h3>ข้อมูลใบเสร็จรับเงิน</h3>
+
+            <!-- ปุ่มเลือกประเภท -->
+            <div class="form-type-toggle">
+                <button [class.active]="formType === 'person'" (click)="formType = 'person'">บุคคล</button>
+                <button [class.active]="formType === 'org'" (click)="formType = 'org'">นิติบุคคล</button>
+            </div>
+
+            <!-- ฟอร์ม -->
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="ชื่อจริง*" required />
+                    <input type="text" placeholder="นามสกุล*" required />
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="อีเมล*" required />
+                    <input type="tel" placeholder="เบอร์โทรศัพท์*" required />
+                </div>
+                <div class="form-note">
+                    * หากต้องการใช้สิทธิลดหย่อนภาษีแบบ e-Donation กรุณากรอกเลขบัตรประชาชน
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="เลขบัตรประชาชน" />
+                </div>
+                <button class="btn-next">ถัดไป</button>
+            </form>
+        </div>
 </div>
