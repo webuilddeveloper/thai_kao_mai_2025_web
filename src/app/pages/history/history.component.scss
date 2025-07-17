@@ -97,8 +97,16 @@
 
 
         }
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
   }
 }
 

@@ -3,15 +3,6 @@
   position: relative;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 9999;
-  margin-top: 20px;
-  // height: -webkit-fill-available;
-}
 
 .aboutUs {
   color: var(--black);
@@ -257,7 +248,7 @@
 
 .img-logo-main {
   width: 100%;
-  height: 100%;
+  height: 35vw;
   object-fit: fill;
 }
 
@@ -332,9 +323,15 @@
   background: #ffffff;
 
   .title {
-    font-size: 2.6em !important;
-    color: #2D294A;
-    margin-bottom: 10%;
+    font-size: 1.75 !important;
+    color: #000;
+    margin-bottom: 5%;
+  }
+
+  .title-sub {
+    font-size: 1.75 !important;
+    color: #000;
+    margin-bottom: 2%;
   }
 
   .executive-row {
@@ -350,7 +347,7 @@
   }
 
   .executive-card {
-    width: 280px;
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
     // background-color: var(--nevy);
@@ -361,69 +358,6 @@
       width: 100%;
       height: auto;
       display: block;
-    }
-
-    .card-footer {
-      background-color: var(--nevy);
-      color: #fff;
-      padding: 15px;
-      border-top: 4px solid #F4ED17;
-      text-align: left;
-
-      h3 {
-        margin: 0;
-        line-height: 0.7;
-
-        .first-name {
-          font-size: 30px;
-          font-weight: 500;
-          display: block;
-          color: #fff;
-          margin-bottom: 2px;
-        }
-
-        .last-name {
-          font-size: 24px;
-          font-weight: normal;
-          display: block;
-          color: #fff;
-          margin-top: 0;
-        }
-      }
-
-      p {
-        margin: 15px 0 0;
-        font-size: 18px;
-        color: var(--main);
-      }
-    }
-
-    .card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--nevy); // สีดำแบบโปร่ง
-      color: #F4ED17;
-      font-size: 24px;
-      font-weight: 500;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-
-      // ✅ แสดง effect เลื่อนซ้าย → ขวา
-      transform: translateX(-100%);
-      transition: transform 0.5s ease;
-      pointer-events: none;
-    }
-
-    // ✅ เมื่อ hover การ์ด ให้ overlay เลื่อนเข้ามา
-    &:hover .card-overlay {
-      transform: translateX(0);
-      pointer-events: auto;
     }
   }
 
