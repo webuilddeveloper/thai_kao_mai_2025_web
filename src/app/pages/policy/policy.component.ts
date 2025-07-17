@@ -6,11 +6,11 @@ import * as AOS from 'aos';
 
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  selector: 'app-policy',
+  templateUrl: './policy.component.html',
+  styleUrls: ['./policy.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class PolicyComponent implements OnInit {
 
   newsList: any[] = [];
   newsHighlight: any[] = [];
@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit {
     });
 
     setTimeout(() => {
-      AOS.refresh();
+      AOS.refresh(); 
     }, 100);
 
     const url = 'm/news/read';

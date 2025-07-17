@@ -46,14 +46,14 @@ export class PartyExecutiveComponent {
 
   ngOnInit(): void {
     AOS.init({
-      duration: 800,       // ความเร็ว animation
-      once: false,         // ❌ false = ให้เล่นซ้ำได้ ไม่ใช่ครั้งเดียว
-      mirror: true,        // ✅ true = เล่นย้อนกลับตอน scroll ขึ้น
-      offset: 30           // เริ่ม animation เมื่อเข้า viewport 10px
+      duration: 800,       
+      once: false,         
+      mirror: true,       
+      offset: 50           
     });
 
     setTimeout(() => {
-      AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
+      AOS.refresh(); 
     }, 100);
   }
 

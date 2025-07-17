@@ -10,30 +10,31 @@ import * as AOS from 'aos';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-
   isShow = 'false'; // เพิ่มตรงนี้
 
   langList: any = [
-    { code: 1, name: "TH", value: "th", icon: "./assets/icons/flag-th.jpg" },
-    { code: 2, name: "EN", value: "en", icon: "./assets/icons/flag-en.jpg" },
-  ]
+    { code: 1, name: 'TH', value: 'th', icon: './assets/icons/flag-th.jpg' },
+    { code: 2, name: 'EN', value: 'en', icon: './assets/icons/flag-en.jpg' },
+  ];
 
-  langLocal: string = "";
+  langLocal: string = '';
   isActiveMarginBTM: boolean = true;
-  position: String = "inherit";
+  position: String = 'inherit';
   selectedLang: any;
   subMenu: boolean = false;
   isOpenNav = false;
-  constructor(private router: Router, private route: ActivatedRoute, public translate: TranslateService) {
-
-
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public translate: TranslateService
+  ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' }); // เลื่อนไปบนสุดแบบ smooth
       });
 
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // this.currentPath = event.urlAfterRedirects;
         // if (event.urlAfterRedirects == '/') {
@@ -46,13 +47,13 @@ export class HeaderComponent {
         // }
 
         // this.isActiveMarginBTM = false;
-        this.position = "relative";
+        this.position = 'relative';
         console.log('Current path:', event.urlAfterRedirects);
       }
     });
 
-    this.langLocal = localStorage.getItem("lang") ?? "th"
-    localStorage.setItem("lang", this.langLocal)
+    this.langLocal = localStorage.getItem('lang') ?? 'th';
+    localStorage.setItem('lang', this.langLocal);
 
     // translate.addLangs(['th', 'en']);
     translate.setDefaultLang(this.langLocal);
@@ -60,7 +61,9 @@ export class HeaderComponent {
 
     // const browserLang = translate.getBrowserLang();
     const browserLang = translate.getDefaultLang();
-    translate.use(browserLang && browserLang.match(/th|en/) ? browserLang : 'th');
+    translate.use(
+      browserLang && browserLang.match(/th|en/) ? browserLang : 'th'
+    );
   }
 
   scrollPosition: boolean = false;
@@ -82,9 +85,7 @@ export class HeaderComponent {
 
     if ((window.pageYOffset || document.documentElement.scrollTop) > 1) {
       this.scrollPosition = true;
-    } else if (
-      (window.pageYOffset || document.documentElement.scrollTop) < 1
-    ) {
+    } else if ((window.pageYOffset || document.documentElement.scrollTop) < 1) {
       this.scrollPosition = false;
     }
   }
@@ -94,7 +95,7 @@ export class HeaderComponent {
       duration: 800,
       once: false,
       mirror: true,
-      offset: 10
+      offset: 10,
     });
 
     setTimeout(() => {
@@ -103,19 +104,23 @@ export class HeaderComponent {
 
     // ✅ เรียกเช็ก localStorage แบบ real-time ทุก 500ms
     setInterval(() => {
-      
-      this.isShow = localStorage.getItem("isShow") ?? 'false'; // default เป็น true ถ้าไม่มีค่า
+      this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
   }
 
   changeLanguage(lang: string) {
     this.translate.use(lang);
-    localStorage.setItem("lang", lang)
+    localStorage.setItem('lang', lang);
   }
 
   isOpen = false;
+  activeSubMenu: string | null = null;
+
   selected = {
-    code: 1, name: "TH", value: "th", icon: "./assets/icons/flag-th.jpg"
+    code: 1,
+    name: 'TH',
+    value: 'th',
+    icon: './assets/icons/flag-th.jpg',
   };
 
   toggleDropdown() {
@@ -125,19 +130,30 @@ export class HeaderComponent {
   openHam() {
     // this.subMenu = !this.subMenu;
     // document.body.style.overflow = this.isOpenNav ? 'hidden' : '';
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
     this.isOpenNav = !this.isOpenNav;
   }
 
   closeHam() {
     this.isOpenNav = false;
+    this.activeSubMenu = null;
     document.body.style.overflow = '';
   }
 
   selectOption(option: any) {
     this.selected = option;
     this.translate.use(option.value);
-    localStorage.setItem("lang", option.value)
+    localStorage.setItem('lang', option.value);
     this.isOpen = false;
+  }
+
+  toggleSubMenu(menuName: string) {
+    // ถ้าคลิกเมนูที่เปิดอยู่แล้ว ให้ปิดมัน
+    if (this.activeSubMenu === menuName) {
+      this.activeSubMenu = null;
+    } else {
+      // ถ้าคลิกเมนูใหม่ ให้เปิดเมนูนั้น
+      this.activeSubMenu = menuName;
+    }
   }
 }
