@@ -18,17 +18,14 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit(): void {
     AOS.init({
-      duration:1000,
-      offset: 15,
+      duration: 1000,
+      offset: 20,
       once: false,
       mirror: true,
-      easing: 'ease-in-out'
     });
 
-      setTimeout(() => {
-          AOS.refresh(); 
-        }, 100);
-    
-
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
   }
 }

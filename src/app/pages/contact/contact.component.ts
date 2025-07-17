@@ -26,6 +26,17 @@ export class ContactComponent {
   @ViewChild('linesContainer') linesContainer!: ElementRef; animation: any;
 
 
+  contact = {
+    address: 'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio',
+    email: 'xxxxxxxx@gmail.com',
+    phone: '02–123–4567',
+    social: [
+      { img: 'assets/img/icon_Line.png', url: '#' },
+      { img: 'assets/img/icon_Facebook.png', url: '#' },
+      { img: 'assets/img/icon_Ig.png', url: '#' },
+      { img: 'assets/img/icon_X.png', url: '#' }
+    ]
+  };
 
   donationAmount = 45760741; // ตัวเลขยอดบริจาค
 
@@ -36,7 +47,7 @@ export class ContactComponent {
       duration: 800,
       once: false,
       mirror: true,
-      offset: 120
+      offset: 30
     });
 
     setTimeout(() => {

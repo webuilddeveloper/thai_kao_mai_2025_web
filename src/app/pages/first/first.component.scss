@@ -2,25 +2,37 @@
 .hero-container {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    #1e1a36 0%,
-    #2D294A 20%,
-    #3F3B6C 40%,
-    #5a5680 60%,
-    #3F3B6C 80%,
-    #2D294A 100%
-  );
+  background: linear-gradient(135deg,
+      #1e1a36 0%,
+      #2D294A 20%,
+      #3F3B6C 40%,
+      #5a5680 60%,
+      #3F3B6C 80%,
+      #2D294A 100%);
   background-size: 400% 400%;
   animation: wavingBackground 12s ease-in-out infinite;
 }
 
 @keyframes wavingBackground {
-  0%   { background-position: 0% 50%; }
-  25%  { background-position: 50% 60%; }
-  50%  { background-position: 100% 50%; }
-  75%  { background-position: 50% 40%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  25% {
+    background-position: 50% 60%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  75% {
+    background-position: 50% 40%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ---------- กล่องภาพรวมโลโก้ + เจ้าของ ---------- */
@@ -39,14 +51,20 @@
   z-index: 2;
   width: 300px;
   max-width: 80vw;
-  transform: translateY(200px) translateX(-40px); /* ขยับขึ้นและไปทางซ้าย */
+  transform: translateY(200px) translateX(-40px);
+  /* ขยับขึ้นและไปทางซ้าย */
   animation: slideUp 0.7s ease-out forwards;
   animation-delay: 1s;
 }
 
 @keyframes slideUp {
-  from { transform: translateY(200px) translateX(-40px); }
-  to   { transform: translateY(0) translateX(-40px); }
+  from {
+    transform: translateY(200px) translateX(-40px);
+  }
+
+  to {
+    transform: translateY(0) translateX(-40px);
+  }
 }
 
 .logo-base,
@@ -76,12 +94,15 @@
   0% {
     clip-path: inset(0 100% 0 0);
   }
+
   30% {
     clip-path: inset(0 75% 0 0);
   }
+
   50% {
     clip-path: inset(0 75% 0 0);
   }
+
   100% {
     clip-path: inset(0 0% 0 0);
   }
@@ -92,10 +113,13 @@
 .owner-image {
   position: absolute;
   z-index: 1;
-  width: 45vw;                /* ✅ ขยายเต็มจอ */
-  max-width: unset;            /* ✅ ไม่จำกัด max width แล้ว */
+  width: 45vw;
+  /* ✅ ขยายเต็มจอ */
+  max-width: unset;
+  /* ✅ ไม่จำกัด max width แล้ว */
   height: auto;
-  bottom: 0;                   /* ✅ ติดขอบล่าง */
+  bottom: 0;
+  /* ✅ ติดขอบล่าง */
   left: 50%;
   transform: translateX(-10%) scale(1);
 
@@ -105,15 +129,17 @@
   animation-delay: 1.5s;
 }
 
+
 @keyframes slideInOwner {
   from {
     transform: translateX(-80%) scale(1);
     opacity: 0;
     visibility: hidden;
   }
+
   to {
     transform: translateX(-10%) scale(1);
-    opacity: 0.35;
+    opacity: 0.75;
     visibility: visible;
   }
 }
@@ -121,7 +147,7 @@
 /* ---------- สโลแกนพิมพ์ดีดบนสุด ---------- */
 .floating-slogan {
   position: absolute;
-  bottom: 25vh;
+  bottom: 15%;
   width: 100%;
   text-align: center;
   font-size: 2.2rem;
@@ -133,7 +159,8 @@
   opacity: 0;
   transform: translateY(20px);
   animation: sloganFadeUp 0.8s ease-out forwards;
-  animation-delay: 1.8s; /* เริ่มหลัง logo เสร็จ */
+  animation-delay: 1.8s;
+  /* เริ่มหลัง logo เสร็จ */
 }
 
 @keyframes sloganFadeUp {
@@ -141,12 +168,35 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+.floating-slogan {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 900;
+  font-family: 'Prompt', sans-serif;
+  // margin: 10px 0;
+}
+
+.slogan-title {
+  color: #F4ED17;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* เงาเข้มขึ้น */
+  margin-right: 6px;
+  font-weight: 900;
+}
+
+.slogan-highlight {
+  color: transparent;
+  -webkit-text-stroke: 1.8px #F4ED17;
+  text-stroke: 1.8px #F4ED17;
+  font-weight: 900;
+  // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); /* เพิ่มเงาให้ขอบดูชัด */
+}
 
 
 /* ---------- ปุ่มลอยด้านล่าง ---------- */
@@ -159,27 +209,17 @@
   gap: 15px;
   flex-wrap: wrap;
   z-index: 10;
-  animation: fadeUp 1s ease-in-out 2.5s forwards;
-  opacity: 0;
-}
-
-@keyframes fadeUp {
-  from {
-    transform: translate(-50%, 30px);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
 }
 
 .btn-hero {
   min-width: 180px;
   text-align: center;
-  background: transparent;            /* ✅ พื้นหลังโปร่ง */
-  color: #F4ED17;                     /* ✅ ตัวอักษรเหลือง */
-  border: 2px solid #F4ED17;          /* ✅ ขอบเหลือง */
+  background: transparent;
+  /* ✅ พื้นหลังโปร่ง */
+  color: #F4ED17;
+  /* ✅ ตัวอักษรเหลือง */
+  border: 2px solid #F4ED17;
+  /* ✅ ขอบเหลือง */
   padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
@@ -187,54 +227,201 @@
   font-weight: bold;
   transition: all 0.3s ease;
   white-space: nowrap;
-  display: flex;                      /* ✅ จัดไอคอนกับข้อความเรียง */
+  display: flex;
+  /* ✅ จัดไอคอนกับข้อความเรียง */
   align-items: center;
   justify-content: center;
-  gap: 8px;                           /* ✅ ระยะห่างไอคอนกับข้อความ */
+  gap: 8px;
+  /* ✅ ระยะห่างไอคอนกับข้อความ */
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUpEach 0.8s ease-out forwards;
 }
 
 /* 🟡 เอฟเฟกต์ Hover */
 .btn-hero:hover {
-  background: #F4ED17;               /* พื้นเหลือง */
-  color: #2D294A;                    /* ตัวอักษรม่วงเข้ม */
+  background: #F4ED17;
+  /* พื้นเหลือง */
+  color: #2D294A;
+  /* ตัวอักษรม่วงเข้ม */
   transform: translateY(-2px);
+}
+
+/* 👉 Delay ไล่ทีละปุ่ม */
+.delay-1 {
+  animation-delay: 2.5s;
+}
+
+.delay-2 {
+  animation-delay: 2.8s;
+}
+
+.delay-3 {
+  animation-delay: 3.1s;
+}
+
+/* ✅ Keyframes แบบ fade-up */
+@keyframes fadeUpEach {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ---------- Responsive สำหรับมือถือ ---------- */
 @media (max-width: 767.98px) {
   .logo-wrapper {
-    width: 80% !important;
-    transform: translateY(0) scale(1);
-    animation: shrinkLogo 0.5s ease-out 1.1s forwards;
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: auto;
+    max-width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation:
+      revealLogo 1.2s ease-out forwards,
+      shrinkAndMove 0.8s ease-in-out forwards 1.4s;
+    /* เริ่มหลัง reveal จบ */
+  }
+
+  .logo-wrapper.shrink-to-corner {
+    animation: shrinkAndMove 0.8s ease-out forwards;
+    animation-delay: 1.6s;
+    /* รอให้ reveal เสร็จก่อน */
+  }
+
+  @keyframes shrinkAndMove {
+    0% {
+      width: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    100% {
+      width: 120px;
+      top: 20px;
+      left: 20px;
+      transform: translate(0, 0);
+    }
   }
 
   .floating-slogan {
-    bottom: 20vh; /* เดิม 30vh ลองขยับลดลง */
-    font-size: 1.4rem;
+    position: absolute;
+    bottom: 20%;
+    /* ปรับตามตำแหน่งที่ต้องการ */
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    z-index: 99;
 
     opacity: 0;
-    transform: translateY(20px);
-    animation: sloganFadeUp 0.8s ease-out forwards;
+    transform: scale(0.7);
+    animation: zoomInSlogan 0.8s ease-out forwards;
     animation-delay: 2s;
+
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes zoomInSlogan {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 
   .hero-buttons-floating {
+    position: absolute;
+    top: 20px;
+    /* ✅ ดันไปข้างบน */
+    right: 10px;
+    /* ✅ ชิดขอบขวา */
+    left: auto;
+    /* ✅ ยกเลิกซ้าย */
+    bottom: auto;
+    /* ✅ ยกเลิกด้านล่าง */
+    transform: none;
+    /* ✅ ยกเลิก translateX */
+    display: flex;
     flex-direction: column;
-    bottom: 30px;
+    /* ✅ เรียงแนวตั้ง */
+    align-items: flex-end;
+    gap: 15px;
+    z-index: 10;
   }
 
   .btn-hero {
-    min-width: 220px;
+    width: auto;
+    height: 52px;
+    padding: 0 16px;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+  }
+
+  /* เริ่มแสดงข้อความปกติ */
+  .btn-hero .btn-text {
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  /* ตั้งเวลา 2 วิแล้วค่อยเริ่มเปลี่ยน */
+  .btn-hero.shrink {
+    min-width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-hero.shrink i {
+    margin: 0;
+    /* ลบ margin ใดๆ ที่เคยมี */
+  }
+
+  .btn-hero.shrink .btn-text {
+    // opacity: 0;
+    // pointer-events: none;
+    // width: 0;
+    // overflow: hidden;
+    display: none;
   }
 
   .owner-image {
-    height: 80vh;                /* ✅ สูง 80% ของหน้าจอ */
-    width: auto;                 /* ✅ คงอัตราส่วนไว้ */
+    height: 80vh;
+    /* ✅ สูง 80% ของหน้าจอ */
+    width: auto;
+    /* ✅ คงอัตราส่วนไว้ */
     bottom: 0;
-    right: -15vw;                /* ✅ ดันให้แสดงเฉพาะฝั่งขวา */
-    left: auto;                  /* ❌ ยกเลิกการใช้ left */
-    transform: scale(1.2);       /* ✅ ขยายเพิ่มเล็กน้อย */
-    opacity: 0;
+    // right: -15vw;
+    /* ✅ ดันให้แสดงเฉพาะฝั่งขวา */
+    left: auto;
+    /* ❌ ยกเลิกการใช้ left */
+    transform: scale(1.2);
+    /* ✅ ขยายเพิ่มเล็กน้อย */
+    opacity: 10;
     visibility: hidden;
     position: absolute;
     animation: slideInOwnerMobile 1s ease-out forwards;
@@ -243,23 +430,18 @@
 
   @keyframes slideInOwnerMobile {
     from {
-      transform: translateX(50%) scale(1.2); /* ✅ เริ่มจากขวาเกินจอ */
+      transform: translateX(50%) scale(1.2);
+      /* ✅ เริ่มจากขวาเกินจอ */
       opacity: 0;
       visibility: hidden;
     }
+
     to {
-      transform: translateX(0%) scale(1.2);  /* ✅ อยู่ตำแหน่งเดิมแต่แสดง */
-      opacity: 0.35;
+      transform: translateX(0%) scale(1.2);
+      /* ✅ อยู่ตำแหน่งเดิมแต่แสดง */
+      opacity: 0.75;
       visibility: visible;
     }
   }
-}
 
-@keyframes shrinkLogo {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.75);
-  }
 }

@@ -1,0 +1,94 @@
+<div class="header-container" data-aos="zoom-in-up">
+
+    <div class="header-text">
+        <h1>บริจาค</h1>
+        <p>หน้าแรก // <span style="color: #F4ED17;">บริจาค</span></p>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="wizard-steps">
+        <div class="step active" data-aos="zoom-in">
+            <div class="circle">1</div>
+            <p>บริจาค</p>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">2</div>
+            <p>ตรวจสอบข้อมูล</p>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">3</div>
+            <p>ยืนยันข้อมูล</p>
+        </div>
+    </div>
+</div>
+
+<div class="row"*ngIf="!showForm">
+    <div class="payment-methods">
+        <h3>เลือกรูปแบบการชำระเงิน</h3>
+        <div class="payment-options">
+            <!-- QR Code -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'qr'" (click)="selectMethod('qr')">
+                <img [src]="selectedMethod === 'qr' ? './assets/img/icon_qr_selected.png' : './assets/img/icon_qr.png'"
+                    alt="QR Code" />
+                <span>QR Code</span>
+            </div>
+
+            <!-- โอนเงิน -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'bank'" (click)="selectMethod('bank')">
+                <img [src]="selectedMethod === 'bank' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
+                    alt="โอนเงิน" />
+                <span>โอนเงิน</span>
+            </div>
+
+            <!-- บัตรเครดิต -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'credit'" (click)="selectMethod('credit')">
+                <img [src]="selectedMethod === 'credit' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
+                    alt="บัตรเครดิต" />
+                <span>บัตรเครดิต</span>
+            </div>
+        </div>
+
+        <!-- ปุ่มถัดไป -->
+        <button class="btn-next" (click)="showForm = true">ถัดไป</button>
+
+        
+
+    </div>
+</div>
+
+
+<div class="row" *ngIf="showForm">
+    <!-- แบบฟอร์มใบเสร็จ (จะปรากฏเมื่อ showForm = true) -->
+        <div  class="receipt-form">
+            <h3>ข้อมูลใบเสร็จรับเงิน</h3>
+
+            <!-- ปุ่มเลือกประเภท -->
+            <div class="form-type-toggle">
+                <button [class.active]="formType === 'person'" (click)="formType = 'person'">บุคคล</button>
+                <button [class.active]="formType === 'org'" (click)="formType = 'org'">นิติบุคคล</button>
+            </div>
+
+            <!-- ฟอร์ม -->
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="ชื่อจริง*" required />
+                    <input type="text" placeholder="นามสกุล*" required />
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="อีเมล*" required />
+                    <input type="tel" placeholder="เบอร์โทรศัพท์*" required />
+                </div>
+                <div class="form-note">
+                    * หากต้องการใช้สิทธิลดหย่อนภาษีแบบ e-Donation กรุณากรอกเลขบัตรประชาชน
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="เลขบัตรประชาชน" />
+                </div>
+                <button class="btn-next">ถัดไป</button>
+            </form>
+        </div>
+</div>

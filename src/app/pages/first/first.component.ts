@@ -10,10 +10,10 @@ import * as AOS from 'aos';
 export class FirstComponent {
 
   constructor(
-      private router: Router
-    ) {
-  
-    }
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit(): void {
     localStorage.setItem("isShow", "false");
@@ -30,6 +30,13 @@ export class FirstComponent {
     }, 100);
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const buttons = document.querySelectorAll('.btn-hero');
+      buttons.forEach(btn => btn.classList.add('shrink'));
+    }, 4000); // 2 วินาที
+  }
+
   goTo(page: string) {
     switch (page) {
       case 'home':
@@ -39,8 +46,9 @@ export class FirstComponent {
       case 'register':
         // this.router.navigate(['/register']);
         break;
-      case 'support':
-        // this.router.navigate(['/support']);
+      case 'donate':
+        localStorage.setItem("isShow", "true");
+        this.router.navigate(['/donate']);
         break;
     }
   }

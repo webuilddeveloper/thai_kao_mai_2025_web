@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit {
     });
 
     setTimeout(() => {
-      AOS.refresh(); 
+      AOS.refresh();
     }, 100);
 
     const url = 'm/news/read';

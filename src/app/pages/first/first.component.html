@@ -1,6 +1,7 @@
 <!-- ✅ ข้อความพิมพ์ดีดอยู่บนสุด -->
-<div data-aos="fade-up" data-aos-delay="2000" class="floating-slogan">
-    [สโลแกน] พรรคไทยก้าวใหม่
+<div class="floating-slogan">
+  <p class="slogan-title">ก้าวใหม่</p>
+  <p class="slogan-highlight">ให้ไทยสตรอง</p>
 </div>
 
 <div class="hero-container responsive-hero">
@@ -18,14 +19,18 @@
 
     <!-- ✅ ปุ่มอยู่ใต้รูปทั้งหมด -->
     <div class="hero-buttons-floating">
-        <button class="btn-hero" (click)="goTo('home')">
-            <i class="fa fa-home"></i> เข้าหน้าหลัก
+        <button class="btn-hero delay-1" (click)="goTo('home')">
+            <i class="fa fa-home"></i>
+            <span class="btn-text">เข้าหน้าหลัก</span>
         </button>
-        <button class="btn-hero">
-            <i class="fa fa-user-plus"></i> สมัครสมาชิกพรรค
+        <button class="btn-hero delay-2">
+            <i class="fa fa-user-plus"></i>
+            <span class="btn-text">สมัครสมาชิกพรรค</span>
         </button>
-        <button class="btn-hero">
-            <i class="fa fa-hand-holding-heart"></i> ร่วมสนับสนุนพรรค
+        <button class="btn-hero delay-3" (click)="goTo('donate')">
+            <i class="fa fa-hand-holding-heart"></i>
+            <span class="btn-text">ร่วมสนับสนุนพรรค</span>
         </button>
     </div>
+
 </div>

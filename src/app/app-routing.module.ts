@@ -15,6 +15,10 @@ import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
+import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
+import { DonateComponent } from './pages/donate/donate.component';
+import { PolicyComponent } from './pages/policy/policy.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -31,6 +35,10 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'register-form', component: RegisterFormComponent },
+  { path: 'event-calendar', component: EventCalendarComponent },
+  { path: 'event-calendar-detail/:code', component: EventCalendarDetailComponent },
+  { path: 'donate', component: DonateComponent },
+  { path: 'policy', component: PolicyComponent },
 
 
 ];

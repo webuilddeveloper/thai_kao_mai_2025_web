@@ -1,20 +1,33 @@
-<section class="slogan-wrapper" data-aos="fade-right">
-  <div class="slogan-line"></div>
-  <div class="slogan-text">
-    <p>เพราะประเทศที่ดี</p>
-    <p>เริ่มต้นจากอุดมการณ์ที่ชัดเจน</p>
-  </div>
-</section>
-
-<section class="vision-intro" data-aos="fade-right">
-  <h1 class="vision-title">อุดมการณ์</h1>
-</section>
-
-
-<div class="vision-section" *ngFor="let item of visionItems; let i = index">
-  <div class="vision-box" [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'" [attr.data-aos-delay]="i * 100"
-    [ngClass]="i % 2 === 0 ? 'left-style' : 'right-style'">
-    <h2>{{ item.title }}</h2>
-    <p>{{ item.desc }}</p>
+<div class="header-container" data-aos="zoom-in-up">
+  <div class="header-text">
+    <h1>เกี่ยวกับพรรค</h1>
+    <p>หน้าแรก // เกี่ยวกับพรรค // <span style="color: #F4ED17;">อุมดการณ์</span></p>
   </div>
 </div>
+<section class="ideology-section">
+  <div class="header"  data-aos="fade-right">
+    <h2>อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่</h2>
+    <p class="description">
+      พรรคไทยก้าวใหม่ยึดมั่นในระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข
+      และเชื่อมั่นว่าพลังของประชาชนคือรากฐานของการพัฒนาประเทศอย่างแท้จริง พรรคมุ่งมั่นที่จะสร้างรัฐที่เปิดกว้าง โปร่งใส
+      ยึดหลักนิติธรรม และให้ทุกคนมีโอกาสเท่าเทียมในการพัฒนาชีวิตของตนเองและส่วนรวม
+
+      เราเชื่อว่าการเปลี่ยนแปลงต้องเริ่มจากการสร้างระบบที่ยุติธรรม ลดความเหลื่อมล้ำ
+      และยกระดับคุณภาพชีวิตประชาชนในทุกมิติ ไม่ว่าจะเป็นเศรษฐกิจ การศึกษา สุขภาพ หรือสิ่งแวดล้อม
+      โดยไม่ทิ้งใครไว้ข้างหลัง
+      พรรคไทยก้าวใหม่จึงยืนหยัดเป็นพลังทางการเมืองของคนรุ่นใหม่และผู้ที่ต้องการเห็นประเทศเดินหน้าอย่างสร้างสรรค์ ยั่งยืน
+      และแข่งขันได้ในเวทีโลก
+    </p>
+  </div>
+
+  <div class="vision">
+    <h3  data-aos="zoom-in">วิสัยทัศน์</h3>
+
+    <div class="vision-item" *ngFor="let v of visions; let i = index"  data-aos="fade-right">
+      <h5>{{ v.title }}</h5>
+      <ul>
+        <li *ngFor="let d of v.detail">{{ d }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

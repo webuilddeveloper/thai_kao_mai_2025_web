@@ -1,52 +1,49 @@
-<!-- <div class="bg-circle"></div> -->
-<div class="main">
-    <div class="contact-background" data-aos="zoom-in-up">
-        <img src="./assets/img/header_news.png" alt="" class="img-logo-main">
-    </div>
-    <div class="vertical">
-        <div class="news-section">
-            <div class="section-header">
-                <h3>{{ 'newsAndEvent' | translate }}</h3>
-            </div>
-            <div class="news-highlight" data-aos="zoom-in">
-                <div class="card-highlight" *ngFor="let item of newsHighlight.slice(0, 2)"
-                    [routerLink]="['/newsdetail', item.code]">
-                    <div class="card-image-highlight">
-                        <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
-                        <div class="image-overlay"></div>
-                    </div>
-                    <div class="card-content">
-                        <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
-                        <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-                        <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-                        <div class="news-description" [innerHTML]="item.description"
-                            *ngIf="translate.currentLang === 'th'">
-                        </div>
-                        <div class="news-description" [innerHTML]="item.descriptionEN"
-                            *ngIf="translate.currentLang === 'en'"></div>
-                    </div>
-                </div>
-            </div>
+<div class="header-container" data-aos="zoom-in-up">
 
-            <div class="news-container" data-aos="fade-right">
-                <div class="card-news" *ngFor="let item of newsList" [routerLink]="['/newsdetail', item.code]">
-                    <div class="card-image">
-                        <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
-                        <div class="image-overlay"></div>
-                    </div>
-                    <div class="card-content">
-                        <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
-                        <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-                        <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-                        <div class="news-description" [innerHTML]="item.description"
-                            *ngIf="translate.currentLang === 'th'">
-                        </div>
-                        <div class="news-description" [innerHTML]="item.descriptionEN"
-                            *ngIf="translate.currentLang === 'en'"></div>
-                    </div>
-                </div>
-            </div>
+  <div class="header-text">
+    <h1>ข่าวสาร</h1>
+    <p>หน้าแรก // <span style="color: #F4ED17;">ข่าวสาร</span></p>
+  </div>
+
+</div>
+<div class="vertical">
+  <div class="news-section">
+    <div class="section-header">
+      <h3>{{ 'newsAndEvent' | translate }}</h3>
+    </div>
+    <div class="news-highlight" data-aos="zoom-in">
+      <div class="card-highlight" *ngFor="let item of newsHighlight.slice(0, 2)"
+        [routerLink]="['/newsdetail', item.code]">
+        <div class="card-image-highlight">
+          <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+          <div class="image-overlay"></div>
         </div>
+        <div class="card-content">
+          <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          </div>
+          <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+        </div>
+      </div>
     </div>
 
+    <div class="news-container" data-aos="fade-right">
+      <div class="card-news" *ngFor="let item of newsList" [routerLink]="['/newsdetail', item.code]">
+        <div class="card-image">
+          <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="card-content">
+          <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          </div>
+          <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

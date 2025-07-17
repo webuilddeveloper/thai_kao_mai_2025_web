@@ -1,0 +1,78 @@
+<div class="header-container" data-aos="zoom-in-up">
+  <div class="header-text">
+    <h1>ปฏิทินกิจกรรม / กิจกรรมล่าสุด</h1>
+    <p>หน้าแรก // ข่าวสาร // <span style="color: #F4ED17;">ปฏิทินกิจกรรม / กิจกรรมล่าสุด</span></p>
+  </div>
+</div>
+<div class="calendar-container" data-aos="zoom-in-up">
+  <div class="schedule-panel">
+    <div class="date-display">
+      <div class="day">{{ selectedDate | date:'dd' }}</div>
+      <div class="month-year">
+        <div>{{ selectedDate | date:'MMMM' | uppercase }}</div>
+        <div>{{ getBuddhistYear(selectedDate) }}</div>
+      </div>
+    </div>
+    <div class="schedule-details">
+      <div class="schedule-header">SCHEDULE</div>
+      <div class="schedule-item">กิจกรรมสำคัญ</div>
+      <div class="schedule-item-empty"></div>
+    </div>
+  </div>
+
+  <div class="calendar-panel">
+    <mat-calendar [selected]="selectedDate" (selectedChange)="onDateSelected($event)" [dateClass]="dateClass()">
+    </mat-calendar>
+  </div>
+</div>
+
+<div class="vertical" *ngIf="modelDataListCurrent.length > 0">
+  <div class="news-section">
+    <div class="section-header">
+      <h3>{{ 'eventCalendar' | translate }}</h3>
+    </div>
+
+    <div class="news-container" data-aos="fade-right">
+      <div class="card-news" *ngFor="let item of modelDataListCurrent"
+        [routerLink]="['/event-calendar-detail', item.code]">
+        <div class="card-image">
+          <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="card-content">
+          <span class="news-date">{{ item.updateDate | date:'MMMM' | uppercase }} | {{item.createBy}}</span>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          </div>
+          <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vertical">
+  <div class="news-section">
+    <div class="section-header">
+      <h3>{{ 'eventCalendarAll' | translate }}</h3>
+    </div>
+
+    <div class="news-container" data-aos="fade-right">
+      <div class="card-news" *ngFor="let item of modelDataList" [routerLink]="['/event-calendar-detail', item.code]">
+        <div class="card-image">
+          <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
+          <div class="image-overlay"></div>
+        </div>
+        <div class="card-content">
+          <span class="news-date">{{ item.updateDate | date:'MMMM' | uppercase }} | {{item.createBy}}</span>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          </div>
+          <div class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
