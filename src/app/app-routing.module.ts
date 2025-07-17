@@ -18,6 +18,7 @@ import { EventCalendarComponent } from './pages/event-calendar/event-calendar.co
 import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
 import { DonateComponent } from './pages/donate/donate.component';
 import { PolicyComponent } from './pages/policy/policy.component';
+import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'event-calendar-detail/:code', component: EventCalendarDetailComponent },
   { path: 'donate', component: DonateComponent },
   { path: 'policy', component: PolicyComponent },
+  { path: 'policy-detail', component: PolicyDetailComponent },
 
 
 ];
