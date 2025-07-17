@@ -347,8 +347,8 @@
   }
 
   .executive-card-header {
-    width: 250px;
-    height: 350px;
+    width: 27vw;
+    height: 37vw;
     border-radius: 10px;
     overflow: hidden;
     // background-color: var(--nevy);
@@ -362,8 +362,8 @@
     }
 
     @media (max-width: 768px) {
-      width: 170px;
-      height: 230px;
+      width: 40vw;
+    height: 50vw;
     }
   }
 
