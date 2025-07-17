@@ -1,46 +1,54 @@
-<div class="contact-background" data-aos="zoom-in-up">
-    <img src="./assets/img/header_news.png" alt="" class="img-logo-main">
+<div class="row">
+    <div class="contact-background" data-aos="fade-in">
+        <img class="img-logo-main" src="./assets/img/header_donate.png" alt="">
+    </div>
 </div>
-<div class="vertical">
-    <div class="news-section">
-        <div class="section-header">
-            <h3>{{ 'newsAndEvent' | translate }}</h3>
+
+<div class="row">
+    <div class="wizard-steps">
+        <div class="step active" data-aos="zoom-in">
+            <div class="circle">1</div>
+            <p>บริจาค</p>
         </div>
-        <div class="news-highlight" data-aos="zoom-in">
-            <div class="card-highlight" *ngFor="let item of newsHighlight.slice(0, 2)"
-                [routerLink]="['/newsdetail', item.code]">
-                <div class="card-image-highlight">
-                    <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
-                    <div class="image-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
-                    <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-                    <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
-                    </div>
-                    <div class="news-description" [innerHTML]="item.descriptionEN"
-                        *ngIf="translate.currentLang === 'en'"></div>
-                </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">2</div>
+            <p>ตรวจสอบข้อมูล</p>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">3</div>
+            <p>ยืนยันข้อมูล</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="payment-methods">
+        <h3>เลือกรูปแบบการชำระเงิน</h3>
+        <div class="payment-options">
+            <!-- QR Code -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'qr'" (click)="selectMethod('qr')">
+                <img [src]="selectedMethod === 'qr' ? './assets/img/icon_qr_selected.png' : './assets/img/icon_qr.png'"
+                    alt="QR Code" />
+                <span>QR Code</span>
+            </div>
+
+            <!-- โอนเงิน -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'bank'" (click)="selectMethod('bank')">
+                <img [src]="selectedMethod === 'bank' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
+                    alt="โอนเงิน" />
+                <span>โอนเงิน</span>
+            </div>
+
+            <!-- บัตรเครดิต -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'credit'" (click)="selectMethod('credit')">
+                <img [src]="selectedMethod === 'credit' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
+                    alt="บัตรเครดิต" />
+                <span>บัตรเครดิต</span>
             </div>
         </div>
 
-        <div class="news-container" data-aos="fade-right">
-            <div class="card-news" *ngFor="let item of newsList" [routerLink]="['/newsdetail', item.code]">
-                <div class="card-image">
-                    <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
-                    <div class="image-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <span class="news-date">{{ formatThaiDate(item.createDate) }} | {{item.createBy}}</span>
-                    <h4 class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-                    <h4 class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-                    <div class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
-                    </div>
-                    <div class="news-description" [innerHTML]="item.descriptionEN"
-                        *ngIf="translate.currentLang === 'en'"></div>
-                </div>
-            </div>
-        </div>
+        <button class="btn-next">ถัดไป</button>
     </div>
 </div>

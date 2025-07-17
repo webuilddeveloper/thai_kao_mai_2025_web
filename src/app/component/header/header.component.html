@@ -25,7 +25,7 @@
         </div>
 
         <a routerLink="./product-and-service">{{ 'membership' | translate }}</a>
-        <a routerLink="./product-and-service">{{ 'donate' | translate }}</a>
+        <a routerLink="./donate">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
 
@@ -81,7 +81,7 @@
     <div class="sub-menu-nav" [class.open]="isOpenNav">
       <a (click)="closeHam()" routerLink="./home">{{ 'home' | translate }}</a>
       <a (click)="closeHam()" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
+      <a (click)="closeHam()" routerLink="./donate">{{ 'productAndService' | translate }}</a>
       <a (click)="closeHam()" routerLink="./about">{{ 'aboutMe' | translate }}</a>
       <a (click)="closeHam()" routerLink="./contact">{{ 'contactUs' | translate }}</a>
     </div>
