@@ -11,6 +11,7 @@ export class RegisterFormComponent {
   previewSlipUrl: string | null = null;
   textToCopy: string = '';
   copySuccess = false;
+  isModalOpen = false;
 
   onFileProfileSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0];
@@ -59,6 +60,14 @@ export class RegisterFormComponent {
     } else {
       alert('เบราว์เซอร์ไม่รองรับการคัดลอก');
     }
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 
 }

@@ -9,6 +9,7 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class RegisterMemberComponent implements OnInit {
+  isModalOpen = false;
   constructor(
     private serviceProvider: ServiceProvider,
     public translate: TranslateService
@@ -16,6 +17,14 @@ export class RegisterMemberComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 
 }
