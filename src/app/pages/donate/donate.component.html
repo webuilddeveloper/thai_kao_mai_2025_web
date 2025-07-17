@@ -8,38 +8,39 @@
 </div>
 
 <div class="row">
-    <div class="wizard-steps">
+  <div class="wizard-steps">
 
-        <!-- Step 1 -->
-        <div class="step" [ngClass]="{
-        'active': step === 1,
-        'completed': step > 1
-      }">
-            <div class="circle">1</div>
-            <p>บริจาค</p>
-        </div>
-
-        <div class="line"></div>
-
-        <!-- Step 2 -->
-        <div class="step" [ngClass]="{
-        'active': step === 2,
-        'completed': step > 2
-      }">
-            <div class="circle">2</div>
-            <p>ตรวจสอบข้อมูล</p>
-        </div>
-
-        <div class="line"></div>
-
-        <!-- Step 3 -->
-        <div class="step" [ngClass]="{ 'active': step === 3 }">
-            <div class="circle">3</div>
-            <p>ยืนยันข้อมูล</p>
-        </div>
-
+    <!-- Step 1 -->
+    <div class="step" [ngClass]="{
+      'active': step >= 1
+    }">
+      <div class="circle">1</div>
+      <p>บริจาค</p>
     </div>
+
+    <div class="line"></div>
+
+    <!-- Step 2 -->
+    <div class="step" [ngClass]="{
+      'active': step >= 2
+    }">
+      <div class="circle">2</div>
+      <p>ตรวจสอบข้อมูล</p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Step 3 -->
+    <div class="step" [ngClass]="{
+      'active': step >= 3
+    }">
+      <div class="circle">3</div>
+      <p>ยืนยันข้อมูล</p>
+    </div>
+
+  </div>
 </div>
+
 
 
 <div class="row payment-section" *ngIf="!showForm && step === 1">
@@ -199,7 +200,16 @@
 
         <div class="form-actions">
             <button class="btn-back" (click)="goToStep(2)">ย้อนกลับ</button>
-            <button class="btn-next" >เสร็จสิ้น</button>
+            <button class="btn-next" (click)="completeDonation()">เสร็จสิ้น</button>
         </div>
     </div>
+</div>
+
+
+<div class="row payment-section" *ngIf="step === 4">
+  <div class="thank-you-section">
+    <img src="./assets/img/thankyou-icon.png" alt="ขอบคุณ" class="thank-you-icon" />
+    <h2>ขอบคุณสำหรับการบริจาค</h2>
+    <p>ระบบได้รับข้อมูลเรียบร้อยแล้ว<br />ท่านสามารถปิดหน้านี้ได้เลย</p>
+  </div>
 </div>

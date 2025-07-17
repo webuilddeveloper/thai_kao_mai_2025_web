@@ -56,4 +56,8 @@ export class DonateComponent {
 
 
   qrImageUrl: string = './assets/img/QR2.png'; // เปลี่ยนเป็น dynamic URL ได้ในอนาคต
+
+  completeDonation() {
+    this.goToStep(4); // ไป step 4 แสดงหน้าขอบคุณ
+  }
 }
