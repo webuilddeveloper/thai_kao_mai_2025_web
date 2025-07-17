@@ -121,3 +121,21 @@
   height: 35vw;
   object-fit: fill;
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .highlight-boxes {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .highlight-boxes {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight-boxes {
+    flex-direction: column;
+  }
+}

@@ -174,3 +174,97 @@ h2 {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.header-container {
+  /* --- 1. กำหนดตำแหน่งและพื้นหลัง --- */
+  position: relative;
+  /* ตั้งเป็นจุดอ้างอิงให้ element ภายใน */
+  height: 400px;
+  /* กำหนดความสูงของ header (ปรับค่าได้ตามต้องการ) */
+  background-image: url('/assets/img/header_page.png');
+  /* <<<<<<< เปลี่ยนเป็น path รูปของคุณ */
+
+  /* --- 2. ตั้งค่าการแสดงผลของรูปพื้นหลัง --- */
+  background-size: cover;
+  /* ทำให้รูปภาพเต็มพื้นที่เสมอ (อาจโดนตัดบางส่วน) */
+  background-position: center;
+  /* จัดให้รูปอยู่ตรงกลาง */
+  background-repeat: no-repeat;
+  /* ไม่ต้องแสดงภาพซ้ำ */
+
+  /* --- 3. ใช้ Flexbox เพื่อจัดข้อความให้อยู่กึ่งกลางเป๊ะๆ --- */
+  display: flex;
+  justify-content: center;
+  /* จัดให้อยู่กึ่งกลางแนวนอน */
+  align-items: center;
+  /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  text-align: center;
+  /* จัดให้ตัวหนังสือในกล่องอยู่กลาง */
+  color: white;
+  /* กำหนดสีตัวอักษรเริ่มต้นเป็นสีขาว */
+}
+
+/* ตกแต่งข้อความหัวเรื่องหลัก (h1) */
+.header-text h1 {
+  font-size: 3.5rem;
+  /* ขนาดตัวอักษร (ปรับได้) */
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  /* ลบ margin บน-ซ้าย-ขวา และเพิ่ม margin ด้านล่างเล็กน้อย */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  /* << เพิ่มเงาให้ข้อความ อ่านง่ายขึ้น */
+}
+
+/* ตกแต่งข้อความรอง (p) หรือ Breadcrumb */
+.header-text p {
+  font-size: 1.1rem;
+  /* ขนาดตัวอักษร (ปรับได้) */
+  margin: 0;
+  letter-spacing: 1px;
+  /* เพิ่มระยะห่างระหว่างตัวอักษร */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  /* << เพิ่มเงาให้ข้อความ */
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header-text h1 {
+    font-size: 3rem;
+  }
+
+  .header-text p {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .header-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .header-text p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-text h1 {
+    font-size: 2.1rem;
+  }
+
+  .header-text p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .header-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-text p {
+    font-size: 0.8rem;
+  }
+}

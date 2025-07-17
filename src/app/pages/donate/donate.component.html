@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="contact-background" data-aos="fade-in">
+        <img class="img-logo-main" src="./assets/img/header_donate.png" alt="">
+    </div>
+</div>
+
+<div class="row">
+    <div class="wizard-steps">
+        <div class="step active" data-aos="zoom-in">
+            <div class="circle">1</div>
+            <p>บริจาค</p>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">2</div>
+            <p>ตรวจสอบข้อมูล</p>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-aos="zoom-in">
+            <div class="circle">3</div>
+            <p>ยืนยันข้อมูล</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="payment-methods">
+        <h3>เลือกรูปแบบการชำระเงิน</h3>
+        <div class="payment-options">
+            <!-- QR Code -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'qr'" (click)="selectMethod('qr')">
+                <img [src]="selectedMethod === 'qr' ? './assets/img/icon_qr_selected.png' : './assets/img/icon_qr.png'"
+                    alt="QR Code" />
+                <span>QR Code</span>
+            </div>
+
+            <!-- โอนเงิน -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'bank'" (click)="selectMethod('bank')">
+                <img [src]="selectedMethod === 'bank' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
+                    alt="โอนเงิน" />
+                <span>โอนเงิน</span>
+            </div>
+
+            <!-- บัตรเครดิต -->
+            <div class="payment-option" [class.selected]="selectedMethod === 'credit'" (click)="selectMethod('credit')">
+                <img [src]="selectedMethod === 'credit' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
+                    alt="บัตรเครดิต" />
+                <span>บัตรเครดิต</span>
+            </div>
+        </div>
+
+        <button class="btn-next">ถัดไป</button>
+    </div>
+</div>

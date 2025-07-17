@@ -46,8 +46,9 @@ export class FirstComponent {
       case 'register':
         // this.router.navigate(['/register']);
         break;
-      case 'support':
-        // this.router.navigate(['/support']);
+      case 'donate':
+        localStorage.setItem("isShow", "true");
+        this.router.navigate(['/donate']);
         break;
     }
   }
