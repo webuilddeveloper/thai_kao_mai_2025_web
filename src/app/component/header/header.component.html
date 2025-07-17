@@ -1,11 +1,20 @@
-<div *ngIf="isShow == 'true'" class="div-header d-none d-lg-block" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+<div *ngIf="isShow == 'true'" class="div-header d-none d-lg-block"
+  [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
   <div class="header">
     <div class="content-header">
-      <a routerLink="" class="div-logo-header"  data-aos="fade-down" data-aos-duration="1000"><img src="./assets/img/logo-full-c2.png" alt="" class="logo-header"></a>
+      <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
+          src="./assets/img/logo-full-c2.png" alt="" class="logo-header"></a>
       <div class="menu-group" data-aos="fade-down" data-aos-duration="1000">
-        <a routerLink="" >{{ 'home' | translate }}</a>
-        <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-        <div class="menu-with-sub">
+        <a routerLink="./home">{{ 'home' | translate }}</a>
+        <div class="menu-with-sub pointer">
+          <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+          <div class="sub-menu ">
+            <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+            <a routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a>
+          </div>
+        </div>
+
+        <div class="menu-with-sub pointer">
           <a routerLink="#">{{ 'aboutMe' | translate }}</a>
           <div class="sub-menu">
             <a routerLink="./ideology">อุดมการณ์ของพรรค</a>
@@ -39,10 +48,13 @@
 </div>
 <!-- [ngStyle]="{'position': scrollPosition ? 'fixed' : position}" -->
 
-<div *ngIf="isShow == 'true'" class="div-header d-block d-lg-none" [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
+<div *ngIf="isShow == 'true'" class="div-header d-block d-lg-none"
+  [ngStyle]="{'position': scrollPosition ? 'fixed' : position}">
   <div class="header">
     <div class="content-header">
-      <img src="./assets/img/logo-full-c2.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="300">
+      <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
+          src="./assets/img/logo-full-c2.png" alt="" class="logo-header" data-aos="fade-down"
+          data-aos-duration="300"></a>
       <div class="action-right">
 
         <!-- <div class="dropdown-container">
@@ -57,16 +69,17 @@
           </div>
         </div> -->
         <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600">
-        <img src="./assets/icons/icon-hamburger.png" alt="" class="logo-header" (click)="openHam()" data-aos="fade-down" data-aos-duration="800">
+        <img src="./assets/icons/icon-hamburger.png" alt="" class="logo-header" (click)="openHam()" data-aos="fade-down"
+          data-aos-duration="800">
       </div>
 
     </div>
   </div>
 
-  <div class="div-sub-menu-nav" >
+  <div class="div-sub-menu-nav">
     <div class="backdrop" *ngIf="isOpenNav" (click)="closeHam()"></div>
     <div class="sub-menu-nav" [class.open]="isOpenNav">
-      <a (click)="closeHam()" routerLink="">{{ 'home' | translate }}</a>
+      <a (click)="closeHam()" routerLink="./home">{{ 'home' | translate }}</a>
       <a (click)="closeHam()" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
       <a (click)="closeHam()" routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
       <a (click)="closeHam()" routerLink="./about">{{ 'aboutMe' | translate }}</a>
@@ -78,4 +91,3 @@
 </div>
 <!-- <div  [ngStyle]="{'margin-bottom': scrollPosition ? '12px' : '0'}">&nbsp;</div> -->
 <div *ngIf="isActiveMarginBTM" [ngStyle]="{'margin-bottom': scrollPosition ? '82px' : '0'}"></div>
-
