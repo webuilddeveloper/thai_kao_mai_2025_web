@@ -14,6 +14,8 @@ import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'ideology', component: IdeologyComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'event-calendar', component: EventCalendarComponent },
+  { path: 'event-calendar-detail/:code', component: EventCalendarDetailComponent },
 
 
 ];
