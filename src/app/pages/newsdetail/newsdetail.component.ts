@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
@@ -87,8 +87,9 @@ export class NewsDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private serviceProvider: ServiceProvider,
-    public translate: TranslateService
-  ) {}
+    public translate: TranslateService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code')!;
@@ -129,5 +130,9 @@ export class NewsDetailComponent implements OnInit {
     return `${date.getDate()} ${
       thaiMonths[date.getMonth()]
     } ${date.getFullYear()}`;
+  }
+
+  goBack() {
+    this.router.navigate(['/news']);
   }
 }

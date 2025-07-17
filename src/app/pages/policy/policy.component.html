@@ -1,11 +1,26 @@
-<div class="contact-background" data-aos="zoom-in-up">
-    <img src="./assets/img/header_news.png" alt="" class="img-logo-main">
+<div class="header-container" data-aos="zoom-in-up">
+    <div class="header-text">
+        <h1>เกี่ยวกับพรรค</h1>
+        <p>หน้าแรก // เกี่ยวกับพรรค // <span style="color: #F4ED17;">นโยบาย</span></p>
+    </div>
 </div>
-<div class="vertical">
-    <div class="news-section">
-        <div class="section-header">
-            <h3>{{ 'newsAndEvent' | translate }}</h3>
+<div class="policy-section">
+    <div class="section-header" data-aos="fade-left">
+        <h2>นโยบายพรรคไทยก้าวใหม่</h2>
+        <div class="underline"></div>
+    </div>
+    <div data-aos="fade-right">
+        <div *ngFor="let policy of policies; let i = index" class="policy-box">
+            <div class="image-wrapper">
+                <img [src]="policy.imageUrl" alt="policy image" />
+            </div>
+            <div class="text-wrapper">
+                <h3>{{ policy.title }}</h3>
+                <p>{{ policy.description }}</p>
+                <button class="more-btn" (click)="goToDetail(policy)">
+                    ดูเพิ่มเติม <span class="arrow">→</span>
+                </button>
+            </div>
         </div>
-       
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
@@ -199,12 +199,18 @@ export class EventCalendarDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private serviceProvider: ServiceProvider,
-    public translate: TranslateService
+    public translate: TranslateService,
+        private router: Router,
+    
   ) {}
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code')!;
 
     this.newsDetail = this.modelDataList.find((f) => f.code == this.code);
+  }
+
+  goBack() {
+    this.router.navigate(['/event-calendar']);
   }
 }

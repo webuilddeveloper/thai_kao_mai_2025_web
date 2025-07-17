@@ -20,6 +20,7 @@ import { EventCalendarDetailComponent } from './pages/event-calendar-detail/even
 import { DonateComponent } from './pages/donate/donate.component';
 import { PolicyComponent } from './pages/policy/policy.component';
 import { RegisterMemberComponent } from './pages/register-member/register-member.component';
+import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -47,10 +48,12 @@ const routes: Routes = [
   { path: 'donate', component: DonateComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'register-member', component: RegisterMemberComponent },
+  { path: 'policy-detail', component: PolicyDetailComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
