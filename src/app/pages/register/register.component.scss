@@ -67,3 +67,36 @@ li {
   width: fit-content;
   min-width: 400px;
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .div-main {
+    padding: 50px;
+  }
+
+  .div-content {
+    padding: 40px;
+  }
+
+  .head-title {
+    font-size: var(--font-30);
+  }
+}
+
+@media (max-width: 768px) {
+  .div-main {
+    padding: 20px;
+  }
+
+  .div-content {
+    padding: 30px;
+  }
+
+  .head-title {
+    font-size: var(--font-30);
+  }
+
+  .btn-main {
+    width: -webkit-fill-available;
+    min-width: -webkit-fill-available;
+  }
+}
