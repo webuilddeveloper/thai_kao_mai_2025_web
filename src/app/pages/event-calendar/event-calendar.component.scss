@@ -1,0 +1,803 @@
+/* === Header with Text Overlay === */
+
+.header-container {
+  /* --- 1. กำหนดตำแหน่งและพื้นหลัง --- */
+  position: relative;
+  /* ตั้งเป็นจุดอ้างอิงให้ element ภายใน */
+  height: 400px;
+  /* กำหนดความสูงของ header (ปรับค่าได้ตามต้องการ) */
+  background-image: url('/assets/img/header_page.png');
+  /* <<<<<<< เปลี่ยนเป็น path รูปของคุณ */
+
+  /* --- 2. ตั้งค่าการแสดงผลของรูปพื้นหลัง --- */
+  background-size: cover;
+  /* ทำให้รูปภาพเต็มพื้นที่เสมอ (อาจโดนตัดบางส่วน) */
+  background-position: center;
+  /* จัดให้รูปอยู่ตรงกลาง */
+  background-repeat: no-repeat;
+  /* ไม่ต้องแสดงภาพซ้ำ */
+
+  /* --- 3. ใช้ Flexbox เพื่อจัดข้อความให้อยู่กึ่งกลางเป๊ะๆ --- */
+  display: flex;
+  justify-content: center;
+  /* จัดให้อยู่กึ่งกลางแนวนอน */
+  align-items: center;
+  /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  text-align: center;
+  /* จัดให้ตัวหนังสือในกล่องอยู่กลาง */
+  color: white;
+  /* กำหนดสีตัวอักษรเริ่มต้นเป็นสีขาว */
+}
+
+/* ตกแต่งข้อความหัวเรื่องหลัก (h1) */
+.header-text h1 {
+  font-size: 3.5rem;
+  /* ขนาดตัวอักษร (ปรับได้) */
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  /* ลบ margin บน-ซ้าย-ขวา และเพิ่ม margin ด้านล่างเล็กน้อย */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  /* << เพิ่มเงาให้ข้อความ อ่านง่ายขึ้น */
+}
+
+/* ตกแต่งข้อความรอง (p) หรือ Breadcrumb */
+.header-text p {
+  font-size: 1.1rem;
+  /* ขนาดตัวอักษร (ปรับได้) */
+  margin: 0;
+  letter-spacing: 1px;
+  /* เพิ่มระยะห่างระหว่างตัวอักษร */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  /* << เพิ่มเงาให้ข้อความ */
+}
+
+.img-logo-main {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+
+.vertical {
+  margin: 0 5%;
+  padding: 50px 0;
+}
+
+.news-section {
+  // max-width: 1400px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.section-header {
+  text-align: left;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.section-header h3 {
+  font-size: var(--font-36, 36px);
+  font-weight: 600;
+  font-family: var(--font-family-prompt);
+  color: var(--nevy);
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h3::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--nevy) 0%, var(--main) 100%);
+  border-radius: 2px;
+}
+
+.news-highlight {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 32px;
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  // border: 1px solid rgba(81, 171, 79, 0.12);
+
+  overflow-wrap: break-word;
+}
+
+.card-highlight {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+  height: 600px;
+
+}
+
+.card-highlight:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(var(--main-rgb, 107, 194, 105), 0.3);
+}
+
+.card-image-highlight {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  // background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  // padding: 40px;
+  // box-shadow: 0 12px 40px rgba(81, 171, 79, 0.15);
+  // border: 1px solid rgba(81, 171, 79, 0.12);
+
+  overflow-wrap: break-word;
+  margin-top: 50px;
+}
+
+.card-news {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 100%;
+}
+
+.card-news:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(var(--main-rgb, 107, 194, 105), 0.3);
+}
+
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-news:hover .news-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-news:hover .image-overlay {
+  opacity: 1;
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.news-date {
+  font-size: var(--font-14, 20px);
+  font-family: var(--font-family-prompt);
+  color: var(--black);
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  opacity: 0.5;
+}
+
+
+.news-title {
+  font-size: var(--font-20, 20px);
+  font-weight: 600;
+  font-family: var(--font-family-prompt);
+  color: var(--black);
+  line-height: 1.4;
+  margin: 10px 0 12px 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2em;
+  /* เพื่อให้ card มีความสูงคงที่ */
+}
+
+.news-description {
+  font-family: var(--font-family-prompt);
+  font-size: var(--font-14, 14px);
+  color: var(--article-text, #666);
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 4.5em;
+  /* เพื่อให้ card มีความสูงคงที่ */
+}
+
+/* Responsive Design */
+@media (min-width: 1200px) {
+  .news-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .news-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .vertical {
+    margin: 0 6%;
+  }
+
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card-image-highlight {
+    height: 180px;
+  }
+
+  .news-highlight {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-32, 32px);
+  }
+}
+
+@media (max-width: 767px) {
+  .vertical {
+    margin: 0 4%;
+    padding: 20px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-28, 28px);
+  }
+
+  .news-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .news-highlight {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-image-highlight {
+    height: 200px;
+  }
+
+  .card-highlight {
+    padding: 20px;
+  }
+
+  .news-title {
+    font-size: var(--font-18, 18px);
+  }
+
+  .news-description {
+    font-size: var(--font-13, 13px);
+  }
+}
+
+@media (max-width: 480px) {
+  .vertical {
+    margin: 0 3%;
+    padding: 16px 0;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-24, 24px);
+  }
+
+  .card-news {
+    border-radius: 16px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .news-title {
+    font-size: var(--font-16, 16px);
+    margin-bottom: 8px;
+  }
+
+  .news-description {
+    font-size: var(--font-12, 12px);
+  }
+}
+
+/* สำหรับ HTML content ใน description */
+.news-description ::ng-deep {
+  p {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  img {
+    display: none;
+    /* ซ่อนรูปใน description excerpt */
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* เพิ่มเฉพาะสิ่งที่จำเป็นสำหรับแก้ปัญหา scroll โดยไม่ทำลาย design */
+.scroll-fix {
+  overflow-anchor: none;
+  /* ป้องกัน scroll jumping */
+}
+
+/* สำหรับกรณีที่มี content ยาวมากๆ */
+.long-content {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ถ้ายังมีปัญหา scroll ให้ใช้ class นี้กับ container */
+.force-scroll {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+
+// --- Main Layout ---
+.calendar-container {
+  display: flex;
+  font-family: var(--font-family-prompt);
+  width: 100%;
+  max-width: 900px;
+  min-height: 450px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  margin-top: -75px;
+}
+
+// --- Left Schedule Panel ---
+.schedule-panel {
+  background-color: #e8de02;
+  color: #0c0c28;
+  padding: 2.5rem;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .day {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    line-height: 1;
+  }
+
+  .month-year {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.schedule-details {
+  .schedule-header {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-item,
+  .schedule-item-empty {
+    background-color: #f7f052;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// --- Right Calendar Panel ---
+.calendar-panel {
+  background-color: #2e2e4b;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  width: 65%;
+}
+
+// --- Angular Material Calendar Customization ---
+
+/* Header */
+.mat-calendar-header {
+  padding: 0;
+  color: white;
+}
+
+.mat-calendar-controls {
+  margin: 0 0 1.5rem 0;
+}
+
+.mat-calendar-period-button {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mat-icon-button {
+  color: #fff;
+}
+
+/* Table */
+.mat-calendar-table-header {
+  color: #a0a0c0;
+  font-weight: 600;
+}
+
+/* Day Cells */
+.mat-calendar-body-cell {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  color: #fff;
+
+  .mat-calendar-body-cell-content {
+    color: #fff;
+  }
+}
+
+/* Selected Date */
+.mat-calendar-body-active {
+  background-color: transparent !important;
+  border: 2px solid #fff;
+  color: #fff !important;
+}
+
+/* Highlighted Date */
+.highlight-date {
+  background-color: #e8de02 !important;
+  border-radius: 50% !important;
+
+  .mat-calendar-body-cell-content {
+    color: #2e2e4b !important;
+    font-weight: 700;
+  }
+}
+
+/* Today's Date - remove default outline */
+.mat-calendar-body-today {
+  border: none !important;
+}
+
+/* เพิ่มโค้ดส่วนนี้เพื่อปรับแต่งฟอนต์และสี */
+
+// เปลี่ยนฟอนต์และสีของ "ตัวเลขวันที่" ทั้งหมด
+.mat-calendar-body-cell-content {
+  font-family: var(--font-family-prompt);
+  color: #FFFFFF; // <-- เปลี่ยนสีตัวเลขวันที่ (เช่น สีขาว)
+  font-weight: 500; // เพิ่มความหนา
+}
+
+// เปลี่ยนสีของ "วันในสัปดาห์" (SUN, MON, TUE...)
+.mat-calendar-table-header th {
+  color: #a0a0c0; // <-- เปลี่ยนสีตัวอักษรของวันในสัปดาห์
+  font-family: var(--font-family-prompt);
+}
+
+// เปลี่ยนสีของ "เดือนและปี" ด้านบน
+.mat-calendar-period-button {
+  color: #FFFFFF; // <-- เปลี่ยนสีเดือนและปี
+  font-family: var(--font-family-prompt);
+}
+
+// พิเศษ: เปลี่ยนสี "วันที่ถูกเลือก" ให้เด่นขึ้น
+.mat-calendar-body-active>.mat-calendar-body-cell-content {
+  color: #000000; // สีตัวเลขของวันที่ถูกเลือก (เช่น สีดำ)
+  background-color: #FFFFFF; // สีพื้นหลังของวันที่ถูกเลือก (เช่น สีขาว)
+  border-radius: 50%;
+}
+
+// เปลี่ยนสีของ "เดือนและปี" ด้านบน
+.mat-calendar-period-button {
+  color: #FFFFFF !important; // <-- เพิ่ม !important เข้าไปตรงนี้
+}
+
+.mat-calendar-table-header,
+.mat-calendar-body-label {
+  color: #FFFFFF !important;
+}
+
+/* ใช้ ::ng-deep เพื่อให้ style เข้าถึง element ภายในของ MatCalendar ได้ */
+::ng-deep .highlight-date .mat-calendar-body-cell-content {
+  background-color: #007bff;
+  /* สีไฮไลท์ (ตัวอย่าง: สีน้ำเงิน) */
+  border-radius: 50%;
+  /* ทำให้เป็นวงกลม */
+  color: white;
+  /* สีตัวอักษร */
+  font-weight: bold;
+}
+
+
+@media (min-width: 1200px) {
+  .news-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .news-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .header-text h1 {
+    font-size: 3rem;
+  }
+
+  .header-text p {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .vertical {
+    margin: 0 6%;
+  }
+
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card-image-highlight {
+    height: 180px;
+  }
+
+  .news-highlight {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-32, 32px);
+  }
+
+  .calendar-container {
+    width: 80%;
+  }
+
+  .calendar-panel {
+    width: 100%;
+  }
+
+  .schedule-panel {
+    width: 100%;
+  }
+
+
+  .header-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .header-text p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .vertical {
+    margin: 0 4%;
+    padding: 20px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-28, 28px);
+  }
+
+  .news-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .news-highlight {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-image-highlight {
+    height: 200px;
+  }
+
+  .card-highlight {
+    padding: 20px;
+  }
+
+  .news-title {
+    font-size: var(--font-18, 18px);
+  }
+
+  .news-description {
+    font-size: var(--font-13, 13px);
+  }
+
+  .calendar-container {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .calendar-panel {
+    width: 100%;
+  }
+
+  .schedule-panel {
+    width: 100%;
+  }
+
+  .header-text h1 {
+    font-size: 2.1rem;
+  }
+
+  .header-text p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vertical {
+    margin: 0 3%;
+    padding: 16px 0;
+  }
+
+  .section-header h3 {
+    font-size: var(--font-24, 24px);
+  }
+
+  .card-news {
+    border-radius: 16px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .news-title {
+    font-size: var(--font-16, 16px);
+    margin-bottom: 8px;
+  }
+
+  .news-description {
+    font-size: var(--font-12, 12px);
+  }
+
+  .calendar-container {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .calendar-panel {
+    width: 100%;
+  }
+
+  .schedule-panel {
+    width: 100%;
+  }
+
+  .header-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-text p {
+    font-size: 0.8rem;
+  }
+}
