@@ -37,6 +37,7 @@ import { DonateComponent } from './pages/donate/donate.component';
 
 import { PolicyComponent } from './pages/policy/policy.component';
 import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
+import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -68,7 +69,8 @@ registerLocaleData(localeTh);
     EventCalendarComponent,
     EventCalendarDetailComponent,
     DonateComponent,
-    PolicyComponent
+    PolicyComponent,
+    RegisterMemberComponent
   ],
   imports: [
     BrowserModule,

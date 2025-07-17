@@ -23,13 +23,15 @@
             <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
           </div>
         </div>
-        <div class="menu-with-sub">
-          <a routerLink="#">{{ 'membership' | translate }}</a>
+        <div class="menu-with-sub pointer">
+          <a>{{ 'membership' | translate }}</a>
           <div class="sub-menu">
-            <a routerLink="./register">สมัครสมาชิกพรรค</a>
-            <a routerLink="#">เข้าสู่ระบบสมาชิก</a>
+            <a routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
+            <a routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
+          </div>
+        </div>
 
-        <a routerLink="./register">{{ 'membership' | translate }}</a>
+
         <a routerLink="./donate">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
@@ -112,7 +114,17 @@
           </ul>
         </li>
 
-        <li><a (click)="closeHam()" routerLink="./register">{{ 'membership' | translate }}</a></li>
+        <li class="has-submenu" [class.open]="activeSubMenu === 'membership'">
+          <a (click)="toggleSubMenu('membership')">
+            {{ 'membership' | translate }}
+            <span class="arrow-down"></span>
+          </a>
+          <ul class="submenu">
+            <li><a (click)="closeHam()" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a></li>
+          </ul>
+        </li>
+
         <li><a (click)="closeHam()" routerLink="./donate">{{ 'donate' | translate }}</a></li>
         <li><a (click)="closeHam()" routerLink="./contact">{{ 'contactUs' | translate }}</a></li>
       </ul>
