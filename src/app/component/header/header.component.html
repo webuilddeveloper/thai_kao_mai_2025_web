@@ -14,8 +14,14 @@
             <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
           </div>
         </div>
+        <div class="menu-with-sub">
+          <a routerLink="#">{{ 'membership' | translate }}</a>
+          <div class="sub-menu">
+            <a routerLink="./register">สมัครสมาชิกพรรค</a>
+            <a routerLink="#">เข้าสู่ระบบสมาชิก</a>
 
-        <a routerLink="./product-and-service">{{ 'membership' | translate }}</a>
+          </div>
+        </div>
         <a routerLink="./product-and-service">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
@@ -68,8 +74,9 @@
     <div class="sub-menu-nav" [class.open]="isOpenNav">
       <a (click)="closeHam()" routerLink="">{{ 'home' | translate }}</a>
       <a (click)="closeHam()" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-      <a (click)="closeHam()" routerLink="./product-and-service">{{ 'productAndService' | translate }}</a>
       <a (click)="closeHam()" routerLink="./about">{{ 'aboutMe' | translate }}</a>
+      <a (click)="closeHam()" routerLink="./register">{{ 'membership' | translate }}</a>
+      <a (click)="closeHam()" routerLink="./product-and-service">{{ 'donate' | translate }}</a>
       <a (click)="closeHam()" routerLink="./contact">{{ 'contactUs' | translate }}</a>
     </div>
   </div>

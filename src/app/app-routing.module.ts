@@ -14,6 +14,7 @@ import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RegisterFormComponent } from './pages/register-form/register-form.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'ideology', component: IdeologyComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'register-form', component: RegisterFormComponent },
 
 
 ];

@@ -25,6 +25,7 @@ import { IdeologyComponent } from './pages/ideology/ideology.component';
 import { FirstComponent } from './pages/first/first.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RegisterFormComponent } from './pages/register-form/register-form.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,7 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     IdeologyComponent,
     FirstComponent,
     HistoryComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
