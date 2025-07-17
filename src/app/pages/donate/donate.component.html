@@ -9,24 +9,40 @@
 
 <div class="row">
     <div class="wizard-steps">
-        <div class="step active" data-aos="zoom-in">
+
+        <!-- Step 1 -->
+        <div class="step" [ngClass]="{
+        'active': step === 1,
+        'completed': step > 1
+      }">
             <div class="circle">1</div>
             <p>บริจาค</p>
         </div>
+
         <div class="line"></div>
-        <div class="step" data-aos="zoom-in">
+
+        <!-- Step 2 -->
+        <div class="step" [ngClass]="{
+        'active': step === 2,
+        'completed': step > 2
+      }">
             <div class="circle">2</div>
             <p>ตรวจสอบข้อมูล</p>
         </div>
+
         <div class="line"></div>
-        <div class="step" data-aos="zoom-in">
+
+        <!-- Step 3 -->
+        <div class="step" [ngClass]="{ 'active': step === 3 }">
             <div class="circle">3</div>
             <p>ยืนยันข้อมูล</p>
         </div>
+
     </div>
 </div>
 
-<div class="row"*ngIf="!showForm">
+
+<div class="row payment-section" *ngIf="!showForm && step === 1">
     <div class="payment-methods">
         <h3>เลือกรูปแบบการชำระเงิน</h3>
         <div class="payment-options">
@@ -55,40 +71,135 @@
         <!-- ปุ่มถัดไป -->
         <button class="btn-next" (click)="showForm = true">ถัดไป</button>
 
-        
-
     </div>
 </div>
 
 
-<div class="row" *ngIf="showForm">
-    <!-- แบบฟอร์มใบเสร็จ (จะปรากฏเมื่อ showForm = true) -->
-        <div  class="receipt-form">
-            <h3>ข้อมูลใบเสร็จรับเงิน</h3>
+<div class="row payment-section" *ngIf="showForm && step === 1">
 
-            <!-- ปุ่มเลือกประเภท -->
-            <div class="form-type-toggle">
-                <button [class.active]="formType === 'person'" (click)="formType = 'person'">บุคคล</button>
-                <button [class.active]="formType === 'org'" (click)="formType = 'org'">นิติบุคคล</button>
+    <div class="donation-amount">
+        <h3>เลือกจำนวนเงิน</h3>
+        <div class="amount-options">
+            <button *ngFor="let amount of presetAmounts" [class.selected]="selectedAmount === amount"
+                (click)="selectAmount(amount)">
+                {{ amount | number }} บาท
+            </button>
+            <input type="number" placeholder="กรุณาระบุจำนวนเงิน" [(ngModel)]="customAmount"
+                (focus)="selectAmount(null)" />
+        </div>
+    </div>
+
+    <div class="receipt-form">
+        <h3>ข้อมูลใบเสร็จรับเงิน</h3>
+
+        <!-- ปุ่มเลือกประเภท -->
+        <div class="form-type-toggle">
+            <button [class.active]="formType === 'person'" (click)="formType = 'person'">บุคคล</button>
+            <button [class.active]="formType === 'org'" (click)="formType = 'org'">นิติบุคคล</button>
+        </div>
+
+        <form>
+            <div class="form-row">
+                <input type="text" placeholder="ชื่อจริง*" required />
+                <input type="text" placeholder="นามสกุล*" required />
+            </div>
+            <div class="form-row">
+                <!-- <input type="email" placeholder="อีเมล*" required />
+                <input type="tel" placeholder="เบอร์โทรศัพท์*" required /> -->
+
+                <input type="email" [(ngModel)]="email" placeholder="อีเมล*" />
+                <input type="tel" [(ngModel)]="phone" placeholder="เบอร์โทรศัพท์*" />
+            </div>
+            <div class="form-note">
+                * หากต้องการใช้สิทธิลดหย่อนภาษีแบบ e-Donation กรุณากรอกเลขบัตรประชาชน
+            </div>
+            <div class="form-row">
+                <input type="text" placeholder="เลขบัตรประชาชน" />
             </div>
 
-            <!-- ฟอร์ม -->
-            <form>
-                <div class="form-row">
-                    <input type="text" placeholder="ชื่อจริง*" required />
-                    <input type="text" placeholder="นามสกุล*" required />
+            <!-- ปุ่มย้อนกลับ + ถัดไป -->
+            <div class="form-actions">
+                <button type="button" class="btn-back" (click)="showForm = false">ย้อนกลับ</button>
+                <button type="submit" class="btn-next" (click)="goToStep(2)">ถัดไป</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="step === 2">
+    <div class="row payment-section">
+        <div class="confirmation">
+            <h3>ตรวจสอบข้อมูลบริจาค</h3>
+
+            <div class="info-box">
+                <div class="icon-wrapper">
+                    <img src="./assets/img/icon_money.png" alt="ยอดเงิน" />
                 </div>
-                <div class="form-row">
-                    <input type="email" placeholder="อีเมล*" required />
-                    <input type="tel" placeholder="เบอร์โทรศัพท์*" required />
+
+                <div>
+                    <label>จำนวนเงินที่ต้องการบริจาค</label>
+                    <div>{{ selectedAmount || customAmount | number:'1.2-2' }} บาท</div>
                 </div>
-                <div class="form-note">
-                    * หากต้องการใช้สิทธิลดหย่อนภาษีแบบ e-Donation กรุณากรอกเลขบัตรประชาชน
+            </div>
+
+            <div class="info-box">
+                <div class="icon-wrapper">
+                    <img src="./assets/img/icon_phone.png" alt="ยอดเงิน" />
                 </div>
-                <div class="form-row">
-                    <input type="text" placeholder="เลขบัตรประชาชน" />
+                <div>
+                    <label>เบอร์โทรศัพท์</label>
+                    <div>{{ phone }}</div>
                 </div>
-                <button class="btn-next">ถัดไป</button>
-            </form>
+            </div>
+
+            <div class="info-box">
+                <div class="icon-wrapper">
+                    <img src="./assets/img/icon_email.png" alt="ยอดเงิน" />
+                </div>
+                <div>
+                    <label>อีเมลสำหรับติดต่อ</label>
+                    <div>{{ email }}</div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-back" (click)="goToStep(1)">ย้อนกลับ</button>
+                <button class="btn-next" (click)="goToStep(3)">ถัดไป</button>
+            </div>
         </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="row" *ngIf="step === 3">
+    <div class="qr-section payment-section">
+        
+        <!-- QR Code Content -->
+        <h3>กรุณาสแกน QR Code เพื่อบริจาคเงิน</h3>
+
+        <img class="logo-edonation" src="./assets/img/QR1.png" alt="e-donation" />
+
+        <div class="qr-wrapper">
+            <img class="qr-image" [src]="qrImageUrl" alt="QR Code" />
+        </div>
+
+        <div class="qr-instruction">
+            <strong>ท่านสามารถบริจาคเงินผ่าน QR Code ด้วย Mobile Banking ของธนาคารของท่าน</strong>
+            <ol>
+                <li>เลือกเมนูสแกน QR Code</li>
+                <li>สแกน QR Code ที่ปรากฏในหน้านี้ หรือ บันทึกรูปภาพ QR Code ลงเครื่องเพื่อทำการเลือกจากภาพแทนการสแกน
+                </li>
+                <li>ตรวจสอบความถูกต้องของยอดเงินและข้อมูลผู้รับ</li>
+                <li>เมื่อทำรายการเสร็จเรียบร้อย หน้าจอจะแสดงผลสำเร็จ</li>
+            </ol>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn-back" (click)="goToStep(2)">ย้อนกลับ</button>
+            <button class="btn-next" >เสร็จสิ้น</button>
+        </div>
+    </div>
 </div>

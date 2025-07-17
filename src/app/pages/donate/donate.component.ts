@@ -32,4 +32,28 @@ export class DonateComponent {
   selectMethod(method: string) {
     this.selectedMethod = method;
   }
+
+
+  presetAmounts: number[] = [2000, 1000, 500];
+  selectedAmount: number | null = 1000; // ค่าเริ่มต้น
+  customAmount: number | null = null;
+
+  selectAmount(amount: number | null) {
+    this.selectedAmount = amount;
+    if (amount !== null) {
+      this.customAmount = null;
+    }
+  }
+
+  step: number = 1;
+
+  goToStep(stepNumber: number) {
+    this.step = stepNumber;
+  }
+
+  phone: string = '';
+  email: string = '';
+
+
+  qrImageUrl: string = './assets/img/QR2.png'; // เปลี่ยนเป็น dynamic URL ได้ในอนาคต
 }
