@@ -1,9 +1,15 @@
+<div class="header-container" data-aos="zoom-in-up">
+  <div class="header-text">
+    <h1>ระบบสมาชิก ลงทะเบียนสมาชิกพรรค</h1>
+    <p>หน้าแรก // <span style="color: #F4ED17;">ลงทะเบียนสมาชิกพรรค</span></p>
+  </div>
+</div>
 <div class="main">
   <div class="div-main">
     <div class="div-content">
       <span class="head-title d-flex align-items-center">
         <a href="" class="d-flex no-underline"><i class="material-icons">arrow_back</i></a> &nbsp;&nbsp;
-        กรอกข้อมูลผู้สมัคร</span>
+        กรอกข้อมูลผู้ลงทะเบียน</span>
       <div class="spacer"></div>
       <div class="spacer"></div>
       <form action="">
@@ -84,9 +90,9 @@
         <div class="row row-form-gap">
           <div class="div-input col-lg-6 col-12">
             <span class="title">รูปถ่ายตนเอง</span>
-            <label for="" class="sub-label">รูปถ่ายตนเองพร้อมเอกสารยืนยันการสมัครที่เขียนข้อความ ข้าพเจ้า (ชื่อ -
-              นามสกุลผู้สมัคร)
-              มีความประสงค์สมัครสมาชิกพรรคไทยก้าวใหม่ *</label>
+            <label for="" class="sub-label">รูปถ่ายตนเองพร้อมเอกสารยืนยันการลงทะเบียนที่เขียนข้อความ ข้าพเจ้า (ชื่อ -
+              นามสกุลผู้ลงทะเบียน)
+              มีความประสงค์ลงทะเบียนสมาชิกพรรคไทยก้าวใหม่ *</label>
             <label class="div-file">
               <span *ngIf="previewProfileUrl == null">* กรุณาเลือกรูป</span>
               <div class="div-img-file" *ngIf="previewProfileUrl != null">
@@ -120,12 +126,12 @@
             <div class="radio-group">
               <div class="div-input-radio">
                 <input type="radio" id="subscribe1" name="subscribe" value="1" />
-                <label for="subscribe1">สมัครสมาชิกแบบรายเดือน (20 บาท/ปี)</label>
+                <label for="subscribe1">ลงทะเบียนสมาชิกแบบรายเดือน (20 บาท/ปี)</label>
               </div>
 
               <div class="div-input-radio">
                 <input type="radio" id="subscribe2" name="subscribe" value="2" />
-                <label for="subscribe2">สมัครสมาชิกตลอดชีพ (200 บาท)</label>
+                <label for="subscribe2">ลงทะเบียนสมาชิกตลอดชีพ (200 บาท)</label>
               </div>
             </div>
           </div>
@@ -152,7 +158,7 @@
 
           </div>
           <div class="div-input col-lg-6 col-12">
-            <span class="title">รูปภาพหลักฐานการโอนชำระเงินค่าสมัครสมาชิก</span>
+            <span class="title">รูปภาพหลักฐานการโอนชำระเงินค่าลงทะเบียนสมาชิก</span>
             <label class="div-file-slip">
               <span *ngIf="previewSlipUrl == null">* กรุณาเลือกรูป</span>
               <div class="div-img-file-slip" *ngIf="previewSlipUrl != null">
@@ -170,10 +176,10 @@
         <div class="row bs-x0 row-form-gap">
           <div class="div-checkbox">
             <input type="checkbox" name="" id="">
-            <span>การสมัครสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงิน
+            <span>การลงทะเบียนสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงิน
               ค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง
               พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริง
-              พรรคอาจปฏิเสธการสมัครเป็นสมาชิกพรรค ของข้าพเจ้าได้</span>
+              พรรคอาจปฏิเสธการลงทะเบียนเป็นสมาชิกพรรค ของข้าพเจ้าได้</span>
           </div>
           <div class="div-checkbox">
             <input type="checkbox" name="" id="">
@@ -181,7 +187,7 @@
               ข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่
               เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ
               และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ
-              และยืนยันตัวตนในการสมัครและเป็นหลักฐานในการสมัครสมาชิกพรรค</span>
+              และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค</span>
           </div>
         </div>
         <div class="spacer"></div>
@@ -193,8 +199,8 @@
 
       <div class="modal-backdrop" *ngIf="isModalOpen">
         <div class="modal-box">
-          <h2>สมัครสมาชิกสำเร็จ</h2>
-          <p>ขอบคุณสำหรับการสมัครสมาชิกเข้าร่วมพรรค</p>
+          <h2>ลงทะเบียนสมาชิกสำเร็จ</h2>
+          <p>ขอบคุณสำหรับการลงทะเบียนสมาชิกเข้าร่วมพรรคไทยก้าวใหม่</p>
           <button (click)="closeModal()" class="btn-main">กลับหน้าแรก</button>
         </div>
       </div>
