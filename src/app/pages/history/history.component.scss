@@ -45,7 +45,7 @@
         color: #666;
         line-height: 1.6;
         position: relative;
-        padding-left: 20px; 
+        padding-left: 20px;
 
         &::before {
           content: '';
@@ -88,17 +88,25 @@
             }
           }
 
-  p strong {
-    display: block;
-    font-size: 16px;
-    color: #111;
-    margin-bottom: 8px;
-  }
+          p strong {
+            display: block;
+            font-size: 16px;
+            color: #111;
+            margin-bottom: 8px;
+          }
 
 
         }
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
   }
 }
 

@@ -16,6 +16,7 @@ import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
 import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
+import { PolicyComponent } from './pages/policy/policy.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'event-calendar', component: EventCalendarComponent },
   { path: 'event-calendar-detail/:code', component: EventCalendarDetailComponent },
+  { path: 'policy', component: PolicyComponent },
 
 
 ];

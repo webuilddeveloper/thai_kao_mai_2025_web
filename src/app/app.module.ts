@@ -33,6 +33,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { EventCalendarDetailComponent } from './pages/event-calendar-detail/event-calendar-detail.component';
 
+import { PolicyComponent } from './pages/policy/policy.component';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
 }
@@ -60,6 +63,7 @@ registerLocaleData(localeTh);
     RegisterComponent,
     EventCalendarComponent,
     EventCalendarDetailComponent,
+    PolicyComponent
   ],
   imports: [
     BrowserModule,
