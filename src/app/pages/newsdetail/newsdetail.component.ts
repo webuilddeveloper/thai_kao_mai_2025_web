@@ -18,9 +18,9 @@ export class NewsDetailComponent implements OnInit {
         'Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.',
       date: '9 ก.ค. 2668',
       imageUrl:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       imageBanner:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       description:
         '<p>Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.</p>',
       createBy: 'editor1',
@@ -32,9 +32,9 @@ export class NewsDetailComponent implements OnInit {
         'Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.',
       date: '9 ก.ค. 2668',
       imageUrl:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       imageBanner:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       description:
         '<p>Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.</p>',
       createBy: 'editor1',
@@ -46,9 +46,9 @@ export class NewsDetailComponent implements OnInit {
         'Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.',
       date: '9 ก.ค. 2668',
       imageUrl:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       imageBanner:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       description:
         '<p>Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.</p>',
       createBy: 'editor1',
@@ -60,9 +60,9 @@ export class NewsDetailComponent implements OnInit {
         'Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.',
       date: '9 ก.ค. 2668',
       imageUrl:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       imageBanner:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       description:
         '<p>Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.</p>',
       createBy: 'editor1',
@@ -74,9 +74,9 @@ export class NewsDetailComponent implements OnInit {
         'Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.',
       date: '9 ก.ค. 2668',
       imageUrl:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       imageBanner:
-        'https://gateway.we-builds.com/tkm/#/assets/img/news_cover.webp',
+        'https://gateway.we-builds.com/tkm/assets/img/news_cover.webp',
       description:
         '<p>Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.</p>',
       createBy: 'editor1',
