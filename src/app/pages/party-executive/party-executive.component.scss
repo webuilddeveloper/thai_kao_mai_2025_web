@@ -324,13 +324,13 @@
 
   .title {
     font-size: 1.75 !important;
-    color: #000;
+    color: var(--nevy);
     margin-bottom: 5%;
   }
 
   .title-sub {
     font-size: 1.75 !important;
-    color: #000;
+    color: var(--nevy);
     margin-bottom: 2%;
   }
 
@@ -343,6 +343,27 @@
 
     &.center {
       justify-content: center;
+    }
+  }
+
+  .executive-card-header {
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    // background-color: var(--nevy);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+    }
+
+    @media (max-width: 768px) {
+      width: 170px;
+      height: 230px;
     }
   }
 
