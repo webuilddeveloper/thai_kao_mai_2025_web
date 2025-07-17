@@ -49,31 +49,31 @@ export class HomeComponent {
       code: "1",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/news-mock.png"
+      imageUrl: "./assets/img/news_cover.webp"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/news-mock.png"
+      imageUrl: "./assets/img/news_cover.webp"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/news-mock.png"
+      imageUrl: "./assets/img/news_cover.webp"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/news-mock.png"
+      imageUrl: "./assets/img/news_cover.webp"
     },
     {
       code: "2",
       title: "Lorem ipsum dolor sit amet,consec tetur adipiscing elit,sed do eiusmod.",
       date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/news-mock.png"
+      imageUrl: "./assets/img/news_cover.webp"
     },
   ];
 
