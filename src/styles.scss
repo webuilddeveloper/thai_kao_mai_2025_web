@@ -181,7 +181,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   /* ตั้งเป็นจุดอ้างอิงให้ element ภายใน */
   height: 400px;
   /* กำหนดความสูงของ header (ปรับค่าได้ตามต้องการ) */
-  background-image: url('/assets/img/header_page.png');
+  background-image: url('./assets/img/header_page.png');
   /* <<<<<<< เปลี่ยนเป็น path รูปของคุณ */
 
   /* --- 2. ตั้งค่าการแสดงผลของรูปพื้นหลัง --- */
