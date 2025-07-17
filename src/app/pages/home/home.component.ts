@@ -178,4 +178,8 @@ export class HomeComponent {
         this.aboutMeModel = model.objectData[0];
       });
   }
+   goToDetail(param: any) {
+    this.router.navigate(['/policy-detail', param], {
+    });
+  }
 }

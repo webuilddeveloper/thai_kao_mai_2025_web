@@ -47,7 +47,6 @@ export class PolicyComponent implements OnInit {
   }
 
   goToDetail(param: any) {
-    debugger
     this.router.navigate(['/policy-detail', param], {
     });
   }
