@@ -1,5 +1,8 @@
-<div class="contact-background" data-aos="zoom-in">
-  <img src="./assets/img/header_ideology.png" alt="" class="img-logo-main">
+<div class="header-container" data-aos="zoom-in-up">
+  <div class="header-text">
+    <h1>เกี่ยวกับพรรค</h1>
+    <p>หน้าแรก // เกี่ยวกับพรรค // <span style="color: #F4ED17;">อุมดการณ์</span></p>
+  </div>
 </div>
 <section class="ideology-section">
   <div class="header"  data-aos="fade-right">
@@ -20,7 +23,7 @@
   <div class="vision">
     <h3  data-aos="zoom-in">วิสัยทัศน์</h3>
 
-    <div class="vision-item" *ngFor="let v of visions; let i = index"  data-aos="fade-left">
+    <div class="vision-item" *ngFor="let v of visions; let i = index"  data-aos="fade-right">
       <h5>{{ v.title }}</h5>
       <ul>
         <li *ngFor="let d of v.detail">{{ d }}</li>
