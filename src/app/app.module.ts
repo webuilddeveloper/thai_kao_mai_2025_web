@@ -39,6 +39,7 @@ import { PolicyComponent } from './pages/policy/policy.component';
 import { EventCalendarComponent } from './pages/event-calendar/event-calendar.component';
 import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
+import { CookieBannerComponent } from './component/cookie-banner/cookie-banner.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -72,7 +73,8 @@ registerLocaleData(localeTh);
     DonateComponent,
     PolicyComponent,
     RegisterMemberComponent,
-    PolicyDetailComponent
+    PolicyDetailComponent,
+    CookieBannerComponent
   ],
   imports: [
     BrowserModule,

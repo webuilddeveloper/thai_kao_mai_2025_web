@@ -1,5 +1,18 @@
 <div class="header-container" data-aos="zoom-in-up">
 
+    <!-- <div class="donation-container">
+  <div class="donation-bar">
+    <div class="donation-fill" [style.width.%]="percentage"></div>
+  </div>
+  <div class="donation-end-icon"></div>
+</div>
+<div class="donation-label">
+  ฿{{ currentAmount | number }} / ฿1,000,000
+</div>
+
+ -->
+
+
     <div class="header-text">
         <h1>บริจาค</h1>
         <p>หน้าแรก // <span style="color: #F4ED17;">บริจาค</span></p>
@@ -8,37 +21,37 @@
 </div>
 
 <div class="row">
-  <div class="wizard-steps">
+    <div class="wizard-steps">
 
-    <!-- Step 1 -->
-    <div class="step" [ngClass]="{
+        <!-- Step 1 -->
+        <div class="step" [ngClass]="{
       'active': step >= 1
     }">
-      <div class="circle">1</div>
-      <p>บริจาค</p>
-    </div>
+            <div class="circle">1</div>
+            <p>บริจาค</p>
+        </div>
 
-    <div class="line"></div>
+        <div class="line"></div>
 
-    <!-- Step 2 -->
-    <div class="step" [ngClass]="{
+        <!-- Step 2 -->
+        <div class="step" [ngClass]="{
       'active': step >= 2
     }">
-      <div class="circle">2</div>
-      <p>ตรวจสอบข้อมูล</p>
-    </div>
+            <div class="circle">2</div>
+            <p>ตรวจสอบข้อมูล</p>
+        </div>
 
-    <div class="line"></div>
+        <div class="line"></div>
 
-    <!-- Step 3 -->
-    <div class="step" [ngClass]="{
+        <!-- Step 3 -->
+        <div class="step" [ngClass]="{
       'active': step >= 3
     }">
-      <div class="circle">3</div>
-      <p>ยืนยันข้อมูล</p>
-    </div>
+            <div class="circle">3</div>
+            <p>ยืนยันข้อมูล</p>
+        </div>
 
-  </div>
+    </div>
 </div>
 
 
@@ -90,7 +103,11 @@
         </div>
     </div>
 
+
     <div class="receipt-form">
+        <div class="form-note">
+            * สามารถใช้ในการลดหย่อนภาษีได้
+        </div>
         <h3>ข้อมูลใบเสร็จรับเงิน</h3>
 
         <!-- ปุ่มเลือกประเภท -->
@@ -101,8 +118,8 @@
 
         <form>
             <div class="form-row">
-                <input type="text" placeholder="ชื่อจริง*" required />
-                <input type="text" placeholder="นามสกุล*" required />
+                <input type="text" placeholder="ชื่อจริง*" [(ngModel)]="firstName" name="firstName" required />
+                <input type="text" placeholder="นามสกุล*" [(ngModel)]="lastName" name="firstName" required />
             </div>
             <div class="form-row">
                 <!-- <input type="email" placeholder="อีเมล*" required />
@@ -177,7 +194,7 @@
 
 <div class="row payment-section" *ngIf="step === 3">
     <div class="qr-section">
-        
+
         <!-- QR Code Content -->
         <h3>กรุณาสแกน QR Code เพื่อบริจาคเงิน</h3>
 
@@ -207,9 +224,12 @@
 
 
 <div class="row payment-section" *ngIf="step === 4">
-  <div class="thank-you-section">
-    <img src="./assets/img/thankyou-icon.png" alt="ขอบคุณ" class="thank-you-icon" />
-    <h2>ขอบคุณสำหรับการบริจาค</h2>
-    <p>ระบบได้รับข้อมูลเรียบร้อยแล้ว<br />ท่านสามารถปิดหน้านี้ได้เลย</p>
-  </div>
+    <div class="thank-you-section">
+        <img src="./assets/img/thankyou-icon.png" alt="ขอบคุณ" class="thank-you-icon" />
+        <h2>ขอบคุณ คุณ {{firstName}} {{lastName}}</h2>
+        <p>ทางพรรคจะนำไปใช้ให้เกิดประโยชน์สูงสุด</p>
+        <div class="popup-buttons">
+            <button (click)="backToMain()">กลับสู่หน้าหลัก</button>
+        </div>
+    </div>
 </div>
