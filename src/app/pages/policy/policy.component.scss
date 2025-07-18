@@ -44,7 +44,7 @@
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 2rem;
-    border: 1.5px solid #d3d3d3; // เพิ่มความชัดเจนของกรอบ
+    border: 1.5px solid var(--94949442-w-y);; // เพิ่มความชัดเจนของกรอบ
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); // เพิ่มความลึกของเงา
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;

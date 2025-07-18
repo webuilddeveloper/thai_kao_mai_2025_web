@@ -58,7 +58,8 @@ export class FirstComponent {
         this.router.navigate(['/home']);
         break;
       case 'register':
-        // this.router.navigate(['/register']);
+        localStorage.setItem("isShow", "true");
+        this.router.navigate(['/register']);
         break;
       case 'donate':
         localStorage.setItem("isShow", "true");

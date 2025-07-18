@@ -25,6 +25,7 @@ import { First2Component } from './pages/first2/first2.component';
 
 const routes: Routes = [
   { path: '', component: First2Component },
+  { path: '2', component: FirstComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },

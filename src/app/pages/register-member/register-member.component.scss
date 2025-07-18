@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  background-color: var(--white);
   // position: relative;
   // z-index: 9999;
 }
@@ -25,6 +26,8 @@
   border-radius: 20px;
   padding: 60px 50px;
   box-shadow: rgb(0 0 0 / 9%) 0px 0px 70px 0px;
+  border: 1.5px solid var(--94949442-w-y);
+  ; // เพิ่มความชัดเจนของกรอบ
 }
 
 .div-content .head-title,
@@ -209,7 +212,8 @@ i {
 }
 
 @media (max-width: 767px) {
-    .div-content .head-title,
+
+  .div-content .head-title,
   i {
     font-size: var(--font-26);
   }
@@ -221,7 +225,8 @@ i {
 }
 
 @media (max-width: 480px) {
-    .div-content .head-title,
+
+  .div-content .head-title,
   i {
     font-size: var(--font-22);
   }
@@ -235,8 +240,8 @@ i {
 .btn-next {
   margin-top: 30px;
   padding: 12px 40px;
-  background-color: #2D294A;
-  color: white;
+  background-color: var(--nevy);
+  color: var(--white);
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -259,11 +264,19 @@ i {
 }
 
 .modal-box {
-  background: white;
+  background-color: var(--white);
   padding: 2rem;
   border-radius: 8px;
   min-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  h2 {
+    color: var(--nevy);
+  }
+
+  p {
+    color: var(--808080-w-y);
+  }
 }
 
 .btn-main {
@@ -276,4 +289,15 @@ i {
   padding: 8px 24px;
   width: fit-content;
   min-width: 400px;
+  width: 100%;
+}
+
+.div-checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  span {
+    color: var(--nevy);
+  }
 }

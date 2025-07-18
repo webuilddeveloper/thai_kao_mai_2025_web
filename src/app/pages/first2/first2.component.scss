@@ -98,25 +98,23 @@
 }
 
 @keyframes revealLogo {
-    0% {
-        clip-path: inset(0 100% 0 0);
-    }
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
 
-    60% {
-        clip-path: inset(0 75% 0 0);
-        /* 3s จาก 5s คือ 60% */
-    }
+  75% { /* 3 วินาที จาก 4 วินาที = 75% */
+    clip-path: inset(0 75% 0 0);
+  }
 
-    70% {
-        clip-path: inset(0 75% 0 0);
-        /* ค้างไว้ 0.5s */
-    }
+  87.5% { /* หยุด 0.5 วิ */
+    clip-path: inset(0 75% 0 0);
+  }
 
-    100% {
-        clip-path: inset(0 0% 0 0);
-        /* ไล่จนสุดใน 1.5s */
-    }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
 }
+
 
 
 
@@ -125,7 +123,7 @@
 .owner-image {
     position: absolute;
     z-index: 2;
-    width: 45%;
+    width: 40%;
     max-width: unset;
     height: auto;
     bottom: 0;
@@ -279,6 +277,15 @@
     animation-delay: 6.5s;
     margin-left: 80px;
     /* เยื้องมากขึ้นอีก */
+}
+
+/* 🟡 เอฟเฟกต์ Hover */
+.btn-hero:hover {
+  background: #F4ED17;
+  /* พื้นเหลือง */
+  color: #2D294A;
+  /* ตัวอักษรม่วงเข้ม */
+  transform: translateY(-2px);
 }
 
 /* ✅ Keyframes แบบ fade-up */
@@ -458,19 +465,19 @@
     /* ✅ สำหรับ delay แต่ละปุ่ม */
     .btn-hero.delay-1 {
         animation: slideInBtn 0.6s ease-out forwards,
-            shrinkBtn 0.5s ease-in forwards;
+            shrinkBtn 0.2s ease-in forwards;
         animation-delay: 4s, 6s;
     }
 
     .btn-hero.delay-2 {
         animation: slideInBtn 0.6s ease-out forwards,
-            shrinkBtn 0.5s ease-in forwards;
+            shrinkBtn 0.2s ease-in forwards;
         animation-delay: 4.3s, 6.3s;
     }
 
     .btn-hero.delay-3 {
         animation: slideInBtn 0.6s ease-out forwards,
-            shrinkBtn 0.5s ease-in forwards;
+            shrinkBtn 0.2s ease-in forwards;
         animation-delay: 4.6s, 6.6s;
     }
 
@@ -496,11 +503,11 @@
 
     .btn-hero.shrink .btn-text {
         opacity: 0;
-        transition: opacity 0.5s ease;
-        transition-delay: 2s;
+        transition: opacity 0s ease;
+        transition-delay: 2.5s;
         /* ✅ รอ 2 วิค่อยเริ่มจาง */
         animation: hideTextDisplayNone 0s forwards;
-        animation-delay: 2.2s;
+        animation-delay: 2s;
         /* ✅ รออีกนิดก่อนซ่อนจริง */
     }
 

@@ -11,6 +11,8 @@ import * as AOS from 'aos';
 })
 export class HomeComponent {
   aboutMeModel: any = {};
+    showCookieBanner = !localStorage.getItem('cookieAccepted');
+
   serviceList: any = [
     {
       title: "ติดตั้ง",

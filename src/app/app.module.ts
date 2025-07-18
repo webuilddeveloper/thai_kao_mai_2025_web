@@ -40,6 +40,7 @@ import { EventCalendarComponent } from './pages/event-calendar/event-calendar.co
 import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 import { First2Component } from './pages/first2/first2.component';
+import { CookieBannerComponent } from './component/cookie-banner/cookie-banner.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -74,7 +75,8 @@ registerLocaleData(localeTh);
     PolicyComponent,
     RegisterMemberComponent,
     PolicyDetailComponent,
-    First2Component
+    First2Component,
+    CookieBannerComponent
   ],
   imports: [
     BrowserModule,

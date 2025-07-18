@@ -1,22 +1,23 @@
 <!-- <div class="bg-circle"></div> -->
 
-
-<div class="vertical">
+<div class="main">
+  <div class="vertical">
     <div class="back-button" (click)="goBack()">
-        <span class="arrow">←</span>
-        <span class="text">{{ 'returnHomePage' | translate }}</span>
+      <span class="arrow">←</span>
+      <span class="text">{{ 'returnHomePage' | translate }}</span>
     </div>
     <div class="card-newdetail">
 
-        <div class="card-detail">
-            <!-- <span class="news-date">{{ formatThaiDate(policy.createDate) }} | {{policy.createBy}}</span> -->
-            <img [src]="policy.imageUrl" alt="" class="img-logo-des">
-            <h3 class="txt-title">{{ policy.title }}</h3>
-            <div class="txt-description">{{ policy.description }}</div>
-            <h3 class="txt-title">{{ 'problemsOrigins' | translate }}</h3>
-            <div class="txt-description">-</div>
-            <h3 class="txt-title">{{ 'correctiveActionGuidelines' | translate }}</h3>
-            <div class="txt-description">-</div>
-        </div>
+      <div class="card-detail">
+        <!-- <span class="news-date">{{ formatThaiDate(policy.createDate) }} | {{policy.createBy}}</span> -->
+        <img [src]="policy.imageUrl" alt="" class="img-logo-des">
+        <h3 class="txt-title">{{ policy.title }}</h3>
+        <div class="txt-description">{{ policy.description }}</div>
+        <h3 class="txt-title">{{ 'problemsOrigins' | translate }}</h3>
+        <div class="txt-description">-</div>
+        <h3 class="txt-title">{{ 'correctiveActionGuidelines' | translate }}</h3>
+        <div class="txt-description">-</div>
+      </div>
     </div>
+  </div>
 </div>
