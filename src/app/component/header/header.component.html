@@ -36,6 +36,48 @@
         <a class="p17" routerLink="./donate">{{ 'donate' | translate }}</a>
         <a class="p17" routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
+
+        <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown3()">
+            🅣 ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen3">
+            <div class="dropdown-option" (click)="changeSizeFont(0)">
+              🅣 ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(1)">
+              🅣 กลาง
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(2)">
+              🅣 ใหญ่
+            </div>
+          </div>
+
+          
+        </div>
+
+
+         <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown2()">
+            👁️‍🗨️ ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen2">
+            <div class="dropdown-option" (click)="changeTheme('')">
+              👁️‍🗨️ ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('dark-theme')">
+              👁️‍🗨️ ขาว-ดำ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('blindness-theme')">
+              👁️‍🗨️ ตาบอดสี
+            </div>
+          </div>
+
+          
+        </div>
+
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
             <img [src]="selected.icon" class="flag"> {{ selected.name }}
@@ -49,7 +91,7 @@
         </div>
 
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
-        <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+        <!-- <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
           <option value="blindness-theme">ตาบอดสี</option>
@@ -59,7 +101,7 @@
           <option value="0" selected>ปกติ</option>
           <option value="1">กลาง</option>
           <option value="2">ใหญ่</option>
-        </select>
+        </select> -->
 
 
       </div>
@@ -91,7 +133,49 @@
           </div>
         </div> -->
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
-        <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
+
+
+        <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown3()">
+            🅣 ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen3">
+            <div class="dropdown-option" (click)="changeSizeFont(0)">
+              🅣 ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(1)">
+              🅣 กลาง
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(2)">
+              🅣 ใหญ่
+            </div>
+          </div>
+
+          
+        </div>
+
+
+         <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown2()">
+            👁️‍🗨️ ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen2">
+            <div class="dropdown-option" (click)="changeTheme('')">
+              👁️‍🗨️ ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('dark-theme')">
+              👁️‍🗨️ ขาว-ดำ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('blindness-theme')">
+              👁️‍🗨️ ตาบอดสี
+            </div>
+          </div>
+
+          
+        </div>
+        <!-- <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
           <option value="0" selected>ปกติ</option>
           <option value="1">กลาง</option>
           <option value="2">ใหญ่</option>
@@ -100,7 +184,7 @@
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
           <option value="blindness-theme">ตาบอดสี</option>
-        </select>
+        </select> -->
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
             <img [src]="selected.icon" class="flag"> {{ selected.name }}

@@ -120,7 +120,7 @@ export class HeaderComponent {
     }, 300);
     setTimeout(() => {
       this.changeSizeFont(this.fontSizeSelect);
-    },301)
+    }, 301)
     this.themeService.loadThemeFromStorage();
     this.selectedTheme = localStorage.getItem('theme') ?? '';
 
@@ -143,6 +143,16 @@ export class HeaderComponent {
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
+  }
+
+  isOpen2 = false;
+  toggleDropdown2() {
+    this.isOpen2 = !this.isOpen2;
+  }
+
+  isOpen3 = false;
+  toggleDropdown3() {
+    this.isOpen3 = !this.isOpen3;
   }
 
   openHam() {
@@ -192,28 +202,28 @@ export class HeaderComponent {
       let sizeFont;
       //ถ้าขนาดตัวอักษรเปลี่ยน
       // if ((idxFontSelect != this.fontFromLocal)) {
-        isNaN(element.value) ? element.value = element.size : element.size;
-        sizeFont = element.value ?? element.size;
-        if (idxFontSelect < this.fontFromLocal) {
-          sizeFont -= (this.font_size_difference * (this.fontFromLocal - idxFontSelect));
-        } else if (idxFontSelect > this.fontFromLocal) {
-          sizeFont += (this.font_size_difference * (idxFontSelect - this.fontFromLocal));
-        }
-        // element.value = sizeFont;
+      isNaN(element.value) ? element.value = element.size : element.size;
+      sizeFont = element.value ?? element.size;
+      if (idxFontSelect < this.fontFromLocal) {
+        sizeFont -= (this.font_size_difference * (this.fontFromLocal - idxFontSelect));
+      } else if (idxFontSelect > this.fontFromLocal) {
+        sizeFont += (this.font_size_difference * (idxFontSelect - this.fontFromLocal));
+      }
+      // element.value = sizeFont;
 
-        //เซ็ตขนาดตัวอักษรเข้าแต่ละ class
-        const nodeList: any = document.querySelectorAll(`.${element.title}`);
-        if (nodeList.length > 0) {
-          for (let i = 0; i < nodeList.length; i++) {
-            nodeList[i].style.fontSize = `${sizeFont}px`;
-          }
+      //เซ็ตขนาดตัวอักษรเข้าแต่ละ class
+      const nodeList: any = document.querySelectorAll(`.${element.title}`);
+      if (nodeList.length > 0) {
+        for (let i = 0; i < nodeList.length; i++) {
+          nodeList[i].style.fontSize = `${sizeFont}px`;
         }
+      }
 
     });
     //เซ็ต id ของ font size เข้า local Storage
     // this.fontSizeSelect = isNaN(idxFontSelect) ? 0 : idxFontSelect;
-        sessionStorage.setItem('fontSizeSelect', idxFontSelect.toString());
-        this.fontSizeSelect = idxFontSelect;
-        // sessionStorage.setItem('fontFromLocal', idxFontSelect.toString());
+    sessionStorage.setItem('fontSizeSelect', idxFontSelect.toString());
+    this.fontSizeSelect = idxFontSelect;
+    // sessionStorage.setItem('fontFromLocal', idxFontSelect.toString());
   }
 }
