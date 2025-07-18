@@ -28,6 +28,7 @@
           <div class="sub-menu">
             <a class="p17" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
             <a class="p17" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
+            <a class="p17" routerLink="./suggestion">{{ 'ข้อเสนอแนะ/ข้อแนะนำ' }}</a>
           </div>
         </div>
 
@@ -51,7 +52,7 @@
         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
-          <option value="blindness-theme">เหลือง-ดำ</option>
+          <option value="blindness-theme">ตาบอดสี</option>
         </select>
 
         <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
@@ -98,7 +99,7 @@
         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
-          <option value="blindness-theme">เหลือง-ดำ</option>
+          <option value="blindness-theme">ตาบอดสี</option>
         </select>
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
@@ -157,6 +158,7 @@
           <ul class="submenu">
             <li><a (click)="closeHam()" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a></li>
             <li><a (click)="closeHam()" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./suggestion">{{ 'ข้อเสนอแนะ/ข้อแนะนำ' }}</a></li>
           </ul>
         </li>
 

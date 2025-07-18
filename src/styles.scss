@@ -150,6 +150,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --666-w-y: white;
   --1a1a1a-w-y: white;
   --y-w-y-2: #000000;
+  --nevy-fade: #ffffff;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -194,6 +195,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --666-w-y: #F4ED17;
   --1a1a1a-w-y: #F4ED17;
   --y-w-y-2: #000000;
+  --nevy-fade: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);

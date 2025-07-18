@@ -14,6 +14,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: var(--white);
 }
 
 .div-content {
@@ -25,6 +26,9 @@
   border-radius: 20px;
   padding: 60px 50px;
   box-shadow: rgb(0 0 0 / 9%) 0px 0px 70px 0px;
+  background-color: var(--white);
+  border: 1px solid var(--94949442-w-y);
+  ; // เพิ่มความชัดเจนของกรอบ
 }
 
 .div-content .head-title,
@@ -44,11 +48,12 @@ i {
   font-size: var(--font-16);
   color: var(--nevy);
   font-weight: 400;
+  width: 100%;
 }
 
 .div-input .sub-label {
   font-size: var(--font-14);
-  color: var(--bggrey);
+  color: var(--949494-w-y);
   font-weight: 400;
 }
 
@@ -64,6 +69,12 @@ i {
   --bs-gutter-x: 1.5rem;
   // --bs-gutter-y: 1.5rem;
   row-gap: 24px;
+
+  .div-input {
+    span {
+      color: var(--nevy);
+    }
+  }
 }
 
 .title {
@@ -84,7 +95,7 @@ i {
   position: relative;
 
   span {
-    color: var(--bggrey);
+    color: var(--949494-w-y);
     font-size: var(--font-14);
   }
 
@@ -105,7 +116,7 @@ i {
   position: relative;
 
   span {
-    color: var(--bggrey);
+    color: var(--949494-w-y);
     font-size: var(--font-14);
   }
 
@@ -125,8 +136,9 @@ i {
   cursor: pointer;
   position: relative;
 
+
   span {
-    color: var(--bggrey);
+    color: var(--949494-w-y);
     font-size: var(--font-14);
   }
 
@@ -195,12 +207,14 @@ i {
     color: var(--nevy);
     font-size: var(--font-16);
     font-weight: 300;
+
   }
 }
 
 .qr-code {
   width: 200px;
   height: auto;
+  filter: var(--filter);
 }
 
 .btn-main {
@@ -246,6 +260,7 @@ i {
   flex-direction: row;
   align-items: flex-start;
   gap: 10px;
+  color: var(--949494-w-y);
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -346,7 +361,7 @@ i {
 
   @media (max-width: 768px) {
     max-width: 90%;
-     height: 80vh;
+    height: 80vh;
   }
 
 }
