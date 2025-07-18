@@ -18,7 +18,7 @@
 
 .logo-header {
   width: auto;
-  height: 40px;
+  height: 60px;
   filter: var(--filter);
 }
 
@@ -551,10 +551,8 @@ li.has-submenu.open .submenu {
   border: 1px solid var(--color-btn-border-dropdown);
   border-radius: 10px;
   padding: 4px;
-  // color: var(--color-white);
-  background-color: var(--nevy-fade);
-  // color: var(--nevy);
-  // background-color: var(--nevy);
+  color: green;
+  background-color: var(--nevy-2);
 }
 
 .dropbtn {
@@ -584,13 +582,14 @@ li.has-submenu.open .submenu {
 .dropdown-content .dropdown-item-header {
   font-size: 17px;
   padding: 10px 14px;
+  color: var(--nevy);
 }
 
 .dropdown-content a {
   display: flex;
   align-items: center;
   color: var(--nevy);
-  background-color: red($color: #000000);
+  background-color: var(--white);
   padding: 12px 16px;
   text-decoration: none;
   border-radius: 8px;
@@ -599,13 +598,13 @@ li.has-submenu.open .submenu {
 }
 
 .dropdown-content a:hover {
-  color: var(--94949442-w-y);
-  background-color: var(--nevy-fade);;
+  color: var(--white);
+  background-color: var(--nevy-fade);
 }
 
 .dropdown-item-active {
-  color: red($color: #000000) !important;
-  background-color: var(--background-item-dropdown-hover) !important;
+  color: var(--white) !important;
+  background-color: var(--nevy-fade) !important;
 }
 
 .dropdown:hover .dropdown-content {
