@@ -1,78 +1,88 @@
-.ideology-section {
-  max-width: 960px;
-  margin: 40px auto;
-  padding: 20px 20px;
+.ideology-div {
+  background-color: var(--white);
 
-  .header {
-    text-align: center;
+  .ideology-section {
+    max-width: 960px;
+    margin: 0px auto;
+    padding: 40px 20px;
+    background-color: var(--white);
 
-    h2 {
-      font-size: 24px;
-      font-weight: bold;
-      color: #222;
-    }
-
-    .description {
-      text-align: left;
-      margin-top: 16px;
-      font-size: 16px;
-      color: #444;
-      line-height: 1.6;
-    }
-  }
-
-  .vision {
-    margin-top: 40px;
-
-    h3 {
-      font-size: 22px;
-      font-weight: bold;
+    .header {
       text-align: center;
-      margin-bottom: 24px;
-      position: relative;
 
-      &::after {
-        content: "";
-        display: block;
-        width: 100px;
-        height: 4px;
-        background-color: #f4d92d;
-        margin: 8px auto 0;
-      }
-    }
-
-    .vision-item {
-      margin-bottom: 32px;
-
-      h4 {
-        font-size: 16px;
+      h2 {
+        font-size: 24px;
         font-weight: bold;
-        color: #222;
-        margin-bottom: 6px;
+        color: var(--nevy);
       }
 
-      h5 {
+      .description {
+        text-align: left;
+        margin-top: 16px;
         font-size: 16px;
         color: var(--nevy);
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
-      p {
-        font-size: 14px;
-        color: #333;
         line-height: 1.6;
       }
     }
+
+    .vision {
+      margin-top: 40px;
+
+      h3 {
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 24px;
+        position: relative;
+        color: var(--nevy);
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100px;
+          height: 4px;
+          background-color: var(--y-w-y);
+          margin: 8px auto 0;
+        }
+      }
+
+      .vision-item {
+        margin-bottom: 32px;
+
+        h4 {
+          font-size: 16px;
+          font-weight: bold;
+          color: #222;
+          margin-bottom: 6px;
+        }
+
+        h5 {
+          font-size: 16px;
+          color: var(--nevy);
+          font-weight: 600;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 14px;
+          color: #333;
+          line-height: 1.6;
+        }
+
+        li {
+          color: var(--nevy);
+        }
+      }
+    }
   }
-}
 
-.contact-background {
-  width: 100%;
-}
+  .contact-background {
+    width: 100%;
+  }
 
-.img-logo-main {
-  width: 100%;
-  height: 35vw;
-  object-fit: fill;
+  .img-logo-main {
+    width: 100%;
+    height: 35vw;
+    object-fit: fill;
+  }
 }
