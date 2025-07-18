@@ -3,7 +3,7 @@
   <div class="header">
     <div class="content-header">
       <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
-          src="./assets/img/logo-full-c2.png" alt="" class="logo-header"></a>
+          src="./assets/img/logo-full-c2.png" alt="" class="logo-header filter-w-y"></a>
       <div class="menu-group" data-aos="fade-down" data-aos-duration="1000">
         <a routerLink="./home">{{ 'home' | translate }}</a>
         <div class="menu-with-sub pointer">
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="menu-with-sub pointer">
-          <a>{{ 'membership' | translate }}</a>
+          <a routerLink="#">{{ 'membership' | translate }}</a>
           <div class="sub-menu">
             <a routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
             <a routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
@@ -35,8 +35,7 @@
         <a routerLink="./donate">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
-
-        <!-- <div class="dropdown-container">
+        <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
             <img [src]="selected.icon" class="flag"> {{ selected.name }}
           </div>
@@ -46,7 +45,16 @@
               <img [src]="option.icon" class="flag"> {{ option.name }}
             </div>
           </div>
-        </div> -->
+        </div>
+
+        <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
+        <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+          <option value="" selected>ปกติ</option>
+          <option value="dark-theme">ขาว-ดำ</option>
+          <option value="blindness-theme">เหลือง-ดำ</option>
+        </select>
+
+
       </div>
     </div>
   </div>
@@ -60,7 +68,7 @@
   <div class="header">
     <div class="content-header">
       <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
-          src="./assets/img/logo-full-c2.png" alt="" class="logo-header" data-aos="fade-down"
+          src="./assets/img/logo-full-c2.png" alt="" class="logo-header filter-w-y" data-aos="fade-down"
           data-aos-duration="300"></a>
       <div class="action-right">
 
@@ -75,7 +83,23 @@
             </div>
           </div>
         </div> -->
-        <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600">
+        <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
+         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+          <option value="" selected>ปกติ</option>
+          <option value="dark-theme">ขาว-ดำ</option>
+          <option value="blindness-theme">เหลือง-ดำ</option>
+        </select>
+        <div class="dropdown-container">
+          <div class="dropdown-selected" (click)="toggleDropdown()">
+            <img [src]="selected.icon" class="flag"> {{ selected.name }}
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen">
+            <div class="dropdown-option" *ngFor="let option of langList" (click)="selectOption(option)">
+              <img [src]="option.icon" class="flag"> {{ option.name }}
+            </div>
+          </div>
+        </div>
         <img src="./assets/icons/icon-hamburger.png" alt="" class="logo-header" (click)="openHam()" data-aos="fade-down"
           data-aos-duration="800">
       </div>

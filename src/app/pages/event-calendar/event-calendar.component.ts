@@ -14,7 +14,20 @@ export class EventCalendarComponent implements OnInit {
     private serviceProvider: ServiceProvider,
     public translate: TranslateService
   ) {}
-
+  months = [
+    { id: 1, code: 'JAN', en: 'January', th: 'มกราคม' },
+    { id: 2, code: 'FEB', en: 'February', th: 'กุมภาพันธ์' },
+    { id: 3, code: 'MAR', en: 'March', th: 'มีนาคม' },
+    { id: 4, code: 'APR', en: 'April', th: 'เมษายน' },
+    { id: 5, code: 'MAY', en: 'May', th: 'พฤษภาคม' },
+    { id: 6, code: 'JUN', en: 'June', th: 'มิถุนายน' },
+    { id: 7, code: 'JUL', en: 'July', th: 'กรกฎาคม' },
+    { id: 8, code: 'AUG', en: 'August', th: 'สิงหาคม' },
+    { id: 9, code: 'SEP', en: 'September', th: 'กันยายน' },
+    { id: 10, code: 'OCT', en: 'October', th: 'ตุลาคม' },
+    { id: 11, code: 'NOV', en: 'November', th: 'พฤศจิกายน' },
+    { id: 12, code: 'DEC', en: 'December', th: 'ธันวาคม' },
+  ];
   modelDataListCurrent: any[] = [];
   modelDataList: any[] = [
     {
@@ -244,13 +257,26 @@ export class EventCalendarComponent implements OnInit {
     return year.toString();
   }
 
+  getMonthName(date: Date | null): string {
+    if (!date) return '';
+    const month = date.getMonth();
+    var lang = localStorage.getItem('lang');
+    var monthName = this.months.find((f) => f.id == month);
+
+    if (lang == 'th') return monthName!.th;
+    else return monthName!.en;
+
+  }
+
   getDataCurrent() {
-    this.modelDataListCurrent = this.modelDataList.filter(event => {
+    this.modelDataListCurrent = this.modelDataList.filter((event) => {
       const eventDate = new Date(event.docDate);
       // เปรียบเทียบ ปี, เดือน, และวัน ของ event กับวันที่ถูกเลือก
-      return eventDate.getFullYear() === this.selectedDate.getFullYear()
-          && eventDate.getMonth() === this.selectedDate.getMonth()
-          && eventDate.getDate() === this.selectedDate.getDate();
+      return (
+        eventDate.getFullYear() === this.selectedDate.getFullYear() &&
+        eventDate.getMonth() === this.selectedDate.getMonth() &&
+        eventDate.getDate() === this.selectedDate.getDate()
+      );
     });
   }
 }

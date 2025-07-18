@@ -40,15 +40,15 @@
 }
 
 .vertical {
-    margin: 0 5%;
-    padding: 50px 0;
+    padding: 50px 100px;
     min-height: 100vh;
+    background-color: var(--white);
 }
 
 .news-section {
-    // max-width: 1400px;
+    max-width: 1400px;
     margin: 0 auto;
-    width: 90%;
+    // width: 10%;
 }
 
 .section-header {
@@ -91,14 +91,14 @@
 }
 
 .card-highlight {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--white);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--94949442-w-y);
     height: fit-content;
     height: 100%;
 
@@ -107,7 +107,7 @@
 .card-highlight:hover {
     transform: translateY(-12px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(var(--main-rgb, 107, 194, 105), 0.3);
+    border-color: var(--94949442-w-y);
 }
 
 .card-image-highlight {
@@ -133,21 +133,21 @@
 }
 
 .card-news {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--white);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--94949442-w-y);
     height: 100%;
 }
 
 .card-news:hover {
     transform: translateY(-12px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(var(--main-rgb, 107, 194, 105), 0.3);
+    border: 1px solid var(--94949442-w-y);
 }
 
 .card-image {
@@ -162,6 +162,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    filter: var(--filter);
 }
 
 .card-news:hover .news-image {
@@ -218,7 +219,7 @@
 .news-description {
     font-family: var(--font-family-prompt);
     font-size: var(--font-14, 14px);
-    color: var(--article-text, #666);
+    color: var(--666-w-y);
     line-height: 1.5;
 
     display: -webkit-box;
@@ -256,7 +257,8 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     .vertical {
-        margin: 0 6%;
+        // margin: 0 6%;
+      padding: 50px;
     }
 
     .news-container {
@@ -284,8 +286,8 @@
 
 @media (max-width: 767px) {
     .vertical {
-        margin: 0 4%;
-        padding: 20px 0;
+        // margin: 0 4%;
+        padding: 40px;
     }
 
     .section-header {
@@ -333,8 +335,8 @@
 
 @media (max-width: 480px) {
     .vertical {
-        margin: 0 3%;
-        padding: 16px 0;
+        // margin: 0 3%;
+        padding: 30px;
     }
 
     .section-header h3 {

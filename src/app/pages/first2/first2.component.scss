@@ -1,0 +1,516 @@
+/* ---------- พื้นหลังแบบธงสะบัด ---------- */
+.hero-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            #1e1a36 0%,
+            #2D294A 20%,
+            #3F3B6C 40%,
+            #5a5680 60%,
+            #3F3B6C 80%,
+            #2D294A 100%);
+    background-size: 400% 400%;
+    animation: wavingBackground 12s ease-in-out infinite;
+}
+
+@keyframes wavingBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 60%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 40%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ---------- กล่องภาพรวมโลโก้ + เจ้าของ ---------- */
+.hero-visual-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- โลโก้ Reveal & Slide Up ---------- */
+.logo-wrapper {
+    position: absolute;
+    z-index: 1;
+    left: 250px;
+    top: 50%;
+    /* ✅ เริ่มจากล่างสุด (เท่ากับ 90% จากบนลงล่าง) */
+    width: 450px;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideLogoToTop10 1.2s ease-out forwards;
+    animation-delay: 4.5s;
+}
+
+@keyframes slideLogoToTop10 {
+    0% {
+        transform: translateY(0);
+        /* เริ่มที่ตำแหน่ง top: 90% */
+    }
+
+    100% {
+        transform: translateY(-40vh);
+        /* 🔺 เลื่อนขึ้นประมาณ 80% ของความสูงจอ */
+    }
+}
+
+
+
+
+
+.logo-base,
+.logo-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo-base {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-reveal {
+    z-index: 2;
+    clip-path: inset(0 100% 0 0);
+    animation: revealLogo 3s ease-out forwards;
+    animation-delay: 1.2s;
+    opacity: 1;
+    filter: brightness(1.1) drop-shadow(0 0 4px #ffffff88);
+}
+
+@keyframes revealLogo {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    60% {
+        clip-path: inset(0 75% 0 0);
+        /* 3s จาก 5s คือ 60% */
+    }
+
+    70% {
+        clip-path: inset(0 75% 0 0);
+        /* ค้างไว้ 0.5s */
+    }
+
+    100% {
+        clip-path: inset(0 0% 0 0);
+        /* ไล่จนสุดใน 1.5s */
+    }
+}
+
+
+
+
+/* ---------- รูปเจ้าของ Slide In ช้า อยู่ด้านหลัง ---------- */
+.owner-image {
+    position: absolute;
+    z-index: 2;
+    width: 40%;
+    max-width: unset;
+    height: auto;
+    bottom: 0;
+    left: 70%;
+    transform: translate(-50%, 0) scale(1);
+    /* เริ่มจากศูนย์ไว้ก่อน */
+
+    opacity: 0;
+    visibility: hidden;
+    animation: slideInOwnerDiagonal 1.5s ease-out forwards;
+    // animation-delay: 4s;
+}
+
+
+
+@keyframes slideInOwnerDiagonal {
+    from {
+        transform: translate(-150%, 100%) scale(1);
+        /* จากมุมซ้ายล่าง */
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    to {
+        transform: translate(-50%, 0%) scale(1);
+        /* อยู่กลางแนวนอน */
+        opacity: 0.75;
+        visibility: visible;
+    }
+}
+
+/* ---------- สโลแกนพิมพ์ดีดบนสุด ---------- */
+.floating-slogan {
+    position: absolute;
+    bottom: 15%;
+    right: 20%;
+    /* ✅ ชิดขวาแบบมีระยะห่าง */
+    width: auto;
+    /* ✅ ไม่กินทั้งจอ */
+    max-width: 40%;
+    /* ✅ ป้องกันข้อความยาวล้น */
+    text-align: right;
+    /* ✅ ชิดขวา */
+    font-size: 4.0rem;
+    color: #fff;
+    white-space: normal;
+    /* ✅ ให้ขึ้นบรรทัดใหม่ได้ */
+    z-index: 99;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sloganFadeUp 0.8s ease-out forwards;
+    animation-delay: 5.8s;
+}
+
+
+@keyframes sloganFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floating-slogan {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Prompt', sans-serif;
+    // margin: 10px 0;
+}
+
+.slogan-title {
+    color: #F4ED17;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    /* เงาเข้มขึ้น */
+    margin-right: 6px;
+    font-weight: 900;
+}
+
+.slogan-highlight {
+    color: transparent;
+    -webkit-text-stroke: 1.8px #F4ED17;
+    text-stroke: 1.8px #F4ED17;
+    font-weight: 900;
+    // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); /* เพิ่มเงาให้ขอบดูชัด */
+}
+
+
+/* ---------- ปุ่มลอยด้านล่าง ---------- */
+.hero-buttons-floating {
+    position: absolute;
+    bottom: 15%;
+    /* ✅ ปรับให้อยู่ "ใต้โลโก้" สวย ๆ */
+    left: 350px;
+    /* ✅ แนวเดียวกับโลโก้ */
+    align-items: flex-start;
+    /* ✅ ให้ปุ่มเรียงตามแนวซ้าย */
+    display: flex;
+    flex-direction: column;
+    /* ✅ เรียงแนวตั้ง */
+    gap: 15px;
+    z-index: 10;
+}
+
+
+
+.btn-hero {
+    min-width: 200px;
+    text-align: left;
+    /* ✅ ชิดซ้าย */
+    background: transparent;
+    color: #F4ED17;
+    border: 2px solid #F4ED17;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* ✅ สำคัญสุด */
+    gap: 8px;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpEach 0.8s ease-out forwards;
+}
+
+
+/* ✅ เยื้องเพิ่มแต่ละปุ่ม */
+.delay-1 {
+    animation-delay: 5.5s;
+    margin-left: 0px;
+}
+
+.delay-2 {
+    animation-delay: 6s;
+    margin-left: 40px;
+    /* เยื้องไปขวาเล็กน้อย */
+}
+
+.delay-3 {
+    animation-delay: 6.5s;
+    margin-left: 80px;
+    /* เยื้องมากขึ้นอีก */
+}
+
+/* ✅ Keyframes แบบ fade-up */
+@keyframes fadeUpEach {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ---------- Responsive สำหรับมือถือ ---------- 767.98px */
+@media (max-width: 1100px) {
+    .logo-wrapper {
+        position: absolute;
+        z-index: 2;
+        width: 300px;
+        height: auto;
+        max-width: 80vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation:
+            // revealLogo 1.2s ease-out forwards,
+            shrinkAndMove 1s ease-in-out forwards 1.4s;
+        /* เริ่มหลัง reveal จบ */
+        animation-delay: 3.5s;
+    }
+
+
+
+    @keyframes shrinkAndMove {
+        0% {
+            width: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            width: 120px;
+            top: 20px;
+            left: 20px;
+            transform: translate(0, 0);
+        }
+    }
+
+    .floating-slogan {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.2rem;
+        text-align: center;
+        color: #fff;
+        z-index: 99;
+
+        opacity: 0;
+        animation: zoomInSlogan 0.8s ease-out forwards;
+        animation-delay: 3.7s;
+
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+
+    @keyframes zoomInSlogan {
+        0% {
+            opacity: 0;
+            transform: scale(0.7) translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .hero-buttons-floating {
+        position: absolute;
+        top: 20px;
+        /* ✅ ดันไปข้างบน */
+        right: 10px;
+        /* ✅ ชิดขอบขวา */
+        left: auto;
+        /* ✅ ยกเลิกซ้าย */
+        bottom: auto;
+        /* ✅ ยกเลิกด้านล่าง */
+        transform: none;
+        /* ✅ ยกเลิก translateX */
+        display: flex;
+        flex-direction: column;
+        /* ✅ เรียงแนวตั้ง */
+        align-items: flex-end;
+        gap: 15px;
+        z-index: 10;
+    }
+
+    .owner-image {
+        height: 80vh;
+        width: auto;
+        bottom: 0;
+        left: auto;
+        transform: scale(1.2);
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        animation: fadeInOwnerMobile 2s ease-out forwards;
+        z-index: 0;
+        // animation-delay: 3.5s;
+        /* 👈 เริ่มเร็วขึ้นหรือเท่าที่ต้องการ */
+    }
+
+    @keyframes fadeInOwnerMobile {
+        from {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        to {
+            opacity: 0.75;
+            visibility: visible;
+        }
+    }
+
+
+    .btn-hero {
+        opacity: 0;
+        transform: translateY(40px);
+        min-width: 200px;
+        padding: 0 16px;
+        border-radius: 30px;
+        height: 52px;
+        transition: none;
+        animation-fill-mode: forwards;
+        justify-content: center;
+        /* ✅ สำคัญสุด */
+    }
+
+    /* Slide-in animation */
+    @keyframes slideInBtn {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Shrink animation */
+    @keyframes shrinkBtn {
+        0% {
+            min-width: 160px;
+            padding: 0 16px;
+            border-radius: 30px;
+        }
+
+        100% {
+            min-width: 52px;
+            padding: 0;
+            border-radius: 50%;
+        }
+    }
+
+    .btn-hero .btn-text {
+        display: inline-block;
+    }
+
+    /* ✅ สำหรับ delay แต่ละปุ่ม */
+    .btn-hero.delay-1 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4s, 6s;
+    }
+
+    .btn-hero.delay-2 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4.3s, 6.3s;
+    }
+
+    .btn-hero.delay-3 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4.6s, 6.6s;
+    }
+
+    /* ✅ ซ่อนข้อความหลัง shrink */
+    .btn-hero.delay-1,
+    .btn-hero.delay-2,
+    .btn-hero.delay-3 {
+        animation-fill-mode: forwards;
+    }
+
+    .btn-hero.delay-1.shrunk .btn-text,
+    .btn-hero.delay-2.shrunk .btn-text,
+    .btn-hero.delay-3.shrunk .btn-text {
+        display: none;
+    }
+
+
+    .btn-hero .btn-text {
+        opacity: 1;
+        transition: opacity 3s ease;
+        display: inline-block;
+    }
+
+    .btn-hero.shrink .btn-text {
+        opacity: 0;
+        transition: opacity 0s ease;
+        transition-delay: 2.5s;
+        /* ✅ รอ 2 วิค่อยเริ่มจาง */
+        animation: hideTextDisplayNone 0s forwards;
+        animation-delay: 2s;
+        /* ✅ รออีกนิดก่อนซ่อนจริง */
+    }
+
+
+    @keyframes hideTextDisplayNone {
+        to {
+            display: none;
+        }
+    }
+
+
+
+}

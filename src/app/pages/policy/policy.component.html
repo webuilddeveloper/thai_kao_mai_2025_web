@@ -1,26 +1,31 @@
-<div class="header-container" data-aos="zoom-in-up">
-    <div class="header-text">
-        <h1>เกี่ยวกับพรรค</h1>
-        <p>หน้าแรก // เกี่ยวกับพรรค // <span style="color: #F4ED17;">นโยบาย</span></p>
-    </div>
+<div class="container-header" data-aos="zoom-in-up">
+  <div class="header-container"></div>
+  <div class="header-text">
+    <h1 class="title">{{ 'aboutParty' | translate }} </h1>
+    <p class="title">{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span class="sub-title">{{ 'policy' |
+        translate }}</span></p>
+  </div>
 </div>
 <div class="policy-section">
-    <div class="section-header" data-aos="fade-left">
-        <h2>นโยบายพรรคไทยก้าวใหม่</h2>
-        <div class="underline"></div>
+  <div class="section-header" data-aos="fade-left">
+    <h2>{{ 'policy' |
+      translate }}{{ 'thaiKaoMai' |
+      translate }}</h2>
+    <div class="underline"></div>
+  </div>
+  <div data-aos="fade-right">
+    <div *ngFor="let policy of policies; let i = index" class="policy-box">
+      <div class="image-wrapper">
+        <img [src]="policy.imageUrl" alt="policy image" />
+      </div>
+      <div class="text-wrapper">
+        <h3>{{ policy.title }}</h3>
+        <p>{{ policy.description }}</p>
+        <button class="more-btn" (click)="goToDetail(policy)">
+          {{ 'viewMore' |
+          translate }} <span class="arrow">→</span>
+        </button>
+      </div>
     </div>
-    <div data-aos="fade-right">
-        <div *ngFor="let policy of policies; let i = index" class="policy-box">
-            <div class="image-wrapper">
-                <img [src]="policy.imageUrl" alt="policy image" />
-            </div>
-            <div class="text-wrapper">
-                <h3>{{ policy.title }}</h3>
-                <p>{{ policy.description }}</p>
-                <button class="more-btn" (click)="goToDetail(policy)">
-                    ดูเพิ่มเติม <span class="arrow">→</span>
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

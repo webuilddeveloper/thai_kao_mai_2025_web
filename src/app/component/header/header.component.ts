@@ -3,6 +3,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import * as AOS from 'aos';
+import { ThemeService } from 'src/app/shared/theme.service';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-header',
@@ -23,10 +25,14 @@ export class HeaderComponent {
   selectedLang: any;
   subMenu: boolean = false;
   isOpenNav = false;
+  selectedTheme = '';
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private themeService: ThemeService,
+    private dateAdapter: DateAdapter<Date>
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -106,6 +112,8 @@ export class HeaderComponent {
     setInterval(() => {
       this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
+    this.themeService.loadThemeFromStorage();
+    this.selectedTheme = localStorage.getItem('theme') ?? '';
   }
 
   changeLanguage(lang: string) {
@@ -144,6 +152,7 @@ export class HeaderComponent {
     this.selected = option;
     this.translate.use(option.value);
     localStorage.setItem('lang', option.value);
+    this.dateAdapter.setLocale(option.value === 'th' ? 'th-TH' : 'en-US');
     this.isOpen = false;
   }
 
@@ -155,5 +164,10 @@ export class HeaderComponent {
       // ถ้าคลิกเมนูใหม่ ให้เปิดเมนูนั้น
       this.activeSubMenu = menuName;
     }
+  }
+
+  changeTheme(theme: string) {
+    this.selectedTheme = theme;
+    this.themeService.setTheme(theme);
   }
 }

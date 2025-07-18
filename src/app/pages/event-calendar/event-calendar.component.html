@@ -1,7 +1,16 @@
-<div class="header-container" data-aos="zoom-in-up">
+<!-- <div class="header-container" data-aos="zoom-in-up">
   <div class="header-text">
-    <h1>ปฏิทินกิจกรรม / กิจกรรมล่าสุด</h1>
-    <p>หน้าแรก // ข่าวสาร // <span style="color: #F4ED17;">ปฏิทินกิจกรรม / กิจกรรมล่าสุด</span></p>
+    <h1>{{ 'eventCalendar' | translate }} / {{ 'latestActivities' | translate }}</h1>
+    <p>{{ 'home' | translate }} // {{ 'newsAndEvent' | translate }} // <span style="color: #F4ED17;">{{ 'eventCalendar'
+        | translate }} / {{ 'latestActivities' | translate }}</span></p>
+  </div>
+</div> -->
+<div class="container-header" data-aos="zoom-in-up">
+  <div class="header-container"></div>
+  <div class="header-text">
+    <h1 class="title">{{ 'eventCalendar' | translate }} / {{ 'latestActivities' | translate }}</h1>
+    <p class="title">{{ 'home' | translate }} // {{ 'newsAndEvent' | translate }} // <span class="sub-title">{{ 'eventCalendar'
+        | translate }} / {{ 'latestActivities' | translate }}</span></p>
   </div>
 </div>
 <div class="calendar-container" data-aos="zoom-in-up">
@@ -9,13 +18,16 @@
     <div class="date-display">
       <div class="day">{{ selectedDate | date:'dd' }}</div>
       <div class="month-year">
-        <div>{{ selectedDate | date:'MMMM' | uppercase }}</div>
-        <div>{{ getBuddhistYear(selectedDate) }}</div>
+        <div>{{ getMonthName(selectedDate) }}</div>
+        <!-- <div>{{ selectedDate | date:'MMMM' | uppercase }}</div> -->
+        <div *ngIf="translate.currentLang === 'en'">{{ selectedDate | date:'yyyy' }}</div>
+        <div *ngIf="translate.currentLang === 'th'">{{ getBuddhistYear(selectedDate) }}</div>
       </div>
     </div>
     <div class="schedule-details">
-      <div class="schedule-header">SCHEDULE</div>
-      <div class="schedule-item">กิจกรรมสำคัญ</div>
+      <div *ngIf="translate.currentLang === 'th'" class="schedule-header">กำหนดการ</div>
+      <div *ngIf="translate.currentLang === 'en'" class="schedule-header">SCHEDULE</div>
+      <div class="schedule-item">{{ 'latestActivities' | translate }}</div>
       <div class="schedule-item-empty"></div>
     </div>
   </div>
