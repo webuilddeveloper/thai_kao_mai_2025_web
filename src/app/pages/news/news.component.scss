@@ -40,7 +40,6 @@
 }
 
 .vertical {
-    // margin: 0 5%;
     padding: 50px 100px;
     min-height: 100vh;
     background-color: var(--white);
@@ -400,15 +399,4 @@
 .force-scroll {
     overflow-y: auto !important;
     height: auto !important;
-}
-
-.header-text {
-
-  .title {
-    color: var(--w-w-y);
-  }
-
-  .sub-title {
-    color: var(--y-w-y);
-  }
 }

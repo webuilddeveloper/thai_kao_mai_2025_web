@@ -63,6 +63,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --4a4568-b-b: #4a4568;
   --3c385a-252525-252525: #3c385a;
   --24203f-252525-252525: #24203f;
+  --4a4a4a-w-y: #4a4a4a;
 
   --y-w-y-icon: ;
   --filter: ;
@@ -124,6 +125,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --4a4568-b-b: black;
   --3c385a-252525-252525: #252525;
   --24203f-252525-252525: #252525;
+  --4a4a4a-w-y: white;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -155,6 +157,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --4a4568-b-b: black;
   --3c385a-252525-252525: #252525;
   --24203f-252525-252525: #252525;
+  --4a4a4a-w-y: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
@@ -257,9 +260,9 @@ body {
 
 .header-container {
   /* --- 1. กำหนดตำแหน่งและพื้นหลัง --- */
-  position: relative;
   /* ตั้งเป็นจุดอ้างอิงให้ element ภายใน */
   height: 400px;
+  width: -webkit-fill-available;
   /* กำหนดความสูงของ header (ปรับค่าได้ตามต้องการ) */
   background-image: url('./assets/img/header_page.png');
   /* <<<<<<< เปลี่ยนเป็น path รูปของคุณ */
@@ -283,6 +286,10 @@ body {
   color: white;
   /* กำหนดสีตัวอักษรเริ่มต้นเป็นสีขาว */
   filter: var(--filter);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 /* ตกแต่งข้อความหัวเรื่องหลัก (h1) */
@@ -355,4 +362,40 @@ body {
   height: 32px;
   margin: 0 8px;
   filter: var(--filter);
+}
+
+.container-header {
+  position: relative;
+  width: -webkit-fill-available;
+  height: 400px;
+  overflow: hidden;
+}
+
+.header-text {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-items: center;
+
+  .title {
+    color: var(--w-w-y) !important;
+  }
+
+  .sub-title {
+    color: var(--y-w-y) !important;
+  }
+}
+
+.vertical {
+    padding: 50px 100px;
+    min-height: 100vh;
+    background-color: var(--white);
+}
+
+.news-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    // width: 10%;
 }
