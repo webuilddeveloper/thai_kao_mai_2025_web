@@ -111,6 +111,7 @@ export class HeaderComponent {
       this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
     this.themeService.loadThemeFromStorage();
+    this.selectedTheme = localStorage.getItem('theme') ?? '';
   }
 
   changeLanguage(lang: string) {
