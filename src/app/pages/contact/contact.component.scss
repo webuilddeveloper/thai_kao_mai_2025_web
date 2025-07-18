@@ -329,25 +329,26 @@
 .contact-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: var(--white);
 
   h2 {
     font-size: 32px;
     margin-bottom: 5px;
 
     .black {
-      color: #000;
+      color: var(--nevy);
       font-weight: bold;
     }
 
     .yellow {
-      color: #F4ED17;
+      color: var(--y-w-y);
       font-weight: bold;
     }
   }
 
   .subtext {
     font-size: 14px;
-    color: #666;
+    color: var(--808080-w-y);
     margin-bottom: 30px;
   }
 
@@ -383,14 +384,18 @@
           height: 24px;
           object-fit: contain;
           flex-shrink: 0;
-          margin-top: 2px; 
+          margin-top: 2px;
         }
 
         p {
           margin: 0;
-          color: #000; 
+          color: var(--nevy);
           font-size: 16px;
           line-height: 1.4;
+        }
+
+        img {
+          filter: var(--filter);
         }
       }
 
@@ -408,11 +413,12 @@
             height: 32px;
             object-fit: contain;
             display: block;
+            filter: var(--filter);
           }
         }
       }
 
-   
+
     }
   }
 }
