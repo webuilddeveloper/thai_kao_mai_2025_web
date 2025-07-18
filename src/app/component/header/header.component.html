@@ -5,6 +5,33 @@
       <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
           src="./assets/img/logo-full-c2.png" alt="" class="logo-header filter-w-y"></a>
       <div class="menu-group" data-aos="fade-down" data-aos-duration="1000">
+        <div class="dropdown" style="float:left;">
+          <div class="pointer dropbtn">
+            <div class="btn-blindness">
+              <img class="img" src="./assets/img/blindness.png" width="31" height="21"
+                style="color: var(--color-white);" />
+            </div>
+          </div>
+          <div class="dropdown-content" style="left:0;">
+            <div class="dropdown-item-header">ขนาดตัวหนังสือ</div>
+            <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 0}" class="dropdown-item-blindness"
+              (click)="changeSizeFont(0)">🅣 {{ 'normal' | translate }}</a>
+            <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 1}" class="dropdown-item-blindness"
+              (click)="changeSizeFont(1)">🅣 {{ 'medial' | translate }}</a>
+            <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}" class="dropdown-item-blindness"
+              (click)="changeSizeFont(2)"> 🅣 {{ 'big' | translate }}</a>
+            <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
+            <a [ngClass]="{'dropdown-item-active':selectedTheme == ''}" class="dropdown-item-blindness"
+              (click)="changeTheme('')">👁️‍🗨️ {{ 'normal' | translate }}</a>
+            <a [ngClass]="{'dropdown-item-active':selectedTheme == 'dark-theme'}" class="dropdown-item-blindness"
+              (click)="changeTheme('dark-theme')">👁️‍🗨️ {{ 'white' | translate }}-{{ 'black'
+              |
+              translate }}</a>
+            <a [ngClass]="{'dropdown-item-active':selectedTheme == 'blindness-theme'}" class="dropdown-item-blindness"
+              (click)="changeTheme('blindness-theme')">👁️‍🗨️ {{ 'yellow' | translate }}-{{
+              'black' | translate }}</a>
+          </div>
+        </div>
         <a class="p17" routerLink="./home">{{ 'home' | translate }}</a>
         <div class="menu-with-sub pointer">
           <a class="p17" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
@@ -37,7 +64,7 @@
         <a class="p17" routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
 
-        <div class="dropdown-container" style="width: 120px;">
+        <!-- <div class="dropdown-container" style="width: 120px;">
           <div class="dropdown-selected" (click)="toggleDropdown3()">
             🅣 ปกติ
           </div>
@@ -54,11 +81,11 @@
             </div>
           </div>
 
-          
+
         </div>
 
 
-         <div class="dropdown-container" style="width: 120px;">
+        <div class="dropdown-container" style="width: 120px;">
           <div class="dropdown-selected" (click)="toggleDropdown2()">
             👁️‍🗨️ ปกติ
           </div>
@@ -75,8 +102,8 @@
             </div>
           </div>
 
-          
-        </div>
+
+        </div> -->
 
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
@@ -134,8 +161,34 @@
         </div> -->
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
 
-
-        <div class="dropdown-container" style="width: 120px;">
+        <div class="dropdown" style="float:left;">
+          <div class="pointer dropbtn">
+            <div class="btn-blindness">
+              <img class="img" src="./assets/img/blindness.png" width="31" height="21"
+                style="color: var(--color-white);" />
+            </div>
+          </div>
+          <div class="dropdown-content" style="right:0;">
+            <div class="dropdown-item-header">ขนาดตัวหนังสือ</div>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 0}"
+              (click)="changeSizeFont(0)">🅣 {{ 'normal' | translate }}</a>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 1}"
+              (click)="changeSizeFont(1)">🅣 {{ 'medial' | translate }}</a>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}"
+              (click)="changeSizeFont(2)">🅣 {{ 'big' | translate }}</a>
+            <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-light'}"
+              (click)="changeTheme('')">👁️‍🗨️ {{ 'normal' | translate }}</a>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-dark'}"
+              (click)="changeTheme('dark-theme')">👁️‍🗨️ {{ 'white' | translate }}-{{ 'black'
+              |
+              translate }}</a>
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-blindness'}"
+              (click)="changeTheme('blindness-theme')">👁️‍🗨️ {{ 'yellow' | translate }}-{{
+              'black' | translate }}</a>
+          </div>
+        </div>
+        <!-- <div class="dropdown-container" style="width: 120px;">
           <div class="dropdown-selected" (click)="toggleDropdown3()">
             🅣 ปกติ
           </div>
@@ -152,11 +205,11 @@
             </div>
           </div>
 
-          
+
         </div>
 
 
-         <div class="dropdown-container" style="width: 120px;">
+        <div class="dropdown-container" style="width: 120px;">
           <div class="dropdown-selected" (click)="toggleDropdown2()">
             👁️‍🗨️ ปกติ
           </div>
@@ -173,8 +226,8 @@
             </div>
           </div>
 
-          
-        </div>
+
+        </div> -->
         <!-- <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
           <option value="0" selected>ปกติ</option>
           <option value="1">กลาง</option>
@@ -230,7 +283,8 @@
             <li><a (click)="closeHam()" routerLink="./ideology">{{ 'ideology' | translate}}</a></li>
             <li><a (click)="closeHam()" routerLink="./history">{{ 'history'| translate }}</a></li>
             <li><a (click)="closeHam()" routerLink="./policy">{{ 'policy'| translate }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'partyExecutiveCommittee'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'partyExecutiveCommittee'| translate }}</a>
+            </li>
           </ul>
         </li>
 

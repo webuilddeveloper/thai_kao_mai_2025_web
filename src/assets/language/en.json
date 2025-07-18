@@ -156,8 +156,10 @@
   "suggestion-compleate": "Suggestion sent successfully",
   "suggestion-thankyou": "Thank you for your feedback/suggestions.",
 
-   "normal":"normal",
-  "yellow":"yellow",
-  "white":"white",
-  "black":"black"
+   "normal":"Normal",
+  "yellow":"Yellow",
+  "white":"White",
+  "black":"Black",
+  "medial":"Medial",
+  "big":"Big"
 }
