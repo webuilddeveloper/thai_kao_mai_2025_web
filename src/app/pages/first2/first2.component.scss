@@ -98,25 +98,23 @@
 }
 
 @keyframes revealLogo {
-    0% {
-        clip-path: inset(0 100% 0 0);
-    }
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
 
-    60% {
-        clip-path: inset(0 75% 0 0);
-        /* 3s จาก 5s คือ 60% */
-    }
+  75% { /* 3 วินาที จาก 4 วินาที = 75% */
+    clip-path: inset(0 75% 0 0);
+  }
 
-    70% {
-        clip-path: inset(0 75% 0 0);
-        /* ค้างไว้ 0.5s */
-    }
+  87.5% { /* หยุด 0.5 วิ */
+    clip-path: inset(0 75% 0 0);
+  }
 
-    100% {
-        clip-path: inset(0 0% 0 0);
-        /* ไล่จนสุดใน 1.5s */
-    }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
 }
+
 
 
 
