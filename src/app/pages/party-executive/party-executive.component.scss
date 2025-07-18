@@ -320,7 +320,7 @@
 .executive-page {
   padding: 40px 8%;
   width: 100%;
-  background: #ffffff;
+  background-color: var(--white);
 
   .title {
     font-size: 1.75 !important;
@@ -365,6 +365,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: var(--filter);
       /* ✅ เต็มแบบไม่ยืด */
     }
   }
@@ -391,6 +392,7 @@
       width: 100%;
       height: auto;
       display: block;
+      filter: var(--filter);
     }
   }
 

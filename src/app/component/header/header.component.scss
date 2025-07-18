@@ -12,6 +12,8 @@
   animation-fill-mode: both;
   justify-content: center;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
+
+  border: 1px solid var(--w-w-y);
 }
 
 .logo-header {
@@ -245,7 +247,7 @@ a:hover {
     width: fit-content;
     height: -webkit-fill-available;
     border-radius: 0;
-    background-color: var(--bg-main);
+    background-color: var(--nevy-b-b);
     z-index: 99999999;
   }
 
@@ -282,7 +284,7 @@ a:hover {
     width: fit-content;
     height: -webkit-fill-available;
     border-radius: 0;
-    background-color: var(--bg-main);
+    background-color: var(--nevy-b-b);
     z-index: 99999999;
   }
 
@@ -302,20 +304,21 @@ a:hover {
 }
 
 .dropdown-selected {
-  border: 1px solid #ccc;
+  border: 1px solid var(--nevy);
   padding: 8px 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-
+  color: var(--nevy);
 }
 
 .flag {
   width: 20px;
   height: auto;
   margin-right: 8px;
+  filter: var(--filter);
 }
 
 .dropdown-list {
@@ -323,8 +326,8 @@ a:hover {
   top: 110%;
   left: 0;
   right: 0;
-  background: white;
-  border: 1px solid #ccc;
+  background: var(--white);
+  border: 1px solid var(--nevy);
   z-index: 10;
   max-height: 200px;
   overflow-y: auto;
@@ -336,10 +339,12 @@ a:hover {
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: var(--nevy);
 }
 
 .dropdown-option:hover {
-  background-color: #f0f0f0;
+  background-color: var(--f0f0f0-w-y);
+  color: var(--nevy-b-b);
 }
 
 .arrow {
@@ -370,8 +375,8 @@ a:hover {
       position: absolute;
       top: 120%;
       left: 0;
-      background: white;
-      border: 1px solid #ccc;
+      background: var(--white);
+      border: 1px solid var(--ccc-w-y);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       min-width: 200px;
       z-index: 99;
@@ -383,7 +388,7 @@ a:hover {
         padding: 10px 15px;
         white-space: nowrap;
         color: --var(--nevy) !important;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--ccc-w-y);
         transition: color 0.3s;
 
         &:last-child {
@@ -433,7 +438,7 @@ a:hover {
   max-width: 80%;
   /* สำหรับจอมือถือที่เล็กมากๆ */
   height: 100%;
-  background-color: #2d294a;
+  background-color: var(--nevy-b-b);
   /* สีพื้นหลังหลักของเมนู */
   z-index: 1000;
 
@@ -448,7 +453,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding-top: 60px;
-  /* เพิ่มช่องว่างด้านบน */
+  border: 1px solid var(--nevy)
 }
 
 /* เมื่อเมนูถูกเปิด (มี class .open) */
@@ -469,18 +474,18 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 18px 25px;
-  color: #ffffff;
+  color: var(--w-w-y);
   text-decoration: none;
   font-size: 1.1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  border-bottom: 1px solid #4a4568;
+  border-bottom: 1px solid var(--4a4568-w-y);
   /* เส้นคั่นระหว่างเมนู */
 }
 
 .sub-menu-nav ul li a:hover,
 .sub-menu-nav ul li a:focus {
-  background-color: #4a4568;
+  background-color: var(--4a4568-b-b);
   transform: translateX(-5px);
   /* เพิ่มเอฟเฟกต์ตอน hover */
 }
@@ -491,8 +496,8 @@ a:hover {
 .arrow-down {
   width: 10px;
   height: 10px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid var(--w-w-y);
+  border-bottom: 2px solid var(--w-w-y);
   transform: rotate(45deg);
   transition: transform 0.3s ease-in-out;
 }
@@ -506,7 +511,7 @@ li.has-submenu.open>a>.arrow-down {
 
 /* Container ของ Submenu */
 .submenu {
-  background-color: #24203f;
+  background-color: var(--24203f-252525-252525);
   /* ทำให้สีพื้นหลังต่างจากเมนูหลักเล็กน้อย */
   overflow: hidden;
   max-height: 0;
@@ -520,12 +525,12 @@ li.has-submenu.open>a>.arrow-down {
   font-size: 1rem;
   padding-left: 45px;
   /* ย่อหน้าเข้ามา */
-  border-bottom: 1px solid #3c385a;
+  border-bottom: 1px solid var(--3c385a-CFD3D7-CFD3D7);
 }
 
 .submenu li a:hover,
 .submenu li a:focus {
-  background-color: #4a4568;
+  background-color: var(--3c385a-252525-252525);
   transform: translateX(0);
   /* Submenu ไม่ต้องขยับซ้าย */
 }

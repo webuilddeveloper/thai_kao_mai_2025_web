@@ -3,12 +3,12 @@
     <div class="vertical">
          <div class="back-button" (click)="goBack()">
         <span class="arrow">←</span>
-        <span class="text">กลับไปหน้าหลัก</span>
+        <span class="text">{{ 'returnHomePage' | translate }}</span>
     </div>
         <div class="card-newdetail">
             <div class="card-detail">
                 <!-- <span class="news-date">{{ newsDetail.updateDate | date:'MMMM' | uppercase }} | {{newsDetail.createBy}}</span> -->
-              
+
                 <img [src]="newsDetail.imageUrl" alt="" class="img-logo-des">
                   <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
                 <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>

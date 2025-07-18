@@ -45,6 +45,26 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --nevy: #2D294A;
   --nevy-fade: #383787bf;
   --link-hover: #007BFF;
+  --949494-w-y: #949494;
+  --y-w-y: #F4ED17;
+  --nevy-b-b: #2D294A;
+  --w-949494-949494: #ffffff;
+  --w-w-y: #ffffff;
+  --d9d9d9-w-y: #D9D9D9;
+  --CFD3D7-w-y: #CFD3D7;
+  --808080-w-y: #808080;
+  --4F5A68-b-b: #4F5A68;
+  --f0f0f0-w-y: #f0f0f0;
+  --ccc-w-y: #ccc;
+  --w-b-y: white;
+  --94949442-w-y: #94949442;
+  --666-w-y: #666;
+  --4a4568-w-y: #4a4568;
+  --4a4568-b-b: #4a4568;
+  --3c385a-252525-252525: #3c385a;
+  --24203f-252525-252525: #24203f;
+
+  --y-w-y-icon: ;
   --filter: ;
   --filter-w-y: ;
 
@@ -86,8 +106,28 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --black: #ffffff;
   --nevy: #ffffff;
   --link-hover: #ffffff;
+  --949494-w-y: #ffffff;
+  --y-w-y: #ffffff;
+  --nevy-b-b: #000000;
+  --w-949494-949494: #949494;
+  --w-w-y: #ffffff;
+  --d9d9d9-w-y: #ffffff;
+  --CFD3D7-w-y: #ffffff;
+  --808080-w-y: #ffffff;
+  --4F5A68-b-b: #000000;
+  --ccc-w-y: #ffffff;
+  --f0f0f0-w-y: #ffffff;
+  --w-b-y: black;
+  --94949442-w-y: white;
+  --666-w-y: white;
+  --4a4568-w-y: white;
+  --4a4568-b-b: black;
+  --3c385a-252525-252525: #252525;
+  --24203f-252525-252525: #252525;
+
   --filter: grayscale(100%);
-   --filter-w-y: brightness(100);
+  --filter-w-y: brightness(100);
+  --y-w-y-icon: grayscale(100%);
 }
 
 .blindness-theme {
@@ -97,8 +137,28 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --black: #F4ED17;
   --nevy: #F4ED17;
   --link-hover: #F4ED17;
+  --949494-w-y: #F4ED17;
+  --nevy-b-b: #000000;
+  --y-w-y: #F4ED17;
+  --w-949494-949494: #949494;
+  --w-w-y: #F4ED17;
+  --d9d9d9-w-y: #F4ED17;
+  --CFD3D7-w-y: #F4ED17;
+  --808080-w-y: #F4ED17;
+  --4F5A68-b-b: #000000;
+  --ccc-w-y: #F4ED17;
+  --f0f0f0-w-y: #F4ED17;
+  --w-b-y: #F4ED17;
+  --94949442-w-y: #F4ED17;
+  --666-w-y: #F4ED17;
+  --4a4568-w-y: #F4ED17;
+  --4a4568-b-b: black;
+  --3c385a-252525-252525: #252525;
+  --24203f-252525-252525: #252525;
+
   --filter: grayscale(100%);
-   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(2) brightness(4);
+  --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
+  --y-w-y-icon: ;
 }
 
 html,
@@ -222,6 +282,7 @@ body {
   /* จัดให้ตัวหนังสือในกล่องอยู่กลาง */
   color: white;
   /* กำหนดสีตัวอักษรเริ่มต้นเป็นสีขาว */
+  filter: var(--filter);
 }
 
 /* ตกแต่งข้อความหัวเรื่องหลัก (h1) */
@@ -293,4 +354,5 @@ body {
   width: 32px;
   height: 32px;
   margin: 0 8px;
+  filter: var(--filter);
 }
