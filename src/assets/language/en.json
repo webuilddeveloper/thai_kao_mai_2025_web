@@ -111,6 +111,19 @@
   "donatemenu_4": "When the transaction is complete, the screen will display Success",
   "thx": "Thank you,",
   "tax": "Can be used for tax deductions.",
-  "thxparty":"The party will use it to its greatest benefit."
+  "thxparty":"The party will use it to its greatest benefit.",
+
+   "membershipSystem":"Membership system",
+    "registerPartyClub":"Register for the party fan club",
+    "fillInformation":"Fill in the information",
+    "prefix":"Prefix",
+    "personalInformation":"Personal information",
+    "register":"Register",
+    "fanClubRegistrationCompleted":"Fan club registration completed",
+    "thankYouRegisteringThaiKaoMaiPartyFanClub":"Thank you for registering for the Thai Kao Mai Party fan club.",
+    "consentReceiveNewsEventsOtherInformationEmail":"Consent to receive news, events and other information via email."
+
+
+
 
 }
