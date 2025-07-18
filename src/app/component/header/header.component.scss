@@ -304,20 +304,21 @@ a:hover {
 }
 
 .dropdown-selected {
-  border: 1px solid #ccc;
+  border: 1px solid var(--nevy);
   padding: 8px 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-
+  color: var(--nevy);
 }
 
 .flag {
   width: 20px;
   height: auto;
   margin-right: 8px;
+  filter: var(--filter);
 }
 
 .dropdown-list {
@@ -325,8 +326,8 @@ a:hover {
   top: 110%;
   left: 0;
   right: 0;
-  background: white;
-  border: 1px solid #ccc;
+  background: var(--white);
+  border: 1px solid var(--nevy);
   z-index: 10;
   max-height: 200px;
   overflow-y: auto;
@@ -338,10 +339,12 @@ a:hover {
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: var(--nevy);
 }
 
 .dropdown-option:hover {
-  background-color: #f0f0f0;
+  background-color: var(--f0f0f0-w-y);
+  color: var(--nevy-b-b);
 }
 
 .arrow {
@@ -372,8 +375,8 @@ a:hover {
       position: absolute;
       top: 120%;
       left: 0;
-      background: white;
-      border: 1px solid #ccc;
+      background: var(--white);
+      border: 1px solid var(--ccc-w-y);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       min-width: 200px;
       z-index: 99;
@@ -385,7 +388,7 @@ a:hover {
         padding: 10px 15px;
         white-space: nowrap;
         color: --var(--nevy) !important;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--ccc-w-y);
         transition: color 0.3s;
 
         &:last-child {
