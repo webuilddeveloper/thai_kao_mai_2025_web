@@ -477,24 +477,21 @@
 }
 
 .donation-container {
-  display: flex;
-  align-items: center;
-  position: relative;
   background: #fff;
-  padding: 4px;
-  border-radius: 4px;
-  height: 20px;
+  padding: 6px;
+  border-radius: 8px;
+  height: 50px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .donation-bar {
-  flex: 1;
+  position: relative;
   height: 100%;
   background: #eee;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  position: relative;
 }
 
 .donation-fill {
@@ -502,18 +499,59 @@
   width: 0%;
   background: linear-gradient(to right, #2d294a, #3d3858, #5a5574);
   transition: width 2s ease-in-out;
+  position: relative;
+  z-index: 1;
 }
 
-.donation-end-icon {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(to bottom right, #f9690e, #fbb040);
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
-  margin-left: 6px;
+.donation-icon {
+  position: absolute;
+  top: -12px; // ลอยขึ้นเล็กน้อย
+  transform: translateX(-50%); // center ตาม left %
+  width: 48px;
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: left 2s ease-in-out;
 }
 
-.donation-label {
-  margin-top: 8px;
-  font-weight: bold;
-  color: #2d294a;
+.member-container {
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+
+  .digit-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .digit {
+    position: relative;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 50px;
+    height: 100%;
+    overflow: hidden;
+
+    .number {
+      position: relative;
+    }
+
+    .underline {
+      // position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 4px;
+      // width: 0%;
+      background-color: #2D294A;
+      transform: scaleX(0);
+  transform-origin: right;
+    }
+  }
 }
