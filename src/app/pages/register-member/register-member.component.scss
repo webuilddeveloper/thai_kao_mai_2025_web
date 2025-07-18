@@ -241,7 +241,7 @@ i {
   margin-top: 30px;
   padding: 12px 40px;
   background-color: var(--nevy);
-  color: white;
+  color: var(--white);
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -264,11 +264,19 @@ i {
 }
 
 .modal-box {
-  background: white;
+  background-color: var(--white);
   padding: 2rem;
   border-radius: 8px;
   min-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  h2 {
+    color: var(--nevy);
+  }
+
+  p {
+    color: var(--808080-w-y);
+  }
 }
 
 .btn-main {
@@ -281,6 +289,7 @@ i {
   padding: 8px 24px;
   width: fit-content;
   min-width: 400px;
+  width: 100%;
 }
 
 .div-checkbox {
