@@ -35,6 +35,18 @@
         <a routerLink="./donate">{{ 'donate' | translate }}</a>
         <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
+        <div class="dropdown-container">
+          <div class="dropdown-selected" (click)="toggleDropdown()">
+            <img [src]="selected.icon" class="flag"> {{ selected.name }}
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen">
+            <div class="dropdown-option" *ngFor="let option of langList" (click)="selectOption(option)">
+              <img [src]="option.icon" class="flag"> {{ option.name }}
+            </div>
+          </div>
+        </div>
+
         <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600">
         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
