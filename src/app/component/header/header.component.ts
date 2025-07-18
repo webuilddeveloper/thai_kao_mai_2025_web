@@ -120,7 +120,7 @@ export class HeaderComponent {
     }, 300);
     setTimeout(() => {
       this.changeSizeFont(this.fontSizeSelect);
-    },501)
+    },301)
     this.themeService.loadThemeFromStorage();
     this.selectedTheme = localStorage.getItem('theme') ?? '';
 
