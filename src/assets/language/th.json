@@ -68,6 +68,19 @@
   "ourAddress": "ที่อยู่ของเรา",
   "maps": "แผนที่",
   "eventCalendar": "ปฏิทินกิจกรรม",
-  "eventCalendarAll": "ปฏิทินกิจกรรมทั้งหมด"
+  "eventCalendarAll": "ปฏิทินกิจกรรมทั้งหมด",
 
+  "latestActivities":"กิจกรรมล่าสุด",
+  "returnHomePage":"กลับไปหน้าหลัก",
+  "aboutParty":"เกี่ยวกับพรรค",
+  "ideology":"อุมดการณ์",
+  "history":"ประวัติความเป็นมา",
+  "policy":"นโยบาย",
+  "thaiKaoMai":"พรรคไทยก้าวใหม่",
+  "problemsOrigins":"ปัญหาและที่มา",
+  "correctiveActionGuidelines":"แนวทางการแก้ไข",
+  "partyExecutiveCommittee":"กรรมการบริหารพรรค",
+  "executivesThaiParty":"ผู้บริหารพรรคไทยก้าวใหม่",
+  "leaderThaiParty":"หัวหน้าพรรคไทยก้าวใหม่",
+  "partyCommittee":"กรรมการพรรค"
 }
