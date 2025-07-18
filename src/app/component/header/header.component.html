@@ -5,35 +5,78 @@
       <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
           src="./assets/img/logo-full-c2.png" alt="" class="logo-header filter-w-y"></a>
       <div class="menu-group" data-aos="fade-down" data-aos-duration="1000">
-        <a routerLink="./home">{{ 'home' | translate }}</a>
+        <a class="p17" routerLink="./home">{{ 'home' | translate }}</a>
         <div class="menu-with-sub pointer">
-          <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+          <a class="p17" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
           <div class="sub-menu ">
-            <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-            <a routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a>
+            <a class="p17" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+            <a class="p17" routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a>
           </div>
         </div>
 
         <div class="menu-with-sub pointer">
-          <a routerLink="#">{{ 'aboutMe' | translate }}</a>
+          <a class="p17" routerLink="#">{{ 'aboutMe' | translate }}</a>
           <div class="sub-menu">
-            <a routerLink="./ideology">อุดมการณ์ของพรรค</a>
-            <a routerLink="./history">ประวัติความเป็นมา</a>
-            <a routerLink="./policy">นโยบาย</a>
-            <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
+            <a class="p17" routerLink="./ideology">{{ 'ideology' | translate }}</a>
+            <a class="p17" routerLink="./history">{{ 'history' | translate }}</a>
+            <a class="p17" routerLink="./policy">{{ 'policy' | translate }}</a>
+            <a class="p17" routerLink="./party-executive">{{ 'partyExecutiveCommittee' | translate }}</a>
           </div>
         </div>
         <div class="menu-with-sub pointer">
-          <a routerLink="#">{{ 'membership' | translate }}</a>
+          <a class="p17" routerLink="#">{{ 'membership' | translate }}</a>
           <div class="sub-menu">
-            <a routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
-            <a routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
+            <a class="p17" routerLink="./register">{{ 'partymembers'| translate }}</a>
+            <a class="p17" routerLink="./register-member">{{ 'registerPartyClub'| translate }}</a>
+            <a class="p17" routerLink="./suggestion">{{ 'suggestion' | translate }}</a>
           </div>
         </div>
 
 
-        <a routerLink="./donate">{{ 'donate' | translate }}</a>
-        <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
+        <a class="p17" routerLink="./donate">{{ 'donate' | translate }}</a>
+        <a class="p17" routerLink="./contact">{{ 'contactUs' | translate }}</a>
+
+
+        <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown3()">
+            🅣 ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen3">
+            <div class="dropdown-option" (click)="changeSizeFont(0)">
+              🅣 ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(1)">
+              🅣 กลาง
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(2)">
+              🅣 ใหญ่
+            </div>
+          </div>
+
+          
+        </div>
+
+
+         <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown2()">
+            👁️‍🗨️ ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen2">
+            <div class="dropdown-option" (click)="changeTheme('')">
+              👁️‍🗨️ ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('dark-theme')">
+              👁️‍🗨️ ขาว-ดำ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('blindness-theme')">
+              👁️‍🗨️ ตาบอดสี
+            </div>
+          </div>
+
+          
+        </div>
 
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
@@ -48,11 +91,17 @@
         </div>
 
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
-        <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+        <!-- <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
-          <option value="blindness-theme">เหลือง-ดำ</option>
+          <option value="blindness-theme">ตาบอดสี</option>
         </select>
+
+        <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
+          <option value="0" selected>ปกติ</option>
+          <option value="1">กลาง</option>
+          <option value="2">ใหญ่</option>
+        </select> -->
 
 
       </div>
@@ -84,11 +133,58 @@
           </div>
         </div> -->
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
-         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+
+
+        <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown3()">
+            🅣 ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen3">
+            <div class="dropdown-option" (click)="changeSizeFont(0)">
+              🅣 ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(1)">
+              🅣 กลาง
+            </div>
+            <div class="dropdown-option" (click)="changeSizeFont(2)">
+              🅣 ใหญ่
+            </div>
+          </div>
+
+          
+        </div>
+
+
+         <div class="dropdown-container" style="width: 120px;">
+          <div class="dropdown-selected" (click)="toggleDropdown2()">
+            👁️‍🗨️ ปกติ
+          </div>
+
+          <div class="dropdown-list" *ngIf="isOpen2">
+            <div class="dropdown-option" (click)="changeTheme('')">
+              👁️‍🗨️ ปกติ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('dark-theme')">
+              👁️‍🗨️ ขาว-ดำ
+            </div>
+            <div class="dropdown-option" (click)="changeTheme('blindness-theme')">
+              👁️‍🗨️ ตาบอดสี
+            </div>
+          </div>
+
+          
+        </div>
+        <!-- <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
+          <option value="0" selected>ปกติ</option>
+          <option value="1">กลาง</option>
+          <option value="2">ใหญ่</option>
+        </select>
+        <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
-          <option value="blindness-theme">เหลือง-ดำ</option>
-        </select>
+          <option value="blindness-theme">ตาบอดสี</option>
+        </select> -->
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
             <img [src]="selected.icon" class="flag"> {{ selected.name }}
@@ -116,7 +212,7 @@
 
         <li class="has-submenu" [class.open]="activeSubMenu === 'news'">
           <a (click)="toggleSubMenu('news')">
-            ข่าวสารและกิจกรรม
+            {{ 'newsAndEvent' | translate }}
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
@@ -131,10 +227,10 @@
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
-            <li><a (click)="closeHam()" routerLink="./ideology">{{ 'อุดมการณ์ของพรรค' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./history">{{ 'ประวัติความเป็นมา' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./policy">{{ 'นโยบาย' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'กรรมการบริหารพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./ideology">{{ 'ideology' | translate}}</a></li>
+            <li><a (click)="closeHam()" routerLink="./history">{{ 'history'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./policy">{{ 'policy'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'partyExecutiveCommittee'| translate }}</a></li>
           </ul>
         </li>
 
@@ -144,8 +240,9 @@
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
-            <li><a (click)="closeHam()" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register">{{ 'partymembers'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'registerPartyClub'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./suggestion">{{ 'suggestion'| translate }}</a></li>
           </ul>
         </li>
 

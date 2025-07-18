@@ -14,6 +14,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: var(--white);
+
 }
 
 .div-content {
@@ -24,6 +26,8 @@
   border-radius: 20px;
   padding: 60px 50px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 20px 70px 0px;
+  background-color: var(--white);
+  border: 1px solid var(--94949442-w-y);; // เพิ่มความชัดเจนของกรอบ
 }
 
 .head-title {

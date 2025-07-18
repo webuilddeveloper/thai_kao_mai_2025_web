@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import * as AOS from 'aos';
+import { Utilities } from 'src/app/shared/utilities';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,9 @@ import * as AOS from 'aos';
 })
 export class HomeComponent {
   aboutMeModel: any = {};
-    showCookieBanner = !localStorage.getItem('cookieAccepted');
+  showCookieBanner = !localStorage.getItem('cookieAccepted');
+  fontSizeSelect: number = 0;
+  deviceSize: string = '';
 
   serviceList: any = [
     {
@@ -105,8 +108,10 @@ export class HomeComponent {
     private router: Router,
     public translate: TranslateService,
     private renderer: Renderer2,
-    private el: ElementRef
+    private el: ElementRef,
+    private utilities: Utilities,
   ) {
+
 
   }
 
@@ -139,6 +144,7 @@ export class HomeComponent {
 }
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,       // ความเร็ว animation
       once: false,         // ❌ false = ให้เล่นซ้ำได้ ไม่ใช่ครั้งเดียว

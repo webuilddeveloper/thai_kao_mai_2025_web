@@ -245,30 +245,4 @@
 }
 
 
-.news-date {
-  font-size: var(--font-20, 20px);
-  font-family: var(--font-family-prompt);
-  color: var(--black);
-  line-height: 1.4;
-  margin: 0 0 12px 0;
-  opacity: 0.5;
-}
 
-.back-button {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: var(--949494-w-y);
-  font-size: 18px;
-  font-weight: 600;
-  transition: color 0.3s ease;
-
-  .arrow {
-    margin-right: 8px;
-    font-size: 20px;
-  }
-
-  &:hover {
-    color: var(--nevy);
-  }
-}

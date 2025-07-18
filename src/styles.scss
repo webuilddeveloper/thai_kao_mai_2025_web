@@ -64,6 +64,17 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --3c385a-252525-252525: #3c385a;
   --24203f-252525-252525: #24203f;
   --4a4a4a-w-y: #4a4a4a;
+  --2e2e4b-b-b: #2e2e4b;
+  --2e2e4b-w-y: #2e2e4b;
+  --e8de02-w-y: #e8de02;
+  --a0a0c0-w-y: #a0a0c0;
+  --e8de02-b-b: #e8de02;
+  --0c0c28-w-y: #0c0c28;
+  --f7f052-b-b: #f7f052;
+  --f7f052-w-y: #f7f052;
+  --9494940-w-y: #9494940a;
+  --666-w-y: #666;
+  --1a1a1a-w-y: #1a1a1a;
   --y-w-y-2: #F4ED17;
 
   --y-w-y-icon: ;
@@ -127,7 +138,19 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --3c385a-252525-252525: #252525;
   --24203f-252525-252525: #252525;
   --4a4a4a-w-y: white;
+  --2e2e4b-b-b: black;
+  --2e2e4b-w-y: white;
+  --e8de02-w-y: white;
+  --a0a0c0-w-y: white;
+  --e8de02-b-b: black;
+  --0c0c28-w-y: white;
+  --f7f052-b-b: black;
+  --f7f052-w-y: white;
+  --9494940-w-y: white;
+  --666-w-y: white;
+  --1a1a1a-w-y: white;
   --y-w-y-2: #000000;
+  --nevy-fade: #ffffff;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -160,7 +183,19 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --3c385a-252525-252525: #252525;
   --24203f-252525-252525: #252525;
   --4a4a4a-w-y: #F4ED17;
+  --2e2e4b-b-b: black;
+  --2e2e4b-w-y: #F4ED17;
+  --e8de02-w-y: #F4ED17;
+  --a0a0c0-w-y: #F4ED17;
+  --e8de02-b-b: black;
+  --0c0c28-w-y: #F4ED17;
+  --f7f052-b-b: black;
+  --f7f052-w-y: #F4ED17;
+  --9494940-w-y: #F4ED17;
+  --666-w-y: #F4ED17;
+  --1a1a1a-w-y: #F4ED17;
   --y-w-y-2: #000000;
+  --nevy-fade: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
@@ -392,13 +427,44 @@ body {
 }
 
 .vertical {
-    padding: 50px 100px;
-    min-height: 100vh;
-    background-color: var(--white);
+  padding: 50px 100px;
+  // min-height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+
 }
 
 .news-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    // width: 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+  // width: 10%;
+}
+
+.news-date {
+  font-size: var(--font-20, 20px);
+  font-family: var(--font-family-prompt);
+  color: var(--black);
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  opacity: 0.5;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--949494-w-y);
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+
+  .arrow {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+
+  &:hover {
+    color: var(--nevy);
+  }
 }
