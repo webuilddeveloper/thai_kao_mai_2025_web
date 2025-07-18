@@ -21,9 +21,10 @@ import { DonateComponent } from './pages/donate/donate.component';
 import { PolicyComponent } from './pages/policy/policy.component';
 import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
+import { First2Component } from './pages/first2/first2.component';
 
 const routes: Routes = [
-  { path: '', component: FirstComponent },
+  { path: '', component: First2Component },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },
