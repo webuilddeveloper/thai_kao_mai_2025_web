@@ -281,6 +281,15 @@
     /* เยื้องมากขึ้นอีก */
 }
 
+/* 🟡 เอฟเฟกต์ Hover */
+.btn-hero:hover {
+  background: #F4ED17;
+  /* พื้นเหลือง */
+  color: #2D294A;
+  /* ตัวอักษรม่วงเข้ม */
+  transform: translateY(-2px);
+}
+
 /* ✅ Keyframes แบบ fade-up */
 @keyframes fadeUpEach {
     from {
