@@ -149,5 +149,10 @@
   "proceed": "Proceed",
   "completed-member": "Member registration completed",
   "completed-thx": "Thank you for registering to join the Thai Kao Mai Party.",
-  "tohome": "Return to home page"
+  "tohome": "Return to home page",
+  "suggestion": "Suggestion",
+  "suggestion-information": "Where you have registered your fan club",
+  "suggestion-confirm": "Send feedback",
+  "suggestion-compleate": "Suggestion sent successfully",
+  "suggestion-thankyou": "Thank you for your feedback/suggestions."
 }
