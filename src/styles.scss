@@ -59,6 +59,10 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --w-b-y: white;
   --94949442-w-y: #94949442;
   --666-w-y: #666;
+  --4a4568-w-y: #4a4568;
+  --4a4568-b-b: #4a4568;
+  --3c385a-252525-252525: #3c385a;
+  --24203f-252525-252525: #24203f;
 
   --y-w-y-icon: ;
   --filter: ;
@@ -116,6 +120,10 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --w-b-y: black;
   --94949442-w-y: white;
   --666-w-y: white;
+  --4a4568-w-y: white;
+  --4a4568-b-b: black;
+  --3c385a-252525-252525: #252525;
+  --24203f-252525-252525: #252525;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -143,6 +151,10 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --w-b-y: #F4ED17;
   --94949442-w-y: #F4ED17;
   --666-w-y: #F4ED17;
+  --4a4568-w-y: #F4ED17;
+  --4a4568-b-b: black;
+  --3c385a-252525-252525: #252525;
+  --24203f-252525-252525: #252525;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);

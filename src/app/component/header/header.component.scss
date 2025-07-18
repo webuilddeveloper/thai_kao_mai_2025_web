@@ -247,7 +247,7 @@ a:hover {
     width: fit-content;
     height: -webkit-fill-available;
     border-radius: 0;
-    background-color: var(--bg-main);
+    background-color: var(--nevy-b-b);
     z-index: 99999999;
   }
 
@@ -284,7 +284,7 @@ a:hover {
     width: fit-content;
     height: -webkit-fill-available;
     border-radius: 0;
-    background-color: var(--bg-main);
+    background-color: var(--nevy-b-b);
     z-index: 99999999;
   }
 
@@ -438,7 +438,7 @@ a:hover {
   max-width: 80%;
   /* สำหรับจอมือถือที่เล็กมากๆ */
   height: 100%;
-  background-color: #2d294a;
+  background-color: var(--nevy-b-b);
   /* สีพื้นหลังหลักของเมนู */
   z-index: 1000;
 
@@ -453,7 +453,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding-top: 60px;
-  /* เพิ่มช่องว่างด้านบน */
+  border: 1px solid var(--nevy)
 }
 
 /* เมื่อเมนูถูกเปิด (มี class .open) */
@@ -474,18 +474,18 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 18px 25px;
-  color: #ffffff;
+  color: var(--w-w-y);
   text-decoration: none;
   font-size: 1.1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  border-bottom: 1px solid #4a4568;
+  border-bottom: 1px solid var(--4a4568-w-y);
   /* เส้นคั่นระหว่างเมนู */
 }
 
 .sub-menu-nav ul li a:hover,
 .sub-menu-nav ul li a:focus {
-  background-color: #4a4568;
+  background-color: var(--4a4568-b-b);
   transform: translateX(-5px);
   /* เพิ่มเอฟเฟกต์ตอน hover */
 }
@@ -496,8 +496,8 @@ a:hover {
 .arrow-down {
   width: 10px;
   height: 10px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid var(--w-w-y);
+  border-bottom: 2px solid var(--w-w-y);
   transform: rotate(45deg);
   transition: transform 0.3s ease-in-out;
 }
@@ -511,7 +511,7 @@ li.has-submenu.open>a>.arrow-down {
 
 /* Container ของ Submenu */
 .submenu {
-  background-color: #24203f;
+  background-color: var(--24203f-252525-252525);
   /* ทำให้สีพื้นหลังต่างจากเมนูหลักเล็กน้อย */
   overflow: hidden;
   max-height: 0;
@@ -525,12 +525,12 @@ li.has-submenu.open>a>.arrow-down {
   font-size: 1rem;
   padding-left: 45px;
   /* ย่อหน้าเข้ามา */
-  border-bottom: 1px solid #3c385a;
+  border-bottom: 1px solid var(--3c385a-CFD3D7-CFD3D7);
 }
 
 .submenu li a:hover,
 .submenu li a:focus {
-  background-color: #4a4568;
+  background-color: var(--3c385a-252525-252525);
   transform: translateX(0);
   /* Submenu ไม่ต้องขยับซ้าย */
 }
