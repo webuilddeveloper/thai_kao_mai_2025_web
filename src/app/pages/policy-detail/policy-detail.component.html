@@ -4,7 +4,7 @@
 <div class="vertical">
     <div class="back-button" (click)="goBack()">
         <span class="arrow">←</span>
-        <span class="text">กลับไปหน้าหลัก</span>
+        <span class="text">{{ 'returnHomePage' | translate }}</span>
     </div>
     <div class="card-newdetail">
 
@@ -13,9 +13,9 @@
             <img [src]="policy.imageUrl" alt="" class="img-logo-des">
             <h3 class="txt-title">{{ policy.title }}</h3>
             <div class="txt-description">{{ policy.description }}</div>
-            <h3 class="txt-title">ปัญหาและที่มา</h3>
+            <h3 class="txt-title">{{ 'problemsOrigins' | translate }}</h3>
             <div class="txt-description">-</div>
-            <h3 class="txt-title">แนวทางการแก้ไข</h3>
+            <h3 class="txt-title">{{ 'correctiveActionGuidelines' | translate }}</h3>
             <div class="txt-description">-</div>
         </div>
     </div>

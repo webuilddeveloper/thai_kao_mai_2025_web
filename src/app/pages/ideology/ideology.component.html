@@ -1,11 +1,12 @@
 <div class="header-container" data-aos="zoom-in-up">
   <div class="header-text">
-    <h1>เกี่ยวกับพรรค</h1>
-    <p>หน้าแรก // เกี่ยวกับพรรค // <span style="color: #F4ED17;">อุมดการณ์</span></p>
+    <h1>{{ 'aboutParty' | translate }} </h1>
+    <p>{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span style="color: #F4ED17;">{{ 'ideology' |
+        translate }}</span></p>
   </div>
 </div>
 <section class="ideology-section">
-  <div class="header"  data-aos="fade-right">
+  <div class="header" data-aos="fade-right">
     <h2>อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่</h2>
     <p class="description">
       พรรคไทยก้าวใหม่ยึดมั่นในระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข
@@ -21,9 +22,9 @@
   </div>
 
   <div class="vision">
-    <h3  data-aos="zoom-in">วิสัยทัศน์</h3>
+    <h3 data-aos="zoom-in">วิสัยทัศน์</h3>
 
-    <div class="vision-item" *ngFor="let v of visions; let i = index"  data-aos="fade-right">
+    <div class="vision-item" *ngFor="let v of visions; let i = index" data-aos="fade-right">
       <h5>{{ v.title }}</h5>
       <ul>
         <li *ngFor="let d of v.detail">{{ d }}</li>

@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
 import * as AOS from 'aos';
 import { ThemeService } from 'src/app/shared/theme.service';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +31,8 @@ export class HeaderComponent {
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private dateAdapter: DateAdapter<Date>
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -150,6 +152,7 @@ export class HeaderComponent {
     this.selected = option;
     this.translate.use(option.value);
     localStorage.setItem('lang', option.value);
+    this.dateAdapter.setLocale(option.value === 'th' ? 'th-TH' : 'en-US');
     this.isOpen = false;
   }
 

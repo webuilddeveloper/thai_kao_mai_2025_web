@@ -68,6 +68,19 @@
   "ourAddress": "Our Address",
   "maps": "Maps",
   "eventCalendar": "Event Calendar",
-  "eventCalendarAll": "Event Calendar All"
+  "eventCalendarAll": "Event Calendar All",
 
+  "latestActivities":"Latest Activities",
+  "returnHomePage":"Return to home page",
+  "aboutParty":"About the party",
+  "ideology":"Ideology",
+  "history":"History",
+  "policy":"Policy",
+  "thaiKaoMai":" ThaiKaoMai",
+  "problemsOrigins":"Problems and origins",
+  "correctiveActionGuidelines":"Corrective action guidelines",
+  "partyExecutiveCommittee":"Party Executive Committee",
+  "executivesThaiParty":"Executives of the Thai Move Forward Party",
+  "leaderThaiParty":"Leader of the Thai New Step Party",
+  "partyCommittee":"Party committee"
 }
