@@ -143,16 +143,22 @@ export class HeaderComponent {
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
+    this.isOpen2 = false; // ปิด dropdown อื่นๆ
+    this.isOpen3 = false; // ปิด dropdown อื่นๆ
   }
 
   isOpen2 = false;
   toggleDropdown2() {
     this.isOpen2 = !this.isOpen2;
+    this.isOpen = false; // ปิด dropdown อื่นๆ
+    this.isOpen3 = false; // ปิด dropdown อื่นๆ
   }
 
   isOpen3 = false;
   toggleDropdown3() {
     this.isOpen3 = !this.isOpen3;
+    this.isOpen = false; // ปิด dropdown อื่นๆ
+    this.isOpen2 = false; // ปิด dropdown อื่นๆ
   }
 
   openHam() {
