@@ -21,10 +21,6 @@
 
 }
 
-.vertical {
- margin: 0 5%;
-
-}
 
 .card-newdetail {
     width: 100%;
@@ -39,6 +35,7 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     overflow-wrap: break-word;
+    max-width: 1440px;
 }
 
 
@@ -94,7 +91,7 @@
     font-size: var(--font-20);
     font-family: var(--font-family-prompt);
     line-height: 1.6;
-    color: var(--text-secondary, #4a4a4a);
+    color: var(--1a1a1a-w-y);
     text-align: justify;
 
     /* สำหรับ HTML content */
@@ -144,9 +141,6 @@
 }
 
 @media (min-width: 1024px) {
-    .vertical {
-        padding: 20px 60px;
-    }
 
     .card-newdetail {
         // padding: 48px;
@@ -250,24 +244,4 @@
     line-height: 1.4;
     margin: 0 0 12px 0;
     opacity: 0.5;
-}
-
-
-.back-button {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: #949494; 
-  font-size: 18px;
-  font-weight: 600;
-  transition: color 0.3s ease;
-
-  .arrow {
-    margin-right: 8px;
-    font-size: 20px;
-  }
-
-  &:hover {
-    color: var(--nevy); 
-  }
 }

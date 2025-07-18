@@ -90,21 +90,21 @@
 }
 
 .card-news {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--white);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--9494940-w-y);
   height: 100%;
 }
 
 .card-news:hover {
   transform: translateY(-12px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  border-color: rgba(var(--main-rgb, 107, 194, 105), 0.3);
+  border: 1px solid var(--9494940-w-y);
 }
 
 .card-image {
@@ -119,6 +119,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  filter: var(--filter);
 }
 
 .card-news:hover .news-image {
@@ -175,7 +176,7 @@
 .news-description {
   font-family: var(--font-family-prompt);
   font-size: var(--font-14, 14px);
-  color: var(--article-text, #666);
+  color: var(--666-w-y);
   line-height: 1.5;
 
   display: -webkit-box;
@@ -213,7 +214,8 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .vertical {
-    margin: 0 6%;
+    // margin: 0 6%;
+    padding: 50px;
   }
 
   .news-container {
@@ -241,7 +243,6 @@
 
 @media (max-width: 767px) {
   .vertical {
-    margin: 0 4%;
     padding: 20px 0;
   }
 
@@ -290,8 +291,7 @@
 
 @media (max-width: 480px) {
   .vertical {
-    margin: 0 3%;
-    padding: 16px 0;
+    padding: 20px;
   }
 
   .section-header h3 {
@@ -369,16 +369,20 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   z-index: 2;
   margin-top: -75px;
+  margin-bottom: 0;
+
 }
 
 // --- Left Schedule Panel ---
 .schedule-panel {
-  background-color: #e8de02;
-  color: #0c0c28;
+  background-color: var(--e8de02-b-b);
+  color: var(--0c0c28-w-y);
   padding: 2.5rem;
   width: 35%;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--e8de02-w-y);
+  border-radius: 10px 0 0 10px;
 }
 
 .date-display {
@@ -409,7 +413,8 @@
 
   .schedule-item,
   .schedule-item-empty {
-    background-color: #f7f052;
+    background-color: var(--f7f052-b-b);
+    border: 1px solid var(--f7f052-w-y);
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 0.5rem;
@@ -418,10 +423,12 @@
 
 // --- Right Calendar Panel ---
 .calendar-panel {
-  background-color: #2e2e4b;
+  background-color: var(--2e2e4b-b-b);
+  border: 1px solid var(--2e2e4b-w-y);
   color: #fff;
   padding: 1.5rem 2rem;
   width: 65%;
+  border-radius: 0 10px 10px 0;
 }
 
 // --- Angular Material Calendar Customization ---
@@ -458,10 +465,10 @@
   width: 40px;
   height: 40px;
   line-height: 36px;
-  color: #fff;
+  color: var(--white);
 
   .mat-calendar-body-cell-content {
-    color: #fff;
+    // color: #fff;
   }
 }
 
@@ -469,16 +476,16 @@
 .mat-calendar-body-active {
   background-color: transparent !important;
   border: 2px solid #fff;
-  color: #fff !important;
+  color: var(--black) !important;
 }
 
 /* Highlighted Date */
 .highlight-date {
-  background-color: #e8de02 !important;
+  background-color: var(--e8de02-w-y) !important;
   border-radius: 50% !important;
 
   .mat-calendar-body-cell-content {
-    color: #2e2e4b !important;
+    color: var(--2e2e4b-b-b) !important;
     font-weight: 700;
   }
 }
@@ -486,6 +493,11 @@
 /* Today's Date - remove default outline */
 .mat-calendar-body-today {
   border: none !important;
+
+  .mat-calendar-body-selected {
+    box-shadow: 0 !important;
+  }
+
 }
 
 /* เพิ่มโค้ดส่วนนี้เพื่อปรับแต่งฟอนต์และสี */
@@ -493,13 +505,13 @@
 // เปลี่ยนฟอนต์และสีของ "ตัวเลขวันที่" ทั้งหมด
 .mat-calendar-body-cell-content {
   font-family: var(--font-family-prompt);
-  color: #FFFFFF; // <-- เปลี่ยนสีตัวเลขวันที่ (เช่น สีขาว)
+  color: var(--w-w-y) !important; // <-- เปลี่ยนสีตัวเลขวันที่ (เช่น สีขาว)
   font-weight: 500; // เพิ่มความหนา
 }
 
 // เปลี่ยนสีของ "วันในสัปดาห์" (SUN, MON, TUE...)
 .mat-calendar-table-header th {
-  color: #a0a0c0; // <-- เปลี่ยนสีตัวอักษรของวันในสัปดาห์
+  color: var(--a0a0c0-w-y); // <-- เปลี่ยนสีตัวอักษรของวันในสัปดาห์
   font-family: var(--font-family-prompt);
 }
 
@@ -511,19 +523,20 @@
 
 // พิเศษ: เปลี่ยนสี "วันที่ถูกเลือก" ให้เด่นขึ้น
 .mat-calendar-body-active>.mat-calendar-body-cell-content {
-  color: #000000; // สีตัวเลขของวันที่ถูกเลือก (เช่น สีดำ)
-  background-color: #FFFFFF; // สีพื้นหลังของวันที่ถูกเลือก (เช่น สีขาว)
+  color: var(--black) !important; // สีตัวเลขของวันที่ถูกเลือก (เช่น สีดำ)
+  background-color: var(--white); // สีพื้นหลังของวันที่ถูกเลือก (เช่น สีขาว)
   border-radius: 50%;
+  border: 3px solid var(--e8de02-w-y);
 }
 
 // เปลี่ยนสีของ "เดือนและปี" ด้านบน
 .mat-calendar-period-button {
-  color: #FFFFFF !important; // <-- เพิ่ม !important เข้าไปตรงนี้
+  color: var(--w-w-y) !important; // <-- เพิ่ม !important เข้าไปตรงนี้
 }
 
 .mat-calendar-table-header,
 .mat-calendar-body-label {
-  color: #FFFFFF !important;
+  color: var(--w-w-y) !important;
 }
 
 /* ใช้ ::ng-deep เพื่อให้ style เข้าถึง element ภายในของ MatCalendar ได้ */
@@ -571,7 +584,8 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .vertical {
-    margin: 0 6%;
+    // margin: 0 6%;
+    padding: 40px;
   }
 
   .news-container {
@@ -620,8 +634,7 @@
 
 @media (max-width: 767px) {
   .vertical {
-    margin: 0 4%;
-    padding: 20px 0;
+    padding: 20px;
   }
 
   .section-header {
@@ -673,10 +686,12 @@
 
   .calendar-panel {
     width: 100%;
+    border-radius: 0 0 10px 10px;
   }
 
   .schedule-panel {
     width: 100%;
+    border-radius: 10px 10px 0 0;
   }
 
   .header-text h1 {
@@ -690,8 +705,7 @@
 
 @media (max-width: 480px) {
   .vertical {
-    margin: 0 3%;
-    padding: 16px 0;
+    padding: 20px;
   }
 
   .section-header h3 {
@@ -726,10 +740,12 @@
 
   .calendar-panel {
     width: 100%;
+    border-radius: 0 0 10px 10px;
   }
 
   .schedule-panel {
     width: 100%;
+    border-radius: 10px 10px 0 0;
   }
 
   .header-text h1 {
@@ -739,4 +755,8 @@
   .header-text p {
     font-size: 0.8rem;
   }
+}
+
+.div-calendar-container {
+  background-color: var(--white);
 }
