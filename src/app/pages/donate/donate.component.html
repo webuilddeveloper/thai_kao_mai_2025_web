@@ -1,8 +1,8 @@
 <div class="container-header" data-aos="zoom-in-up">
-  <div class="header-container"></div>
+    <div class="header-container"></div>
 
     <div class="header-text">
-         <h1>{{'donate' |translate}}</h1>
+        <h1>{{'donate' |translate}}</h1>
         <p>{{'home'|translate}} // <span style="color: #F4ED17;">{{'donate'|translate}}</span></p>
     </div>
 
@@ -16,7 +16,7 @@
       'active': step >= 1
     }">
             <div class="circle">1</div>
-           <p>{{'donate'|translate}}</p>
+            <p>{{'donate'|translate}}</p>
         </div>
 
         <div class="line"></div>
@@ -26,7 +26,7 @@
       'active': step >= 2
     }">
             <div class="circle">2</div>
-           <p>{{'verify' | translate}}</p>
+            <p>{{'verify' | translate}}</p>
         </div>
 
         <div class="line"></div>
@@ -36,7 +36,7 @@
       'active': step >= 3
     }">
             <div class="circle">3</div>
-             <p>{{'verify' | translate}}</p>
+            <p>{{'verify' | translate}}</p>
         </div>
 
     </div>
@@ -46,7 +46,7 @@
 
 <div class="row payment-section" *ngIf="!showForm && step === 1">
     <div class="payment-methods">
-         <h3>{{'selectpay'|translate}}</h3>
+        <h3>{{'selectpay'|translate}}</h3>
         <div class="payment-options">
             <!-- QR Code -->
             <div class="payment-option" [class.selected]="selectedMethod === 'qr'" (click)="selectMethod('qr')">
@@ -59,14 +59,14 @@
             <div class="payment-option" [class.selected]="selectedMethod === 'bank'" (click)="selectMethod('bank')">
                 <img [src]="selectedMethod === 'bank' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
                     alt="โอนเงิน" />
-                   <span>{{'transfermoney'|translate}}</span>
+                <span>{{'transfermoney'|translate}}</span>
             </div>
 
             <!-- บัตรเครดิต -->
             <div class="payment-option" [class.selected]="selectedMethod === 'credit'" (click)="selectMethod('credit')">
                 <img [src]="selectedMethod === 'credit' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
                     alt="บัตรเครดิต" />
-                 <span>{{'creditcard'|translate}}</span>
+                <span>{{'creditcard'|translate}}</span>
             </div>
         </div>
 
@@ -74,19 +74,44 @@
         <button class="btn-next" (click)="showForm = true">{{'next'|translate}}</button>
 
     </div>
+
+    <div #observerSection class="gradient-box">
+        <div class="member-container">
+            <h2>ยอดบริจาคสนับสนุน <span style="text-decoration: underline;">พรรคไทยก้าวใหม่</span> จนถึงปัจจุบัน</h2>
+            <div class="digit-wrapper">
+                <div class="digits">
+                    <div class="digit" *ngFor="let digit of digits; let i = index">
+                        <div class="number" #digitRef>{{ digit }}</div>
+                        <span class="comma" *ngIf="(digits.length - i) % 3 === 1 && i !== digits.length - 1">,</span>
+                    </div>
+                </div>
+                <div class="unit">บาท</div>
+            </div>
+            <div class="bar-donation">
+                <div class="donation-container">
+                    <div class="donation-bar">
+                        <div class="donation-fill" [style.width.%]="percentage"></div>
+                    </div>
+                    <div class="donation-info">
+                        <div>เป้าหมายของเรา 1,000,000 บาท</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <div class="row payment-section" *ngIf="showForm && step === 1">
 
     <div class="donation-amount">
-               <h3>{{'selectamount'|translate}}</h3>
+        <h3>{{'selectamount'|translate}}</h3>
         <div class="amount-options">
             <button *ngFor="let amount of presetAmounts" [class.selected]="selectedAmount === amount"
                 (click)="selectAmount(amount)">
                 {{ amount | number }} {{'baht'|translate}}
             </button>
-            <input type="number" placeholder="{{'pleasespecify' | translate}}"  [(ngModel)]="customAmount"
+            <input type="number" placeholder="{{'pleasespecify' | translate}}" [(ngModel)]="customAmount"
                 (focus)="selectAmount(null)" />
         </div>
     </div>
@@ -100,14 +125,17 @@
 
         <!-- ปุ่มเลือกประเภท -->
         <div class="form-type-toggle">
-            <button [class.active]="formType === 'person'" (click)="formType = 'person'">{{"person"| translate}}</button>
+            <button [class.active]="formType === 'person'" (click)="formType = 'person'">{{"person"|
+                translate}}</button>
             <button [class.active]="formType === 'org'" (click)="formType = 'org'">{{"legalentity"|translate}}</button>
         </div>
 
         <form>
             <div class="form-row">
-                <input type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="firstName" name="firstName" required />
-                <input type="text" placeholder="{{'surname'|translate}}*" [(ngModel)]="lastName" name="firstName" required />
+                <input type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="firstName" name="firstName"
+                    required />
+                <input type="text" placeholder="{{'surname'|translate}}*" [(ngModel)]="lastName" name="firstName"
+                    required />
             </div>
             <div class="form-row">
                 <!-- <input type="email" placeholder="อีเมล*" required />
@@ -117,7 +145,7 @@
                 <input type="tel" [(ngModel)]="phone" placeholder="{{'phone' |translate}}*" />
             </div>
             <div class="form-note">
-              * {{'eDonationPrompt'|translate}}
+                * {{'eDonationPrompt'|translate}}
             </div>
             <div class="form-row">
                 <input type="text" placeholder="{{'nationalid'|translate}}" />
@@ -135,7 +163,7 @@
 <div class="row" *ngIf="step === 2">
     <div class="row payment-section">
         <div class="confirmation">
-                 <h3>{{'verifydonation'|translate}}</h3>
+            <h3>{{'verifydonation'|translate}}</h3>
 
             <div class="info-box">
                 <div class="icon-wrapper">
@@ -143,7 +171,7 @@
                 </div>
 
                 <div>
-                        <label>{{'donateamount'|translate}}</label>
+                    <label>{{'donateamount'|translate}}</label>
                     <div>{{ selectedAmount || customAmount | number:'1.2-2' }} {{'baht'| translate}}</div>
                 </div>
             </div>
@@ -153,7 +181,7 @@
                     <img src="./assets/img/icon_phone.png" alt="ยอดเงิน" />
                 </div>
                 <div>
-                     <label>{{'phone'|translate}}</label>
+                    <label>{{'phone'|translate}}</label>
                     <div>{{ phone }}</div>
                 </div>
             </div>
@@ -169,7 +197,7 @@
             </div>
 
             <div class="form-actions">
-                 <button class="btn-back" (click)="goToStep(1)">{{'back'|translate}}</button>
+                <button class="btn-back" (click)="goToStep(1)">{{'back'|translate}}</button>
                 <button class="btn-next" (click)="goToStep(3)">{{'next'|translate}}</button>
             </div>
         </div>
@@ -184,7 +212,7 @@
     <div class="qr-section">
 
         <!-- QR Code Content -->
-              <h3>{{'pleasescan'|translate}}</h3>
+        <h3>{{'pleasescan'|translate}}</h3>
 
         <img class="logo-edonation" src="./assets/img/QR1.png" alt="e-donation" />
 
@@ -193,9 +221,9 @@
         </div>
 
         <div class="qr-instruction">
-                       <strong>{{'donationQrInstruction'|translate}}</strong>
+            <strong>{{'donationQrInstruction'|translate}}</strong>
             <ol>
-               <li>{{'donatemenu_1'|translate}}</li>
+                <li>{{'donatemenu_1'|translate}}</li>
                 <li>{{'donatemenu_2'|translate}}
                 </li>
                 <li>{{'donatemenu_3'|translate}}</li>
@@ -204,7 +232,7 @@
         </div>
 
         <div class="form-actions">
-             <button class="btn-back" (click)="goToStep(2)">{{'back'|translate}}</button>
+            <button class="btn-back" (click)="goToStep(2)">{{'back'|translate}}</button>
             <button class="btn-next" (click)="completeDonation()">{{'finish'|translate}}</button>
         </div>
     </div>
@@ -216,33 +244,33 @@
         <img src="./assets/img/thankyou-icon.png" alt="ขอบคุณ" class="thank-you-icon" />
         <h2>{{'thx'|translate}}{{firstName}} {{lastName}}</h2>
         <!-- <p>{{'thxparty'|translate}}</p> -->
-         <div>
+        <div>
             ทางพรรคจะนำไปใช้ให้เกิดประโยชน์สูงสุด
 
-         </div>
-         <div>
+        </div>
+        <div>
             ในทุกบาท ทุกแรงสนับสนุนที่ท่านมอบให้
 
-         </div>
-         <div>
-เราจะจัดสรรอย่างโปร่งใส มีประสิทธิภาพ
+        </div>
+        <div>
+            เราจะจัดสรรอย่างโปร่งใส มีประสิทธิภาพ
 
-         </div>
-         <div>
-เพื่อพัฒนานโยบายที่ตอบโจทย์ประชาชนอย่างแท้จริง
+        </div>
+        <div>
+            เพื่อพัฒนานโยบายที่ตอบโจทย์ประชาชนอย่างแท้จริง
 
-         </div>
-         <div>
-และสร้างการเปลี่ยนแปลงที่จับต้องได้ให้กับสังคมไทย
+        </div>
+        <div>
+            และสร้างการเปลี่ยนแปลงที่จับต้องได้ให้กับสังคมไทย
 
-         </div>
-         <div>
-เพราะนี่ไม่ใช่เพียงการบริจาค
+        </div>
+        <div>
+            เพราะนี่ไม่ใช่เพียงการบริจาค
 
-         </div>
-         <div>
-แต่มันคือความไว้วางใจที่เราจะไม่ทำให้สูญเปล่า
-         </div>
+        </div>
+        <div>
+            แต่มันคือความไว้วางใจที่เราจะไม่ทำให้สูญเปล่า
+        </div>
         <div class="popup-buttons">
             <button (click)="backToMain()">กลับสู่หน้าหลัก</button>
         </div>

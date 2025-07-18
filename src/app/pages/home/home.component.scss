@@ -609,12 +609,12 @@
     gap: 10px;
   }
 
-  .card-policy .title{
+  .card-policy .title {
     // font-size: var(--font-14) !important;
     width: -webkit-fill-available;
   }
 
-  .card-policy .des{
+  .card-policy .des {
     // font-size: var(--font-12) !important;
     width: -webkit-fill-available;
   }
@@ -681,11 +681,11 @@
   }
 
   .card-policy .title {
-  //   font-size: var(--font-22) !important;
+    //   font-size: var(--font-22) !important;
   }
 
   .card-policy .des {
-  //   font-size: var(--font-16) !important;
+    //   font-size: var(--font-16) !important;
   }
 
   .policy-des-box .view-more {
@@ -711,5 +711,134 @@
     border-radius: 20px; // ทำให้โค้งมนตอนย่อ
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); // เพิ่มมิติ (ถ้าชอบ)
     overflow: hidden; // ป้องกันหลุดขอบ
+  }
+}
+
+.gradient-box {
+  padding: 20px;
+  margin: 10% 0;
+  position: relative;
+  background: #2D294A;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px; // ปรับความสูงของ fade ได้
+    width: 100%;
+    // background: linear-gradient(to bottom, transparent, #ffffff);
+    pointer-events: none;
+  }
+
+  // เพื่อให้เนื้อหาซ้อนอยู่ด้านบน
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.bar-donation {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.donation-container {
+  background: #fff;
+  padding: 6px;
+  border-radius: 8px;
+  height: 50px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.donation-bar {
+  position: relative;
+  height: 100%;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.donation-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #2d294a, #3d3858, #5a5574);
+  transition: width 2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.donation-icon {
+  position: absolute;
+  top: -12px; // ลอยขึ้นเล็กน้อย
+  transform: translateX(-50%); // center ตาม left %
+  width: 48px;
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: left 2s ease-in-out;
+}
+
+.donation-info {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--main);
+}
+
+.member-container {
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: var(--main);
+
+     @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+  }
+
+  .digit-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .digit {
+    position: relative;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 50px;
+    height: 100%;
+    overflow: hidden;
+    color: var(--main);
+    
+     @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+    .number {
+      position: relative;
+    }
+
+    .underline {
+      // position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 4px;
+      // width: 0%;
+      background-color: var(--main);
+      transform: scaleX(0);
+      transform-origin: right;
+    }
   }
 }

@@ -57,7 +57,8 @@
         <div class="spacer"></div>
         <div class="top-div row bs-x0">
           <h2 data-aos="fade-right">นโยบายของพรรค</h2>
-          <button [ngClass]="fontSizeSelect == 0 ? 'p16' : fontSizeSelect == 1 ? 'p14' : 'p12'" class="view-all" data-aos="fade-left" [routerLink]="['/policy']">ดูทั้งหมด</button>
+          <button [ngClass]="fontSizeSelect == 0 ? 'p16' : fontSizeSelect == 1 ? 'p14' : 'p12'" class="view-all"
+            data-aos="fade-left" [routerLink]="['/policy']">ดูทั้งหมด</button>
         </div>
         <div class="spacer"></div>
         <div class="row gap-3">
@@ -69,9 +70,12 @@
                 <img [src]="i.imageUrl" alt="">
               </div>
               <div class="col-12 col-md-6 policy-des-box">
-                <span [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p30'" class="title hidden-title">{{ i.title }}</span>
-                <span [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p16' : 'p20'" class="des hidden-title">{{ i.description }}</span>
-                <button [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p20'" class="view-more" (click)="goToDetail(i)">
+                <span [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p30'"
+                  class="title hidden-title">{{ i.title }}</span>
+                <span [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p16' : 'p20'"
+                  class="des hidden-title">{{ i.description }}</span>
+                <button [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p20'" class="view-more"
+                  (click)="goToDetail(i)">
                   ดูเพิ่มเติม <i class="material-icons">arrow_forward</i>
                 </button>
               </div>
@@ -79,6 +83,29 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div #observerSection  class="gradient-box">
+      <div class="member-container">
+        <h2>ยอดผู้สมัครสมาชิกพรรคไทยก้าวใหม่</h2>
+        <div class="digit-wrapper">
+          <div class="digit" *ngFor="let digit of digits; let i = index">
+            <div class="number" #digitRef>{{ digit }}</div>
+            <div class="underline" #underlineRef></div>
+          </div>
+        </div>
+      </div>
+      <div class="bar-donation">
+        <div class="donation-container">
+          <div class="donation-bar">
+            <div class="donation-fill" [style.width.%]="percentage"></div>
+          </div>
+          <div class="donation-info">
+            <div>เป้าหมายของเรา 100,000 คน</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- <div class="content-1 service-bg">

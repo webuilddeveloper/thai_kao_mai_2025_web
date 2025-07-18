@@ -476,6 +476,82 @@
   }
 }
 
+.member-container {
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: var(--main);
+  }
+
+  .digit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: baseline; // 👈 ให้ทุกอย่างอยู่แนวอักษรเดียวกัน
+    gap: 8px;
+
+    .digits {
+      display: flex;
+    }
+
+    .digit {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--main);
+      display: flex;
+      align-items: baseline;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    .comma {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0 2px;
+      color: var(--main);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    .unit {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #999;
+      align-self: baseline;
+      padding-left: 4px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+
+}
+
+.gradient-box {
+  padding: 20px;
+  margin: 5% 0;
+  position: relative;
+  background: #2D294A;
+  overflow: hidden;
+}
+
+
+.bar-donation {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
 .donation-container {
   background: #fff;
   padding: 6px;
@@ -484,6 +560,7 @@
   width: 100%;
   max-width: 700px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .donation-bar {
@@ -515,43 +592,9 @@
   transition: left 2s ease-in-out;
 }
 
-.member-container {
+.donation-info {
   text-align: center;
-  padding: 50px 20px;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    font-weight: bold;
-  }
-
-  .digit-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .digit {
-    position: relative;
-    font-size: 3rem;
-    font-weight: bold;
-    width: 50px;
-    height: 100%;
-    overflow: hidden;
-
-    .number {
-      position: relative;
-    }
-
-    .underline {
-      // position: absolute;
-      bottom: -5px;
-      left: 0;
-      height: 4px;
-      // width: 0%;
-      background-color: #2D294A;
-      transform: scaleX(0);
-  transform-origin: right;
-    }
-  }
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--main);
 }

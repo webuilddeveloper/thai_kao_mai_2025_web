@@ -1,20 +1,34 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import * as AOS from 'aos';
 import { Utilities } from 'src/app/shared/utilities';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   aboutMeModel: any = {};
   showCookieBanner = !localStorage.getItem('cookieAccepted');
   fontSizeSelect: number = 0;
   deviceSize: string = '';
+  targetAmount = 100000;
+  currentAmount = 0;
+  targetDisplayAmount = 2234;
+  percentage = 0;
+  finalNumber = '2234';
+  digits = Array.from(this.finalNumber);
+  @ViewChildren('digitRef') digitRefs!: QueryList<ElementRef>;
+  @ViewChildren('underlineRef') underlineRefs!: QueryList<ElementRef>;
+  @ViewChild('observerSection') observerSection!: ElementRef;
 
   serviceList: any = [
     {
@@ -119,31 +133,46 @@ export class HomeComponent {
   isVisible = false;
 
   ngAfterViewInit() {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        this.isVisible = true;
-        observer.disconnect(); // ไม่ต้องตรวจซ้ำ
+    // const observer = new IntersectionObserver((entries) => {
+    //   if (entries[0].isIntersecting) {
+    //     this.isVisible = true;
+    //     observer.disconnect(); // ไม่ต้องตรวจซ้ำ
+    //   }
+    // }, {
+    //   threshold: 0.5 // เห็น 50% ถึงจะถือว่าแสดง
+    // });
+
+    // observer.observe(this.box.nativeElement);
+
+
+    ScrollTrigger.create({
+      trigger: this.observerSection.nativeElement,
+      start: 'top 70%',
+      once: true,
+      onEnter: () => {
+        this.readMember();
+        this.donateTotal();
       }
-    }, {
-      threshold: 0.5 // เห็น 50% ถึงจะถือว่าแสดง
     });
 
-    observer.observe(this.box.nativeElement);
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-  const triggerElement = this.el.nativeElement.querySelector('.bg');
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const triggerElement = this.el.nativeElement.querySelector('.bg');
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-  if (scrollTop > 0.5) { // ✅ ย่อทันทีที่เลื่อนแม้ 1px
-    this.renderer.addClass(triggerElement, 'shrink');
-  } else {
-    this.renderer.removeClass(triggerElement, 'shrink');
+    if (scrollTop > 0.5) { // ✅ ย่อทันทีที่เลื่อนแม้ 1px
+      this.renderer.addClass(triggerElement, 'shrink');
+    } else {
+      this.renderer.removeClass(triggerElement, 'shrink');
+    }
+
+
   }
-}
 
   ngOnInit(): void {
+
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,       // ความเร็ว animation
@@ -155,6 +184,9 @@ export class HomeComponent {
     setTimeout(() => {
       AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
     }, 100);
+
+
+
   }
 
   readNews() {
@@ -186,8 +218,85 @@ export class HomeComponent {
         this.aboutMeModel = model.objectData[0];
       });
   }
-   goToDetail(param: any) {
+  goToDetail(param: any) {
     this.router.navigate(['/policy-detail', param], {
     });
   }
+
+
+  donateTotal() {
+    const duration = 2000;
+    const frameRate = 60;
+    const totalFrames = Math.round(duration / (1000 / frameRate));
+    let frame = 0;
+
+    const amountIncrement = this.targetDisplayAmount / totalFrames;
+
+    const animate = () => {
+      frame++;
+      this.currentAmount = Math.min(this.targetDisplayAmount, Math.round(amountIncrement * frame));
+      this.percentage = (this.currentAmount / this.targetAmount) * 100;
+
+      if (frame < totalFrames) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }
+
+  readMember() {
+    setTimeout(() => {
+
+      const targetNumber = 2234;
+      const digitsStr = targetNumber.toString().padStart(4, '0');
+      this.digits = digitsStr.split('');
+
+      const delayPerDigit = 0.2;
+      const randomCount = 30;
+      const singleDigitDuration = 0.05;
+
+      const digitArray = this.digitRefs?.toArray().reverse();
+      const underlineArray = this.underlineRefs?.toArray().reverse();
+
+      if (!digitArray || !underlineArray || digitArray.length === 0) {
+        console.error('Digit references not ready yet.');
+        return;
+      }
+
+
+      digitArray.forEach((digitEl, i) => {
+        const element = digitEl.nativeElement;
+        const underline = underlineArray[i].nativeElement;
+
+        const reversedIndex = this.digits.length - 1 - i;
+        const finalValue = this.digits[reversedIndex];
+
+        const tl = gsap.timeline({ delay: i * delayPerDigit });
+
+        for (let j = 0; j < randomCount; j++) {
+          tl.to(element, {
+            text: { value: Math.floor(Math.random() * 10).toString() },
+            duration: singleDigitDuration,
+            ease: 'none'
+          });
+        }
+
+        tl.to(element, {
+          text: { value: finalValue },
+          duration: 0.2,
+          ease: 'power2.out',
+          onComplete: () => {
+            gsap.to(underline, {
+              transformOrigin: 'right',
+              scaleX: 1,
+              duration: 0.4,
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
+    }, 0);
+  }
 }
+
