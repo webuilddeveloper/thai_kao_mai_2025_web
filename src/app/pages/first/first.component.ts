@@ -28,6 +28,20 @@ export class FirstComponent {
     setTimeout(() => {
       AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
     }, 100);
+
+    setTimeout(() => {
+      const btns = document.querySelectorAll('.btn-hero');
+      btns.forEach((btn, i) => {
+        setTimeout(() => {
+          btn.classList.add('shrink');
+
+
+        }, i * 600);
+      });
+
+    }, 7000); // หลัง shrink ทั้งหมดจบ
+
+
   }
 
   ngAfterViewInit() {
