@@ -22,6 +22,7 @@ import { PolicyComponent } from './pages/policy/policy.component';
 import { RegisterMemberComponent } from './pages/register-member/register-member.component';
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 import { First2Component } from './pages/first2/first2.component';
+import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 
 const routes: Routes = [
   { path: '', component: First2Component },
@@ -51,7 +52,7 @@ const routes: Routes = [
   { path: 'policy', component: PolicyComponent },
   { path: 'register-member', component: RegisterMemberComponent },
   { path: 'policy-detail', component: PolicyDetailComponent },
-
+  { path: 'suggestion', component: SuggestionComponent },
 ];
 
 @NgModule({

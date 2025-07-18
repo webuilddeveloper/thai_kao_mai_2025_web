@@ -41,6 +41,7 @@ import { RegisterMemberComponent } from './pages/register-member/register-member
 import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.component';
 import { First2Component } from './pages/first2/first2.component';
 import { CookieBannerComponent } from './component/cookie-banner/cookie-banner.component';
+import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -76,7 +77,8 @@ registerLocaleData(localeTh);
     RegisterMemberComponent,
     PolicyDetailComponent,
     First2Component,
-    CookieBannerComponent
+    CookieBannerComponent,
+    SuggestionComponent
   ],
   imports: [
     BrowserModule,
