@@ -44,6 +44,9 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --bg-deep: #e8e9e8;
   --nevy: #2D294A;
   --nevy-fade: #383787bf;
+  --link-hover: #007BFF;
+  --filter: ;
+  --filter-w-y: ;
 
   --font-10: 10px;
   --font-11: 11px;
@@ -77,13 +80,25 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
 }
 
 .dark-theme {
-  --main: #F4ED17;
+  --main: gray;
   --bg-main: #2D294A;
+  --white: #000000;
+  --black: #ffffff;
+  --nevy: #ffffff;
+  --link-hover: #ffffff;
+  --filter: grayscale(100%);
+   --filter-w-y: brightness(100);
 }
 
 .blindness-theme {
-  --main: #F4ED17;
+  --main: #000000;
   --bg-main: #2D294A;
+  --white: #000000;
+  --black: #F4ED17;
+  --nevy: #F4ED17;
+  --link-hover: #F4ED17;
+  --filter: grayscale(100%);
+   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(2) brightness(4);
 }
 
 html,

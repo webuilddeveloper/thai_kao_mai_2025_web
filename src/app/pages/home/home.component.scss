@@ -378,6 +378,7 @@
 .img-logo-main {
   // width: -webkit-fill-available;
   width: 80%;
+  filter: var(--filter-w-y);
 }
 
 .btn-start {
@@ -459,6 +460,7 @@
   height: auto;
   object-fit: contain;
   object-position: bottom;
+  filter: var(--filter);
 }
 
 .div-card-news {
