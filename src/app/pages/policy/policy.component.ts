@@ -18,13 +18,13 @@ export class PolicyComponent implements OnInit {
   policies = [
     {
       code: '1',
-      imageUrl: './assets/img/pic_policy1.png',
-      title: 'นโยบายคมนาคม',
-      description: 'คมนาคมที่ทั่วถึง คือเส้นเลือดใหญ่ของประเทศที่เติบโต'
+      imageUrl: "./assets/img/policy_cover2.webp",
+      title: 'นโยบายการศึกษาไทย',
+      description: 'เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ'
     },
     {
       code: '2',
-      imageUrl: './assets/img/pic_policy2.png',
+      imageUrl: "./assets/img/policy_cover2.webp",
       title: 'นโยบายการศึกษาไทย',
       description: 'เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ'
     }
