@@ -164,7 +164,10 @@
   transform: translateY(20px);
   animation: sloganFadeUp 0.8s ease-out forwards;
   animation-delay: 4.8s;
-  /* เริ่มหลัง logo เสร็จ */
+
+  /* ✅ เพิ่มบรรทัดนี้ */
+  line-height: 1;
+  margin-bottom: 0; /* กรณีมี margin เดิม */
 }
 
 @keyframes sloganFadeUp {
