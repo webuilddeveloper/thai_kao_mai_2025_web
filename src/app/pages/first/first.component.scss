@@ -404,103 +404,105 @@
 
 
   .btn-hero {
-    opacity: 0;
-    transform: translateY(40px);
-    min-width: 200px;
-    padding: 0 16px;
-    border-radius: 30px;
-    height: 52px;
-    transition: none;
-    animation-fill-mode: forwards;
-  }
-
-  /* Slide-in animation */
-  @keyframes slideInBtn {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
+        opacity: 0;
+        transform: translateY(40px);
+        min-width: 200px;
+        padding: 0 16px;
+        border-radius: 30px;
+        height: 52px;
+        transition: none;
+        animation-fill-mode: forwards;
+        justify-content: center;
+        /* ✅ สำคัญสุด */
     }
 
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    /* Slide-in animation */
+    @keyframes slideInBtn {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-  }
 
-  /* Shrink animation */
-  @keyframes shrinkBtn {
-    0% {
-      min-width: 160px;
-      padding: 0 16px;
-      border-radius: 30px;
+    /* Shrink animation */
+    @keyframes shrinkBtn {
+        0% {
+            min-width: 160px;
+            padding: 0 16px;
+            border-radius: 30px;
+        }
+
+        100% {
+            min-width: 52px;
+            padding: 0;
+            border-radius: 50%;
+        }
     }
 
-    100% {
-      min-width: 52px;
-      padding: 0;
-      border-radius: 50%;
+    .btn-hero .btn-text {
+        display: inline-block;
     }
-  }
 
-  .btn-hero .btn-text {
-    display: inline-block;
-  }
-
-  /* ✅ สำหรับ delay แต่ละปุ่ม */
-  .btn-hero.delay-1 {
-    animation: slideInBtn 0.6s ease-out forwards,
-      shrinkBtn 0.5s ease-in forwards;
-    animation-delay: 4s, 6s;
-  }
-
-  .btn-hero.delay-2 {
-    animation: slideInBtn 0.6s ease-out forwards,
-      shrinkBtn 0.5s ease-in forwards;
-    animation-delay: 4.3s, 6.3s;
-  }
-
-  .btn-hero.delay-3 {
-    animation: slideInBtn 0.6s ease-out forwards,
-      shrinkBtn 0.5s ease-in forwards;
-    animation-delay: 4.6s, 6.6s;
-  }
-
-  /* ✅ ซ่อนข้อความหลัง shrink */
-  .btn-hero.delay-1,
-  .btn-hero.delay-2,
-  .btn-hero.delay-3 {
-    animation-fill-mode: forwards;
-  }
-
-  .btn-hero.delay-1.shrunk .btn-text,
-  .btn-hero.delay-2.shrunk .btn-text,
-  .btn-hero.delay-3.shrunk .btn-text {
-    display: none;
-  }
-
-
-  .btn-hero .btn-text {
-    opacity: 1;
-    transition: opacity 3s ease;
-    display: inline-block;
-  }
-
-  .btn-hero.shrink .btn-text {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    transition-delay: 2s;
-    /* ✅ รอ 2 วิค่อยเริ่มจาง */
-    animation: hideTextDisplayNone 0s forwards;
-    animation-delay: 2.2s;
-    /* ✅ รออีกนิดก่อนซ่อนจริง */
-  }
-
-
-  @keyframes hideTextDisplayNone {
-    to {
-      display: none;
+    /* ✅ สำหรับ delay แต่ละปุ่ม */
+    .btn-hero.delay-1 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4s, 6s;
     }
-  }
+
+    .btn-hero.delay-2 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4.3s, 6.3s;
+    }
+
+    .btn-hero.delay-3 {
+        animation: slideInBtn 0.6s ease-out forwards,
+            shrinkBtn 0.2s ease-in forwards;
+        animation-delay: 4.6s, 6.6s;
+    }
+
+    /* ✅ ซ่อนข้อความหลัง shrink */
+    .btn-hero.delay-1,
+    .btn-hero.delay-2,
+    .btn-hero.delay-3 {
+        animation-fill-mode: forwards;
+    }
+
+    .btn-hero.delay-1.shrunk .btn-text,
+    .btn-hero.delay-2.shrunk .btn-text,
+    .btn-hero.delay-3.shrunk .btn-text {
+        display: none;
+    }
+
+
+    .btn-hero .btn-text {
+        opacity: 1;
+        transition: opacity 3s ease;
+        display: inline-block;
+    }
+
+    .btn-hero.shrink .btn-text {
+        opacity: 0;
+        transition: opacity 0s ease;
+        transition-delay: 2.5s;
+        /* ✅ รอ 2 วิค่อยเริ่มจาง */
+        animation: hideTextDisplayNone 0s forwards;
+        animation-delay: 2s;
+        /* ✅ รออีกนิดก่อนซ่อนจริง */
+    }
+
+
+    @keyframes hideTextDisplayNone {
+        to {
+            display: none;
+        }
+    }
 
 
 
