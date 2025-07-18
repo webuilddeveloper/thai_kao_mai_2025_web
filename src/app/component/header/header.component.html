@@ -5,35 +5,35 @@
       <a routerLink="" class="div-logo-header" data-aos="fade-down" data-aos-duration="1000"><img
           src="./assets/img/logo-full-c2.png" alt="" class="logo-header filter-w-y"></a>
       <div class="menu-group" data-aos="fade-down" data-aos-duration="1000">
-        <a routerLink="./home">{{ 'home' | translate }}</a>
+        <a class="p17" routerLink="./home">{{ 'home' | translate }}</a>
         <div class="menu-with-sub pointer">
-          <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+          <a class="p17" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
           <div class="sub-menu ">
-            <a routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
-            <a routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a>
+            <a class="p17" routerLink="./news">{{ 'newsAndEvent' | translate }}</a>
+            <a class="p17" routerLink="./event-calendar">{{ 'eventCalendar' | translate }}</a>
           </div>
         </div>
 
         <div class="menu-with-sub pointer">
-          <a routerLink="#">{{ 'aboutMe' | translate }}</a>
+          <a class="p17" routerLink="#">{{ 'aboutMe' | translate }}</a>
           <div class="sub-menu">
-            <a routerLink="./ideology">อุดมการณ์ของพรรค</a>
-            <a routerLink="./history">ประวัติความเป็นมา</a>
-            <a routerLink="./policy">นโยบาย</a>
-            <a routerLink="./party-executive">กรรมการบริหารพรรค</a>
+            <a class="p17" routerLink="./ideology">อุดมการณ์ของพรรค</a>
+            <a class="p17" routerLink="./history">ประวัติความเป็นมา</a>
+            <a class="p17" routerLink="./policy">นโยบาย</a>
+            <a class="p17" routerLink="./party-executive">กรรมการบริหารพรรค</a>
           </div>
         </div>
         <div class="menu-with-sub pointer">
-          <a routerLink="#">{{ 'membership' | translate }}</a>
+          <a class="p17" routerLink="#">{{ 'membership' | translate }}</a>
           <div class="sub-menu">
-            <a routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
-            <a routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
+            <a class="p17" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
+            <a class="p17" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
           </div>
         </div>
 
 
-        <a routerLink="./donate">{{ 'donate' | translate }}</a>
-        <a routerLink="./contact">{{ 'contactUs' | translate }}</a>
+        <a class="p17" routerLink="./donate">{{ 'donate' | translate }}</a>
+        <a class="p17" routerLink="./contact">{{ 'contactUs' | translate }}</a>
 
         <div class="dropdown-container">
           <div class="dropdown-selected" (click)="toggleDropdown()">
@@ -52,6 +52,12 @@
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
           <option value="blindness-theme">เหลือง-ดำ</option>
+        </select>
+
+        <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
+          <option value="0" selected>ปกติ</option>
+          <option value="1">กลาง</option>
+          <option value="2">ใหญ่</option>
         </select>
 
 
@@ -84,7 +90,12 @@
           </div>
         </div> -->
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
-         <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
+        <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
+          <option value="0" selected>ปกติ</option>
+          <option value="1">กลาง</option>
+          <option value="2">ใหญ่</option>
+        </select>
+        <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)">
           <option value="" selected>ปกติ</option>
           <option value="dark-theme">ขาว-ดำ</option>
           <option value="blindness-theme">เหลือง-ดำ</option>

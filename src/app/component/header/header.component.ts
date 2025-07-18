@@ -5,6 +5,7 @@ import { filter } from 'rxjs';
 import * as AOS from 'aos';
 import { ThemeService } from 'src/app/shared/theme.service';
 import { DateAdapter } from '@angular/material/core';
+import { Utilities } from 'src/app/shared/utilities';
 
 @Component({
   selector: 'app-header',
@@ -26,13 +27,17 @@ export class HeaderComponent {
   subMenu: boolean = false;
   isOpenNav = false;
   selectedTheme = '';
+  fontSizeSelect: number = 0;
+  fontFromLocal: number = 0;
+  font_size_difference: number = 3;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,
     private themeService: ThemeService,
-    private dateAdapter: DateAdapter<Date>
+    private dateAdapter: DateAdapter<Date>,
+    private utilities: Utilities,
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -97,6 +102,7 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
+    this.fontSizeSelect = isNaN(parseInt(sessionStorage.getItem('fontSizeSelect') || '')) ? 0 : parseInt(sessionStorage.getItem('fontSizeSelect') || '');
     AOS.init({
       duration: 800,
       once: false,
@@ -111,9 +117,13 @@ export class HeaderComponent {
     // ✅ เรียกเช็ก localStorage แบบ real-time ทุก 500ms
     setInterval(() => {
       this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
-    }, 500);
+    }, 300);
+    setTimeout(() => {
+      this.changeSizeFont(this.fontSizeSelect);
+    },501)
     this.themeService.loadThemeFromStorage();
     this.selectedTheme = localStorage.getItem('theme') ?? '';
+
   }
 
   changeLanguage(lang: string) {
@@ -169,5 +179,41 @@ export class HeaderComponent {
   changeTheme(theme: string) {
     this.selectedTheme = theme;
     this.themeService.setTheme(theme);
+  }
+
+  changeSizeFont(idxFontSelect: number) {
+    console.log('font');
+    // this.fontModel.emit(idx);
+    // this.fontFromLocal = isNaN(parseInt(sessionStorage.getItem('fontFromLocal'))) ? 0 : parseInt(sessionStorage.getItem('fontFromLocal'));
+    idxFontSelect = isNaN(idxFontSelect) ? 0 : idxFontSelect;
+
+    //คำนวนขนาดตัวอักษร
+    this.utilities.fontSizeDynamic.forEach(element => {
+      let sizeFont;
+      //ถ้าขนาดตัวอักษรเปลี่ยน
+      // if ((idxFontSelect != this.fontFromLocal)) {
+        isNaN(element.value) ? element.value = element.size : element.size;
+        sizeFont = element.value ?? element.size;
+        if (idxFontSelect < this.fontFromLocal) {
+          sizeFont -= (this.font_size_difference * (this.fontFromLocal - idxFontSelect));
+        } else if (idxFontSelect > this.fontFromLocal) {
+          sizeFont += (this.font_size_difference * (idxFontSelect - this.fontFromLocal));
+        }
+        // element.value = sizeFont;
+
+        //เซ็ตขนาดตัวอักษรเข้าแต่ละ class
+        const nodeList: any = document.querySelectorAll(`.${element.title}`);
+        if (nodeList.length > 0) {
+          for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.fontSize = `${sizeFont}px`;
+          }
+        }
+
+    });
+    //เซ็ต id ของ font size เข้า local Storage
+    // this.fontSizeSelect = isNaN(idxFontSelect) ? 0 : idxFontSelect;
+        sessionStorage.setItem('fontSizeSelect', idxFontSelect.toString());
+        this.fontSizeSelect = idxFontSelect;
+        // sessionStorage.setItem('fontFromLocal', idxFontSelect.toString());
   }
 }
