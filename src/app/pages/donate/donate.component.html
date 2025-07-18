@@ -15,8 +15,8 @@
 
 
     <div class="header-text">
-        <h1>บริจาค</h1>
-        <p>หน้าแรก // <span style="color: #F4ED17;">บริจาค</span></p>
+         <h1>{{'donate' |translate}}</h1>
+        <p>{{'home'|translate}} // <span style="color: #F4ED17;">{{'donate'|translate}}</span></p>
     </div>
 
 </div>
@@ -29,7 +29,7 @@
       'active': step >= 1
     }">
             <div class="circle">1</div>
-            <p>บริจาค</p>
+           <p>{{'donate'|translate}}</p>
         </div>
 
         <div class="line"></div>
@@ -39,7 +39,7 @@
       'active': step >= 2
     }">
             <div class="circle">2</div>
-            <p>ตรวจสอบข้อมูล</p>
+           <p>{{'verify' | translate}}</p>
         </div>
 
         <div class="line"></div>
@@ -49,7 +49,7 @@
       'active': step >= 3
     }">
             <div class="circle">3</div>
-            <p>ยืนยันข้อมูล</p>
+             <p>{{'verify' | translate}}</p>
         </div>
 
     </div>
@@ -59,7 +59,7 @@
 
 <div class="row payment-section" *ngIf="!showForm && step === 1">
     <div class="payment-methods">
-        <h3>เลือกรูปแบบการชำระเงิน</h3>
+         <h3>{{'selectpay'|translate}}</h3>
         <div class="payment-options">
             <!-- QR Code -->
             <div class="payment-option" [class.selected]="selectedMethod === 'qr'" (click)="selectMethod('qr')">
@@ -72,19 +72,19 @@
             <div class="payment-option" [class.selected]="selectedMethod === 'bank'" (click)="selectMethod('bank')">
                 <img [src]="selectedMethod === 'bank' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
                     alt="โอนเงิน" />
-                <span>โอนเงิน</span>
+                   <span>{{'transfermoney'|translate}}</span>
             </div>
 
             <!-- บัตรเครดิต -->
             <div class="payment-option" [class.selected]="selectedMethod === 'credit'" (click)="selectMethod('credit')">
                 <img [src]="selectedMethod === 'credit' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
                     alt="บัตรเครดิต" />
-                <span>บัตรเครดิต</span>
+                 <span>{{'creditcard'|translate}}</span>
             </div>
         </div>
 
         <!-- ปุ่มถัดไป -->
-        <button class="btn-next" (click)="showForm = true">ถัดไป</button>
+        <button class="btn-next" (click)="showForm = true">{{'next'|translate}}</button>
 
     </div>
 </div>
@@ -93,13 +93,13 @@
 <div class="row payment-section" *ngIf="showForm && step === 1">
 
     <div class="donation-amount">
-        <h3>เลือกจำนวนเงิน</h3>
+               <h3>{{'selectamount'|translate}}</h3>
         <div class="amount-options">
             <button *ngFor="let amount of presetAmounts" [class.selected]="selectedAmount === amount"
                 (click)="selectAmount(amount)">
-                {{ amount | number }} บาท
+                {{ amount | number }} {{'baht'|translate}}
             </button>
-            <input type="number" placeholder="กรุณาระบุจำนวนเงิน" [(ngModel)]="customAmount"
+            <input type="number" placeholder="{{'pleasespecify' | translate}}"  [(ngModel)]="customAmount"
                 (focus)="selectAmount(null)" />
         </div>
     </div>
@@ -107,39 +107,39 @@
 
     <div class="receipt-form">
         <div class="form-note">
-            * สามารถใช้ในการลดหย่อนภาษีได้
+            * {{'tax'|translate}}
         </div>
-        <h3>ข้อมูลใบเสร็จรับเงิน</h3>
+        <h3>{{"receipt"|translate}}</h3>
 
         <!-- ปุ่มเลือกประเภท -->
         <div class="form-type-toggle">
-            <button [class.active]="formType === 'person'" (click)="formType = 'person'">บุคคล</button>
-            <button [class.active]="formType === 'org'" (click)="formType = 'org'">นิติบุคคล</button>
+            <button [class.active]="formType === 'person'" (click)="formType = 'person'">{{"person"| translate}}</button>
+            <button [class.active]="formType === 'org'" (click)="formType = 'org'">{{"legalentity"|translate}}</button>
         </div>
 
         <form>
             <div class="form-row">
-                <input type="text" placeholder="ชื่อจริง*" [(ngModel)]="firstName" name="firstName" required />
-                <input type="text" placeholder="นามสกุล*" [(ngModel)]="lastName" name="firstName" required />
+                <input type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="firstName" name="firstName" required />
+                <input type="text" placeholder="{{'surname'|translate}}*" [(ngModel)]="lastName" name="firstName" required />
             </div>
             <div class="form-row">
                 <!-- <input type="email" placeholder="อีเมล*" required />
                 <input type="tel" placeholder="เบอร์โทรศัพท์*" required /> -->
 
-                <input type="email" [(ngModel)]="email" placeholder="อีเมล*" />
-                <input type="tel" [(ngModel)]="phone" placeholder="เบอร์โทรศัพท์*" />
+                <input type="email" [(ngModel)]="email" placeholder="{{'email' | translate}}*" />
+                <input type="tel" [(ngModel)]="phone" placeholder="{{'phone' |translate}}*" />
             </div>
             <div class="form-note">
-                * หากต้องการใช้สิทธิลดหย่อนภาษีแบบ e-Donation กรุณากรอกเลขบัตรประชาชน
+              * {{'eDonationPrompt'|translate}}
             </div>
             <div class="form-row">
-                <input type="text" placeholder="เลขบัตรประชาชน" />
+                <input type="text" placeholder="{{'nationalid'|translate}}" />
             </div>
 
             <!-- ปุ่มย้อนกลับ + ถัดไป -->
             <div class="form-actions">
-                <button type="button" class="btn-back" (click)="showForm = false">ย้อนกลับ</button>
-                <button type="submit" class="btn-next" (click)="goToStep(2)">ถัดไป</button>
+                <button type="button" class="btn-back" (click)="showForm = false">{{'back'|translate}}</button>
+                <button type="submit" class="btn-next" (click)="goToStep(2)">{{'next'|translate}}</button>
             </div>
         </form>
     </div>
@@ -148,7 +148,7 @@
 <div class="row" *ngIf="step === 2">
     <div class="row payment-section">
         <div class="confirmation">
-            <h3>ตรวจสอบข้อมูลบริจาค</h3>
+                 <h3>{{'verifydonation'|translate}}</h3>
 
             <div class="info-box">
                 <div class="icon-wrapper">
@@ -156,8 +156,8 @@
                 </div>
 
                 <div>
-                    <label>จำนวนเงินที่ต้องการบริจาค</label>
-                    <div>{{ selectedAmount || customAmount | number:'1.2-2' }} บาท</div>
+                        <label>{{'donateamount'|translate}}</label>
+                    <div>{{ selectedAmount || customAmount | number:'1.2-2' }} {{'baht'| translate}}</div>
                 </div>
             </div>
 
@@ -166,7 +166,7 @@
                     <img src="./assets/img/icon_phone.png" alt="ยอดเงิน" />
                 </div>
                 <div>
-                    <label>เบอร์โทรศัพท์</label>
+                     <label>{{'phone'|translate}}</label>
                     <div>{{ phone }}</div>
                 </div>
             </div>
@@ -176,14 +176,14 @@
                     <img src="./assets/img/icon_email.png" alt="ยอดเงิน" />
                 </div>
                 <div>
-                    <label>อีเมลสำหรับติดต่อ</label>
+                    <label>{{'contactemail'|translate}}</label>
                     <div>{{ email }}</div>
                 </div>
             </div>
 
             <div class="form-actions">
-                <button class="btn-back" (click)="goToStep(1)">ย้อนกลับ</button>
-                <button class="btn-next" (click)="goToStep(3)">ถัดไป</button>
+                 <button class="btn-back" (click)="goToStep(1)">{{'back'|translate}}</button>
+                <button class="btn-next" (click)="goToStep(3)">{{'next'|translate}}</button>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@
     <div class="qr-section">
 
         <!-- QR Code Content -->
-        <h3>กรุณาสแกน QR Code เพื่อบริจาคเงิน</h3>
+              <h3>{{'pleasescan'|translate}}</h3>
 
         <img class="logo-edonation" src="./assets/img/QR1.png" alt="e-donation" />
 
@@ -206,19 +206,19 @@
         </div>
 
         <div class="qr-instruction">
-            <strong>ท่านสามารถบริจาคเงินผ่าน QR Code ด้วย Mobile Banking ของธนาคารของท่าน</strong>
+                       <strong>{{'donationQrInstruction'|translate}}</strong>
             <ol>
-                <li>เลือกเมนูสแกน QR Code</li>
-                <li>สแกน QR Code ที่ปรากฏในหน้านี้ หรือ บันทึกรูปภาพ QR Code ลงเครื่องเพื่อทำการเลือกจากภาพแทนการสแกน
+               <li>{{'donatemenu_1'|translate}}</li>
+                <li>{{'donatemenu_2'|translate}}
                 </li>
-                <li>ตรวจสอบความถูกต้องของยอดเงินและข้อมูลผู้รับ</li>
-                <li>เมื่อทำรายการเสร็จเรียบร้อย หน้าจอจะแสดงผลสำเร็จ</li>
+                <li>{{'donatemenu_3'|translate}}</li>
+                <li>{{'donatemenu_4'|translate}}</li>
             </ol>
         </div>
 
         <div class="form-actions">
-            <button class="btn-back" (click)="goToStep(2)">ย้อนกลับ</button>
-            <button class="btn-next" (click)="completeDonation()">เสร็จสิ้น</button>
+             <button class="btn-back" (click)="goToStep(2)">{{'back'|translate}}</button>
+            <button class="btn-next" (click)="completeDonation()">{{'finish'|translate}}</button>
         </div>
     </div>
 </div>
@@ -227,8 +227,8 @@
 <div class="row payment-section" *ngIf="step === 4">
     <div class="thank-you-section">
         <img src="./assets/img/thankyou-icon.png" alt="ขอบคุณ" class="thank-you-icon" />
-        <h2>ขอบคุณ คุณ {{firstName}} {{lastName}}</h2>
-        <p>ทางพรรคจะนำไปใช้ให้เกิดประโยชน์สูงสุด</p>
+        <h2>{{'thx'|translate}}{{firstName}} {{lastName}}</h2>
+        <p>{{'thxparty'|translate}}</p>
         <div class="popup-buttons">
             <button (click)="backToMain()">กลับสู่หน้าหลัก</button>
         </div>
