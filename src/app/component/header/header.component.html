@@ -161,7 +161,7 @@
         </div> -->
         <!-- <img src="./assets/icons/icon-eye.png" alt="" class="logo-header" data-aos="fade-down" data-aos-duration="600"> -->
 
-        <!-- <div class="dropdown" style="float:left;">
+        <div class="dropdown" style="float:left;">
           <div class="pointer dropbtn">
             <div class="btn-blindness">
               <img class="img" src="./assets/img/blindness.png" width="31" height="21"
@@ -177,18 +177,18 @@
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}"
               (click)="changeSizeFont(2)">🅣 {{ 'big' | translate }}</a>
             <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
-            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-light'}"
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == ''}"
               (click)="changeTheme('')">👁️‍🗨️ {{ 'normal' | translate }}</a>
-            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-dark'}"
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'dark-theme'}"
               (click)="changeTheme('dark-theme')">👁️‍🗨️ {{ 'white' | translate }}-{{ 'black'
               |
               translate }}</a>
-            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'theme-blindness'}"
+            <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'blindness-theme'}"
               (click)="changeTheme('blindness-theme')">👁️‍🗨️ {{ 'yellow' | translate }}-{{
               'black' | translate }}</a>
           </div>
-        </div> -->
-        <div class="dropdown-container" style="width: 120px;">
+        </div>
+        <!-- <div class="dropdown-container" style="width: 120px;">
           <div class="dropdown-selected" (click)="toggleDropdown3()">
             🅣 ปกติ
           </div>
@@ -227,7 +227,7 @@
           </div>
 
 
-        </div>
+        </div> -->
         <!-- <select [(ngModel)]="fontSizeSelect" (change)="changeSizeFont(fontSizeSelect)">
           <option value="0" selected>ปกติ</option>
           <option value="1">กลาง</option>
