@@ -26,7 +26,8 @@
   gap: 10px;
   margin: 40px 0;
   font-family: 'Prompt', sans-serif;
-  flex-wrap: wrap; /* ✅ ให้ wrap ได้ในจอเล็ก */
+  flex-wrap: wrap;
+  /* ✅ ให้ wrap ได้ในจอเล็ก */
 }
 
 .step {
@@ -70,7 +71,8 @@
   background-color: #e0e0e0;
   margin: 0 8px;
   max-width: 60px;
-  min-width: 40px; /* ✅ เพิ่มขนาดขั้นต่ำ */
+  min-width: 40px;
+  /* ✅ เพิ่มขนาดขั้นต่ำ */
 }
 
 @media (max-width: 480px) {
@@ -339,7 +341,8 @@
 .confirmation {
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 20px; /* <<< เพิ่มระยะซ้าย-ขวา */
+  padding: 0 20px;
+  /* <<< เพิ่มระยะซ้าย-ขวา */
 }
 
 .info-box {
@@ -375,7 +378,7 @@
   font-size: 14px;
 }
 
-.info-box div > div {
+.info-box div>div {
   font-size: 18px;
   font-weight: bold;
   color: #2D294A;
@@ -454,4 +457,63 @@
 .thank-you-section p {
   font-size: 16px;
   line-height: 1.6;
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: var(--nevy);
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.donation-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  height: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.donation-bar {
+  flex: 1;
+  height: 100%;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.donation-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #2d294a, #3d3858, #5a5574);
+  transition: width 2s ease-in-out;
+}
+
+.donation-end-icon {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to bottom right, #f9690e, #fbb040);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  margin-left: 6px;
+}
+
+.donation-label {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #2d294a;
 }

@@ -1,0 +1,17 @@
+<div class="cookie-banner" [class.hide]="isHiding" *ngIf="showBanner">
+  <span class="cookie-text">
+    เราใช้คุกกี้เพื่อพัฒนาประสิทธิภาพ และประสบการณ์ที่ดีในการใช้เว็บไซต์ของคุณ 
+    คุณสามารถศึกษารายละเอียดได้ที่ 
+    <a href="https://example.com/privacy-policy" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="privacy-link">
+       นโยบายความเป็นส่วนตัว
+    </a>
+  </span>
+
+  <div class="cookie-actions">
+    <button class="accept-btn" (click)="acceptCookies()">ยอมรับ</button>
+    <button class="close-btn" (click)="closeBanner()">×</button>
+  </div>
+</div>
