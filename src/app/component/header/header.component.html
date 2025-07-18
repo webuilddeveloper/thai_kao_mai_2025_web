@@ -17,18 +17,18 @@
         <div class="menu-with-sub pointer">
           <a class="p17" routerLink="#">{{ 'aboutMe' | translate }}</a>
           <div class="sub-menu">
-            <a class="p17" routerLink="./ideology">อุดมการณ์ของพรรค</a>
-            <a class="p17" routerLink="./history">ประวัติความเป็นมา</a>
-            <a class="p17" routerLink="./policy">นโยบาย</a>
-            <a class="p17" routerLink="./party-executive">กรรมการบริหารพรรค</a>
+            <a class="p17" routerLink="./ideology">{{ 'ideology' | translate }}</a>
+            <a class="p17" routerLink="./history">{{ 'history' | translate }}</a>
+            <a class="p17" routerLink="./policy">{{ 'policy' | translate }}</a>
+            <a class="p17" routerLink="./party-executive">{{ 'partyExecutiveCommittee' | translate }}</a>
           </div>
         </div>
         <div class="menu-with-sub pointer">
           <a class="p17" routerLink="#">{{ 'membership' | translate }}</a>
           <div class="sub-menu">
-            <a class="p17" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a>
-            <a class="p17" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a>
-            <a class="p17" routerLink="./suggestion">{{ 'ข้อเสนอแนะ/ข้อแนะนำ' }}</a>
+            <a class="p17" routerLink="./register">{{ 'partymembers'| translate }}</a>
+            <a class="p17" routerLink="./register-member">{{ 'registerPartyClub'| translate }}</a>
+            <a class="p17" routerLink="./suggestion">{{ 'suggestion' }}</a>
           </div>
         </div>
 
@@ -128,7 +128,7 @@
 
         <li class="has-submenu" [class.open]="activeSubMenu === 'news'">
           <a (click)="toggleSubMenu('news')">
-            ข่าวสารและกิจกรรม
+            {{ 'newsAndEvent' | translate }}
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
@@ -143,10 +143,10 @@
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
-            <li><a (click)="closeHam()" routerLink="./ideology">{{ 'อุดมการณ์ของพรรค' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./history">{{ 'ประวัติความเป็นมา' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./policy">{{ 'นโยบาย' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'กรรมการบริหารพรรค' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./ideology">{{ 'ideology' | translate}}</a></li>
+            <li><a (click)="closeHam()" routerLink="./history">{{ 'history'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./policy">{{ 'policy'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./party-executive">{{ 'partyExecutiveCommittee'| translate }}</a></li>
           </ul>
         </li>
 
@@ -156,9 +156,9 @@
             <span class="arrow-down"></span>
           </a>
           <ul class="submenu">
-            <li><a (click)="closeHam()" routerLink="./register">{{ 'ลงทะเบียนสมาชิกพรรค' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'ลงทะเบียนแฟนคลับพรรค' }}</a></li>
-            <li><a (click)="closeHam()" routerLink="./suggestion">{{ 'ข้อเสนอแนะ/ข้อแนะนำ' }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register">{{ 'partymembers'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./register-member">{{ 'registerPartyClub'| translate }}</a></li>
+            <li><a (click)="closeHam()" routerLink="./suggestion">{{ 'suggestion'| translate }}</a></li>
           </ul>
         </li>
 

@@ -154,5 +154,10 @@
   "suggestion-information": "Where you have registered your fan club",
   "suggestion-confirm": "Send feedback",
   "suggestion-compleate": "Suggestion sent successfully",
-  "suggestion-thankyou": "Thank you for your feedback/suggestions."
+  "suggestion-thankyou": "Thank you for your feedback/suggestions.",
+
+   "normal":"normal",
+  "yellow":"yellow",
+  "white":"white",
+  "black":"black"
 }

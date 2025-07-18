@@ -153,5 +153,10 @@
   "suggestion-information": "ที่ท่านได้ลงทะเบียนแฟนคลับไว้",
   "suggestion-confirm": "ส่งข้อเสนอแนะ",
   "suggestion-compleate": "ส่งข้อเสนอแนะสำเร็จ",
-  "suggestion-thankyou": "ขอบคุณสำหรับการข้อเสนอแนะ/ข้อแนะนำ ที่ท่านได้ส่งเข้ามา"
+  "suggestion-thankyou": "ขอบคุณสำหรับการข้อเสนอแนะ/ข้อแนะนำ ที่ท่านได้ส่งเข้ามา",
+
+   "normal":"ปกติ",
+  "yellow":"เหลือง",
+  "white":"ข่าว",
+  "black":"ดำ"
 }
