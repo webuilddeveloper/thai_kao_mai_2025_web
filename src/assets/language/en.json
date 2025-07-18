@@ -101,8 +101,8 @@
    "receipt":"Receipt information",
    "person":"Person",
    "legalentity":"Legal entity",
-   "name":"Name*",
-    "surname":"Surname*",
+   "name":"Name",
+    "surname":"Surname",
     "eDonationPrompt": "If you want to use the e-Donation tax deduction, please enter your national ID card number.",
     "nationalid": "National ID card number",
     "verifydonation":"Verify donation information",
@@ -116,8 +116,17 @@
     "donatemenu_3":"Check the accuracy of the amount and recipient information",
     "donatemenu_4":"When the transaction is complete, the screen will display Success",
     "thx":"Thank you for your donation.",
-    "system":"The system has received the data successfully."
-    
+    "system":"The system has received the data successfully.",
+
+    "membershipSystem":"Membership system",
+    "registerPartyClub":"Register for the party fan club",
+    "fillInformation":"Fill in the information",
+    "prefix":"Prefix",
+    "personalInformation":"Personal information",
+    "register":"Register",
+    "fanClubRegistrationCompleted":"Fan club registration completed",
+    "thankYouRegisteringThaiKaoMaiPartyFanClub":"Thank you for registering for the Thai Kao Mai Party fan club.",
+    "consentReceiveNewsEventsOtherInformationEmail":"Consent to receive news, events and other information via email."
 
 
 }
