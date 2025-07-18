@@ -1,0 +1,36 @@
+<!-- ✅ ข้อความพิมพ์ดีดอยู่บนสุด -->
+<!-- <div class="floating-slogan">
+  <p class="slogan-title">ก้าวใหม่</p>
+  <p class="slogan-highlight">ให้ไทยสตรอง</p>
+</div> -->
+
+<div class="hero-container responsive-hero">
+    <div class="hero-visual-wrapper">
+        <!-- 🔷 โลโก้ -->
+        <div class="logo-wrapper">
+            <img src="./assets/img/logo-full-c2.png" class="logo-base" />
+            <img src="./assets/img/logo-full-c1.png" class="logo-reveal" />
+        </div>
+
+        <!-- 🔷 เจ้าของ (อยู่หลัง + โผล่ทีหลัง) -->
+        <img src="./assets/img/owner.png" class="owner-image" />
+    </div>
+
+
+    <!-- ✅ ปุ่มอยู่ใต้รูปทั้งหมด -->
+    <div class="hero-buttons-floating">
+        <button class="btn-hero delay-1" (click)="goTo('home')">
+            <i class="fa fa-home"></i>
+            <span class="btn-text">เข้าหน้าหลัก</span>
+        </button>
+        <button class="btn-hero delay-2">
+            <i class="fa fa-user-plus"></i>
+            <span class="btn-text">สมัครสมาชิกพรรค</span>
+        </button>
+        <button class="btn-hero delay-3" (click)="goTo('donate')">
+            <i class="fa fa-hand-holding-heart"></i>
+            <span class="btn-text">ร่วมสนับสนุนพรรค</span>
+        </button>
+    </div>
+
+</div>
