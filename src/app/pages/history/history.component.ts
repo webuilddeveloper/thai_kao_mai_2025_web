@@ -7,6 +7,7 @@ import * as AOS from 'aos';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
+  deviceSize: string = '';
 
   visionItems = [
     { title: 'ประชาชนคือศูนย์กลาง', desc: 'ทุกนโยบายมุ่งตอบโจทย์ชีวิตจริงของประชาชน' },

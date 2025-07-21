@@ -13,10 +13,14 @@
         <!-- <span class="news-date">{{ formatThaiDate(newsDetail.createDate) }} | {{newsDetail.createBy}}</span> -->
 
         <img [src]="newsDetail.imageUrl" alt="" class="img-logo-des">
-        <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
-        <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>
-        <div class="txt-description" [innerHTML]="newsDetail.description" *ngIf="translate.currentLang === 'th'"></div>
-        <div class="txt-description" [innerHTML]="newsDetail.descriptionEN" *ngIf="translate.currentLang === 'en'">
+        <h1 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p28' : 'p40' " class="txt-title"
+          *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
+        <h1 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p28' : 'p40' " class="txt-title"
+          *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>
+        <div [ngClass]=" deviceSize == 'm' ? 'p18' : deviceSize == 't' ? 'p20' : 'p20' " class="txt-description"
+          [innerHTML]="newsDetail.description" *ngIf="translate.currentLang === 'th'"></div>
+        <div [ngClass]=" deviceSize == 'm' ? 'p18' : deviceSize == 't' ? 'p20' : 'p20' " class="txt-description"
+          [innerHTML]="newsDetail.descriptionEN" *ngIf="translate.currentLang === 'en'">
         </div>
       </div>
     </div>
