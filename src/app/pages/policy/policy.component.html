@@ -8,7 +8,7 @@
 </div>
 <div class="policy-section">
   <div class="section-header" data-aos="fade-left">
-    <h2>{{ 'policy' |
+    <h2  class="p32">{{ 'policy' |
       translate }}{{ 'thaiKaoMai' |
       translate }}</h2>
     <div class="underline"></div>
@@ -19,9 +19,9 @@
         <img [src]="policy.imageUrl" alt="policy image" />
       </div>
       <div class="text-wrapper">
-        <h3>{{ policy.title }}</h3>
-        <p>{{ policy.description }}</p>
-        <button class="more-btn" (click)="goToDetail(policy)">
+        <h3  class="p24">{{ policy.title }}</h3>
+        <p  class="p16">{{ policy.description }}</p>
+        <button class="more-btn p14" (click)="goToDetail(policy)">
           {{ 'viewMore' |
           translate }} <span class="arrow">→</span>
         </button>
@@ -29,9 +29,9 @@
     </div>
   </div>
   <div class="navigation-buttons">
-    <button class="nav-btn left-btn" [routerLink]="['/history']">← {{'history' |
+    <button class="nav-btn p20 left-btn" [routerLink]="['/history']">← {{'history' |
       translate}}</button>
-    <button class="nav-btn right-btn" [routerLink]="['/party-executive']">{{ 'partyExecutiveCommittee'| translate }}
+    <button class="nav-btn p20 right-btn" [routerLink]="['/party-executive']">{{ 'partyExecutiveCommittee'| translate }}
       →</button>
   </div>
 </div>
