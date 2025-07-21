@@ -9,6 +9,7 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 })
 export class SuggestionComponent {
   isModalOpen = false;
+  deviceSize='';
   constructor(
     private serviceProvider: ServiceProvider,
     public translate: TranslateService
