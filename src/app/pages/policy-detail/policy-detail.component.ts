@@ -18,7 +18,7 @@ export class PolicyDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
   ) { }
-
+  deviceSize: string = '';
   policy: any;
   policies = [
     {

@@ -15,7 +15,7 @@ import { Utilities } from 'src/app/shared/utilities';
 export class HeaderComponent {
   isShow = 'false'; // เพิ่มตรงนี้
 
-  langList: any = [
+  langList = [
     { code: 1, name: 'TH', value: 'th', icon: './assets/icons/flag-th.jpg' },
     { code: 2, name: 'EN', value: 'en', icon: './assets/icons/flag-en.jpg' },
   ];
@@ -30,6 +30,12 @@ export class HeaderComponent {
   fontSizeSelect: number = 0;
   fontFromLocal: number = 0;
   font_size_difference: number = 3;
+  selected = {
+    code: 1,
+    name: 'TH',
+    value: 'th',
+    icon: './assets/icons/flag-th.jpg',
+  };
 
   constructor(
     private router: Router,
@@ -37,7 +43,7 @@ export class HeaderComponent {
     public translate: TranslateService,
     private themeService: ThemeService,
     private dateAdapter: DateAdapter<Date>,
-    private utilities: Utilities,
+    private utilities: Utilities
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -102,7 +108,11 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    this.fontSizeSelect = isNaN(parseInt(sessionStorage.getItem('fontSizeSelect') || '')) ? 0 : parseInt(sessionStorage.getItem('fontSizeSelect') || '');
+    this.fontSizeSelect = isNaN(
+      parseInt(sessionStorage.getItem('fontSizeSelect') || '')
+    )
+      ? 0
+      : parseInt(sessionStorage.getItem('fontSizeSelect') || '');
     AOS.init({
       duration: 800,
       once: false,
@@ -120,10 +130,21 @@ export class HeaderComponent {
     }, 300);
     setTimeout(() => {
       this.changeSizeFont(this.fontSizeSelect);
-    }, 301)
+    }, 301);
     this.themeService.loadThemeFromStorage();
     this.selectedTheme = localStorage.getItem('theme') ?? '';
-
+    // this.translate.use(localStorage.getItem('lang') ?? '');
+    //   var a = this.langList.find(
+    //   (f) => f.value == (localStorage.getItem('lang') ?? 'th')
+    // );
+    this.selected = this.langList.find(
+      (f) => f.value == (localStorage.getItem('lang') ?? 'th')
+    ) ?? {
+      code: 1,
+      name: 'TH',
+      value: 'th',
+      icon: './assets/icons/flag-th.jpg',
+    };
   }
 
   changeLanguage(lang: string) {
@@ -133,13 +154,6 @@ export class HeaderComponent {
 
   isOpen = false;
   activeSubMenu: string | null = null;
-
-  selected = {
-    code: 1,
-    name: 'TH',
-    value: 'th',
-    icon: './assets/icons/flag-th.jpg',
-  };
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -204,16 +218,18 @@ export class HeaderComponent {
     idxFontSelect = isNaN(idxFontSelect) ? 0 : idxFontSelect;
 
     //คำนวนขนาดตัวอักษร
-    this.utilities.fontSizeDynamic.forEach(element => {
+    this.utilities.fontSizeDynamic.forEach((element) => {
       let sizeFont;
       //ถ้าขนาดตัวอักษรเปลี่ยน
       // if ((idxFontSelect != this.fontFromLocal)) {
-      isNaN(element.value) ? element.value = element.size : element.size;
+      isNaN(element.value) ? (element.value = element.size) : element.size;
       sizeFont = element.value ?? element.size;
       if (idxFontSelect < this.fontFromLocal) {
-        sizeFont -= (this.font_size_difference * (this.fontFromLocal - idxFontSelect));
+        sizeFont -=
+          this.font_size_difference * (this.fontFromLocal - idxFontSelect);
       } else if (idxFontSelect > this.fontFromLocal) {
-        sizeFont += (this.font_size_difference * (idxFontSelect - this.fontFromLocal));
+        sizeFont +=
+          this.font_size_difference * (idxFontSelect - this.fontFromLocal);
       }
       // element.value = sizeFont;
 
@@ -224,7 +240,6 @@ export class HeaderComponent {
           nodeList[i].style.fontSize = `${sizeFont}px`;
         }
       }
-
     });
     //เซ็ต id ของ font size เข้า local Storage
     // this.fontSizeSelect = isNaN(idxFontSelect) ? 0 : idxFontSelect;

@@ -8,6 +8,7 @@ import * as AOS from 'aos';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+    deviceSize: string = '';
 
   constructor(private router: Router,) {
 

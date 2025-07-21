@@ -11,6 +11,7 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 export class NewsDetailComponent implements OnInit {
   code: string = '';
   newsDetail: any;
+   deviceSize: string = '';
   newsListTemp = [
     {
       code: '1',

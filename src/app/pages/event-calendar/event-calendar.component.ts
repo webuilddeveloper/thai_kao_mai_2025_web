@@ -10,6 +10,7 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class EventCalendarComponent implements OnInit {
+  
   constructor(
     private serviceProvider: ServiceProvider,
     public translate: TranslateService
@@ -28,6 +29,7 @@ export class EventCalendarComponent implements OnInit {
     { id: 11, code: 'NOV', en: 'November', th: 'พฤศจิกายน' },
     { id: 12, code: 'DEC', en: 'December', th: 'ธันวาคม' },
   ];
+  deviceSize: string = '';
   modelDataListCurrent: any[] = [];
   modelDataList: any[] = [
     {

@@ -1,8 +1,8 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-    <h1 class="title">{{'membership'|translate}}</h1>
-    <p class="title">{{'home'|translate}} // <span class="sub-title">{{'partymembers'|translate}}</span></p>
+  <h1>{{'Membership'|translate}}</h1>
+    <p>{{'home'|translate}} // <span style="color: #F4ED17;">{{'partymembers'|translate}}</span></p>
   </div>
 </div>
 <div class="main">
@@ -14,34 +14,34 @@
       <div class="spacer"></div>
       <div class="spacer"></div>
       <form action="">
-        <span class="title">{{'personal'|translate}}</span>
-        <div class="row row-form-gap">
+        <span class="title p20">{{'personal'|translate}}</span>
+        <div class="row row-form-gap ">
+          <div class="div-input  col-lg-2 col-md-6 col-12">
+            <label class="p16" class="p16" class="p16" for="">{{'prefix'|translate}}</label>
+            <input type="text">
+          </div>
+          <div class="div-input col-lg-4 col-md-6 col-12">
+            <label class="p16" class="p16" for="">{{'name'|translate}}</label>
+            <input type="text">
+          </div>
+          <div class="div-input col-lg-4 col-md-6 col-12">
+          <label class="p16" class="p16" for="">{{'surname'|translate}}</label>
+            <input type="text">
+          </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label for="">{{'prefix'|translate}}</label>
+            <label class="p16" class="p16" for="">{{'date'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'name'|translate}}</label>
+            <label class="p16" for="">{{'nationalid'| translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'surname'|translate}}</label>
-            <input type="text">
-          </div>
-          <div class="div-input col-lg-2 col-md-6 col-12">
-            <label for="">{{'date'|translate}}</label>
+            <label class="p16" for="">{{'phone'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'nationalid'| translate}}</label>
-            <input type="text">
-          </div>
-          <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'phone'|translate}}</label>
-            <input type="text">
-          </div>
-          <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'email'|translate}}</label>
+            <label class="p16" for="">{{'email'|translate}}</label>
             <input type="text">
           </div>
         </div>
@@ -50,39 +50,39 @@
         <span class="title">{{'address'|translate}}</span>
         <div class="row row-form-gap">
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label for="">{{'number'| translate}}</label>
+            <label class="p16" for="">{{'number'| translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
-            <label for="">{{'bilding'|translate}}</label>
+            <label class="p16" for="">{{'bilding'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label for="">{{'group'|translate}}</label>
+            <label class="p16" for="">{{'group'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
-            <label for="">{{'alley'| translate}}</label>
+            <label class="p16" for="">{{'alley'| translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'road'|translate}}</label>
+            <label class="p16" for="">{{'road'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'province'|translate}}</label>
+            <label class="p16" for="">{{'province'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'district'|translate}}</label>
+            <label class="p16" for="">{{'district'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'subdistrict'|translate}}</label>
+            <label class="p16" for="">{{'subdistrict'|translate}}</label>
             <input type="text">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label for="">{{'code'|translate}}</label>
+            <label class="p16" for="">{{'code'|translate}}</label>
             <input type="text">
           </div>
         </div>
@@ -90,10 +90,10 @@
         <div class="spacer"></div>
         <div class="row row-form-gap">
           <div class="div-input col-lg-6 col-12">
-            <span class="title">{{'self-portrait'|translate}}</span>
-            <label for="" class="sub-label">{{'self-portrait-script'|translate}}*</label>
+            <span class="title p20">{{'self-portrait'|translate}}</span>
+            <label for="" class="sub-label p14">{{'self-portrait-script'|translate}}*</label>
             <label class="div-file">
-              <span *ngIf="previewProfileUrl == null">* {{'select-photo'|translate}}</span>
+              <span class="p14" *ngIf="previewProfileUrl == null">* {{'select-photo'|translate}}</span>
               <div class="div-img-file" *ngIf="previewProfileUrl != null">
                 <img [src]="previewProfileUrl" />
               </div>
@@ -104,9 +104,9 @@
             </label>
           </div>
           <div class="div-input col-lg-6 col-12">
-            <span class="title">{{'photo-idcard'|translate}}</span>
+            <span class="title p20">{{'photo-idcard'|translate}}</span>
             <label class="div-file-cardID">
-              <span *ngIf="previewCardIDUrl == null">* {{'select-photo'|translate}}</span>
+              <span class="p14" *ngIf="previewCardIDUrl == null">* {{'select-photo'|translate}}</span>
               <div class="div-img-file" *ngIf="previewCardIDUrl != null">
                 <img [src]="previewCardIDUrl" />
               </div>
@@ -121,16 +121,16 @@
         <div class="spacer"></div>
         <div class="row row-form-gap">
           <div class="div-input col-12">
-            <span class="title">{{'membership-forms'|translate}}</span>
+            <span class="title p20">{{'membership-forms'|translate}}</span>
             <div class="radio-group">
               <div class="div-input-radio">
                 <input type="radio" id="subscribe1" name="subscribe" value="1" />
-                <label for="subscribe1">{{'membership-forms-1'|translate}}</label>
+                <label class="p16" for="subscribe1">{{'membership-forms-1'|translate}}</label>
               </div>
 
               <div class="div-input-radio">
                 <input type="radio" id="subscribe2" name="subscribe" value="2" />
-                <label for="subscribe2">{{'membership-forms-2'|translate}}</label>
+                <label class="p16" for="subscribe2">{{'membership-forms-2'|translate}}</label>
               </div>
             </div>
           </div>
@@ -139,15 +139,15 @@
         <div class="spacer"></div>
         <div class="row row-form-gap">
           <div class="div-input col-lg-6 col-12">
-            <span class="title">{{'payment-channels'|translate}}</span>
-            <span>ชื่อบัญชี: พรรคไทยก้าวใหม่ ฟอร์ เอฟเวอรี่วัน</span>
-            <span class="d-flex align-items-center gap-2">เลขที่บัญชี: 0970000000
-              <button type="button" class="btn-save-qr" (click)="copyText()">{{'copy'|translate}}</button>
+            <span class="title p20">{{'payment-channels'|translate}}</span>
+            <span class="p16">ชื่อบัญชี: พรรคไทยก้าวใหม่ ฟอร์ เอฟเวอรี่วัน</span>
+            <span class="d-flex align-items-center gap-2 p16 ">เลขที่บัญชี: 0970000000
+              <button type="button" class="btn-save-qr p16" (click)="copyText()">{{'copy'|translate}}</button>
               <p *ngIf="copySuccess" style="color: green; margin: 0;">
                 ✅ {{'copy'|translate}}!
               </p>
             </span>
-            <span>ธนาคาร: กรุงไทย</span>
+            <span class="p16">ธนาคาร: กรุงไทย</span>
             <div class="d-flex align-items-center flex-column">
               <img src="./assets/img/qr-mock.png" class="qr-code" />
               <a href="./assets/img/qr-mock.png" download="qr-mock.png">
@@ -157,9 +157,9 @@
 
           </div>
           <div class="div-input col-lg-6 col-12">
-            <span class="title">{{'photo-evidence'|translate}}</span>
+            <span class="title p20">{{'photo-evidence'|translate}}</span>
             <label class="div-file-slip">
-              <span *ngIf="previewSlipUrl == null">* {{'select-photo'|translate}}</span>
+              <span class="p16" *ngIf="previewSlipUrl == null">* {{'select-photo'|translate}}</span>
               <div class="div-img-file-slip" *ngIf="previewSlipUrl != null">
                 <img [src]="previewSlipUrl" />
               </div>
@@ -169,6 +169,7 @@
               </div>
             </label>
           </div>
+          
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
@@ -176,21 +177,21 @@
           <div class="div-checkbox" *ngFor="let item of checkboxItems; let i = index">
             <input #cb type="checkbox" [checked]="item.checked" (click)="onCheckboxClick(i, cb, $event)"
               id="chk{{i}}" />
-            <label [for]="'chk' + i">{{ item.label }}</label>
+            <label class="p16"  [for]="'chk' + i">{{ item.label }}</label>
           </div>
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="d-flex justify-content-center">
-          <button class="btn-main" type="button" (click)="openModal()">{{'proceed'|translate}}</button>
+        <button class="btn-main p20" type="button" (click)="openModal()">{{'proceed'|translate}}</button>
         </div>
       </form>
 
       <div class="modal-backdrop" *ngIf="isModalOpen">
         <div class="modal-box">
-          <h2>{{'completed-member'|translate}}</h2>
-          <p>{{'completed-thx'|translate}}</p>
-          <button (click)="closeModal()" class="btn-main">{{'tohome'|translate}}</button>
+          <h2 class="p32">{{'completed-member'|translate}}</h2>
+          <p class="p14">{{'completed-thx'|translate}}</p>
+          <button (click)="closeModal()" class="btn-main p20">{{'tohome'|translate}}</button>
         </div>
       </div>
 
@@ -201,9 +202,9 @@
 <!-- Popup -->
 <div class="popup-overlay" *ngIf="showPopup">
   <div class="popup" tabindex="0" (keydown.escape)="closePopup(false)">
-
+    
     <div class="popup-box">
-      <h3 class="popup-title">รายละเอียด PDPA</h3>
+      <h3 class="popup-title ">รายละเอียด PDPA</h3>
       <div class="popup-content">
         <p>{{ currentPopupText }}</p>
       </div>
@@ -213,6 +214,6 @@
       <button (click)="confirmCheckbox()">ตกลง</button>
       <button (click)="closePopup(false)">ยกเลิก</button>
     </div>
-
+    
   </div>
 </div>

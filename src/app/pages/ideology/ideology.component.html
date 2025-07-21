@@ -9,8 +9,8 @@
 <section class="ideology-div">
   <div class="ideology-section">
     <div class="header" data-aos="fade-right">
-      <h2>อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่</h2>
-      <p class="description">
+      <h2 class="p24">อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่</h2>
+      <p class="description p16">
         พรรคไทยก้าวใหม่ยึดมั่นในระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข
         และเชื่อมั่นว่าพลังของประชาชนคือรากฐานของการพัฒนาประเทศอย่างแท้จริง พรรคมุ่งมั่นที่จะสร้างรัฐที่เปิดกว้าง
         โปร่งใส
@@ -26,14 +26,19 @@
     </div>
 
     <div class="vision">
-      <h3 data-aos="zoom-in">วิสัยทัศน์</h3>
+      <h3 class="p22" data-aos="zoom-in">วิสัยทัศน์</h3>
 
       <div class="vision-item" *ngFor="let v of visions; let i = index" data-aos="fade-right">
-        <h5>{{ v.title }}</h5>
+        <h5 class="p16">{{ v.title }}</h5>
         <ul>
-          <li *ngFor="let d of v.detail">{{ d }}</li>
+          <li class="p14" *ngFor="let d of v.detail">{{ d }}</li>
         </ul>
       </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <button class="nav-btn p20 left-btn" [routerLink]="['/party-executive']">← {{'partyExecutiveCommittee' | translate}}</button>
+      <button class="nav-btn  p20right-btn" [routerLink]="['/history']">{{ 'history'| translate }} →</button>
     </div>
   </div>
 </section>

@@ -11,6 +11,8 @@ import * as AOS from 'aos';
 export class NewsComponent implements OnInit {
   newsList: any[] = [];
   newsHighlight: any[] = [];
+  deviceSize: string = '';
+
 
   constructor(
     private serviceProvider: ServiceProvider,

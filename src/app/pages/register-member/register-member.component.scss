@@ -67,6 +67,12 @@ i {
   --bs-gutter-x: 1.5rem;
   // --bs-gutter-y: 1.5rem;
   row-gap: 24px;
+
+  .div-input {
+    span {
+      color: var(--nevy);
+    }
+  }
 }
 
 .title {
@@ -295,9 +301,100 @@ i {
 .div-checkbox {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   gap: 10px;
+  color: var(--949494-w-y);
 
   span {
     color: var(--nevy);
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.popup {
+  background: #fff;
+  height: 90vh;
+  width: 100%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    height: 80vh;
+  }
+
+}
+
+
+.popup-box {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-height: 70vh;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.popup-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.popup-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  text-align: justify;
+}
+
+/* ปุ่มอยู่นอกกรอบ */
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:first-child {
+      background-color: var(--nevy);
+      color: white;
+    }
+
+    &:last-child {
+      background-color: #e76f51;
+      color: white;
+    }
   }
 }
