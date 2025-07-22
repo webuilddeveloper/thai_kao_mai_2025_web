@@ -41,9 +41,8 @@
 .step .circle {
   width: 36px;
   height: 36px;
-  background-color: var(--E6E6E6-b-b);
-  border: 2px solid var(--E6E6E6-w-y);
-  color: var(--black);
+  background-color: #E6E6E6;
+  color: #000;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -54,9 +53,8 @@
 }
 
 .step.active .circle {
-  background-color: var(--y-w-y);
-  border: 2px solid var(--nevy);
-  color: #000;
+  background-color: #F4ED17;
+  border: 2px solid #2D294A;
   /* เส้นขอบของขั้นตอนปัจจุบัน */
 }
 
@@ -64,13 +62,13 @@
   margin: 0;
   font-weight: bold;
   font-size: 14px;
-  color: var(--black);
+  color: #333;
 }
 
 .line {
   flex-grow: 1;
   height: 2px;
-  background-color: var(--e0e0e0-w-y);
+  background-color: #e0e0e0;
   margin: 0 8px;
   max-width: 60px;
   min-width: 40px;
@@ -107,7 +105,6 @@
   text-align: center;
   margin-top: 40px;
   font-family: 'Prompt', sans-serif;
-  color: var(--black);
 }
 
 .payment-methods h3 {
@@ -126,13 +123,13 @@
 .payment-option {
   width: 120px;
   height: 140px;
-  border: 2px solid var(--d9d9d9-w-y);
+  border: 2px solid #e0e0e0;
   border-radius: 12px;
   padding: 20px;
   text-align: center;
   cursor: pointer;
   transition: 0.3s ease;
-  background-color: var(--white);
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,29 +140,28 @@
   width: 48px;
   height: 48px;
   margin-bottom: 10px;
-  filter: var(--filter-w-y);
 }
 
 .payment-option span {
   font-weight: bold;
-  color: var(--nevy);
+  color: #333;
+}
+
+.payment-option span {
+  font-weight: bold;
+  color: #2D294A;
   /* สีปกติ */
   transition: color 0.3s ease;
 }
 
 .payment-option.selected span {
-  color: var(--y-w-y-2);
-  /* สีเมื่อถูกเลือก */
-}
-
-.payment-option.selected img {
-  filter: var(--filter-b-b);
+  color: #F4ED17;
   /* สีเมื่อถูกเลือก */
 }
 
 .payment-option.selected {
-  border: 2px solid var(--y-w-y);
-  background-color: var(--nevy);
+  border: 2px solid #F9C80E;
+  background-color: #2D294A;
   color: white;
 }
 
@@ -195,16 +191,9 @@
   margin: 0 auto;
   padding: 24px 24px;
   max-width: 800px;
-  background: var(--white);
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--w-w-y);
-}
-
-.receipt-form {
-  h3 {
-    color: var(--black);
-  }
 }
 
 .form-row {
@@ -217,12 +206,9 @@
 .form-row input {
   flex: 1;
   padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  border: 1px solid var(--ccc-w-y);
-  background-color: var(--ccc-b-b);
-  color: var(--black);
-  outline: none;
 }
 
 .form-type-toggle {
@@ -231,8 +217,6 @@
   border-radius: 10px;
   overflow: hidden;
   background-color: #eaeaea;
-  border: 1;
-  border: 1px solid var(--nevy);
 }
 
 .form-type-toggle button {
@@ -242,21 +226,18 @@
   background: none;
   font-weight: bold;
   cursor: pointer;
-  background-color: var(--white);
-  color: var(--black);
-
 }
 
 .form-type-toggle .active {
-  background-color: var(--nevy);
-  color: var(--white);
+  background-color: #2D294A;
+  color: #fff;
 }
 
 .form-note {
-  background: var(--e3e9ff-w-y);
+  background: #e3e9ff;
   padding: 10px;
   font-size: 14px;
-  color: black;
+  color: #2D294A;
   border-radius: 6px;
   margin-bottom: 16px;
 }
@@ -272,9 +253,9 @@
 
 .btn-back {
   padding: 12px 32px;
-  background-color: var(--e0e0e0-b-b);
-  color: var(--nevy);
-  border: 1px solid var(--e0e0e0-w-y);
+  background-color: #e0e0e0;
+  color: #2D294A;
+  border: none;
   border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
@@ -283,14 +264,13 @@
 }
 
 .btn-back:hover {
-  background-color: var(--ccc-w-y);
-  color: black;
+  background-color: #ccc;
 }
 
 .btn-next {
   padding: 12px 40px;
-  background-color: var(--nevy);
-  color: var(--white);
+  background-color: #2D294A;
+  color: white;
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -300,7 +280,7 @@
 }
 
 .btn-next:hover {
-  background-color: var(--1a1832-w-y);
+  background-color: #1a1832;
 }
 
 
@@ -316,7 +296,6 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 16px;
-  color: var(--black);
 }
 
 .amount-options {
@@ -328,31 +307,28 @@
 
 .amount-options button {
   padding: 10px 20px;
-  border: 2px solid var(--nevy);
+  border: 2px solid #2D294A;
   border-radius: 10px;
-  background-color: var(--white);
-  color: var(--nevy);
+  background-color: white;
+  color: #2D294A;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .amount-options button.selected {
-  background-color: var(--y-w-y);
+  background-color: #F4ED17;
   color: #2D294A;
-  border: 2px solid var(--y-w-y);
+  border-color: #F4ED17;
 }
 
 .amount-options input[type="number"] {
   width: 180px;
   padding: 10px 14px;
-  border: 2px solid var(--nevy);
+  border: 2px solid #2D294A;
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
-  background-color: var(--white);
-  color: var(--black);
-  outline: none;
 }
 
 
@@ -369,28 +345,22 @@
   /* <<< เพิ่มระยะซ้าย-ขวา */
 }
 
-.confirmation {
-  h3 {
-    color: var(--black);
-  }
-}
-
 .info-box {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  border: 1.5px solid var(--ddd-w-y);
+  border: 1.5px solid #ddd;
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 16px;
-  background: var(--white);
+  background: #fff;
 }
 
 .icon-wrapper {
   width: 48px;
   height: 48px;
   min-width: 48px;
-  background-color: var(--f2f4f8-w-y);
+  background-color: #f2f4f8;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -404,14 +374,14 @@
 
 .info-box label {
   font-weight: bold;
-  color: var(--nevy);
+  color: #2D294A;
   font-size: 14px;
 }
 
 .info-box div>div {
   font-size: 18px;
   font-weight: bold;
-  color: var(--nevy);
+  color: #2D294A;
 }
 
 
@@ -430,13 +400,12 @@
   font-size: 20px;
   font-weight: bold;
   margin: 32px 0 16px;
-  color: var(--nevy)
+  color: #2d294a;
 }
 
 .logo-edonation {
   width: 260px;
   margin-bottom: 24px;
-  filter: var(--filter);
 }
 
 .qr-wrapper {
@@ -446,12 +415,11 @@
 .qr-image {
   width: 200px;
   height: 200px;
-  filter: var(--filter);
 }
 
 .qr-instruction {
   font-size: 14px;
-  color: var(--nevy);
+  color: #2d294a;
   text-align: left;
   max-width: 580px;
   margin: 0 auto;
@@ -473,13 +441,12 @@
   max-width: 600px;
   margin: 80px auto;
   padding: 20px;
-  color: var(--nevy);
+  color: #2d294a;
 }
 
 .thank-you-icon {
   width: 200px;
   margin-bottom: 24px;
-  filter: var(--filter);
 }
 
 .thank-you-section h2 {
@@ -504,7 +471,7 @@
     cursor: pointer;
     font-size: 1rem;
     background-color: var(--nevy);
-    color: var(--white);
+    color: white;
     font-weight: bold;
   }
 }
@@ -517,7 +484,7 @@
     font-size: 2rem;
     margin-bottom: 40px;
     font-weight: bold;
-    color: var(--y-w-y);
+    color: var(--main);
   }
 
   .digit-wrapper {
@@ -533,7 +500,7 @@
     .digit {
       font-size: 3rem;
       font-weight: bold;
-      color: var(--808080-w-y);
+      color: var(--main);
       display: flex;
       align-items: baseline;
 
@@ -546,7 +513,7 @@
       font-size: 3rem;
       font-weight: bold;
       margin: 0 2px;
-      color: var(--808080-w-y);
+      color: var(--main);
 
       @media (max-width: 768px) {
         font-size: 2rem;
@@ -556,7 +523,7 @@
     .unit {
       font-size: 1.5rem;
       font-weight: normal;
-      color: var(--999999-w-y);
+      color: #999;
       align-self: baseline;
       padding-left: 4px;
     }
@@ -574,9 +541,8 @@
   padding: 20px;
   margin: 5% 0;
   position: relative;
-  background: var(--nevy-b-b);
+  background: #2D294A;
   overflow: hidden;
-  border: 1px solid var(--nevy);
 }
 
 
@@ -587,9 +553,8 @@
 }
 
 .donation-container {
-  background: var(--white);
-  border: 3px solid var(--w-w-y);
-  padding: 4px;
+  background: #fff;
+  padding: 6px;
   border-radius: 8px;
   height: 50px;
   width: 100%;
@@ -601,15 +566,15 @@
 .donation-bar {
   position: relative;
   height: 100%;
-  background: var(--eeeeee-b-b);
-  border-radius: 3px;
+  background: #eee;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 .donation-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, var(--nevy-fade-1), var(--nevy-fade-2), var(--nevy-fade-3));
+  background: linear-gradient(to right, #2d294a, #3d3858, #5a5574);
   transition: width 2s ease-in-out;
   position: relative;
   z-index: 1;
@@ -631,11 +596,5 @@
   text-align: center;
   margin-top: 10px;
   font-weight: bold;
-  color: var(--y-w-y);
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--white);
+  color: var(--main);
 }
