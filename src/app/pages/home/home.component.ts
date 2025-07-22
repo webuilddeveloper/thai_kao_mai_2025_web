@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild, QueryList, ViewChildren, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
@@ -124,6 +124,7 @@ export class HomeComponent implements AfterViewInit {
     private renderer: Renderer2,
     private el: ElementRef,
     private utilities: Utilities,
+    private cdRef: ChangeDetectorRef
   ) {
 
 
@@ -172,6 +173,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
+      this.showCookieBanner = !localStorage.getItem('cookieAccepted');
 
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
@@ -182,8 +184,10 @@ export class HomeComponent implements AfterViewInit {
     });
 
     setTimeout(() => {
-      AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
+      AOS.refreshHard(); // ลองเปลี่ยนจาก AOS.refresh()
+      this.cdRef.detectChanges();
     }, 100);
+
 
 
 
