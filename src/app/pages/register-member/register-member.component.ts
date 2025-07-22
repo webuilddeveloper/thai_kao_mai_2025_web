@@ -13,6 +13,7 @@ export class RegisterMemberComponent implements OnInit {
     private serviceProvider: ServiceProvider,
     public translate: TranslateService
   ) {}
+  deviceSize: string = '';
   isModalOpen = false;
   showPopup = false;
   currentPopupText = '';

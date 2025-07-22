@@ -211,7 +211,7 @@ a:hover {
   // box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
   // backdrop-filter: blur(10px);
   // background-color: rgba(255, 255, 255, 0.3);
-  transform: translateX(100%);
+  transform: translateX(120%);
   /* ซ่อนซ้าย */
   transition: transform 0.3s ease;
   // animation: slideToLeft linear forwards;
@@ -452,7 +452,7 @@ a:hover {
   box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
 
   /* ซ่อนเมนูไว้นอกจอทางขวาเป็นค่าเริ่มต้น */
-  transform: translateX(100%);
+  transform: translateX(120%);
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* Animation ตอนสไลด์ */
 

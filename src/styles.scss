@@ -56,6 +56,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --4F5A68-b-b: #4F5A68;
   --f0f0f0-w-y: #f0f0f0;
   --ccc-w-y: #ccc;
+  --ccc-b-b: #ccc;
   --w-b-y: white;
   --94949442-w-y: #94949442;
   --666-w-y: #666;
@@ -77,10 +78,24 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --1a1a1a-w-y: #1a1a1a;
   --y-w-y-2: #F4ED17;
   --nevy-2: #2D294A;
+  --E6E6E6-b-b: #E6E6E6;
+  --E6E6E6-w-y: #E6E6E6;
+  --e0e0e0-w-y: #e0e0e0;
+  --1a1832-w-y: #1a1832;
+  --999999-w-y: #999999;
+  --eeeeee-b-b: #eeeeee;
+  --nevy-fade-1: #2D294A;
+  --nevy-fade-2: #3d3858;
+  --nevy-fade-3: #5a5574;
+  --e3e9ff-w-y: #e3e9ff;
+  --e0e0e0-b-b: #e0e0e0;
+  --ddd-w-y: #dddddd;
+  --f2f4f8-w-y: #f2f4f8;
 
   --y-w-y-icon: ;
   --filter: ;
   --filter-w-y: ;
+  --filter-b-b: ;
 
   --font-10: 10px;
   --font-11: 11px;
@@ -130,6 +145,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --808080-w-y: #ffffff;
   --4F5A68-b-b: #000000;
   --ccc-w-y: #ffffff;
+  --ccc-b-b: black;
   --f0f0f0-w-y: #ffffff;
   --w-b-y: black;
   --94949442-w-y: white;
@@ -153,10 +169,24 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --y-w-y-2: #000000;
   --nevy-fade: #ffffff;
   --nevy-2: #000000;
+  --E6E6E6-b-b: black;
+  --E6E6E6-w-y: white;
+  --e0e0e0-w-y: white;
+  --1a1832-w-y: white;
+  --999999-w-y: white;
+  --eeeeee-b-b: black;
+  --nevy-fade-1: white;
+  --nevy-fade-2: rgb(255 255 255 / 69%);
+  --nevy-fade-3: #ffffff4d;
+  --e3e9ff-w-y: white;
+  --e0e0e0-b-b: black;
+  --ddd-w-y: white;
+  --f2f4f8-w-y: white;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
   --y-w-y-icon: grayscale(100%);
+  --filter-b-b: brightness(0) saturate(100%);
 }
 
 .blindness-theme {
@@ -176,6 +206,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --808080-w-y: #F4ED17;
   --4F5A68-b-b: #000000;
   --ccc-w-y: #F4ED17;
+  --ccc-b-b: black;
   --f0f0f0-w-y: #F4ED17;
   --w-b-y: #F4ED17;
   --94949442-w-y: #F4ED17;
@@ -199,10 +230,24 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --y-w-y-2: #000000;
   --nevy-fade: #F4ED17;
   --nevy-2: #000000;
+  --E6E6E6-b-b: black;
+  --E6E6E6-w-y: #F4ED17;
+  --e0e0e0-w-y: #F4ED17;
+  --1a1832-w-y: #F4ED17;
+  --999999-w-y: #F4ED17;
+  --eeeeee-b-b: black;
+  --nevy-fade-1: #F4ED17;
+  --nevy-fade-2: #f4ed17ba;
+  --nevy-fade-3: #f4ed176e;
+  --e3e9ff-w-y: #F4ED17;
+  --e0e0e0-b-b: black;
+  --ddd-w-y: #F4ED17;
+  --f2f4f8-w-y: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
   --y-w-y-icon: ;
+  --filter-b-b: brightness(0) saturate(100%);
 }
 
 html,
