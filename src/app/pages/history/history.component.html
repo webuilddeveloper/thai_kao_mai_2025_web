@@ -19,27 +19,14 @@
     </div>
 
     <div class="about-text" data-aos="fade-up">
-      <div class="main-description p16" [innerHTML]="aboutMeModel.description" *ngIf="translate.currentLang === 'th'"></div>
-      <div class="main-description p16" [innerHTML]="aboutMeModel.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
-      <!-- <p class="main-description p16">
-        พรรคไทยก้าวใหม่ ก่อตั้งขึ้นโดยกลุ่มคนรุ่นใหม่ นักวิชาการ ภาคประชาชน และผู้มีประสบการณ์ในหลากหลายสาขา
-        ที่มีจุดร่วมคือความเชื่อมั่นในพลังของการเปลี่ยนแปลง และความมุ่งมั่นในการสร้างประเทศไทยที่โปร่งใส ทันสมัย
-        และเป็นธรรม
-
-        การก่อตั้งพรรคเกิดจากความต้องการปฏิรูปการเมืองไทยให้หลุดพ้นจากวงจรเดิมของความขัดแย้ง การผูกขาดอำนาจ
-        และการเมืองแบบผลประโยชน์เฉพาะกลุ่ม พรรคไทยก้าวใหม่จึงถือกำเนิดขึ้นเพื่อเป็นเวทีของคนทุกวัย
-        ที่ต้องการร่วมออกแบบอนาคตของประเทศอย่างมีส่วนร่วม
-
-        พรรคเชื่อว่า การเปลี่ยนแปลงอย่างยั่งยืนจะเกิดขึ้นได้จากการเมืองที่ยึดประชาชนเป็นศูนย์กลาง
-        มีการบริหารจัดการที่โปร่งใส และนโยบายที่ตอบโจทย์ชีวิตจริงของคนไทยทุกกลุ่ม
-      </p> -->
+      <p class="main-description p16" [innerHTML]="model.description" *ngIf="translate.currentLang === 'th'"></p>
+      <p class="main-description p16" [innerHTML]="model.descriptionEN" *ngIf="translate.currentLang === 'en'"></p>
 
       <div class="highlight-boxes">
         <div class="highlight-box" data-aos="fade-up">
           <h4 class="p18">{{ 'mission' | translate }}</h4>
-            <div class="p16" [innerHTML]="aboutMeModel.mission" *ngIf="translate.currentLang === 'th'"></div>
-            <div class="p16" [innerHTML]="aboutMeModel.missionEN" *ngIf="translate.currentLang === 'en'"></div>
-
+          <p [innerHTML]="model.mission" *ngIf="translate.currentLang === 'th'"></p>
+          <p [innerHTML]="model.missionEN" *ngIf="translate.currentLang === 'en'"></p>
           <!-- <p><strong class="p16">“สร้างสังคมที่ทุกคนมีสิทธิ์ มีเสียง และมีโอกาสอย่างเท่าเทียม”</strong></p>
           <p class="p14">
             พรรคไทยก้าวใหม่มีพันธกิจในการผลักดันการเมืองที่โปร่งใส ตรวจสอบได้
@@ -52,9 +39,9 @@
         </div>
 
         <div class="highlight-box" data-aos="fade-up">
-          <h4 class="p18">วิสัยทัศน์</h4>
-            <div class="p16" [innerHTML]="aboutMeModel.vision" *ngIf="translate.currentLang === 'th'"></div>
-            <div class="p16" [innerHTML]="aboutMeModel.visionEN" *ngIf="translate.currentLang === 'en'"></div>
+          <h4 class="p18">{{ 'vision' | translate }}</h4>
+          <p [innerHTML]="model.vision" *ngIf="translate.currentLang === 'th'"></p>
+          <p [innerHTML]="model.visionEN" *ngIf="translate.currentLang === 'en'"></p>
           <!-- <p><strong class="p16">“ประเทศไทยแห่งอนาคต ที่ประชาชนมีศักดิ์ศรี พัฒนาอย่างยั่งยืน และพร้อมก้าวสู่เวทีโลก”</strong></p>
           <p class="p14">
             พรรคไทยก้าวใหม่มีเป้าหมายที่จะสร้างประเทศที่ประชาชนทุกคนมีโอกาสเท่าเทียมกันในชีวิต

@@ -19,7 +19,16 @@
     </div>
   </div>
 
-  <h4 class="title-sub p24" data-aos="fade-right">{{ 'partyExecutiveCommittee' |
+  <div *ngFor="let i of modelCategory;">
+    <h4 class="title-sub p24" data-aos="fade-right">{{i.title }}</h4>
+    <div *ngFor="let m of model;" data-aos="zoom-in-up" class="executive-row center">
+      <div *ngIf="m.category == i.code" class="executive-card">
+        <img src="{{m.imageUrl}}"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- <h4 class="title-sub p24" data-aos="fade-right">{{ 'partyExecutiveCommittee' |
     translate }}</h4>
 
   <div data-aos="zoom-in-up" class="executive-row center">
@@ -32,7 +41,7 @@
     <div class="executive-card">
       <img src="./assets/img/executive.png" alt="หัวหน้าพรรค" />
     </div>
-  </div>
+  </div> -->
 
 </div>
 <div class="navigation-buttons">

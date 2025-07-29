@@ -9,41 +9,28 @@
 <section class="ideology-div">
   <div class="ideology-section">
     <div class="header" data-aos="fade-right">
-      <h2 class="p24">{{ 'ideologyOfParty' | translate }}</h2>
-      <div class="description p16" [innerHTML]="aboutMeModel.ideologyDes" *ngIf="translate.currentLang === 'th'"></div>
-      <div class="description p16" [innerHTML]="aboutMeModel.ideologyDesEN" *ngIf="translate.currentLang === 'en'"></div>
-
-      <!-- <p class="description p16">
-        พรรคไทยก้าวใหม่ยึดมั่นในระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข
-        และเชื่อมั่นว่าพลังของประชาชนคือรากฐานของการพัฒนาประเทศอย่างแท้จริง พรรคมุ่งมั่นที่จะสร้างรัฐที่เปิดกว้าง
-        โปร่งใส
-        ยึดหลักนิติธรรม และให้ทุกคนมีโอกาสเท่าเทียมในการพัฒนาชีวิตของตนเองและส่วนรวม
-
-        เราเชื่อว่าการเปลี่ยนแปลงต้องเริ่มจากการสร้างระบบที่ยุติธรรม ลดความเหลื่อมล้ำ
-        และยกระดับคุณภาพชีวิตประชาชนในทุกมิติ ไม่ว่าจะเป็นเศรษฐกิจ การศึกษา สุขภาพ หรือสิ่งแวดล้อม
-        โดยไม่ทิ้งใครไว้ข้างหลัง
-        พรรคไทยก้าวใหม่จึงยืนหยัดเป็นพลังทางการเมืองของคนรุ่นใหม่และผู้ที่ต้องการเห็นประเทศเดินหน้าอย่างสร้างสรรค์
-        ยั่งยืน
-        และแข่งขันได้ในเวทีโลก
-      </p> -->
+      <h2 class="p24">อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่</h2>
+      <p class="description p16" [innerHTML]="model.ideologyDes" *ngIf="translate.currentLang === 'th'"></p>
+      <p class="description p16" [innerHTML]="model.ideologyDesEN" *ngIf="translate.currentLang === 'en'"></p>
     </div>
 
     <div class="vision">
-      <!-- <h3 class="p22" data-aos="zoom-in">วิสัยทัศน์</h3> -->
+      <h3 class="p22" data-aos="zoom-in">{{ 'vision' | translate }}</h3>
 
-      <div class="vision-item" *ngFor="let v of ideologyList; let i = index" data-aos="fade-right">
+      <div class="vision-item" *ngFor="let v of model.ideologyList; let i = index" data-aos="fade-right">
         <h5 class="p16" *ngIf="translate.currentLang === 'th'">{{ v.title }}</h5>
         <h5 class="p16" *ngIf="translate.currentLang === 'en'">{{ v.titleEN }}</h5>
-        <div class="p14" [innerHTML]="v.description" *ngIf="translate.currentLang === 'th'"></div>
-        <div class="p14" [innerHTML]="v.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
-        <!-- <ul>
-          <li class="p14" *ngFor="let d of v.detail">{{ d }}</li>
-        </ul> -->
+        <ul *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description">
+          <!-- <li class="p14" *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description"></li>
+          <li class="p14" *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN"></li> -->
+        </ul>
+        <ul *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN"></ul>
       </div>
     </div>
 
     <div class="navigation-buttons">
-      <button class="nav-btn p20 left-btn" [routerLink]="['/party-executive']">← {{'partyExecutiveCommittee' | translate}}</button>
+      <button class="nav-btn p20 left-btn" [routerLink]="['/party-executive']">← {{'partyExecutiveCommittee' |
+        translate}}</button>
       <button class="nav-btn  p20right-btn" [routerLink]="['/history']">{{ 'history'| translate }} →</button>
     </div>
   </div>

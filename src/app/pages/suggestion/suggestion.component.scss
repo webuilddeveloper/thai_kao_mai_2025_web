@@ -63,6 +63,14 @@ i {
   outline: none;
 }
 
+.div-input select {
+  font-size: var(--font-18);
+  padding: 8px 10px;
+  border-radius: 13px;
+  border: 1px solid var(--nevy);
+  outline: none;
+}
+
 .row-form-gap {
   --bs-gutter-x: 1.5rem;
   // --bs-gutter-y: 1.5rem;
