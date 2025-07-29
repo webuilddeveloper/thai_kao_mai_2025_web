@@ -43,12 +43,12 @@ export class IdeologyComponent implements OnInit {
     });
   }
 
-  readAboutMe() {
-    this.serviceProvider.post('aboutUs/read', {}).subscribe((data) => {
-      let model: any = {};
-      model = data;
-      this.aboutMeModel = model.objectData[0];
-      this.ideologyList = model.objectData[0].ideologyList;
-    });
-  }
+  // readAboutMe() {
+  //   this.serviceProvider.post('aboutUs/read', {}).subscribe((data) => {
+  //     let model: any = {};
+  //     model = data;
+  //     this.aboutMeModel = model.objectData[0];
+  //     this.ideologyList = model.objectData[0].ideologyList;
+  //   });
+  // }
 }
