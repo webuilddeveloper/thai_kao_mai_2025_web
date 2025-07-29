@@ -6,9 +6,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ServiceProvider {
 
-  // ng build --base-href "/tkm/"  
+  // ng build --base-href "/tkm/"
 
   server: string = 'http://gateway.we-builds.com/wtm-api/';
+  // server: string = 'http://localhost:8600/';
 
   constructor(private http: HttpClient) {}
 

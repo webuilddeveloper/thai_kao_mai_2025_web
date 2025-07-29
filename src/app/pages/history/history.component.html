@@ -19,7 +19,9 @@
     </div>
 
     <div class="about-text" data-aos="fade-up">
-      <p class="main-description p16">
+      <div class="main-description p16" [innerHTML]="aboutMeModel.description" *ngIf="translate.currentLang === 'th'"></div>
+      <div class="main-description p16" [innerHTML]="aboutMeModel.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+      <!-- <p class="main-description p16">
         พรรคไทยก้าวใหม่ ก่อตั้งขึ้นโดยกลุ่มคนรุ่นใหม่ นักวิชาการ ภาคประชาชน และผู้มีประสบการณ์ในหลากหลายสาขา
         ที่มีจุดร่วมคือความเชื่อมั่นในพลังของการเปลี่ยนแปลง และความมุ่งมั่นในการสร้างประเทศไทยที่โปร่งใส ทันสมัย
         และเป็นธรรม
@@ -29,12 +31,16 @@
         ที่ต้องการร่วมออกแบบอนาคตของประเทศอย่างมีส่วนร่วม
 
         พรรคเชื่อว่า การเปลี่ยนแปลงอย่างยั่งยืนจะเกิดขึ้นได้จากการเมืองที่ยึดประชาชนเป็นศูนย์กลาง
-        มีการบริหารจัดการที่โปร่งใส และนโยบายที่ตอบโจทย์ชีวิตจริงของคนไทยทุกกลุ่ม </p>
+        มีการบริหารจัดการที่โปร่งใส และนโยบายที่ตอบโจทย์ชีวิตจริงของคนไทยทุกกลุ่ม
+      </p> -->
 
       <div class="highlight-boxes">
         <div class="highlight-box" data-aos="fade-up">
-          <h4 class="p18">พันธกิจ</h4>
-          <p><strong class="p16">“สร้างสังคมที่ทุกคนมีสิทธิ์ มีเสียง และมีโอกาสอย่างเท่าเทียม”</strong></p>
+          <h4 class="p18">{{ 'mission' | translate }}</h4>
+            <div class="p16" [innerHTML]="aboutMeModel.mission" *ngIf="translate.currentLang === 'th'"></div>
+            <div class="p16" [innerHTML]="aboutMeModel.missionEN" *ngIf="translate.currentLang === 'en'"></div>
+
+          <!-- <p><strong class="p16">“สร้างสังคมที่ทุกคนมีสิทธิ์ มีเสียง และมีโอกาสอย่างเท่าเทียม”</strong></p>
           <p class="p14">
             พรรคไทยก้าวใหม่มีพันธกิจในการผลักดันการเมืองที่โปร่งใส ตรวจสอบได้
             ขับเคลื่อนนโยบายที่ตอบโจทย์ความเป็นอยู่ของประชาชน
@@ -42,12 +48,14 @@
           </p>
           <p class="small p14">
             เราเชื่อมั่นว่าการพัฒนาประเทศต้องมาจากการมีส่วนร่วมของประชาชนในทุกระดับ
-          </p>
+          </p> -->
         </div>
 
         <div class="highlight-box" data-aos="fade-up">
           <h4 class="p18">วิสัยทัศน์</h4>
-          <p><strong class="p16">“ประเทศไทยแห่งอนาคต ที่ประชาชนมีศักดิ์ศรี พัฒนาอย่างยั่งยืน และพร้อมก้าวสู่เวทีโลก”</strong></p>
+            <div class="p16" [innerHTML]="aboutMeModel.vision" *ngIf="translate.currentLang === 'th'"></div>
+            <div class="p16" [innerHTML]="aboutMeModel.visionEN" *ngIf="translate.currentLang === 'en'"></div>
+          <!-- <p><strong class="p16">“ประเทศไทยแห่งอนาคต ที่ประชาชนมีศักดิ์ศรี พัฒนาอย่างยั่งยืน และพร้อมก้าวสู่เวทีโลก”</strong></p>
           <p class="p14">
             พรรคไทยก้าวใหม่มีเป้าหมายที่จะสร้างประเทศที่ประชาชนทุกคนมีโอกาสเท่าเทียมกันในชีวิต
             มีสิทธิในการกำหนดอนาคตของตนเอง และได้รับบริการสาธารณะที่มีคุณภาพ ไม่ว่าจะอยู่ที่ใดในประเทศ
@@ -55,7 +63,7 @@
           <p class="small p14">
             เรามุ่งหวังให้ประเทศไทยเป็นผู้นำในภูมิภาค ทั้งด้านเศรษฐกิจ เทคโนโลยี การศึกษา
             และการบริหารจัดการที่โปร่งใส โดยไม่ทิ้งใครไว้ข้างหลัง
-          </p>
+          </p> -->
         </div>
       </div>
 

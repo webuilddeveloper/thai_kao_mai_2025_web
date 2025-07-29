@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import * as AOS from 'aos';
+import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
 @Component({
   selector: 'app-ideology',
@@ -66,9 +68,13 @@ export class IdeologyComponent implements OnInit {
     }
   ];
 
+  aboutMeModel: any = {};
+  ideologyList: any = [];
 
-
-
+  constructor(
+        private serviceProvider: ServiceProvider,
+        public translate: TranslateService
+      ) {}
 
   ngOnInit(): void {
     AOS.init({
@@ -76,13 +82,22 @@ export class IdeologyComponent implements OnInit {
       offset: 50,
       once: false,
       mirror: true,
-      
+
     });
 
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+    this.readAboutMe();
 
+  }
 
+  readAboutMe() {
+    this.serviceProvider.post('aboutUs/read', {}).subscribe((data) => {
+      let model: any = {};
+      model = data;
+      this.aboutMeModel = model.objectData[0];
+      this.ideologyList = model.objectData[0].ideologyList;
+    });
   }
 }
