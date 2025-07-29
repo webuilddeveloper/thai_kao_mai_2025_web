@@ -1,5 +1,5 @@
 <!-- <div class="bg-circle"></div> -->
-<div *ngIf="newsDetail">
+<div *ngIf="model">
   <div class="vertical">
 
     <div class="card-newdetail">
@@ -10,13 +10,13 @@
       <div class="spacer"></div>
       <div class="spacer"></div>
       <div class="card-detail">
-        <!-- <span class="news-date">{{ newsDetail.updateDate | date:'MMMM' | uppercase }} | {{newsDetail.createBy}}</span> -->
+        <!-- <span class="news-date">{{ model.updateDate | date:'MMMM' | uppercase }} | {{model.createBy}}</span> -->
 
-        <img [src]="newsDetail.imageUrl" alt="" class="img-logo-des">
-        <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ newsDetail.title }}</h1>
-        <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ newsDetail.titleEN }}</h1>
-        <div class="txt-description" [innerHTML]="newsDetail.description" *ngIf="translate.currentLang === 'th'"></div>
-        <div class="txt-description" [innerHTML]="newsDetail.descriptionEN" *ngIf="translate.currentLang === 'en'">
+        <img [src]="model.imageUrl" alt="" class="img-logo-des">
+        <h1 class="txt-title" *ngIf="translate.currentLang === 'th'">{{ model.title }}</h1>
+        <h1 class="txt-title" *ngIf="translate.currentLang === 'en'">{{ model.titleEN }}</h1>
+        <div class="txt-description" [innerHTML]="model.description" *ngIf="translate.currentLang === 'th'"></div>
+        <div class="txt-description" [innerHTML]="model.descriptionEN" *ngIf="translate.currentLang === 'en'">
         </div>
       </div>
     </div>
