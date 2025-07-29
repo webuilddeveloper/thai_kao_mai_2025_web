@@ -14,6 +14,7 @@ export class HistoryComponent implements OnInit {
     public translate: TranslateService
   ) {}
   deviceSize: string = '';
+  aboutMeModel: any = {};
 
   model: any = {};
 
@@ -29,6 +30,15 @@ export class HistoryComponent implements OnInit {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+    this.readAboutMe();
+  }
+
+  readAboutMe() {
+    this.serviceProvider.post('aboutUs/read', {}).subscribe((data) => {
+      let model: any = {};
+      model = data;
+      this.aboutMeModel = model.objectData[0];
+    });
   }
 
   callRead() {
