@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import * as AOS from 'aos';
+import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
+  constructor(
+    private serviceProvider: ServiceProvider,
+    public translate: TranslateService
+  ) {}
   deviceSize: string = '';
 
-  visionItems = [
-    { title: 'ประชาชนคือศูนย์กลาง', desc: 'ทุกนโยบายมุ่งตอบโจทย์ชีวิตจริงของประชาชน' },
-    { title: 'โปร่งใส ตรวจสอบได้', desc: 'สร้างระบบเปิดเผยข้อมูลภาครัฐแบบ real-time' },
-    { title: 'พลังของคนรุ่นใหม่', desc: 'ส่งเสริมการมีส่วนร่วมของคนรุ่นใหม่ทุกระดับ' },
-    { title: 'เศรษฐกิจเท่าเทียม', desc: 'สร้างโอกาสให้ทุกภาคส่วนเติบโตร่วมกัน' },
-  ];
-
+  model: any = {};
 
   ngOnInit(): void {
+    this.callRead();
     AOS.init({
       duration: 1000,
       offset: 20,
@@ -28,5 +29,13 @@ export class HistoryComponent implements OnInit {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+  }
+
+  callRead() {
+    this.serviceProvider.post('m/aboutUs/read', {}).subscribe((res) => {
+      let data: any = {};
+      data = res;
+      this.model = data.objectData;
+    });
   }
 }
