@@ -15,10 +15,11 @@
     </div>
 
     <div class="vision">
-      <h3 class="p22" data-aos="zoom-in">วิสัยทัศน์</h3>
+      <h3 class="p22" data-aos="zoom-in">{{ 'vision' | translate }}</h3>
 
       <div class="vision-item" *ngFor="let v of model.ideologyList; let i = index" data-aos="fade-right">
-        <h5 class="p16">{{ v.title }}</h5>
+        <h5 class="p16" *ngIf="translate.currentLang === 'th'">{{ v.title }}</h5>
+        <h5 class="p16" *ngIf="translate.currentLang === 'en'">{{ v.titleEN }}</h5>
         <ul *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description">
           <!-- <li class="p14" *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description"></li>
           <li class="p14" *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN"></li> -->
