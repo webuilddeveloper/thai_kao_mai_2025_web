@@ -15,21 +15,27 @@
           <div class="dropdown-content" style="left:0;">
             <div class="dropdown-item-header">ขนาดตัวหนังสือ</div>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 0}" class="dropdown-item-blindness"
-              (click)="changeSizeFont(0)">🅣 {{ 'normal' | translate }}</a>
+              (click)="changeSizeFont(0)"><span style="font-size: var(--font-14)">ก</span>&nbsp; {{ 'normal' | translate }}</a>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 1}" class="dropdown-item-blindness"
-              (click)="changeSizeFont(1)">🅣 {{ 'medial' | translate }}</a>
+              (click)="changeSizeFont(1)"><span style="font-size: var(--font-17)">ก</span>&nbsp; {{ 'medial' | translate }}</a>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}" class="dropdown-item-blindness"
-              (click)="changeSizeFont(2)"> 🅣 {{ 'big' | translate }}</a>
+              (click)="changeSizeFont(2)"><span style="font-size: var(--font-20)">ก</span>&nbsp; {{ 'big' | translate }}</a>
             <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
             <a [ngClass]="{'dropdown-item-active':selectedTheme == ''}" class="dropdown-item-blindness"
-              (click)="changeTheme('')">👁️‍🗨️ {{ 'normal' | translate }}</a>
+              (click)="changeTheme('')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23800080'/><polygon points='0,100 0,0 100,100' fill='%23ff0000'/></svg>"
+                width="25" height="25" />&nbsp; {{ 'normal' | translate }}</a>
             <a [ngClass]="{'dropdown-item-active':selectedTheme == 'dark-theme'}" class="dropdown-item-blindness"
-              (click)="changeTheme('dark-theme')">👁️‍🗨️ {{ 'white' | translate }}-{{ 'black'
+              (click)="changeTheme('dark-theme')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23111'/><polygon points='0,100 0,0 100,100' fill='%23ffffff'/></svg>"
+                width="25" height="25" />&nbsp; {{ 'white' | translate }}-{{ 'black'
               |
               translate }}</a>
             <a [ngClass]="{'dropdown-item-active':selectedTheme == 'blindness-theme'}" class="dropdown-item-blindness"
-              (click)="changeTheme('blindness-theme')">👁️‍🗨️ {{ 'yellow' | translate }}-{{
-              'black' | translate }}</a>
+              (click)="changeTheme('blindness-theme')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23ffff4d'/><polygon points='0,100 0,0 100,100' fill='%23111'/></svg>"
+                width="25" height="25" />&nbsp; {{
+              'black' | translate }}-{{ 'yellow' | translate }}</a>
           </div>
         </div>
         <a class="p17" routerLink="./home">{{ 'home' | translate }}</a>
@@ -171,21 +177,27 @@
           <div class="dropdown-content" style="right:0;">
             <div class="dropdown-item-header">ขนาดตัวหนังสือ</div>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 0}"
-              (click)="changeSizeFont(0)">🅣 {{ 'normal' | translate }}</a>
+              (click)="changeSizeFont(0)"><span style="font-size: var(--font-14)">ก</span>&nbsp; {{ 'normal' | translate }}</a>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 1}"
-              (click)="changeSizeFont(1)">🅣 {{ 'medial' | translate }}</a>
+              (click)="changeSizeFont(1)"><span style="font-size: var(--font-17)">ก</span>&nbsp; {{ 'medial' | translate }}</a>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}"
-              (click)="changeSizeFont(2)">🅣 {{ 'big' | translate }}</a>
+              (click)="changeSizeFont(2)"><span style="font-size: var(--font-20)">ก</span>&nbsp; {{ 'big' | translate }}</a>
             <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == ''}"
-              (click)="changeTheme('')">👁️‍🗨️ {{ 'normal' | translate }}</a>
+              (click)="changeTheme('')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23800080'/><polygon points='0,100 0,0 100,100' fill='%23ff0000'/></svg>"
+                width="25" height="25" />&nbsp; {{ 'normal' | translate }}</a>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'dark-theme'}"
-              (click)="changeTheme('dark-theme')">👁️‍🗨️ {{ 'white' | translate }}-{{ 'black'
+              (click)="changeTheme('dark-theme')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23111'/><polygon points='0,100 0,0 100,100' fill='%23ffffff'/></svg>"
+                width="25" height="25" />&nbsp; {{ 'white' | translate }}-{{ 'black'
               |
               translate }}</a>
             <a class="dropdown-item-blindness" [ngClass]="{'dropdown-item-active':selectedTheme == 'blindness-theme'}"
-              (click)="changeTheme('blindness-theme')">👁️‍🗨️ {{ 'yellow' | translate }}-{{
-              'black' | translate }}</a>
+              (click)="changeTheme('blindness-theme')"><img
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23ffff4d'/><polygon points='0,100 0,0 100,100' fill='%23111'/></svg>"
+                width="25" height="25" />&nbsp; {{
+              'black' | translate }}-{{ 'yellow' | translate }}</a>
           </div>
         </div>
         <!-- <div class="dropdown-container" style="width: 120px;">
@@ -249,8 +261,8 @@
             </div>
           </div>
         </div>
-        <img src="./assets/icons/icon-hamburger.png" alt="" class="logo-header-berger" (click)="openHam()" data-aos="fade-down"
-          data-aos-duration="800">
+        <img src="./assets/icons/icon-hamburger.png" alt="" class="logo-header-berger" (click)="openHam()"
+          data-aos="fade-down" data-aos-duration="800">
       </div>
 
     </div>
