@@ -404,8 +404,9 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  padding: 40px;
+  padding-bottom: 20px;
+  background-color: var(--white);
 }
 
 .nav-btn {

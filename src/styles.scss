@@ -93,6 +93,11 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --f2f4f8-w-y: #f2f4f8;
   --y-b-b: #F4ED17;
   --none-w-y: none;
+  --bg-cookie-fade: rgba(45, 41, 74, 0.85);
+  --fffacd-w-y: #fffacd;
+  --e76f51-b-b: #e76f51;
+  --b81111-w-y: #b81111;
+  --g-w-y: green;
 
   --y-w-y-icon: ;
   --filter: ;
@@ -118,6 +123,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --font-36: 36px;
   --font-38: 38px;
   --font-40: 40px;
+  --font-40: 50px;
   --font-l-2: 22px;
   --font-m-2: 20px;
   --font-s-2: 17px;
@@ -186,6 +192,11 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --f2f4f8-w-y: white;
   --y-b-b: #000000;
   --none-w-y: white;
+  --bg-cookie-fade: #000000;
+  --fffacd-w-y: white;
+  --e76f51-b-b: black;
+  --b81111-w-y: white;
+  --g-w-y: white;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -249,6 +260,11 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --f2f4f8-w-y: #F4ED17;
   --y-b-b: #000000;
   --none-w-y: #F4ED17;
+  --bg-cookie-fade: #000000;
+  --fffacd-w-y: #F4ED17;
+  --e76f51-b-b: black;
+  --b81111-w-y: #F4ED17;
+  --g-w-y: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
@@ -386,24 +402,20 @@ body {
 
 /* ตกแต่งข้อความหัวเรื่องหลัก (h1) */
 .header-text h1 {
-  font-size: 3.5rem;
-  /* ขนาดตัวอักษร (ปรับได้) */
+  font-size: 40px;
   font-weight: 600;
   margin: 0 0 10px 0;
-  /* ลบ margin บน-ซ้าย-ขวา และเพิ่ม margin ด้านล่างเล็กน้อย */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-  /* << เพิ่มเงาให้ข้อความ อ่านง่ายขึ้น */
+  color: var(--w-w-y);
 }
 
 /* ตกแต่งข้อความรอง (p) หรือ Breadcrumb */
 .header-text p {
-  font-size: 1.1rem;
-  /* ขนาดตัวอักษร (ปรับได้) */
+  font-size: 17px;
   margin: 0;
   letter-spacing: 1px;
-  /* เพิ่มระยะห่างระหว่างตัวอักษร */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-  /* << เพิ่มเงาให้ข้อความ */
+  color: var(--w-w-y);
 }
 
 

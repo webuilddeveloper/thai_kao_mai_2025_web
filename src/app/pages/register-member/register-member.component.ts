@@ -50,7 +50,9 @@ export class RegisterMemberComponent implements OnInit {
     },
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
+  }
 
   openModal() {
     this.isModalOpen = true;

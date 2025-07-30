@@ -15,6 +15,7 @@ export class IdeologyComponent implements OnInit {
   ) {}
 
   model: any = {};
+  deviceSize: string = '';
   // model = {
   //   ideologyDes: '',
   //   ideologyDesEN: '',
@@ -22,6 +23,7 @@ export class IdeologyComponent implements OnInit {
   // };
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callRead();
     AOS.init({
       duration: 1000,
@@ -40,6 +42,7 @@ export class IdeologyComponent implements OnInit {
       let data: any = {};
       data = res;
       this.model = data.objectData;
+      debugger
     });
   }
 

@@ -10,6 +10,7 @@ import * as AOS from 'aos';
 })
 export class PolicyComponent implements OnInit {
 
+  deviceSize: string = '';
   constructor(
     private router: Router,
   ) {
@@ -32,6 +33,7 @@ export class PolicyComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 1000,
       offset: 100,

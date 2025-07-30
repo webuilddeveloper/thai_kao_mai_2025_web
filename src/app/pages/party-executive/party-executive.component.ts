@@ -14,6 +14,7 @@ import * as AOS from 'aos';
 export class PartyExecutiveComponent {
   model: any = {};
   modelCategory: any = [];
+  deviceSize: string = '';
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
@@ -21,6 +22,7 @@ export class PartyExecutiveComponent {
   ) {}
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callReadCategory();
     this.callRead();
     AOS.init({

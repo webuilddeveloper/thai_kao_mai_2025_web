@@ -20,6 +20,7 @@ export class NewsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,
       once: false,

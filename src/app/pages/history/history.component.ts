@@ -19,6 +19,7 @@ export class HistoryComponent implements OnInit {
   model: any = {};
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callRead();
     AOS.init({
       duration: 1000,

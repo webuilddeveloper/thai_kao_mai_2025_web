@@ -30,6 +30,7 @@ export class DonateComponent implements AfterViewInit {
   percentage = 0;
   targetNumber = 234500;
   digits: string[] = [];
+  deviceSize: string = '';
   @ViewChildren('digitRef') digitRefs!: QueryList<ElementRef>;
   constructor(private serviceProvider: ServiceProvider, public translate: TranslateService, private router: Router,) { }
 
@@ -53,7 +54,7 @@ export class DonateComponent implements AfterViewInit {
 
 
   ngOnInit(): void {
-
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,
       once: false,

@@ -1,8 +1,8 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-    <h1 class="title">{{ 'aboutParty' | translate }} </h1>
-    <p class="title">{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span class="sub-title">{{ 'ideology' |
+    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'aboutParty' | translate }} </h1>
+    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span class="sub-title">{{ 'ideology' |
         translate }}</span></p>
   </div>
 </div>
@@ -15,16 +15,15 @@
     </div>
 
     <div class="vision">
-      <h3 class="p22" data-aos="zoom-in">{{ 'vision' | translate }}</h3>
+      <!-- <h3 class="p22" data-aos="zoom-in">{{ 'vision' | translate }}</h3> -->
 
       <div class="vision-item" *ngFor="let v of model.ideologyList; let i = index" data-aos="fade-right">
         <h5 class="p16" *ngIf="translate.currentLang === 'th'">{{ v.title }}</h5>
         <h5 class="p16" *ngIf="translate.currentLang === 'en'">{{ v.titleEN }}</h5>
-        <ul *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description">
-          <!-- <li class="p14" *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description"></li>
-          <li class="p14" *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN"></li> -->
-        </ul>
-        <ul *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN"></ul>
+        <div class="p14 li" *ngIf="translate.currentLang === 'th'" [innerHTML]="v.description">
+        </div>
+        <div class="p14 li" *ngIf="translate.currentLang === 'en'" [innerHTML]="v.descriptionEN">
+        </div>
       </div>
     </div>
 

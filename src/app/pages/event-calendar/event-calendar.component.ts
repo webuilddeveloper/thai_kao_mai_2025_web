@@ -64,6 +64,7 @@ export class EventCalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callRead();
   }
 

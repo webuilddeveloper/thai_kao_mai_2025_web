@@ -18,6 +18,7 @@ export class SuggestionComponent {
   ) {}
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callReadCategory();
   }
 

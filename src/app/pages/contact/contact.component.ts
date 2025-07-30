@@ -13,7 +13,7 @@ import * as AOS from 'aos';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-
+  deviceSize: string = '';
   aboutMeModel: any = {};
   constructor(
     private serviceProvider: ServiceProvider,
@@ -42,7 +42,7 @@ export class ContactComponent {
 
 
   ngOnInit(): void {
-
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,
       once: false,

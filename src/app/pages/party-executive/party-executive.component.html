@@ -1,8 +1,8 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-    <h1 class="title">{{ 'aboutParty' | translate }} </h1>
-    <p class="title">{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span class="sub-title">{{
+    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'aboutParty' | translate }} </h1>
+    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }} // {{ 'ideology' | translate }} // <span class="sub-title">{{
         'partyExecutiveCommittee' |
         translate }}</span></p>
   </div>

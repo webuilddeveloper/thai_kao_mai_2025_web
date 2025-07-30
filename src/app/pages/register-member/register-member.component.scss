@@ -61,6 +61,8 @@ i {
   border-radius: 13px;
   border: 1px solid var(--nevy);
   outline: none;
+  background-color: var(--white);
+  color: var(--nevy);
 }
 
 .row-form-gap {
@@ -275,6 +277,7 @@ i {
   border-radius: 8px;
   min-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--w-w-y);
 
   h2 {
     color: var(--nevy);
@@ -307,6 +310,10 @@ i {
 
   span {
     color: var(--nevy);
+  }
+
+  input[type=checkbox] {
+    border: 1px solid var(--black);
   }
 }
 

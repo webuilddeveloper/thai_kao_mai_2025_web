@@ -63,6 +63,8 @@ i {
   border-radius: 13px;
   border: 1px solid var(--nevy);
   outline: none;
+  color: var(--nevy);
+  background-color: var(--white);
 }
 
 .row-form-gap {
@@ -157,6 +159,7 @@ i {
     width: -webkit-fill-available;
     height: -webkit-fill-available;
     object-fit: contain;
+    filter: var(--filter);
   }
 }
 
@@ -165,11 +168,13 @@ i {
   height: -webkit-fill-available;
   overflow: hidden;
   border-radius: 20px;
+  text-align: center;
 
   img {
-    width: -webkit-fill-available;
+    // width: -webkit-fill-available;
     height: -webkit-fill-available;
     object-fit: cover;
+    filter: var(--filter);
   }
 }
 
@@ -177,7 +182,7 @@ i {
   position: relative;
   top: -5px;
   right: -5px;
-  background-color: rgb(184 17 17);
+  background-color: var(--b81111-w-y);
   border-radius: 100px;
   padding: 5px;
   width: 25px;
@@ -312,11 +317,13 @@ i {
 }
 
 .modal-box {
-  background: white;
+  background-color: var(--white);
   padding: 2rem;
   border-radius: 8px;
   min-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--w-w-y);
+  color: var(--black);
 }
 
 
@@ -348,7 +355,7 @@ i {
 }
 
 .popup {
-  background: #fff;
+  background-color: var(--white);
   height: 90vh;
   width: 100%;
   max-width: 50%;
@@ -358,6 +365,7 @@ i {
   padding: 50px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--w-w-y);
 
   @media (max-width: 768px) {
     max-width: 90%;
@@ -367,7 +375,7 @@ i {
 }
 
 .popup-box {
-  background: white;
+  background-color: var(--white);
   border-radius: 12px;
   padding: 24px;
   width: 100%;
@@ -377,6 +385,7 @@ i {
   display: flex;
   flex-direction: column;
   height: 80vh;
+  border: 1px solid var(--w-w-y);
 }
 
 .popup-title {
@@ -384,6 +393,7 @@ i {
   font-weight: bold;
   margin-bottom: 12px;
   text-align: center;
+  color: var(--black);
 }
 
 .popup-content {
@@ -394,6 +404,7 @@ i {
   line-height: 1.5;
   white-space: pre-line;
   text-align: justify;
+  color: var(--black);
 }
 
 /* ปุ่มอยู่นอกกรอบ */
@@ -413,12 +424,13 @@ i {
 
     &:first-child {
       background-color: var(--nevy);
-      color: white;
+      color: var(--white);
     }
 
     &:last-child {
-      background-color: #e76f51;
-      color: white;
+      background-color: var(--e76f51-b-b);
+      color: var(--w-w-y);
+      border: 1px solid var(--none-w-y);
     }
   }
 }
