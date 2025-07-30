@@ -17,6 +17,7 @@
   justify-content: center;
   flex-direction: column;
   line-height: 1.8;
+  background-color: var(--white);
 }
 
 .content-main .title {
@@ -718,7 +719,8 @@
   padding: 20px;
   margin: 10% 0;
   position: relative;
-  background: #2D294A;
+  background: var(--nevy-b-b);
+  border: 1px solid var(--nevy);
   overflow: hidden;
 
   &::after {
@@ -746,8 +748,9 @@
 }
 
 .donation-container {
-  background: #fff;
-  padding: 6px;
+  background: var(--white);
+  border: 3px solid var(--nevy);
+  padding: 5px;
   border-radius: 8px;
   height: 50px;
   width: 100%;
@@ -759,7 +762,7 @@
 .donation-bar {
   position: relative;
   height: 100%;
-  background: #eee;
+  background: var(--eeeeee-b-b);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -767,7 +770,7 @@
 .donation-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, #2d294a, #3d3858, #5a5574);
+  background: linear-gradient(to right, var(--nevy-fade-1), var(--nevy-fade-2), var(--nevy-fade-3));
   transition: width 2s ease-in-out;
   position: relative;
   z-index: 1;
@@ -789,7 +792,7 @@
   text-align: center;
   margin-top: 10px;
   font-weight: bold;
-  color: var(--main);
+  color: var(--y-w-y);
 }
 
 .member-container {
@@ -800,7 +803,7 @@
     font-size: 2rem;
     margin-bottom: 40px;
     font-weight: bold;
-    color: var(--main);
+    color: var(--y-w-y);
 
      @media (max-width: 768px) {
         font-size: 1.3rem;
@@ -820,8 +823,8 @@
     width: 50px;
     height: 100%;
     overflow: hidden;
-    color: var(--main);
-    
+    color: var(--y-w-y);
+
      @media (max-width: 768px) {
         font-size: 2rem;
       }
@@ -836,7 +839,7 @@
       left: 0;
       height: 4px;
       // width: 0%;
-      background-color: var(--main);
+      background-color: var(--y-w-y);
       transform: scaleX(0);
       transform-origin: right;
     }

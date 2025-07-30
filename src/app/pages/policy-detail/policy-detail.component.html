@@ -2,16 +2,19 @@
 
 <div class="main">
   <div class="vertical">
-    <div class="back-button" (click)="goBack()">
-      <span class="arrow">←</span>
-      <span class="text">{{ 'returnHomePage' | translate }}</span>
-    </div>
-    <div class="card-newdetail">
 
+    <div class="card-newdetail">
+      <div class="back-button" (click)="goBack()">
+        <span class="arrow">←</span>
+        <span class="text">{{ 'returnHomePage' | translate }}</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
       <div class="card-detail">
         <!-- <span class="news-date">{{ formatThaiDate(policy.createDate) }} | {{policy.createBy}}</span> -->
         <img [src]="policy.imageUrl" alt="" class="img-logo-des">
-        <h3 [ngClass]="deviceSize == 'm' ? 'p18' : deviceSize == 't' ? 'p18' : 'p32'"  class="txt-title">{{ policy.title }}</h3>
+        <h3 [ngClass]="deviceSize == 'm' ? 'p18' : deviceSize == 't' ? 'p18' : 'p32'" class="txt-title">{{ policy.title
+          }}</h3>
         <div class="txt-description p16">{{ policy.description }}</div>
         <h3 class="txt-title">{{ 'problemsOrigins' | translate }}</h3>
         <div class="txt-description p16">-</div>

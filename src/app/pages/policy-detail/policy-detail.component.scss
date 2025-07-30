@@ -33,7 +33,7 @@
 .card-newdetail {
   width: 100%;
   height: auto;
-  margin: 32px 0;
+  // margin: 32px 0;
   position: relative;
   backdrop-filter: blur(15px);
   border-radius: 24px;
@@ -98,7 +98,7 @@
   font-size: var(--font-16);
   font-family: var(--font-family-prompt);
   line-height: 1.6;
-  color: var(--text-secondary, #4a4a4a);
+  color: var(--4a4a4a-w-y);
   text-align: justify;
 
   /* สำหรับ HTML content */
@@ -153,7 +153,7 @@
   }
 
   .card-newdetail {
-    padding: 48px;
+    padding: 0 48px 48px 48px;
   }
 
   .content-wrapper {
@@ -226,6 +226,7 @@
   height: 800px;
   object-fit: cover;
   border-radius: 25px;
+  filter: var(--filter);
 
   @media (max-width: 768px) {
     height: 100%;
@@ -246,7 +247,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #949494;
+  color: var(--949494-w-y);
   font-size: 18px;
   font-weight: 600;
   transition: color 0.3s ease;

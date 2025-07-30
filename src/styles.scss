@@ -91,6 +91,8 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e0e0e0-b-b: #e0e0e0;
   --ddd-w-y: #dddddd;
   --f2f4f8-w-y: #f2f4f8;
+  --y-b-b: #F4ED17;
+  --none-w-y: none;
 
   --y-w-y-icon: ;
   --filter: ;
@@ -182,6 +184,8 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e0e0e0-b-b: black;
   --ddd-w-y: white;
   --f2f4f8-w-y: white;
+  --y-b-b: #000000;
+  --none-w-y: white;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -243,6 +247,8 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e0e0e0-b-b: black;
   --ddd-w-y: #F4ED17;
   --f2f4f8-w-y: #F4ED17;
+  --y-b-b: #000000;
+  --none-w-y: #F4ED17;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);
