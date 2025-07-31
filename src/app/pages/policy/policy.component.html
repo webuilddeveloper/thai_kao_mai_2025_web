@@ -14,14 +14,16 @@
     <div class="underline"></div>
   </div>
   <div data-aos="fade-right">
-    <div *ngFor="let policy of policies; let i = index" class="policy-box">
+    <div *ngFor="let policy of model; let i = index" class="policy-box">
       <div class="image-wrapper">
         <img [src]="policy.imageUrl" alt="policy image" />
       </div>
       <div class="text-wrapper">
-        <h3  class="p24">{{ policy.title }}</h3>
-        <p  class="p16">{{ policy.description }}</p>
-        <button class="more-btn p14" (click)="goToDetail(policy)">
+        <h3  class="p24" *ngIf="translate.currentLang === 'th'">{{ policy.title }}</h3>
+        <h3  class="p24" *ngIf="translate.currentLang === 'en'">{{ policy.titleEN }}</h3>
+        <p  class="p16" *ngIf="translate.currentLang === 'th'" [innerHTML]="policy.description"></p>
+        <p  class="p16" *ngIf="translate.currentLang === 'en'" [innerHTML]="policy.descriptionEN"></p>
+        <button class="more-btn p14" [routerLink]="['/policy-detail', policy.code]">
           {{ 'viewMore' |
           translate }} <span class="arrow">→</span>
         </button>

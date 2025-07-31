@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'donate', component: DonateComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'register-member', component: RegisterMemberComponent },
-  { path: 'policy-detail', component: PolicyDetailComponent },
+  { path: 'policy-detail/:code', component: PolicyDetailComponent },
   { path: 'suggestion', component: SuggestionComponent },
 ];
 
