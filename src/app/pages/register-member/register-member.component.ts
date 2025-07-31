@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
@@ -13,7 +14,8 @@ export class RegisterMemberComponent implements OnInit {
   constructor(
     private serviceProvider: ServiceProvider,
     public translate: TranslateService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
   deviceSize: string = '';
   isModalOpen = false;
@@ -85,7 +87,7 @@ export class RegisterMemberComponent implements OnInit {
       .subscribe((res) => {
         let data: any = {};
         data = res;
-        this.openModal();
+    this.openModal();
       });
   }
 
@@ -95,6 +97,7 @@ export class RegisterMemberComponent implements OnInit {
 
   closeModal() {
     this.isModalOpen = false;
+    this.router.navigate(['/home']);
   }
 
   onCheckboxClick(
