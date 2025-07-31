@@ -6,53 +6,19 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 @Component({
   selector: 'app-policy-detail',
   templateUrl: './policy-detail.component.html',
-  styleUrls: ['./policy-detail.component.scss']
+  styleUrls: ['./policy-detail.component.scss'],
 })
 export class PolicyDetailComponent implements OnInit {
   code: string = '';
-  newsDetail: any;
+  model: any;
 
   constructor(
+    private route: ActivatedRoute,
     private serviceProvider: ServiceProvider,
     public translate: TranslateService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
   deviceSize: string = '';
-  policy: any;
-  policies = [
-    {
-      code: '1',
-      imageUrl: './assets/img//policy_cover1.webp',
-      title: 'นโยบายคมนาคม',
-      description: 'คมนาคมที่ทั่วถึง คือเส้นเลือดใหญ่ของประเทศที่เติบโต'
-    },
-    {
-      code: '2',
-      imageUrl: './assets/img//policy_cover2.webp',
-      title: 'นโยบายการศึกษาไทย',
-      description: 'เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ'
-    }
-
-  ];
-
-  ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.policy = this.activatedRoute.snapshot.params;
-    });
-
-
-    // this.read();
-  }
-
-  goBack() {
-    this.router.navigate(['/policy']);
-  }
-
-
-  // read() {
-  //   this.policy = this.policies.find(c => c.code === this.code);
-  // }
 
   formatThaiDate(input: string): string {
     const year = +input.substring(0, 4);
@@ -60,9 +26,40 @@ export class PolicyDetailComponent implements OnInit {
     const day = +input.substring(6, 8);
     const date = new Date(year, month - 1, day);
     const thaiMonths = [
-      "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
-      "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+      'มกราคม',
+      'กุมภาพันธ์',
+      'มีนาคม',
+      'เมษายน',
+      'พฤษภาคม',
+      'มิถุนายน',
+      'กรกฎาคม',
+      'สิงหาคม',
+      'กันยายน',
+      'ตุลาคม',
+      'พฤศจิกายน',
+      'ธันวาคม',
     ];
-    return `${date.getDate()} ${thaiMonths[date.getMonth()]} ${date.getFullYear()}`;
+    return `${date.getDate()} ${
+      thaiMonths[date.getMonth()]
+    } ${date.getFullYear()}`;
+  }
+
+  ngOnInit(): void {
+    this.code = this.route.snapshot.paramMap.get('code')!;
+    this.callRead();
+  }
+
+  goBack() {
+    this.router.navigate(['/policy']);
+  }
+
+  callRead() {
+    this.serviceProvider
+      .post('m/policyParty/read', { code: this.code })
+      .subscribe((data) => {
+        var model: any = {};
+        model = data;
+        this.model = model.objectData[0];
+      });
   }
 }
