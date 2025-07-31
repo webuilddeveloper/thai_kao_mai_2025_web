@@ -96,23 +96,7 @@ export class HomeComponent implements AfterViewInit {
     },
   ];
 
-  policyList: any = [
-    {
-      code: "1",
-      title: "นโยบายการศึกษาไทย",
-      description: "เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ",
-      date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/policy_cover1.webp"
-    },
-    {
-      code: "2",
-      title: "นโยบายการศึกษาไทย",
-      description: "เด็กทุกคนควรมีโอกาสเรียนรู้ ไม่ว่าจะอยู่มุมไหนของประเทศ",
-      date: "9 ก.ค. 2668",
-      imageUrl: "./assets/img/policy_cover2.webp"
-    },
-
-  ];
+  policyList: any = [];
 
   @ViewChild('whoWeTechMakers') whoWeTechMakers!: ElementRef;
 
@@ -173,7 +157,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-      this.showCookieBanner = !localStorage.getItem('cookieAccepted');
+    this.showCookieBanner = !localStorage.getItem('cookieAccepted');
 
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
@@ -188,9 +172,8 @@ export class HomeComponent implements AfterViewInit {
       this.cdRef.detectChanges();
     }, 100);
 
-
-
-
+    this.readNews();
+    this.readPolicyParty();
   }
 
   readNews() {
@@ -200,6 +183,17 @@ export class HomeComponent implements AfterViewInit {
         let model: any = {};
         model = data;
         this.newsList = model.objectData;
+      });
+  }
+
+  readPolicyParty() {
+    this.serviceProvider
+      .post('m/policyParty/read', {})
+      .subscribe((data) => {
+        let model: any = {};
+        model = data;
+        this.policyList = model.objectData;
+        debugger;
       });
   }
 
@@ -222,6 +216,7 @@ export class HomeComponent implements AfterViewInit {
         this.aboutMeModel = model.objectData[0];
       });
   }
+
   goToDetail(param: any) {
     this.router.navigate(['/policy-detail', param], {
     });
