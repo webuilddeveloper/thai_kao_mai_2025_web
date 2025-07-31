@@ -27,7 +27,6 @@ import { HistoryComponent } from './pages/history/history.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
 
-
 import { registerLocaleData } from '@angular/common';
 import localeTh from '@angular/common/locales/th';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -42,7 +41,8 @@ import { PolicyDetailComponent } from './pages/policy-detail/policy-detail.compo
 import { First2Component } from './pages/first2/first2.component';
 import { CookieBannerComponent } from './component/cookie-banner/cookie-banner.component';
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
@@ -78,7 +78,7 @@ registerLocaleData(localeTh);
     PolicyDetailComponent,
     First2Component,
     CookieBannerComponent,
-    SuggestionComponent
+    SuggestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,9 +94,11 @@ registerLocaleData(localeTh);
         deps: [HttpClient],
       },
     }),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   exports: [GoToTopComponent, FooterComponent],
-  providers: [ { provide: LOCALE_ID, useValue: 'th-TH' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'th-TH' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

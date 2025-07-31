@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 export class RegisterMemberComponent implements OnInit {
   constructor(
     private serviceProvider: ServiceProvider,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private toastr: ToastrService
   ) {}
   deviceSize: string = '';
   isModalOpen = false;
@@ -26,8 +28,7 @@ export class RegisterMemberComponent implements OnInit {
     {
       label: `consentReceiveNewsEventsOtherInformationEmail`,
       checked: false,
-      pdpaDetail:
-        'consentReceiveNewsEventsOtherInformationEmail',
+      pdpaDetail: 'consentReceiveNewsEventsOtherInformationEmail',
     },
     {
       label: `การลงทะเบียนสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงิน
@@ -50,8 +51,42 @@ export class RegisterMemberComponent implements OnInit {
     },
   ];
 
+  model: any = { prefixName: '', status: 'N' };
+  modelPrefix: any = [
+    {
+      value: 'นาย',
+      display: 'นาย',
+    },
+    {
+      value: 'นาง',
+      display: 'นาง',
+    },
+    {
+      value: 'นางสาว',
+      display: 'นางสาว',
+    },
+  ];
+
   ngOnInit(): void {
     this.deviceSize = localStorage.getItem('deviceSize') || '';
+  }
+
+  sendApi() {
+    if (this.model.prefixName == '') {
+      this.toastr.warning('กรุณาเลือกคำนำหน้า', 'แจ้งเตือน');
+      return;
+    }
+    if (this.checkboxItems.some((s) => !s.checked)) {
+      this.toastr.warning('กรุณายินยอม Policy', 'แจ้งเตือน');
+      return;
+    }
+    this.serviceProvider
+      .post('partyFanClub/create', this.model)
+      .subscribe((res) => {
+        let data: any = {};
+        data = res;
+        this.openModal();
+      });
   }
 
   openModal() {
