@@ -193,7 +193,6 @@ export class HomeComponent implements AfterViewInit {
         let model: any = {};
         model = data;
         this.policyList = model.objectData;
-        debugger;
       });
   }
 

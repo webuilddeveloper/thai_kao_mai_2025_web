@@ -42,7 +42,7 @@ export class FooterComponent {
 
 
   ngOnInit(): void {
-    // this.readAboutMe();
+    this.readAboutMe();
     AOS.init({
       duration: 800,
       once: false,
@@ -117,11 +117,11 @@ animateCounter(selector: string, value: number, delay: number) {
 
   readAboutMe() {
     this.serviceProvider
-      .post('aboutUs/read', {})
+      .post('m/aboutUs/read', {})
       .subscribe((data) => {
         let model: any = {};
         model = data;
-        this.aboutMeModel = model.objectData[0];
+        this.aboutMeModel = model.objectData;
       });
   }
 }

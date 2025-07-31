@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import * as AOS from 'aos';
@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FileUploadService } from 'src/app/shared/file-upload.service';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -15,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
   styleUrls: ['./donate.component.scss']
 })
 export class DonateComponent implements AfterViewInit {
-  selectedMethod: string = 'qr'; // ตั้งค่าเริ่มต้น
+  paymentType: string = 'qr'; // ตั้งค่าเริ่มต้น
 
   showForm: boolean = false;
   formType: string = 'person'; // ค่าเริ่มต้นคือบุคคล
@@ -23,6 +25,7 @@ export class DonateComponent implements AfterViewInit {
   lastName: string = '';
   @ViewChild('numberEl', { static: true }) numberEl!: ElementRef;
   @ViewChild('observerSection') observerSection!: ElementRef;
+  previewSlipUrl: string | null = null;
 
   targetAmount = 1000000;
   currentAmount = 0;
@@ -31,14 +34,22 @@ export class DonateComponent implements AfterViewInit {
   targetNumber = 234500;
   digits: string[] = [];
   deviceSize: string = '';
+  model: any = {
+    paymentType: '0',
+    amount: 1000,
+    donateType: '0',
+    slip: ''
+  };
+  myForm!: FormGroup;
+  @Input() code = 'none';
   @ViewChildren('digitRef') digitRefs!: QueryList<ElementRef>;
-  constructor(private serviceProvider: ServiceProvider, public translate: TranslateService, private router: Router,) { }
+  constructor(private serviceProvider: ServiceProvider, private fileuploadService: FileUploadService, public translate: TranslateService, private router: Router, private fb: FormBuilder) { }
 
   ngAfterViewInit(): void {
     const digitsStr = this.targetNumber.toString().padStart(6, '0');
     this.digits = digitsStr.split('');
 
-     ScrollTrigger.create({
+    ScrollTrigger.create({
       trigger: this.observerSection.nativeElement,
       start: 'top 70%',
       once: true,
@@ -65,10 +76,18 @@ export class DonateComponent implements AfterViewInit {
     setTimeout(() => {
       AOS.refresh();
     }, 100);
+
+    // this.myForm = this.fb.group({
+    //   firstName: ['', [Validators.required]],
+    //   lastName: ['', [Validators.required]],
+    //   email: ['', [Validators.required, Validators.email]],
+    //   phone: ['', [Validators.required, Validators.minLength(10)]],
+    //   cardID: ['', [Validators.required, Validators.minLength(10)]],
+    // });
   }
 
   selectMethod(method: string) {
-    this.selectedMethod = method;
+    this.model.paymentType = method;
   }
 
 
@@ -77,16 +96,30 @@ export class DonateComponent implements AfterViewInit {
   customAmount: number | null = null;
 
   selectAmount(amount: number | null) {
-    this.selectedAmount = amount;
     if (amount !== null) {
-      this.customAmount = null;
+      this.model.amount = amount;
+    } else {
+      this.model.amount = 0;
     }
+    // this.model.amount = amount;
+    // this.selectedAmount = amount;
+    console.log('>>>>>', this.model.amount);
+
   }
 
   step: number = 1;
 
   goToStep(stepNumber: number) {
+    console.log(this.model);
+
     this.step = stepNumber;
+    if (this.step == 1) {
+      let isValid = false;
+      // if (this.editModel.title == '') {
+      //   this.toastr.warning('กรุณาใส่หัวข้อ', 'แจ้งเตือนระบบ', { timeOut: 2000 });
+      //   isValid = true;
+      // }
+    }
   }
 
   phone: string = '';
@@ -96,7 +129,27 @@ export class DonateComponent implements AfterViewInit {
   qrImageUrl: string = './assets/img/QR2.png'; // เปลี่ยนเป็น dynamic URL ได้ในอนาคต
 
   completeDonation() {
-    this.goToStep(4); // ไป step 4 แสดงหน้าขอบคุณ
+    this.serviceProvider.post('donate/create', this.model).subscribe(data => {
+
+      let model: any = {};
+      model = data;
+
+      if (model.status === 'S') {
+        // this.spinner.hide();
+        // this.toastr.success('บันทึกข้อมูลสำเร็จ', 'แจ้งเตือนระบบ', { timeOut: 2000 });
+        // setTimeout(() => {
+        //   this.back();
+        // }, 2000);
+        this.goToStep(4); // ไป step 4 แสดงหน้าขอบคุณ
+
+      } else {
+        // this.spinner.hide();
+        // this.toastr.warning(model.message, 'แจ้งเตือนระบบ', { timeOut: 2000 });
+      }
+
+    }, err => {
+      // this.toastr.error(err.message, 'แจ้งเตือนระบบ', { timeOut: 2000 });
+    });
   }
 
   backToMain() {
@@ -152,6 +205,30 @@ export class DonateComponent implements AfterViewInit {
     };
 
     requestAnimationFrame(animate);
+  }
+
+  onFileSlipSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.previewSlipUrl = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  fileUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile(this.code, input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.slip = model.imageUrl;
+      }, err => {
+        console.log('error ', err);
+      });
+    }
   }
 }
 

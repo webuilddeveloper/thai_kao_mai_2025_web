@@ -266,7 +266,7 @@
 
 .btn-back:hover {
   background-color: var(--ccc-w-y);
-  color: var(--y-b-b);
+  color: var(--nevy-b-b) !important;
 }
 
 .btn-next {
@@ -302,6 +302,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+  align-items: center;
 }
 
 .amount-options button {
@@ -591,4 +592,95 @@
 
 .confirmation h3 {
   color: var(--black);
+}
+
+.text-nm {
+  color: var(--nevy);
+}
+
+.div-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-self: center;
+}
+
+.div-input label {
+  font-size: var(--font-16);
+  color: var(--nevy);
+  font-weight: 400;
+  width: 100%;
+}
+
+.div-input .sub-label {
+  font-size: var(--font-14);
+  color: var(--949494-w-y);
+  font-weight: 400;
+}
+
+.div-input input {
+  font-size: var(--font-16);
+  padding: 8px 10px;
+  border-radius: 13px;
+  border: 1px solid var(--nevy);
+  outline: none;
+  color: var(--nevy);
+  background-color: var(--white);
+}
+
+.div-file-slip {
+  height: 400px;
+  width: 350px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+
+  span {
+    color: var(--949494-w-y);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.div-img-file-slip {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  overflow: hidden;
+  border-radius: 20px;
+
+  img {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: contain;
+    filter: var(--filter);
+  }
+}
+
+.delete-img {
+  position: relative;
+  top: -5px;
+  right: -5px;
+  background-color: var(--b81111-w-y);
+  border-radius: 100px;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 14px;
+    color: var(--white);
+  }
+
 }

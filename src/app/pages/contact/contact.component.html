@@ -28,7 +28,7 @@
 
         <div class="info-row">
           <img src="assets/img/icon_Location.png" alt="location" class="info-icon" />
-          <p class="p16">{{ contact.address }}</p>
+          <p class="p16">{{ translate.currentLang === 'th' ? contact.address : contact.addressEN }}</p>
         </div>
 
         <div class="info-row">
@@ -38,7 +38,7 @@
 
         <div class="info-row">
           <img src="assets/img/icon_Telephone.png" alt="phone" class="info-icon" />
-          <p class="p16">{{ contact.phone }}</p>
+          <p class="p16">{{ contact.telephone }}</p>
         </div>
       </div>
 

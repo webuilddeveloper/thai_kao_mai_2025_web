@@ -18,7 +18,7 @@ import { ProductAndServiceDetailsComponent } from './pages/product-and-service-d
 import { PerformanceDetailsComponent } from './pages/performance-details/performance-details.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PartyExecutiveComponent } from './pages/party-executive/party-executive.component';
 import { IdeologyComponent } from './pages/ideology/ideology.component';
@@ -87,6 +87,7 @@ registerLocaleData(localeTh);
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

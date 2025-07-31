@@ -26,7 +26,7 @@ export class ContactComponent {
   @ViewChild('linesContainer') linesContainer!: ElementRef; animation: any;
 
 
-  contact = {
+  contact: any = {
     address: 'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio',
     email: 'xxxxxxxx@gmail.com',
     phone: '02–123–4567',
@@ -73,11 +73,11 @@ export class ContactComponent {
 
   readAboutMe() {
     this.serviceProvider
-      .post('aboutUs/read', {})
+      .post('m/aboutUs/read', {})
       .subscribe((data) => {
         let model: any = {};
         model = data;
-        this.aboutMeModel = model.objectData[0];
+        this.contact = model.objectData;
       });
   }
 }

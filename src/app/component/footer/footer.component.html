@@ -16,7 +16,7 @@
             <img src="./assets/icons/location_on.png" alt="">
           </div>
           <span class="title" routerLink="">
-            {{aboutMeModel.location}}
+            {{ translate.currentLang === 'th' ? aboutMeModel.address : aboutMeModel.addressEN}}
           </span>
         </div>
         <div class="box-menu">
@@ -32,7 +32,7 @@
             <img src="./assets/icons/call.png" alt="">
           </div>
           <span class="title" routerLink="">
-            {{aboutMeModel.tel}}
+            {{aboutMeModel.telephone}}
           </span>
         </div>
       </div>
