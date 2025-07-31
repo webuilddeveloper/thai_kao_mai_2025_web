@@ -65,6 +65,7 @@ export class Utilities {
     { title: "p38", size: 38, value: 38 },
     { title: "p39", size: 39, value: 39 },
     { title: "p40", size: 40, value: 40 },
+    { title: "p48", size: 48, value: 48 },
     { title: "p50", size: 50, value: 50 },
     { title: "p60", size: 60, value: 60 },
     { title: "p100", size: 100, value: 100 },

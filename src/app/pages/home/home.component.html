@@ -9,13 +9,13 @@
 
         <!-- ซ้าย: โลโก้ -->
         <div class="left d-flex col-7 justify-content-center align-items-center flex-column">
-          <div data-aos="fade-right"  class="div-img-logo-main">
+          <div data-aos="fade-right" class="div-img-logo-main">
             <img src="./assets/img/logo-full-c2.png" alt="" class="img-logo-main">
           </div>
         </div>
 
         <!-- ขวา: เจ้าของ -->
-        <div data-aos="fade-left"  class="right col-5 d-flex text-center justify-content-center">
+        <div data-aos="fade-left" class="right col-5 d-flex text-center justify-content-center">
           <img src="./assets/img/owner.png" alt="" class="img-logo-owner w-full">
         </div>
 
@@ -44,7 +44,7 @@
                 <div class="icon-date">
                   <img src="./../../../assets/icons/icon-calendar.png" alt="">
                 </div>
-                <span class="text">{{i.date}}</span>
+                <span class="text">{{i.createDate}}</span>
               </div>
             </div>
           </div>
@@ -71,12 +71,12 @@
               </div>
               <div class="col-12 col-md-6 policy-des-box">
                 <span [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p30'"
-                  class="title hidden-title">{{ i.title }}</span>
-                <span [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p16' : 'p20'"
-                  class="des hidden-title">{{ i.description }}</span>
+                  class="title hidden-title">{{ translate.currentLang === 'th' ? i.title : i.titleEN}}</span>
+                <div [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p16' : 'p20'"
+                  class="des hidden-title" [innerHTML]="translate.currentLang === 'th' ? i.description : i.descriptionEN"></div>
                 <button [ngClass]="deviceSize == 'm' ? 'p14' : deviceSize == 't' ? 'p16' : 'p20'" class="view-more"
                   (click)="goToDetail(i)">
-                  ดูเพิ่มเติม <i class="material-icons">arrow_forward</i>
+                  {{ 'viewMore' | translate }} <i class="material-icons">arrow_forward</i>
                 </button>
               </div>
             </div>
@@ -87,10 +87,10 @@
 
     <div #observerSection class="gradient-box">
       <div class="member-container">
-        <h2>ยอดผู้สมัครสมาชิกพรรคไทยก้าวใหม่</h2>
+        <h2 class="p32">ยอดผู้สมัครสมาชิกพรรคไทยก้าวใหม่</h2>
         <div class="digit-wrapper">
           <div class="digit" *ngFor="let digit of digits; let i = index">
-            <div class="number" #digitRef>{{ digit }}</div>
+            <div class="p48 number" #digitRef>{{ digit }}</div>
             <div class="underline" #underlineRef></div>
           </div>
         </div>
@@ -101,7 +101,7 @@
             <div class="donation-fill" [style.width.%]="percentage"></div>
           </div>
           <div class="donation-info">
-            <div>เป้าหมายของเรา 100,000 คน</div>
+            <div class="p16">เป้าหมายของเรา 100,000 คน</div>
           </div>
         </div>
       </div>
