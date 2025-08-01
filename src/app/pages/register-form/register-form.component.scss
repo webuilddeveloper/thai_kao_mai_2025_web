@@ -290,7 +290,7 @@ i {
   }
 
   .div-content {
-    padding: 30px;
+    padding: 20px;
     width: -webkit-fill-available;
 
     .head-title {
@@ -301,6 +301,10 @@ i {
   .btn-main {
     width: -webkit-fill-available;
     min-width: -webkit-fill-available;
+  }
+
+  .row-form-gap {
+    row-gap: 14px;
   }
 
 }

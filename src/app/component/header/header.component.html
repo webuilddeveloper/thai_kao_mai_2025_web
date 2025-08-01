@@ -13,14 +13,14 @@
             </div>
           </div>
           <div class="dropdown-content" style="left:0;">
-            <div class="dropdown-item-header">ขนาดตัวหนังสือ</div>
+            <div class="dropdown-item-header">{{ 'fontSize' | translate }}</div>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 0}" class="dropdown-item-blindness"
               (click)="changeSizeFont(0)"><span style="font-size: var(--font-14)">ก</span>&nbsp; {{ 'normal' | translate }}</a>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 1}" class="dropdown-item-blindness"
               (click)="changeSizeFont(1)"><span style="font-size: var(--font-17)">ก</span>&nbsp; {{ 'medial' | translate }}</a>
             <a [ngClass]="{'dropdown-item-active':fontSizeSelect == 2}" class="dropdown-item-blindness"
               (click)="changeSizeFont(2)"><span style="font-size: var(--font-20)">ก</span>&nbsp; {{ 'big' | translate }}</a>
-            <div class="dropdown-item-header" style="margin-top: 10px;">ความตัดกันของสี</div>
+            <div class="dropdown-item-header" style="margin-top: 10px;">{{ 'colorContrast' | translate }}</div>
             <a [ngClass]="{'dropdown-item-active':selectedTheme == ''}" class="dropdown-item-blindness"
               (click)="changeTheme('')"><img
                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23800080'/><polygon points='0,100 0,0 100,100' fill='%23ff0000'/></svg>"

@@ -11,14 +11,14 @@
       <!-- <span class="head-title d-flex align-items-center">
         <a href="" class="d-flex no-underline"><i class="material-icons">arrow_back</i></a> &nbsp;&nbsp;
         กรอกข้อมูลผู้ลงทะเบียน</span> -->
-      <div class="spacer"></div>
-      <div class="spacer"></div>
+      <div class="spacer" *ngIf="deviceSize != 'm'"></div>
+      <div class="spacer" *ngIf="deviceSize != 'm'"></div>
       <form action="">
         <span class="title p20">{{'personal'|translate}}</span>
         <div class="row row-form-gap ">
           <div class="div-input  col-lg-2 col-md-6 col-12">
-            <label class="p16" for="">{{'prefix'|translate}}</label>
-            <select name="" id="" class="p16" [(ngModel)]="model.prefixName" name="prefixName">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'prefix'|translate}}</label>
+            <select name="" id="" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" [(ngModel)]="model.prefixName" (ngModelChange)="model.prefixName" name="prefixName">
               <option value="" selected disabled>{{'selectPrefixRequired' | translate}}</option>
               <option value="{{i.value}}" *ngFor="let i of listPrefixName ; let idx = index">{{ translate.currentLang
                 === 'th'
@@ -26,28 +26,28 @@
             </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'name'|translate}}</label>
-            <input type="text" [(ngModel)]="model.firstName" (ngModelChange)="model.firstName" name="firstName">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'name'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.firstName" (ngModelChange)="model.firstName" name="firstName" placeholder="{{'enterFirstName' | translate}}">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'surname'|translate}}</label>
-            <input type="text" [(ngModel)]="model.lastName" (ngModelChange)="model.lastName" name="lastName">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'surname'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.lastName" (ngModelChange)="model.lastName" name="lastName" placeholder="{{'enterLastName' | translate}}">
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label class="p16" for="">{{'date'|translate}}</label>
-            <input type="date" [(ngModel)]="model.birthDay" (ngModelChange)="model.birthDay" name="birthDay">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'birth'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="date" [(ngModel)]="model.birthDay" (ngModelChange)="model.birthDay" name="birthDay" >
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'nationalid'| translate}}</label>
-            <input type="text" [(ngModel)]="model.idcard" (ngModelChange)="model.idcard" name="idcard" maxlength="13">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'nationalid'| translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.idcard" (ngModelChange)="model.idcard" name="idcard" maxlength="13" placeholder="{{'enterNationalID' | translate}}">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'phone'|translate}}</label>
-            <input type="text" [(ngModel)]="model.phone" (ngModelChange)="model.phone" name="phone" maxlength="10">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'phone'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.phone" (ngModelChange)="model.phone" name="phone" maxlength="10" placeholder="{{'enterPhone' | translate}}">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'email'|translate}}</label>
-            <input type="text" [(ngModel)]="model.email" (ngModelChange)="model.email" name="email">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'email'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.email" (ngModelChange)="model.email" name="email" placeholder="{{'enterEmail' | translate}}">
           </div>
         </div>
         <div class="spacer"></div>
@@ -55,28 +55,28 @@
         <span class="title">{{'address'|translate}}</span>
         <div class="row row-form-gap">
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label class="p16" for="">{{'number'| translate}}</label>
-            <input type="text" [(ngModel)]="model.address" (ngModelChange)="model.address" name="address">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'number'| translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.address" (ngModelChange)="model.address" name="address" placeholder="{{'enterNo' | translate}}">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
-            <label class="p16" for="">{{'bilding'|translate}}</label>
-            <input type="text" [(ngModel)]="model.village" (ngModelChange)="model.village" name="village">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'bilding'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.village" (ngModelChange)="model.village" name="village" placeholder="{{'enterBuilding' | translate}}">
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label class="p16" for="">{{'group'|translate}}</label>
-            <input type="text" [(ngModel)]="model.moo" (ngModelChange)="model.moo" name="moo">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'group'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.moo" (ngModelChange)="model.moo" name="moo" placeholder="{{'enterGroup' | translate}}">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
-            <label class="p16" for="">{{'alley'| translate}}</label>
-            <input type="text" [(ngModel)]="model.soi" (ngModelChange)="model.soi" name="soi">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'alley'| translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.soi" (ngModelChange)="model.soi" name="soi" placeholder="{{'enterAlley' | translate}}">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'road'|translate}}</label>
-            <input type="text" [(ngModel)]="model.road" (ngModelChange)="model.road" name="road">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'road'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.road" (ngModelChange)="model.road" name="road" placeholder="{{'enterRoad' | translate}}">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'province'|translate}}</label>
-            <select name="" id="" (change)="selectProvince($event)">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'province'|translate}}</label>
+            <select [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" name="" id="" (change)="selectProvince($event)">
               <option value="" selected disabled>{{'selectProvinceRequired' | translate}}</option>
               <option value="{{i.code}}" *ngFor="let i of listProvince ; let idx = index">{{ translate.currentLang ===
                 'th'
@@ -84,8 +84,8 @@
             </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'district'|translate}}</label>
-            <select name="" id="" (change)="selectDistrict($event)">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'district'|translate}}</label>
+            <select [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" name="" id="" (change)="selectDistrict($event)">
               <option value="" selected disabled>{{'selectDistrictRequired' | translate}}</option>
               <option value="{{i.code}}" *ngFor="let i of listDistrict ; let idx = index">{{ translate.currentLang ===
                 'th'
@@ -93,8 +93,8 @@
             </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'subdistrict'|translate}}</label>
-            <select name="" id="" (change)="selectSubDistrict($event)">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'subdistrict'|translate}}</label>
+            <select [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" name="" id="" (change)="selectSubDistrict($event)">
               <option value="" selected disabled>{{'selectSubDistrictRequired' | translate}}</option>
               <option value="{{i.code}}" *ngFor="let i of listSubDistrict ; let idx = index">{{ translate.currentLang
                 === 'th'
@@ -102,9 +102,9 @@
             </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" for="">{{'code'|translate}}</label>
-            <input type="text" [(ngModel)]="model.postnoCode" (ngModelChange)="model.postnoCode" name="postnoCode"
-              maxlength="5">
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'code'|translate}}</label>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text" [(ngModel)]="model.postnoCode" (ngModelChange)="model.postnoCode" name="postnoCode"
+              maxlength="5" placeholder="{{'enterPostCode' | translate}}">
           </div>
         </div>
         <div class="spacer"></div>
@@ -144,19 +144,18 @@
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
-        {{model.membershipType | json}}
         <div class="row row-form-gap">
           <div class="div-input col-12">
             <span class="title p20">{{'membership-forms'|translate}}</span>
             <div class="radio-group">
               <div class="div-input-radio">
                 <input type="radio" id="subscribe1" name="membershipType" value="monthly" [(ngModel)]="model.membershipType" (ngModelChange)="model.membershipType"/>
-                <label class="p16" for="subscribe1">{{'membership-forms-1'|translate}}</label>
+                <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="subscribe1">{{'membership-forms-1'|translate}}</label>
               </div>
 
               <div class="div-input-radio">
                 <input type="radio" id="subscribe2" name="membershipType" value="lifetime" [(ngModel)]="model.membershipType" (ngModelChange)="model.membershipType"/>
-                <label class="p16" for="subscribe2">{{'membership-forms-2'|translate}}</label>
+                <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="subscribe2">{{'membership-forms-2'|translate}}</label>
               </div>
             </div>
           </div>
@@ -166,18 +165,18 @@
         <div class="row row-form-gap">
           <div class="div-input col-lg-6 col-12">
             <span class="title p20">{{'payment-channels'|translate}}</span>
-            <span class="p16">ชื่อบัญชี: พรรคไทยก้าวใหม่ ฟอร์ เอฟเวอรี่วัน</span>
-            <span class="d-flex align-items-center gap-2 p16 ">เลขที่บัญชี: 0970000000
-              <button type="button" class="btn-save-qr p16" (click)="copyText()">{{'copy'|translate}}</button>
+            <span [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'bank'|translate}}: กรุงไทย</span>
+            <span [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'accountName'|translate}}: พรรคไทยก้าวใหม่ ฟอร์ เอฟเวอรี่วัน</span>
+            <span class="d-flex align-items-center gap-2" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'accountNo'|translate}}: 0970000000
+              <button type="button" class="btn-save-qr" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" (click)="copyText()">{{'copy'|translate}}</button>
               <p *ngIf="copySuccess" style="color: var(--g-w-y); margin: 0;">
                 ✅ {{'copy'|translate}}!
               </p>
             </span>
-            <span class="p16">ธนาคาร: กรุงไทย</span>
             <div class="d-flex align-items-center flex-column">
               <img src="./assets/img/qr-mock.png" class="qr-code" />
               <a href="./assets/img/qr-mock.png" download="qr-mock.png">
-                <button type="button" class="btn-save-qr">{{'save'|translate}} QR-Code</button>
+                <button type="button" class="btn-save-qr" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'save'|translate}} QR-Code</button>
               </a>
             </div>
 
@@ -186,7 +185,7 @@
             <span class="title p20">{{'photo-evidence'|translate}}</span>
             <div class="card-file">
               <label class="div-file-slip">
-                <span class="p16" *ngIf="model.imagePaymentUrl == null">* {{'select-photo'|translate}}</span>
+                <span class="p14" *ngIf="model.imagePaymentUrl == null">* {{'select-photo'|translate}}</span>
                 <div class="div-img-file-slip" *ngIf="model.imagePaymentUrl != null">
                   <img [src]="model.imagePaymentUrl" />
                 </div>
@@ -205,7 +204,7 @@
           <div class="div-checkbox" *ngFor="let item of checkboxItems; let i = index">
             <input #cb type="checkbox" [checked]="item.checked" (click)="onCheckboxClick(i, cb, $event)"
               id="chk{{i}}" />
-            <label class="p16" [for]="'chk' + i">{{ item.label }}</label>
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" [for]="'chk' + i">{{ translate.currentLang === 'th' ? item.label : item.labelEN }}</label>
           </div>
         </div>
         <div class="spacer"></div>
@@ -232,15 +231,15 @@
   <div class="popup" tabindex="0" (keydown.escape)="closePopup(false)">
 
     <div class="popup-box">
-      <h3 class="popup-title ">รายละเอียด PDPA</h3>
+      <h3 class="popup-title ">{{'pdpaDetails'| translate}}</h3>
       <div class="popup-content">
         <p>{{ currentPopupText }}</p>
       </div>
     </div>
 
     <div class="popup-buttons">
-      <button (click)="confirmCheckbox()">ตกลง</button>
-      <button (click)="closePopup(false)">ยกเลิก</button>
+      <button (click)="confirmCheckbox()">{{'agree'| translate}}</button>
+      <button (click)="closePopup(false)">{{'cancel'| translate}}</button>
     </div>
 
   </div>

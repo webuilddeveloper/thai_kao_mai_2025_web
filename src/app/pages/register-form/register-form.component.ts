@@ -25,8 +25,10 @@ export class RegisterFormComponent {
   listDistrict: any = [];
   listSubDistrict: any = [];
   model: any = {
+    prefixName: "",
     membershipType: "monthly"
   };
+  deviceSize: string = '';
 
   tempCheckboxElement: HTMLInputElement | null = null;
   tempCheckboxPrevChecked = false;
@@ -37,8 +39,10 @@ export class RegisterFormComponent {
 ค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง
 พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริง
 พรรคอาจปฏิเสธการลงทะเบียนเป็นสมาชิกพรรค ของข้าพเจ้าได้`,
+      labelEN: 'This party membership registration is of my own free will and the party maintenance fees are my own. Furthermore, I possess the qualifications and do not possess any disqualifications under Section 24 of the Political Party Act B.E. 2560. If, upon review by the party, the information is found to be untrue, the party may reject my party membership registration.',
       checked: false,
-      pdpaDetail: 'รายละเอียด PDPA การลงทะเบียนสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงินค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริงพรรคอาจปฏิเสธการลงทะเบียนเป็นสมาชิกพรรค ของข้าพเจ้าได้'
+      pdpaDetail: 'รายละเอียด PDPA การลงทะเบียนสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงินค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริงพรรคอาจปฏิเสธการลงทะเบียนเป็นสมาชิกพรรค ของข้าพเจ้าได้',
+      pdpaDetailEN: `PDPA Details: This party membership registration is done voluntarily by me and the party's membership fees are my own. Furthermore, I possess the qualifications and do not possess any disqualifications under Section 24 of the Political Party Act B.E. 2560. If the party, upon review, finds that the information is untrue, the party may reject my party membership registration.`
     },
     {
       label: `ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับ
@@ -46,12 +50,14 @@ export class RegisterFormComponent {
 เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ
 และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ
 และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค`,
+      labelEN: `I hereby consent to the Thai Move Forward Party collecting, using, and disclosing my personal data for: My national identification card photo and the information contained in such photo, including: National identification card number, first name, last name, date of birth, address, card issue date, expiration date, my national identification card photo, and a photo of my face. This is for verification and to confirm my identity during registration and as evidence for party membership registration.`,
       checked: false,
-      pdpaDetail: 'ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่ เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค'
+      pdpaDetail: 'ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่ เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค',
+      pdpaDetailEN: `I hereby consent to the Thai Kao Mai Party being able to collect, use, and disclose personal information regarding my national identification card photo taken and various information in such photo, including my national identification card number, name, surname, date of birth, address, card issue date, card expiration date, my national identification card photo, and a photo of my face. This is for verification and confirmation of my identity for registration and as evidence for party membership registration.`
     }
   ];
 
-  listPrefixName = [
+  listPrefixName: any = [
     {
       value: "นาย",
       title: "นาย",
@@ -78,6 +84,7 @@ export class RegisterFormComponent {
     private toastr: ToastrService,) { }
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.readProvince();
   }
 
@@ -165,7 +172,7 @@ export class RegisterFormComponent {
     event.preventDefault();
 
     this.currentCheckboxIndex = index;
-    this.currentPopupText = item.pdpaDetail;
+    this.currentPopupText = this.translate.currentLang === 'th' ? item.pdpaDetail : item.pdpaDetailEN;
     this.showPopup = true;
     document.body.style.overflow = 'hidden';
 
@@ -281,7 +288,7 @@ export class RegisterFormComponent {
       .subscribe((res) => {
         let data: any = {};
         data = res;
-    this.openModal();
+        this.openModal();
       });
   }
 
