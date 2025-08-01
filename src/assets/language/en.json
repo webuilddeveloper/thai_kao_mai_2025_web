@@ -163,5 +163,9 @@
   "medial":"Medial",
   "big":"Big",
   "ideologyOfParty":"Political ideology of Thai Kao Mai Party",
-  "uploadSlip": "Transfer slip"
+  "uploadSlip": "Transfer slip",
+  "selectPrefixRequired": "Please select a Prefix",
+  "selectProvinceRequired": "Please select a Province",
+  "selectDistrictRequired": "Please select a District",
+  "selectSubDistrictRequired": "Please select a Sub-District"
 }

@@ -42,6 +42,17 @@ i {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  input,
+  select {
+    font-size: var(--font-16);
+    padding: 8px 10px;
+    border-radius: 13px;
+    border: 1px solid var(--nevy);
+    outline: none;
+    color: var(--nevy);
+    background-color: var(--white);
+  }
 }
 
 .div-input label {
@@ -55,16 +66,6 @@ i {
   font-size: var(--font-14);
   color: var(--949494-w-y);
   font-weight: 400;
-}
-
-.div-input input {
-  font-size: var(--font-16);
-  padding: 8px 10px;
-  border-radius: 13px;
-  border: 1px solid var(--nevy);
-  outline: none;
-  color: var(--nevy);
-  background-color: var(--white);
 }
 
 .row-form-gap {
@@ -191,6 +192,7 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   i {
     font-size: 14px;
@@ -433,4 +435,10 @@ i {
       border: 1px solid var(--none-w-y);
     }
   }
+}
+
+.card-file {
+  min-height: 200px;
+  width: 100%;
+  position: relative;
 }

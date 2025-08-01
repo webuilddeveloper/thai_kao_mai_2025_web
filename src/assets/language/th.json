@@ -162,5 +162,9 @@
   "medial":"ปานกลาง",
   "big":"ใหญ่",
   "ideologyOfParty":"อุดมการณ์ทางการเมืองพรรคไทยก้าวใหม่",
-  "uploadSlip": "สลิปการโอนเงิน"
+  "uploadSlip": "สลิปการโอนเงิน",
+  "selectPrefixRequired": "กรุณาเลือกคำนำหน้า",
+  "selectProvinceRequired": "กรุณาเลือกจังหวัด",
+  "selectDistrictRequired": "กรุณาเลือกอำเภอ",
+  "selectSubDistrictRequired": "กรุณาเลือกตำบล"
 }

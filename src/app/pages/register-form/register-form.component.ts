@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { FileUploadService } from 'src/app/shared/file-upload.service';
+import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
 @Component({
   selector: 'app-register-form',
@@ -9,12 +15,18 @@ export class RegisterFormComponent {
   previewProfileUrl: string | null = null;
   previewCardIDUrl: string | null = null;
   previewSlipUrl: string | null = null;
-  textToCopy: string = '';
+  textToCopy: string = '0970000000';
   copySuccess = false;
   isModalOpen = false;
   showPopup = false;
   currentPopupText = '';
   currentCheckboxIndex: number | null = null;
+  listProvince: any = [];
+  listDistrict: any = [];
+  listSubDistrict: any = [];
+  model: any = {
+    membershipType: "monthly"
+  };
 
   tempCheckboxElement: HTMLInputElement | null = null;
   tempCheckboxPrevChecked = false;
@@ -39,37 +51,81 @@ export class RegisterFormComponent {
     }
   ];
 
-  onFileProfileSelected(event: Event) {
-    const file = (event.target as HTMLInputElement).files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewProfileUrl = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+  listPrefixName = [
+    {
+      value: "นาย",
+      title: "นาย",
+      titleEN: "Mr",
+    },
+    {
+      value: "นาง",
+      title: "นาง",
+      titleEN: "Mrs",
+    },
+    {
+      value: "นางสาว",
+      title: "นางสาว",
+      titleEN: "Ms",
+    },
+  ];
+
+  constructor(
+    private serviceProvider: ServiceProvider,
+    private fileuploadService: FileUploadService,
+    public translate: TranslateService,
+    private router: Router,
+    private fb: FormBuilder,
+    private toastr: ToastrService,) { }
+
+  ngOnInit(): void {
+    this.readProvince();
+  }
+
+  async onFileProfileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.imageUrl = model.imageUrl;
+      }, err => {
+        console.log('error ', err);
+      });
     }
   }
 
   onFileCardIDelected(event: Event) {
-    const file = (event.target as HTMLInputElement).files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewCardIDUrl = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.imageIdCardUrl = model.imageUrl;
+      }, err => {
+        console.log('error ', err);
+      });
     }
   }
 
   onFileSlipSelected(event: Event) {
-    const file = (event.target as HTMLInputElement).files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewSlipUrl = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.imagePaymentUrl = model.imageUrl;
+      }, err => {
+        console.log('error ', err);
+      });
     }
+    // const file = (event.target as HTMLInputElement).files?.[0];
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = () => {
+    //     this.previewSlipUrl = reader.result as string;
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   }
 
   copyText() {
@@ -140,5 +196,94 @@ export class RegisterFormComponent {
     this.tempCheckboxElement = null;
     document.body.style.overflow = '';
   }
+
+  readProvince() {
+    this.serviceProvider.post("route/province/read", {}).subscribe(
+      (data) => {
+        let model: any = {};
+        model = data;
+        if (model.status == "S") {
+          this.listProvince = model.objectData;
+        }
+      },
+      (err) => { }
+    );
+  }
+
+  readDistrict(code: string) {
+    this.serviceProvider.post("route/district/read", { province: code }).subscribe(
+      (data) => {
+        let model: any = {};
+        model = data;
+        this.listDistrict = model.objectData;
+        console.log(this.listDistrict);
+      },
+      (err) => { }
+    );
+  }
+
+  readSubDistrict(code: string) {
+    this.serviceProvider.post("route/tambon/read", { district: code }).subscribe(
+      (data) => {
+        let model: any = {};
+        model = data;
+        this.listSubDistrict = model.objectData;
+        console.log(this.listSubDistrict);
+      },
+      (err) => { }
+    );
+  }
+
+  selectProvince(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listProvince.find((x: any) => x.code == value.value);
+    this.model.provinceCode = model.code;
+    this.model.province = model.title;
+    this.readDistrict(model.code);
+    this.model.amphoeCode = "";
+    this.model.amphoe = "";
+    this.model.tambonCode = "";
+    this.model.tambon = "";
+    this.model.postnoCode = "";
+  }
+
+  selectDistrict(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listDistrict.find((x: any) => x.code == value.value);
+    this.model.amphoeCode = model.code;
+    this.model.amphoe = model.title;
+    this.readSubDistrict(model.code);
+    this.model.tambonCode = "";
+    this.model.tambon = "";
+    this.model.postnoCode = "";
+  }
+
+  selectSubDistrict(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listSubDistrict.find((x: any) => x.code == value.value);
+    this.model.tambonCode = model.code;
+    this.model.tambon = model.title;
+    this.model.postnoCode = model.postCode;
+  }
+
+  sendApi() {
+    // if (this.model.prefixName == '') {
+    //   this.toastr.warning('กรุณาเลือกคำนำหน้า', 'แจ้งเตือน');
+    //   return;
+    // }
+    // if (this.checkboxItems.some((s) => !s.checked)) {
+    //   this.toastr.warning('กรุณายินยอม Policy', 'แจ้งเตือน');
+    //   return;
+    // }
+    this.model.status = 'N';
+    this.serviceProvider
+      .post('partyMembers/create', this.model)
+      .subscribe((res) => {
+        let data: any = {};
+        data = res;
+    this.openModal();
+      });
+  }
+
 
 }

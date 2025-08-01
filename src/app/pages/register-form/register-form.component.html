@@ -1,7 +1,7 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-  <h1>{{'Membership'|translate}}</h1>
+    <h1>{{'Membership'|translate}}</h1>
     <p>{{'home'|translate}} // <span style="color: #F4ED17;">{{'partymembers'|translate}}</span></p>
   </div>
 </div>
@@ -17,32 +17,37 @@
         <span class="title p20">{{'personal'|translate}}</span>
         <div class="row row-form-gap ">
           <div class="div-input  col-lg-2 col-md-6 col-12">
-            <label class="p16" class="p16" class="p16" for="">{{'prefix'|translate}}</label>
-            <input type="text">
+            <label class="p16" for="">{{'prefix'|translate}}</label>
+            <select name="" id="" class="p16" [(ngModel)]="model.prefixName" name="prefixName">
+              <option value="" selected disabled>{{'selectPrefixRequired' | translate}}</option>
+              <option value="{{i.value}}" *ngFor="let i of listPrefixName ; let idx = index">{{ translate.currentLang
+                === 'th'
+                ? i.title : i.titleEN }}</option>
+            </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p16" class="p16" for="">{{'name'|translate}}</label>
-            <input type="text">
+            <label class="p16" for="">{{'name'|translate}}</label>
+            <input type="text" [(ngModel)]="model.firstName" (ngModelChange)="model.firstName" name="firstName">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-          <label class="p16" class="p16" for="">{{'surname'|translate}}</label>
-            <input type="text">
+            <label class="p16" for="">{{'surname'|translate}}</label>
+            <input type="text" [(ngModel)]="model.lastName" (ngModelChange)="model.lastName" name="lastName">
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label class="p16" class="p16" for="">{{'date'|translate}}</label>
-            <input type="text">
+            <label class="p16" for="">{{'date'|translate}}</label>
+            <input type="date" [(ngModel)]="model.birthDay" (ngModelChange)="model.birthDay" name="birthDay">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'nationalid'| translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.idcard" (ngModelChange)="model.idcard" name="idcard" maxlength="13">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'phone'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.phone" (ngModelChange)="model.phone" name="phone" maxlength="10">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'email'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.email" (ngModelChange)="model.email" name="email">
           </div>
         </div>
         <div class="spacer"></div>
@@ -51,39 +56,55 @@
         <div class="row row-form-gap">
           <div class="div-input col-lg-2 col-md-6 col-12">
             <label class="p16" for="">{{'number'| translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.address" (ngModelChange)="model.address" name="address">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label class="p16" for="">{{'bilding'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.village" (ngModelChange)="model.village" name="village">
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
             <label class="p16" for="">{{'group'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.moo" (ngModelChange)="model.moo" name="moo">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label class="p16" for="">{{'alley'| translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.soi" (ngModelChange)="model.soi" name="soi">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'road'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.road" (ngModelChange)="model.road" name="road">
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'province'|translate}}</label>
-            <input type="text">
+            <select name="" id="" (change)="selectProvince($event)">
+              <option value="" selected disabled>{{'selectProvinceRequired' | translate}}</option>
+              <option value="{{i.code}}" *ngFor="let i of listProvince ; let idx = index">{{ translate.currentLang ===
+                'th'
+                ? i.title : i.titleEN }}</option>
+            </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'district'|translate}}</label>
-            <input type="text">
+            <select name="" id="" (change)="selectDistrict($event)">
+              <option value="" selected disabled>{{'selectDistrictRequired' | translate}}</option>
+              <option value="{{i.code}}" *ngFor="let i of listDistrict ; let idx = index">{{ translate.currentLang ===
+                'th'
+                ? i.title : i.titleEN }}</option>
+            </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'subdistrict'|translate}}</label>
-            <input type="text">
+            <select name="" id="" (change)="selectSubDistrict($event)">
+              <option value="" selected disabled>{{'selectSubDistrictRequired' | translate}}</option>
+              <option value="{{i.code}}" *ngFor="let i of listSubDistrict ; let idx = index">{{ translate.currentLang
+                === 'th'
+                ? i.title : i.titleEN }}</option>
+            </select>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p16" for="">{{'code'|translate}}</label>
-            <input type="text">
+            <input type="text" [(ngModel)]="model.postnoCode" (ngModelChange)="model.postnoCode" name="postnoCode"
+              maxlength="5">
           </div>
         </div>
         <div class="spacer"></div>
@@ -92,44 +113,49 @@
           <div class="div-input col-lg-6 col-12">
             <span class="title p20">{{'self-portrait'|translate}}</span>
             <label for="" class="sub-label p14">{{'self-portrait-script'|translate}}*</label>
-            <label class="div-file">
-              <span class="p14" *ngIf="previewProfileUrl == null">* {{'select-photo'|translate}}</span>
-              <div class="div-img-file" *ngIf="previewProfileUrl != null">
-                <img [src]="previewProfileUrl" />
-              </div>
-              <input type="file" accept="image/*" (change)="onFileProfileSelected($event)">
-              <div class="delete-img" *ngIf="previewProfileUrl != null">
+            <div class="card-file">
+              <label class="div-file">
+                <span class="p14" *ngIf="model.imageUrl == null">* {{'select-photo'|translate}}</span>
+                <div class="div-img-file" *ngIf="model.imageUrl != null">
+                  <img [src]="model.imageUrl" />
+                </div>
+                <input type="file" accept="image/*" (change)="onFileProfileSelected($event)">
+              </label>
+              <div class="delete-img" *ngIf="model.imageUrl != null" (click)="model.imageUrl = null">
                 <i class="material-icons">close</i>
               </div>
-            </label>
+            </div>
           </div>
           <div class="div-input col-lg-6 col-12">
             <span class="title p20">{{'photo-idcard'|translate}}</span>
-            <label class="div-file-cardID">
-              <span class="p14" *ngIf="previewCardIDUrl == null">* {{'select-photo'|translate}}</span>
-              <div class="div-img-file" *ngIf="previewCardIDUrl != null">
-                <img [src]="previewCardIDUrl" />
-              </div>
-              <input type="file" accept="image/*" (change)="onFileCardIDelected($event)">
-              <div class="delete-img" *ngIf="previewCardIDUrl != null">
-                <i class="material-icons">close</i>
-              </div>
-            </label>
+            <div class="card-file">
+              <label class="div-file-cardID">
+                <span class="p14" *ngIf="model.imageIdCardUrl == null">* {{'select-photo'|translate}}</span>
+                <div class="div-img-file" *ngIf="model.imageIdCardUrl != null">
+                  <img [src]="model.imageIdCardUrl" />
+                </div>
+                <input type="file" accept="image/*" (change)="onFileCardIDelected($event)">
+              </label>
+              <div class="delete-img" *ngIf="model.imageIdCardUrl != null" (click)="model.imageIdCardUrl = null">
+                  <i class="material-icons">close</i>
+                </div>
+            </div>
           </div>
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
+        {{model.membershipType | json}}
         <div class="row row-form-gap">
           <div class="div-input col-12">
             <span class="title p20">{{'membership-forms'|translate}}</span>
             <div class="radio-group">
               <div class="div-input-radio">
-                <input type="radio" id="subscribe1" name="subscribe" value="1" />
+                <input type="radio" id="subscribe1" name="membershipType" value="monthly" [(ngModel)]="model.membershipType" (ngModelChange)="model.membershipType"/>
                 <label class="p16" for="subscribe1">{{'membership-forms-1'|translate}}</label>
               </div>
 
               <div class="div-input-radio">
-                <input type="radio" id="subscribe2" name="subscribe" value="2" />
+                <input type="radio" id="subscribe2" name="membershipType" value="lifetime" [(ngModel)]="model.membershipType" (ngModelChange)="model.membershipType"/>
                 <label class="p16" for="subscribe2">{{'membership-forms-2'|translate}}</label>
               </div>
             </div>
@@ -158,16 +184,18 @@
           </div>
           <div class="div-input col-lg-6 col-12">
             <span class="title p20">{{'photo-evidence'|translate}}</span>
-            <label class="div-file-slip">
-              <span class="p16" *ngIf="previewSlipUrl == null">* {{'select-photo'|translate}}</span>
-              <div class="div-img-file-slip" *ngIf="previewSlipUrl != null">
-                <img [src]="previewSlipUrl" />
-              </div>
-              <input type="file" accept="image/*" (change)="onFileSlipSelected($event)">
-              <div class="delete-img" *ngIf="previewSlipUrl != null" (click)="previewSlipUrl = null">
+            <div class="card-file">
+              <label class="div-file-slip">
+                <span class="p16" *ngIf="model.imagePaymentUrl == null">* {{'select-photo'|translate}}</span>
+                <div class="div-img-file-slip" *ngIf="model.imagePaymentUrl != null">
+                  <img [src]="model.imagePaymentUrl" />
+                </div>
+                <input type="file" accept="image/*" (change)="onFileSlipSelected($event)">
+              </label>
+              <div class="delete-img" *ngIf="model.imagePaymentUrl != null" (click)="model.imagePaymentUrl = null">
                 <i class="material-icons">close</i>
               </div>
-            </label>
+            </div>
           </div>
 
         </div>
@@ -177,13 +205,13 @@
           <div class="div-checkbox" *ngFor="let item of checkboxItems; let i = index">
             <input #cb type="checkbox" [checked]="item.checked" (click)="onCheckboxClick(i, cb, $event)"
               id="chk{{i}}" />
-            <label class="p16"  [for]="'chk' + i">{{ item.label }}</label>
+            <label class="p16" [for]="'chk' + i">{{ item.label }}</label>
           </div>
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="d-flex justify-content-center">
-        <button class="btn-main p20" type="button" (click)="openModal()">{{'proceed'|translate}}</button>
+          <button class="btn-main p20" type="button" (click)="sendApi()">{{'proceed'|translate}}</button>
         </div>
       </form>
 
