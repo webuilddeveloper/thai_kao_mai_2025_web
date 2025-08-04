@@ -151,5 +151,10 @@
   "cancel": "ยกเลิก",
   "agree": "ตกลง",
   "fontSize": "ขนาดตัวอักษร",
-  "colorContrast": "ความตัดกันของสี"
+  "volunteerWorkArea": "อาสาสมัครทำงานพื้นที่",
+  "thinkTank": "คลังสมอง",
+  "trainingDemocrats": "อบรมยุวประชาธิปัตย์",
+  "applyPartyMembership": "สมัครสมาชิกพรรค",
+  "joinPartyActivities": "มีตวามประสงค์ร่วมงาน/กิจกรรมพรรค",
+  "acceptPDPA":"ยอมรับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล"
 }

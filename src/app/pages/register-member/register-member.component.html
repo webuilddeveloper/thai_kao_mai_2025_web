@@ -19,7 +19,7 @@
         <span class="title p20">{{'personalInformation'| translate}}</span>
         <div class="row row-form-gap">
           <div class="div-input p18 col-lg-2 col-md-6 col-12">
-            <label class="p18" for="">{{'prefix'| translate}}</label>
+            <label class="p18" for="prefix">{{'prefix'| translate}}</label>
             <select [(ngModel)]="model.prefixName" name="category">
               <option value="" disabled>
                 กรุณาเลือกคำนำหน้า
@@ -30,11 +30,11 @@
             </select>
           </div>
           <div class="div-input col-lg-5 col-md-6 col-12">
-            <label class="p18" for="">{{'name'| translate}}</label>
+            <label class="p18" for="firstName">{{'name'| translate}}</label>
             <input [(ngModel)]="model.firstName" name="firstName" type="text">
           </div>
           <div class="div-input col-lg-5 col-md-6 col-12">
-            <label class="p18" for="">{{'surname'| translate}}</label>
+            <label class="p18" for="lastName">{{'surname'| translate}}</label>
             <input [(ngModel)]="model.lastName" name="lastName" type="text">
           </div>
           <!-- <div class="div-input col-lg-2 col-md-6 col-12">
@@ -43,17 +43,39 @@
           </div> -->
 
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label class="p18" for="">{{'email'| translate}}</label>
-            <input [(ngModel)]="model.email" name="email" type="text">
+            <label class="p18" for="email">{{'email'| translate}}</label>
+            <input [(ngModel)]="model.email" name="email" type="email">
           </div>
           <!-- <div class="div-checkbox">
             <input type="checkbox" name="" id="">
             <span>{{'consentReceiveNewsEventsOtherInformationEmail'| translate}}</span>
           </div> -->
+          <div class="div-input col-lg-12 col-md-12 col-12">
+            <label class="p18" for="joinPartyActivities">{{'joinPartyActivities'| translate}}</label>
+            <div class="row bs-x0 row-form-gap">
+              <div class="div-checkbox">
+                <input type="checkbox" name="volunteerWorkArea"  [(ngModel)]="model.volunteerWorkArea" id="volunteerWorkArea" />
+                <label class="p16" for="volunteerWorkArea">{{ 'volunteerWorkArea' | translate }}</label>
+              </div>
+              <div class="div-checkbox">
+                <input type="checkbox" name="thinkTank" [(ngModel)]="model.thinkTank" id="thinkTank" />
+                <label class="p16"  for="thinkTank">{{ 'thinkTank' | translate }}</label>
+              </div>
+              <div class="div-checkbox">
+                <input type="checkbox"  name="trainingDemocrats" [(ngModel)]="model.trainingDemocrats" id="trainingDemocrats" />
+                <label class="p16" for="trainingDemocrats">{{ 'trainingDemocrats' | translate }}</label>
+              </div>
+              <div class="div-checkbox">
+                <input type="checkbox" name="applyPartyMembership" [(ngModel)]="model.applyPartyMembership" id="applyPartyMembership" />
+                <label class="p16"  for="applyPartyMembership">{{ 'applyPartyMembership' | translate }}</label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="row bs-x0 row-form-gap">
+          <span class="title p20">{{'acceptPDPA'| translate}}</span>
           <div class="div-checkbox" *ngFor="let item of checkboxItems; let i = index">
             <input #cb type="checkbox" [checked]="item.checked" (click)="onCheckboxClick(i, cb, $event)"
               id="chk{{i}}" />

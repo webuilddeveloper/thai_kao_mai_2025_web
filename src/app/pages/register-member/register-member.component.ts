@@ -87,7 +87,7 @@ export class RegisterMemberComponent implements OnInit {
       .subscribe((res) => {
         let data: any = {};
         data = res;
-    this.openModal();
+        this.openModal();
       });
   }
 
