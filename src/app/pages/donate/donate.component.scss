@@ -684,3 +684,13 @@
   }
 
 }
+
+.is-invalid {
+  border: 1px solid red;
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+  color: red;
+  margin-top: 0.25rem;
+}

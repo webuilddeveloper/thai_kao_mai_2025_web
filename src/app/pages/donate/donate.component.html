@@ -2,8 +2,10 @@
   <div class="header-container"></div>
 
   <div class="header-text">
-    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'donate' | translate }}</h1>
-    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }} // <span class="sub-title">{{ 'donate' | translate }}</span></p>
+    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'donate' | translate
+      }}</h1>
+    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }}
+      // <span class="sub-title">{{ 'donate' | translate }}</span></p>
   </div>
 
 </div>
@@ -66,8 +68,7 @@
 
         <!-- บัตรเครดิต -->
         <div class="payment-option" [class.selected]="model.paymentType === '2'" (click)="selectMethod('2')">
-          <img
-            [src]="model.paymentType === '2' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
+          <img [src]="model.paymentType === '2' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
             alt="บัตรเครดิต" />
           <span class="p16">{{'creditcard'|translate}}</span>
         </div>
@@ -110,14 +111,14 @@
     <div class="donation-amount">
       <h3 class="p20">{{'selectamount'|translate}}</h3>
       <div class="amount-options">
-        <button class="p16"  *ngFor="let amount of presetAmounts" [class.selected]="model.amount === amount"
+        <button class="p16" *ngFor="let amount of presetAmounts" [class.selected]="model.amount === amount"
           (click)="selectAmount(amount)">
           {{ amount | number }} {{'baht'|translate}}
         </button>&nbsp;
         <span class="p16 text-nm">หรือระบุจำนวน</span>
-        <input class="p16" type="number" placeholder="{{'pleasespecify' | translate}}" [(ngModel)]="model.amount" (ngModelChange)="model.amount" name="amount"
-          (ngModelChange)="selectAmount(model.amount)"/>
-          <span class="p16 text-nm">บาท</span>
+        <input class="p16" type="number" placeholder="{{'pleasespecify' | translate}}" [(ngModel)]="model.amount"
+          (ngModelChange)="model.amount" name="amount" (ngModelChange)="selectAmount(model.amount)" />
+        <span class="p16 text-nm">บาท</span>
       </div>
     </div>
 
@@ -126,38 +127,64 @@
       <div class="form-note p14">
         * {{'tax'|translate}}
       </div>
-      <h3 class="p28" >{{"receipt"|translate}}</h3>
+      <h3 class="p28">{{"receipt"|translate}}</h3>
 
       <!-- ปุ่มเลือกประเภท -->
       <div class="form-type-toggle">
-        <button class="p16" [class.active]="this.model.donateType === '0'" (click)="this.model.donateType = '0'">{{"person"|
+        <button class="p16" [class.active]="this.model.donateType === '0'"
+          (click)="this.model.donateType = '0'">{{"person"|
           translate}}</button>
-        <button class="p16" [class.active]="this.model.donateType === '1'" (click)="this.model.donateType = '1'">{{"legalentity"|translate}}</button>
+        <button class="p16" [class.active]="this.model.donateType === '1'"
+          (click)="this.model.donateType = '1'">{{"legalentity"|translate}}</button>
       </div>
 
-      <form>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm,2)" novalidate>
         <div class="form-row">
-          <input class="p16" type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="model.firstName" (ngModelChange)="model.firstName" required name="firstName"/>
-          <input class="p16" type="text" placeholder="{{'surname'|translate}}*" [(ngModel)]="model.lastName" (ngModelChange)="model.lastName" required name="lastName"/>
+          <input class="form-control p16" type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="model.firstName"
+            required firstName #firstName="ngModel" [ngClass]="{ 'is-invalid': firstName.invalid && firstName.touched }"
+            (ngModelChange)="model.firstName" name="firstName" />
+          <input class="form-control p16" type="text" placeholder="{{'surname'|translate}}*"
+            [(ngModel)]="model.lastName" required lastName #lastName="ngModel"
+            [ngClass]="{ 'is-invalid': lastName.invalid && lastName.touched }" (ngModelChange)="model.lastName"
+            name="lastName" />
         </div>
         <div class="form-row">
           <!-- <input type="email" placeholder="อีเมล*" required />
                 <input type="tel" placeholder="เบอร์โทรศัพท์*" required /> -->
-
-          <input class="p16" type="email" [(ngModel)]="model.email" (ngModelChange)="model.email" required name="email" placeholder="{{'email' | translate}}*" />
-          <input  class="p16"type="tel" [(ngModel)]="model.phone" (ngModelChange)="model.phone" required name="phone" placeholder="{{'phone' |translate}}*" />
+          <input class="p16 form-control" type="email" [(ngModel)]="model.email" (ngModelChange)="model.email" required
+            email #email="ngModel" name="email" placeholder="{{'email' | translate}}*"
+            [ngClass]="{ 'is-invalid': email.invalid && email.touched }" />
+          <!-- <div class="invalid-feedback" *ngIf="cardID.invalid && cardID.touched">
+            {{'enterEmail' | translate}}
+          </div> -->
+          <input class="form-control p16" type="tel" [(ngModel)]="model.phone" (ngModelChange)="model.phone" required
+            name="phone" phone #phone="ngModel" [ngClass]="{ 'is-invalid': phone.invalid && phone.touched }"
+            oninput="this.value = this.value.replace(/[^0-9+.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="10"
+            minlength="10" placeholder="{{'phone' |translate}}*" />
+          <!-- <div class="invalid-feedback" *ngIf="cardID.invalid && cardID.touched">
+            {{'enterPhone' |translate}}
+          </div> -->
         </div>
         <div class="form-note p14">
-          * {{'eDonationPrompt'|translate}}
+          * {{'eDonationPrompt'| translate}}
         </div>
         <div class="form-row">
-          <input class="p16" type="text" [(ngModel)]="model.cardID" (ngModelChange)="model.cardID" name="cardID" placeholder="{{'nationalid'|translate}}" />
+          <input class="form-control p16" type="text" [(ngModel)]="model.cardID" (ngModelChange)="model.cardID"
+            name="cardID" required #cardID="ngModel" maxlength="13" placeholder="{{'nationalid'|translate}}"
+            [ngClass]="{ 'is-invalid': (cardID.invalid && cardID.touched) || !isValidNationalID(model.cardID) }"
+            (keypress)="allowOnlyNumber($event)" />
+          <div class="invalid-feedback" *ngIf="cardID.invalid && cardID.touched">
+            {{'enterNationalID' |translate}}
+          </div>
+          <div class="invalid-feedback" *ngIf="model.cardID && !isValidNationalID(model.cardID)">
+            {{'idCardNumberIncorrect' | translate}}
+          </div>
         </div>
 
         <!-- ปุ่มย้อนกลับ + ถัดไป -->
         <div class="form-actions">
           <button type="button" class="btn-back p16" (click)="showForm = false">{{'back'|translate}}</button>
-          <button type="submit" class="btn-next p16" (click)="goToStep(2)">{{'next'|translate}}</button>
+          <button type="submit" class="btn-next p16">{{'next'|translate}}</button>
         </div>
       </form>
     </div>
@@ -234,17 +261,17 @@
         </ol>
         <strong class="p14">{{'uploadSlip'|translate}}</strong>
         <div class="div-input col-lg-6 col-12">
-            <label class="div-file-slip">
-              <span class="p16" *ngIf="model.slip == ''">* {{'select-photo'|translate}}</span>
-              <div class="div-img-file-slip" *ngIf="model.slip != ''">
-                <img [src]="model.slip" />
-              </div>
-              <input type="file" accept="image/*" (change)="fileUpload($event)">
-              <div class="delete-img" *ngIf="model.slip != ''" (click)="model.slip = ''">
-                <i class="material-icons">close</i>
-              </div>
-            </label>
-          </div>
+          <label class="div-file-slip">
+            <span class="p16" *ngIf="model.slip == ''">* {{'select-photo'|translate}}</span>
+            <div class="div-img-file-slip" *ngIf="model.slip != ''">
+              <img [src]="model.slip" />
+            </div>
+            <input type="file" accept="image/*" (change)="fileUpload($event)">
+            <div class="delete-img" *ngIf="model.slip != ''" (click)="model.slip = ''">
+              <i class="material-icons">close</i>
+            </div>
+          </label>
+        </div>
       </div>
 
       <div class="form-actions">

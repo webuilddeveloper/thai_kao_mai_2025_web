@@ -158,5 +158,6 @@
   "trainingDemocrats": "Training for young democrats",
   "applyPartyMembership": "Apply for party membership",
   "joinPartyActivities":"I would like to join the party/activities.",
-  "acceptPDPA":"Accept the Personal Data Protection Act"
+  "acceptPDPA":"Accept the Personal Data Protection Act",
+  "idCardNumberIncorrect":"The ID card number is incorrect."
 }

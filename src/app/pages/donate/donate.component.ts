@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import * as AOS from 'aos';
@@ -6,15 +14,16 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FileUploadService } from 'src/app/shared/file-upload.service';
+import { ToastrService } from 'ngx-toastr';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
-  styleUrls: ['./donate.component.scss']
+  styleUrls: ['./donate.component.scss'],
 })
 export class DonateComponent implements AfterViewInit {
   paymentType: string = 'qr'; // ตั้งค่าเริ่มต้น
@@ -38,12 +47,19 @@ export class DonateComponent implements AfterViewInit {
     paymentType: '0',
     amount: 1000,
     donateType: '0',
-    slip: ''
+    slip: '',
   };
   myForm!: FormGroup;
   @Input() code = 'none';
   @ViewChildren('digitRef') digitRefs!: QueryList<ElementRef>;
-  constructor(private serviceProvider: ServiceProvider, private fileuploadService: FileUploadService, public translate: TranslateService, private router: Router, private fb: FormBuilder) { }
+  constructor(
+    private serviceProvider: ServiceProvider,
+    private fileuploadService: FileUploadService,
+    public translate: TranslateService,
+    private router: Router,
+    private fb: FormBuilder,
+    private toastr: ToastrService
+  ) {}
 
   ngAfterViewInit(): void {
     const digitsStr = this.targetNumber.toString().padStart(6, '0');
@@ -56,13 +72,9 @@ export class DonateComponent implements AfterViewInit {
       onEnter: () => {
         this.animateDigits();
         this.donateTotal();
-      }
+      },
     });
-
-    // setTimeout(() => this.animateDigits(), 0);
-
   }
-
 
   ngOnInit(): void {
     this.deviceSize = localStorage.getItem('deviceSize') || '';
@@ -70,26 +82,17 @@ export class DonateComponent implements AfterViewInit {
       duration: 800,
       once: false,
       mirror: true,
-      offset: 30
+      offset: 30,
     });
 
     setTimeout(() => {
       AOS.refresh();
     }, 100);
-
-    // this.myForm = this.fb.group({
-    //   firstName: ['', [Validators.required]],
-    //   lastName: ['', [Validators.required]],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   phone: ['', [Validators.required, Validators.minLength(10)]],
-    //   cardID: ['', [Validators.required, Validators.minLength(10)]],
-    // });
   }
 
   selectMethod(method: string) {
     this.model.paymentType = method;
   }
-
 
   presetAmounts: number[] = [2000, 1000, 500];
   selectedAmount: number | null = 1000; // ค่าเริ่มต้น
@@ -101,10 +104,8 @@ export class DonateComponent implements AfterViewInit {
     } else {
       this.model.amount = 0;
     }
-    // this.model.amount = amount;
-    // this.selectedAmount = amount;
-    console.log('>>>>>', this.model.amount);
 
+    console.log('>>>>>', this.model.amount);
   }
 
   step: number = 1;
@@ -115,48 +116,45 @@ export class DonateComponent implements AfterViewInit {
     this.step = stepNumber;
     if (this.step == 1) {
       let isValid = false;
-      // if (this.editModel.title == '') {
-      //   this.toastr.warning('กรุณาใส่หัวข้อ', 'แจ้งเตือนระบบ', { timeOut: 2000 });
-      //   isValid = true;
-      // }
     }
   }
 
   phone: string = '';
   email: string = '';
 
-
   qrImageUrl: string = './assets/img/QR2.png'; // เปลี่ยนเป็น dynamic URL ได้ในอนาคต
 
   completeDonation() {
-    this.serviceProvider.post('donate/create', this.model).subscribe(data => {
+    this.serviceProvider.post('donate/create', this.model).subscribe(
+      (data) => {
+        let model: any = {};
+        model = data;
 
-      let model: any = {};
-      model = data;
-
-      if (model.status === 'S') {
-        // this.spinner.hide();
-        // this.toastr.success('บันทึกข้อมูลสำเร็จ', 'แจ้งเตือนระบบ', { timeOut: 2000 });
-        // setTimeout(() => {
-        //   this.back();
-        // }, 2000);
-        this.goToStep(4); // ไป step 4 แสดงหน้าขอบคุณ
-
-      } else {
-        // this.spinner.hide();
-        // this.toastr.warning(model.message, 'แจ้งเตือนระบบ', { timeOut: 2000 });
+        if (model.status === 'S') {
+          // this.spinner.hide();
+          this.toastr.success('บันทึกข้อมูลสำเร็จ', 'แจ้งเตือนระบบ', {
+            timeOut: 2000,
+          });
+          // setTimeout(() => {
+          //   this.back();
+          // }, 2000);
+          this.goToStep(4); // ไป step 4 แสดงหน้าขอบคุณ
+        } else {
+          // this.spinner.hide();
+          this.toastr.warning(model.message, 'แจ้งเตือนระบบ', {
+            timeOut: 2000,
+          });
+        }
+      },
+      (err) => {
+        this.toastr.error(err.message, 'แจ้งเตือนระบบ', { timeOut: 2000 });
       }
-
-    }, err => {
-      // this.toastr.error(err.message, 'แจ้งเตือนระบบ', { timeOut: 2000 });
-    });
+    );
   }
 
   backToMain() {
     this.router.navigate(['/home']);
   }
-
-
 
   animateDigits(): void {
     const digitArray = this.digitRefs.toArray();
@@ -174,14 +172,14 @@ export class DonateComponent implements AfterViewInit {
         tl.to(element, {
           text: { value: Math.floor(Math.random() * 10).toString() },
           duration: singleDigitDuration,
-          ease: 'none'
+          ease: 'none',
         });
       }
 
       tl.to(element, {
         text: { value: finalValue },
         duration: singleDigitDuration,
-        ease: 'power1.out'
+        ease: 'power1.out',
       });
     });
   }
@@ -196,7 +194,10 @@ export class DonateComponent implements AfterViewInit {
 
     const animate = () => {
       frame++;
-      this.currentAmount = Math.min(this.targetDisplayAmount, Math.round(amountIncrement * frame));
+      this.currentAmount = Math.min(
+        this.targetDisplayAmount,
+        Math.round(amountIncrement * frame)
+      );
       this.percentage = (this.currentAmount / this.targetAmount) * 100;
 
       if (frame < totalFrames) {
@@ -221,15 +222,52 @@ export class DonateComponent implements AfterViewInit {
   fileUpload(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.fileuploadService.postFile(this.code, input.files[0]).subscribe(data => {
-        let model: any = {};
-        model = data;
-        this.model.slip = model.imageUrl;
-      }, err => {
-        console.log('error ', err);
-      });
+      this.fileuploadService.postFile(this.code, input.files[0]).subscribe(
+        (data) => {
+          let model: any = {};
+          model = data;
+          this.model.slip = model.imageUrl;
+        },
+        (err) => {
+          console.log('error ', err);
+        }
+      );
     }
   }
+
+  // อนุญาตให้พิมพ์เฉพาะตัวเลข
+  allowOnlyNumber(event: KeyboardEvent): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
+  // ตรวจสอบเลขบัตรประชาชน 13 หลัก
+  isValidNationalID(id: string): boolean {
+    if ((id ?? '') === '') return true;
+    if (!id || id.length !== 13) return false;
+
+    let sum = 0;
+    for (let i = 0; i < 12; i++) {
+      sum += parseInt(id.charAt(i), 10) * (13 - i);
+    }
+    const checkDigit = (11 - (sum % 11)) % 10;
+    return checkDigit === parseInt(id.charAt(12), 10);
+  }
+
+  onSubmit(formRef: NgForm, stepNumber: number) {
+    if (formRef.invalid) {
+      // mark ทุก field เป็น touched เพื่อให้แสดง error
+      Object.values(formRef.controls).forEach((control) => {
+        control.markAsTouched();
+      });
+
+      return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
+    }
+
+    this.goToStep(stepNumber);
+  }
 }
-
-
