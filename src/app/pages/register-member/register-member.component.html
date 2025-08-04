@@ -15,7 +15,7 @@
         {{'fillInformation'| translate}}{{'registerPartyClub'| translate}}</span>
       <div class="spacer"></div>
       <div class="spacer"></div>
-      <form action="">
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
         <span class="title p20">{{'personalInformation'| translate}}</span>
         <div class="row row-form-gap">
           <div class="div-input p18 col-lg-2 col-md-6 col-12">
@@ -31,11 +31,13 @@
           </div>
           <div class="div-input col-lg-5 col-md-6 col-12">
             <label class="p18" for="firstName">{{'name'| translate}}</label>
-            <input [(ngModel)]="model.firstName" name="firstName" type="text">
+            <input class="form-control" [(ngModel)]="model.firstName" name="firstName" type="text" required firstName
+              name="firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': firstName.invalid && firstName.touched }">
           </div>
           <div class="div-input col-lg-5 col-md-6 col-12">
             <label class="p18" for="lastName">{{'surname'| translate}}</label>
-            <input [(ngModel)]="model.lastName" name="lastName" type="text">
+            <input class="form-control" [(ngModel)]="model.lastName" name="lastName" type="text" required lastName
+              name="lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': lastName.invalid && lastName.touched }">
           </div>
           <!-- <div class="div-input col-lg-2 col-md-6 col-12">
             <label for="">วัน/เดือน/ปี เกิด</label>
@@ -44,7 +46,8 @@
 
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label class="p18" for="email">{{'email'| translate}}</label>
-            <input [(ngModel)]="model.email" name="email" type="email">
+            <input class="form-control" [(ngModel)]="model.email" name="email" type="email" required email
+              name="email" #email="ngModel" [ngClass]="{ 'is-invalid': email.invalid && email.touched }">
           </div>
           <!-- <div class="div-checkbox">
             <input type="checkbox" name="" id="">
@@ -54,20 +57,23 @@
             <label class="p18" for="joinPartyActivities">{{'joinPartyActivities'| translate}}</label>
             <div class="row bs-x0 row-form-gap">
               <div class="div-checkbox">
-                <input type="checkbox" name="volunteerWorkArea"  [(ngModel)]="model.volunteerWorkArea" id="volunteerWorkArea" />
+                <input type="checkbox" name="volunteerWorkArea" [(ngModel)]="model.volunteerWorkArea"
+                  id="volunteerWorkArea" />
                 <label class="p16" for="volunteerWorkArea">{{ 'volunteerWorkArea' | translate }}</label>
               </div>
               <div class="div-checkbox">
                 <input type="checkbox" name="thinkTank" [(ngModel)]="model.thinkTank" id="thinkTank" />
-                <label class="p16"  for="thinkTank">{{ 'thinkTank' | translate }}</label>
+                <label class="p16" for="thinkTank">{{ 'thinkTank' | translate }}</label>
               </div>
               <div class="div-checkbox">
-                <input type="checkbox"  name="trainingDemocrats" [(ngModel)]="model.trainingDemocrats" id="trainingDemocrats" />
+                <input type="checkbox" name="trainingDemocrats" [(ngModel)]="model.trainingDemocrats"
+                  id="trainingDemocrats" />
                 <label class="p16" for="trainingDemocrats">{{ 'trainingDemocrats' | translate }}</label>
               </div>
               <div class="div-checkbox">
-                <input type="checkbox" name="applyPartyMembership" [(ngModel)]="model.applyPartyMembership" id="applyPartyMembership" />
-                <label class="p16"  for="applyPartyMembership">{{ 'applyPartyMembership' | translate }}</label>
+                <input type="checkbox" name="applyPartyMembership" [(ngModel)]="model.applyPartyMembership"
+                  id="applyPartyMembership" />
+                <label class="p16" for="applyPartyMembership">{{ 'applyPartyMembership' | translate }}</label>
               </div>
             </div>
           </div>
@@ -83,7 +89,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <button class="btn-next p16" type="button" (click)="sendApi()">{{'register'| translate}}</button>
+          <button class="btn-next p16" type="submit" >{{'register'| translate}}</button>
         </div>
       </form>
       <div class="modal-backdrop" *ngIf="isModalOpen">
