@@ -125,6 +125,21 @@ export class DonateComponent implements AfterViewInit {
   qrImageUrl: string = './assets/img/QR2.png'; // เปลี่ยนเป็น dynamic URL ได้ในอนาคต
 
   completeDonation() {
+    switch (this.model.paymentType) {
+      case '1':
+        this.model.category = '20250804130401-891-150';
+        break;
+      case '2':
+        this.model.category = '20250804131738-344-798';
+        break;
+      case '3':
+        this.model.category = '20250804131800-215-508';
+        break;
+      default:
+        this.model.category = '20250804130401-891-150';
+        break;
+    }
+
     this.serviceProvider.post('donate/create', this.model).subscribe(
       (data) => {
         let model: any = {};

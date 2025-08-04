@@ -60,18 +60,18 @@
         </div>
 
         <!-- โอนเงิน -->
-        <div class="payment-option" [class.selected]="model.paymentType === '1'" (click)="selectMethod('1')">
+        <!-- <div class="payment-option" [class.selected]="model.paymentType === '1'" (click)="selectMethod('1')">
           <img [src]="model.paymentType === '1' ? './assets/img/icon_bank_selected.png' : './assets/img/icon_bank.png'"
             alt="โอนเงิน" />
           <span class="p16">{{'transfermoney'|translate}}</span>
-        </div>
+        </div> -->
 
         <!-- บัตรเครดิต -->
-        <div class="payment-option" [class.selected]="model.paymentType === '2'" (click)="selectMethod('2')">
+        <!-- <div class="payment-option" [class.selected]="model.paymentType === '2'" (click)="selectMethod('2')">
           <img [src]="model.paymentType === '2' ? './assets/img/icon_card_selected.png' : './assets/img/icon_card.png'"
             alt="บัตรเครดิต" />
           <span class="p16">{{'creditcard'|translate}}</span>
-        </div>
+        </div> -->
       </div>
 
       <!-- ปุ่มถัดไป -->
@@ -131,14 +131,20 @@
 
       <!-- ปุ่มเลือกประเภท -->
       <div class="form-type-toggle">
-        <button class="p16" [class.active]="this.model.donateType === '0'"
-          (click)="this.model.donateType = '0'">{{"person"|
+        <button class="p16" [class.active]="model.donateType === '0'"
+          (click)="model.donateType = '0'">{{"person"|
           translate}}</button>
-        <button class="p16" [class.active]="this.model.donateType === '1'"
-          (click)="this.model.donateType = '1'">{{"legalentity"|translate}}</button>
+        <button class="p16" [class.active]="model.donateType === '1'"
+          (click)="model.donateType = '1'">{{"legalentity"|translate}}</button>
       </div>
 
       <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm,2)" novalidate>
+        <div class="form-row">
+          <input *ngIf="model.donateType === '1'" class="form-control p16" type="text" placeholder="{{'corporateIdentityNumber'|translate}}*" [(ngModel)]="model.taxIdNumber"
+            required taxIdNumber #taxIdNumber="ngModel" [ngClass]="{ 'is-invalid': taxIdNumber.invalid && taxIdNumber.touched }"
+            (ngModelChange)="model.taxIdNumber" name="taxIdNumber" />
+
+        </div>
         <div class="form-row">
           <input class="form-control p16" type="text" placeholder="{{'name'|translate}}*" [(ngModel)]="model.firstName"
             required firstName #firstName="ngModel" [ngClass]="{ 'is-invalid': firstName.invalid && firstName.touched }"
@@ -202,7 +208,7 @@
 
           <div>
             <label class=" p14">{{'donateamount'|translate}}</label>
-            <div>{{ this.model.amount | number:'1.2-2' }} {{'baht'| translate}}</div>
+            <div>{{ model.amount | number:'1.2-2' }} {{'baht'| translate}}</div>
           </div>
         </div>
 

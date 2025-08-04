@@ -157,5 +157,6 @@
   "applyPartyMembership": "สมัครสมาชิกพรรค",
   "joinPartyActivities": "มีตวามประสงค์ร่วมงาน/กิจกรรมพรรค",
   "acceptPDPA":"ยอมรับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล",
-  "idCardNumberIncorrect":"เลขบัตรประชาชนไม่ถูกต้อง"
+  "idCardNumberIncorrect":"เลขบัตรประชาชนไม่ถูกต้อง",
+  "corporateIdentityNumber":"เลขนิติบุคคล"
 }
