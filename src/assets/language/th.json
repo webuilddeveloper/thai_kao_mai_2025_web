@@ -210,6 +210,13 @@
   "copyIDCard": "สำเนาบัตรประชาชน พร้อมรับรองสำเนา",
   "copyHouseRegistration": "สำเนาทะเบียนบ้าน พร้อมรับรองสำเนา",
   "nameChangeCertificate": "ใบสำคัญการเปลี่ยนชื่อ-สกุล (ถ้ามี)",
-  "photo1.5": "รูปถ่ายขนาด 1.5 นิ้ว"
-
+  "photo1.5": "รูปถ่ายขนาด 1.5 นิ้ว",
+  "volunteerWorkArea": "อาสาสมัครทำงานพื้นที่",
+  "thinkTank": "คลังสมอง",
+  "trainingDemocrats": "อบรมยุวประชาธิปัตย์",
+  "applyPartyMembership": "สมัครสมาชิกพรรค",
+  "joinPartyActivities": "มีตวามประสงค์ร่วมงาน/กิจกรรมพรรค",
+  "acceptPDPA":"ยอมรับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล",
+  "idCardNumberIncorrect":"เลขบัตรประชาชนไม่ถูกต้อง",
+  "corporateIdentityNumber":"เลขนิติบุคคล"
 }

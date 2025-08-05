@@ -210,7 +210,13 @@
   "copyIDCard": "Copy of ID Card",
   "copyHouseRegistration": "Copy of House Registration",
   "nameChangeCertificate": "Name-surname change certificate (if any)",
-  "photo1.5": "1.5-inch photo"
-
-
+  "photo1.5": "1.5-inch photo",
+  "volunteerWorkArea": "Volunteer work in the area",
+  "thinkTank": "think tank",
+  "trainingDemocrats": "Training for young democrats",
+  "applyPartyMembership": "Apply for party membership",
+  "joinPartyActivities":"I would like to join the party/activities.",
+  "acceptPDPA":"Accept the Personal Data Protection Act",
+  "idCardNumberIncorrect":"The ID card number is incorrect",
+  "corporateIdentityNumber":"corporate identity number"
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -87,7 +88,7 @@ export class RegisterMemberComponent implements OnInit {
       .subscribe((res) => {
         let data: any = {};
         data = res;
-    this.openModal();
+        this.openModal();
       });
   }
 
@@ -149,4 +150,17 @@ export class RegisterMemberComponent implements OnInit {
     this.tempCheckboxElement = null;
     document.body.style.overflow = '';
   }
+
+    onSubmit(formRef: NgForm) {
+      if (formRef.invalid) {
+        // mark ทุก field เป็น touched เพื่อให้แสดง error
+        Object.values(formRef.controls).forEach((control) => {
+          control.markAsTouched();
+        });
+
+        return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
+      }
+
+      this.sendApi();
+    }
 }
