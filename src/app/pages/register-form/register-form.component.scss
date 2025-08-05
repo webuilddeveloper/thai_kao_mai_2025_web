@@ -236,7 +236,7 @@ i {
 
 .delete-img {
   position: relative;
-  top: -5px;
+  top: 15px;
   right: -5px;
   background-color: var(--b81111-w-y);
   border-radius: 100px;
@@ -500,6 +500,7 @@ i {
 
 .card-file {
   // min-height: 200px;
-  width: 100%;
+  // width: 100%;
+  width: fit-content;
   position: relative;
 }

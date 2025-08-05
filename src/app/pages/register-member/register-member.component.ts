@@ -152,6 +152,7 @@ export class RegisterMemberComponent implements OnInit {
   }
 
     onSubmit(formRef: NgForm) {
+      debugger
       if (formRef.invalid) {
         // mark ทุก field เป็น touched เพื่อให้แสดง error
         Object.values(formRef.controls).forEach((control) => {

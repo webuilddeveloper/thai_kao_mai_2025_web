@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -30,16 +30,17 @@ export class RegisterFormComponent {
   nameChangeCertificateName: string = "";
   model: any = {
     prefixName: "",
-    provinceBirthCode: "001",
-    provinceBirth: "002",
+    provinceBirthCode: "",
+    provinceBirth: "",
     membershipType: "monthly",
-    provinceIssueCode: "003",
-    districtIssueCode: "004",
-    provinceCode: "005",
-    amphoeCode: "006",
-    tambonCode: "007",
-    postnoCode: "008",
-    partyRegisterHistory: "never"
+    provinceIssueCode: "",
+    districtIssueCode: "",
+    provinceCode: "",
+    amphoeCode: "",
+    tambonCode: "",
+    postnoCode: "",
+    partyRegisterHistory: "never",
+    acceptChk: false
 
   };
   deviceSize: string = '';
@@ -136,7 +137,6 @@ export class RegisterFormComponent {
         model = data;
         this.model.copyIDCard = model.imageUrl;
         this.copyIDCardName = model.imageName;
-        debugger;
       }, err => {
         console.log('error ', err);
       });
@@ -345,22 +345,16 @@ export class RegisterFormComponent {
   }
 
   sendApi() {
-    // if (this.model.prefixName == '') {
-    //   this.toastr.warning('กรุณาเลือกคำนำหน้า', 'แจ้งเตือน');
-    //   return;
-    // }
-    // if (this.checkboxItems.some((s) => !s.checked)) {
-    //   this.toastr.warning('กรุณายินยอม Policy', 'แจ้งเตือน');
-    //   return;
-    // }
-    this.model.status = 'N';
-    this.serviceProvider
-      .post('partyMembers/create', this.model)
-      .subscribe((res) => {
-        let data: any = {};
-        data = res;
-        this.openModal();
-      });
+    // this.model.status = 'N';
+    // this.serviceProvider
+    //   .post('partyMembers/create', this.model)
+    //   .subscribe((res) => {
+    //     let data: any = {};
+    //     data = res;
+    //     this.openModal();
+    //   });
+    console.log(';;;;;;');
+
   }
 
   partyRegisterHistoryChange(event: any) {
@@ -372,5 +366,38 @@ export class RegisterFormComponent {
     }
   }
 
+  onSubmit(formRef: NgForm) {
+    if (formRef.invalid) {
+      // mark ทุก field เป็น touched เพื่อให้แสดง error
+      Object.values(formRef.controls).forEach((control) => {
+        control.markAsTouched();
+      });
+      return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
+    } else {
+      let isValid = false;
+      if (this.model.copyIDCard == '' || this.model.copyIDCard == undefined) {
+        this.toastr.warning('กรุณาเพิ่มสำเนาบัตรประชาชน', 'แจ้งเตือน');
+        isValid = true;
+      }
+      if (this.model.copyHouseRegistration == '' || this.model.copyHouseRegistration == undefined) {
+        this.toastr.warning('กรุณาเพิ่มสำเนาทะเบียนบ้าน', 'แจ้งเตือน');
+        isValid = true;
+      }
+      if (this.model.onFilePhoto1_5 == '' || this.model.onFilePhoto1_5 == undefined) {
+        this.toastr.warning('กรุณาเพิ่มรูปถ่ายขนาด 1.5 นิ้ว', 'แจ้งเตือน');
+        isValid = true;
+      }
+      if (!this.model.acceptChk) {
+        this.toastr.warning('กรุณาติ๊กรับรองข้อมูล', 'แจ้งเตือน');
+        isValid = true;
+      }
+      if (isValid) return;
+      this.sendApi();
+    }
+  }
 
+  chkAccept(param: any) {
+    const checkbox = param.target as HTMLInputElement;
+    this.model.acceptChk = checkbox.checked;
+  }
 }
