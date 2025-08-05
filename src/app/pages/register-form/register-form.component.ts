@@ -24,9 +24,23 @@ export class RegisterFormComponent {
   listProvince: any = [];
   listDistrict: any = [];
   listSubDistrict: any = [];
+  listDistrictIssue: any = [];
+  copyIDCardName: string = "";
+  copyHouseRegistrationName: string = "";
+  nameChangeCertificateName: string = "";
   model: any = {
     prefixName: "",
-    membershipType: "monthly"
+    provinceBirthCode: "001",
+    provinceBirth: "002",
+    membershipType: "monthly",
+    provinceIssueCode: "003",
+    districtIssueCode: "004",
+    provinceCode: "005",
+    amphoeCode: "006",
+    tambonCode: "007",
+    postnoCode: "008",
+    partyRegisterHistory: "never"
+
   };
   deviceSize: string = '';
 
@@ -101,38 +115,60 @@ export class RegisterFormComponent {
     }
   }
 
-  onFileCardIDelected(event: Event) {
+  onFilePhoto1_5(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
         let model: any = {};
         model = data;
-        this.model.imageIdCardUrl = model.imageUrl;
+        this.model.onFilePhoto1_5 = model.imageUrl;
       }, err => {
         console.log('error ', err);
       });
     }
   }
 
-  onFileSlipSelected(event: Event) {
+  copyIDCardSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
         let model: any = {};
         model = data;
-        this.model.imagePaymentUrl = model.imageUrl;
+        this.model.copyIDCard = model.imageUrl;
+        this.copyIDCardName = model.imageName;
+        debugger;
       }, err => {
         console.log('error ', err);
       });
     }
-    // const file = (event.target as HTMLInputElement).files?.[0];
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.onload = () => {
-    //     this.previewSlipUrl = reader.result as string;
-    //   };
-    //   reader.readAsDataURL(file);
-    // }
+  }
+
+  copyHouseRegistrationSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.copyHouseRegistration = model.imageUrl;
+        this.copyHouseRegistrationName = model.imageName;
+      }, err => {
+        console.log('error ', err);
+      });
+    }
+  }
+
+  nameChangeCertificateSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+        let model: any = {};
+        model = data;
+        this.model.nameChangeCertificate = model.imageUrl;
+        this.nameChangeCertificateName = model.imageName;
+      }, err => {
+        console.log('error ', err);
+      });
+    }
   }
 
   copyText() {
@@ -158,6 +194,7 @@ export class RegisterFormComponent {
   closeModal() {
     this.isModalOpen = false;
   }
+
   onCheckboxClick(index: number, checkbox: HTMLInputElement, event: MouseEvent) {
     const item = this.checkboxItems[index];
 
@@ -179,7 +216,6 @@ export class RegisterFormComponent {
     this.tempCheckboxElement = checkbox;
     this.tempCheckboxPrevChecked = checkbox.checked;
   }
-
 
   confirmCheckbox() {
     if (this.currentCheckboxIndex !== null) {
@@ -241,6 +277,41 @@ export class RegisterFormComponent {
     );
   }
 
+  readDistrictIssue(code: string) {
+    this.serviceProvider.post("route/district/read", { province: code }).subscribe(
+      (data) => {
+        let model: any = {};
+        model = data;
+        this.listDistrictIssue = model.objectData;
+      },
+      (err) => { }
+    );
+  }
+
+  selectProvinceBirth(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listProvince.find((x: any) => x.code == value.value);
+    this.model.provinceBirthCode = model.code;
+    this.model.provinceBirth = model.title;
+  }
+
+  selectProvinceIssue(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listProvince.find((x: any) => x.code == value.value);
+    this.model.provinceIssueCode = model.code;
+    this.model.provinceIssue = model.title;
+    this.readDistrictIssue(model.code);
+    this.model.districtIssueCode = "";
+    this.model.districtIssue = "";
+  }
+
+  selectDistrictIssue(event: Event) {
+    const value = event.target as HTMLInputElement;
+    let model = this.listDistrictIssue.find((x: any) => x.code == value.value);
+    this.model.districtIssueCode = model.code;
+    this.model.districtIssue = model.title;
+  }
+
   selectProvince(event: Event) {
     const value = event.target as HTMLInputElement;
     let model = this.listProvince.find((x: any) => x.code == value.value);
@@ -290,6 +361,15 @@ export class RegisterFormComponent {
         data = res;
         this.openModal();
       });
+  }
+
+  partyRegisterHistoryChange(event: any) {
+    if (event == 'ever') {
+      this.model.partyRegisterHistory = 'ever';
+    } else {
+      this.model.partyRegisterHistory = 'never';
+      this.model.partyOldName = "";
+    }
   }
 
 

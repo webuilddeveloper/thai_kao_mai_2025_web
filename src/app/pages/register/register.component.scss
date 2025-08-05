@@ -73,6 +73,23 @@ li {
   min-width: 400px;
 }
 
+.btn-second {
+  color: var(--nevy);
+  font-weight: 600;
+  font-size: var(--font-20);
+  background-color: var(--white);
+  border: 1px solid var(--nevy);
+  border-radius: 20px;
+  padding: 8px 24px;
+  width: fit-content;
+  min-width: 400px;
+}
+
+.btn-second:hover {
+  color: var(--white);
+  background-color: var(--nevy);
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .div-main {
     padding: 50px;
@@ -101,6 +118,11 @@ li {
   }
 
   .btn-main {
+    width: -webkit-fill-available;
+    min-width: -webkit-fill-available;
+  }
+
+  .btn-second {
     width: -webkit-fill-available;
     min-width: -webkit-fill-available;
   }

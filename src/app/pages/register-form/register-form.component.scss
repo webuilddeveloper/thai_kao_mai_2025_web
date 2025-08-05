@@ -53,6 +53,12 @@ i {
     color: var(--nevy);
     background-color: var(--white);
   }
+
+  input:disabled {
+    font-size: 16px;
+    background-color: #80808038;
+    border: 1px solid var(--white);
+  }
 }
 
 .div-input label {
@@ -60,6 +66,13 @@ i {
   color: var(--nevy);
   font-weight: 400;
   width: 100%;
+}
+
+.div-input .label-photo1-5 {
+  font-size: var(--font-16);
+  color: var(--nevy);
+  font-weight: 400;
+  width: 170px;
 }
 
 .div-input .sub-label {
@@ -86,6 +99,27 @@ i {
   font-size: var(--font-20);
 }
 
+.div-file-doc {
+  height: 40px;
+  width: 160px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    color: var(--949494-w-y);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
 .div-file {
   height: 200px;
   width: 160px;
@@ -110,6 +144,27 @@ i {
 .div-file-cardID {
   height: 200px;
   width: 350px;
+  border-radius: 20px;
+  border: 1px dashed var(--nevy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  span {
+    color: var(--949494-w-y);
+    font-size: var(--font-14);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.div-file-photo1-5 {
+  height: 200px;
+  width: 170px;
   border-radius: 20px;
   border: 1px dashed var(--nevy);
   display: flex;
@@ -209,12 +264,13 @@ i {
 .div-input-radio {
   display: flex;
   gap: 10px;
+  align-items: center;
 
   label {
     color: var(--nevy);
     font-size: var(--font-16);
     font-weight: 300;
-
+    width: fit-content;
   }
 }
 
@@ -340,6 +396,7 @@ i {
     margin-right: 10px;
     transform: scale(1.2);
     cursor: pointer;
+    margin: 5px;
   }
 
   label {
@@ -442,7 +499,7 @@ i {
 }
 
 .card-file {
-  min-height: 200px;
+  // min-height: 200px;
   width: 100%;
   position: relative;
 }
