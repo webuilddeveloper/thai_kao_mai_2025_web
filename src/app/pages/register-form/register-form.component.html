@@ -215,21 +215,23 @@
               for="">{{'code'|translate}}</label>
             <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text"
               [(ngModel)]="model.postnoCode" (ngModelChange)="model.postnoCode" name="postnoCode" maxlength="5"
-              placeholder="{{'enterPostCode' | translate}}" class="form-control" #postnoCode="ngModel"
+              pattern="0[0-9]{9}" inputmode="numeric" (keydown)="allowOnlyNumbers($event)" placeholder="{{'enterPostCode' | translate}}"
+              class="form-control" #postnoCode="ngModel"
               [ngClass]="{ 'is-invalid': postnoCode.invalid && postnoCode.touched }" required>
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'phone'|translate}}</label>
-            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text"
-              [(ngModel)]="model.phone" (ngModelChange)="model.phone" name="phone" maxlength="10"
-              placeholder="{{'enterPhone' | translate}}" class="form-control" #phone="ngModel"
-              [ngClass]="{ 'is-invalid': phone.invalid && phone.touched }" required>
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="tel"
+              pattern="0[0-9]{9}" maxlength="10" [(ngModel)]="model.phone" (ngModelChange)="model.phone" name="phone"
+              inputmode="numeric" placeholder="{{'enterPhone' | translate}}" (keydown)="allowOnlyNumbers($event)"
+              class="form-control" #phone="ngModel" [ngClass]="{ 'is-invalid': phone.invalid && phone.touched }"
+              required>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'email'|translate}}</label>
-            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text"
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="email"
               [(ngModel)]="model.email" (ngModelChange)="model.email" name="email"
               placeholder="{{'enterEmail' | translate}}" class="form-control" #email="ngModel"
               [ngClass]="{ 'is-invalid': email.invalid && email.touched }" required>
@@ -303,7 +305,8 @@
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'telephone'|
               translate}}</label>
             <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text"
-              [(ngModel)]="model.telephone" (ngModelChange)="model.telephone" name="telephone"
+              [(ngModel)]="model.telephone" (ngModelChange)="model.telephone" name="telephone" type="tel"
+              pattern="0[0-9]{9}" maxlength="10" (keydown)="allowOnlyNumbers($event)"
               placeholder="{{'enter' | translate}}{{'telephone' | translate}}" class="form-control" #telephone="ngModel"
               [ngClass]="{ 'is-invalid': telephone.invalid && telephone.touched }" required>
           </div>
@@ -425,8 +428,9 @@
 
         <div class="div-input col-12">
           <div class="div-checkbox">
-            <input type="checkbox" id="" [(ngModel)]="model.acceptChk" (change)="chkAccept($event)"/>
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}</label>
+            <input type="checkbox" id="" [(ngModel)]="model.acceptChk" (change)="chkAccept($event)" />
+            <label
+              [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}</label>
           </div>
         </div>
 
@@ -442,6 +446,10 @@
           <h2 class="p32">{{'completed-member'|translate}}</h2>
           <p class="p14">{{'completed-thx'|translate}}</p>
           <button (click)="closeModal()" class="btn-main p20">{{'tohome'|translate}}</button>
+          <div class="spacer"></div>
+          <p class="p14" style="margin: 0; justify-self: center;">{{'or'|translate}}</p>
+          <div class="spacer"></div>
+          <button (click)="gotoRegisterFanclub()" class="btn-main p20">{{'registerPartyClub'|translate}}</button>
         </div>
       </div>
 

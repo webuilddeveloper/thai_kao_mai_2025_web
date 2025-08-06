@@ -345,16 +345,14 @@ export class RegisterFormComponent {
   }
 
   sendApi() {
-    // this.model.status = 'N';
-    // this.serviceProvider
-    //   .post('partyMembers/create', this.model)
-    //   .subscribe((res) => {
-    //     let data: any = {};
-    //     data = res;
-    //     this.openModal();
-    //   });
-    console.log(';;;;;;');
-
+    this.model.status = 'N';
+    this.serviceProvider
+      .post('partyMembers/create', this.model)
+      .subscribe((res) => {
+        let data: any = {};
+        data = res;
+        this.openModal();
+      });
   }
 
   partyRegisterHistoryChange(event: any) {
@@ -399,5 +397,23 @@ export class RegisterFormComponent {
   chkAccept(param: any) {
     const checkbox = param.target as HTMLInputElement;
     this.model.acceptChk = checkbox.checked;
+  }
+
+  allowOnlyNumbers(event: KeyboardEvent) {
+    const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab', 'Delete'];
+
+    // อนุญาตเฉพาะตัวเลข 0-9 และปุ่มที่จำเป็น
+    if (
+      !/^[0-9]$/.test(event.key) &&
+      !allowedKeys.includes(event.key)
+    ) {
+      event.preventDefault(); // ❌ ป้องกันไม่ให้พิมพ์ตัวอักษร
+    }
+  }
+
+  gotoRegisterFanclub() {
+    this.router.navigate(["register-member"], {
+      // skipLocationChange: true,
+    });
   }
 }

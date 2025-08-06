@@ -218,5 +218,6 @@
   "joinPartyActivities":"I would like to join the party/activities.",
   "acceptPDPA":"Accept the Personal Data Protection Act",
   "idCardNumberIncorrect":"The ID card number is incorrect",
-  "corporateIdentityNumber":"corporate identity number"
+  "corporateIdentityNumber":"corporate identity number",
+  "or": "or"
 }
