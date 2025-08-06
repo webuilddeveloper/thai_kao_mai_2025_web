@@ -48,7 +48,7 @@ export class RegisterComponent {
   }
 
   downloadRegisForm() {
-    window.open(this.modelAboutUs.membershipApplication, '_blank');
+    (this.modelAboutUs.membershipApplication ?? "") == "" ? window.open(this.modelAboutUs.membershipApplication, '_blank') : null;
   }
 
 }
