@@ -215,7 +215,7 @@
               for="">{{'code'|translate}}</label>
             <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="text"
               [(ngModel)]="model.postnoCode" (ngModelChange)="model.postnoCode" name="postnoCode" maxlength="5"
-              pattern="0[0-9]{9}" inputmode="numeric" (keydown)="allowOnlyNumbers($event)" placeholder="{{'enterPostCode' | translate}}"
+              inputmode="numeric" (keydown)="allowOnlyNumbers($event)" placeholder="{{'enterPostCode' | translate}}"
               class="form-control" #postnoCode="ngModel"
               [ngClass]="{ 'is-invalid': postnoCode.invalid && postnoCode.touched }" required>
           </div>
