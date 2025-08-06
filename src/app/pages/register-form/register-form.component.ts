@@ -244,7 +244,7 @@ export class RegisterFormComponent {
   }
 
   readProvince() {
-    this.serviceProvider.postPro("route/province/read", {}).subscribe(
+    this.serviceProvider.post("route/province/read", {}).subscribe(
       (data) => {
         let model: any = {};
         model = data;
@@ -257,7 +257,7 @@ export class RegisterFormComponent {
   }
 
   readDistrict(code: string) {
-    this.serviceProvider.postPro("route/district/read", { province: code }).subscribe(
+    this.serviceProvider.post("route/district/read", { province: code }).subscribe(
       (data) => {
         let model: any = {};
         model = data;
@@ -269,7 +269,7 @@ export class RegisterFormComponent {
   }
 
   readSubDistrict(code: string) {
-    this.serviceProvider.postPro("route/tambon/read", { district: code }).subscribe(
+    this.serviceProvider.post("route/tambon/read", { district: code }).subscribe(
       (data) => {
         let model: any = {};
         model = data;
@@ -281,7 +281,7 @@ export class RegisterFormComponent {
   }
 
   readDistrictIssue(code: string) {
-    this.serviceProvider.postPro("route/district/read", { province: code }).subscribe(
+    this.serviceProvider.post("route/district/read", { province: code }).subscribe(
       (data) => {
         let model: any = {};
         model = data;
