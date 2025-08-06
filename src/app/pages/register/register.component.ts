@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import * as AOS from 'aos';
+import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,9 @@ import * as AOS from 'aos';
 })
 export class RegisterComponent {
     deviceSize: string = '';
+    modelAboutUs: any = {};
 
-  constructor(private router: Router,) {
+  constructor(private router: Router, private serviceProvider: ServiceProvider) {
 
   }
 
@@ -25,6 +27,8 @@ export class RegisterComponent {
     setTimeout(() => {
       AOS.refresh(); // สำคัญมากหลัง *ngFor หรือโหลดข้อมูล async
     }, 100);
+
+    this.readAboutMe();
   }
 
   gotoForm() {
@@ -32,4 +36,19 @@ export class RegisterComponent {
       // skipLocationChange: true,
     });
   }
+
+  readAboutMe() {
+    this.serviceProvider
+      .post('m/aboutUs/read', {})
+      .subscribe((data) => {
+        let model: any = {};
+        model = data;
+        this.modelAboutUs = model.objectData;
+      });
+  }
+
+  downloadRegisForm() {
+    window.open(this.modelAboutUs.membershipApplication, '_blank');
+  }
+
 }

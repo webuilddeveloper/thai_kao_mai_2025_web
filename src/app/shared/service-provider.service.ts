@@ -8,8 +8,8 @@ export class ServiceProvider {
 
   // ng build --base-href "/tkm/"
 
-  server: string = 'https://gateway.we-builds.com/thai-kao-mai-api/';
-  // server: string = 'http://localhost:8600/';
+  // server: string = 'https://gateway.we-builds.com/thai-kao-mai-api/';
+  server: string = 'http://localhost:8600/';
 
   constructor(private http: HttpClient) {}
 
