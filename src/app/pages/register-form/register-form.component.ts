@@ -3,6 +3,7 @@ import { FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 import { FileUploadService } from 'src/app/shared/file-upload.service';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
@@ -47,6 +48,7 @@ export class RegisterFormComponent {
 
   tempCheckboxElement: HTMLInputElement | null = null;
   tempCheckboxPrevChecked = false;
+  isBtn: boolean = false;
 
   checkboxItems = [
     {
@@ -116,55 +118,112 @@ export class RegisterFormComponent {
     }
   }
 
-  onFilePhoto1_5(event: Event) {
+  async onFilePhoto1_5(event: Event, formRef: NgForm) {
     const input = event.target as HTMLInputElement;
+
     if (input.files && input.files.length > 0) {
-      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
-        let model: any = {};
-        model = data;
-        this.model.onFilePhoto1_5 = model.imageUrl;
-      }, err => {
-        console.log('error ', err);
-      });
+      this.fileuploadService.postFile("", input.files[0]).subscribe(
+        data => {
+          const model: any = data;
+          this.model.onFilePhoto1_5 = model.imageUrl; // ✅ ไม่ต้อง await
+          this.onSubmit(formRef);
+        },
+        err => {
+          console.log('error', err);
+        }
+      );
     }
   }
 
-  copyIDCardSelected(event: Event) {
+  // copyIDCardSelected(event: Event) {
+  //   const input = event.target as HTMLInputElement;
+  //   if (input.files && input.files.length > 0) {
+  //     this.fileuploadService.postFile("", input.files[0]).subscribe(async data => {
+  //       let model: any = {};
+  //       model = data;
+  //       this.model.copyIDCard = await model.imageUrl;
+  //       this.copyIDCardName = await model.imageName;
+  //       await this.onSubmit(formRef)
+  //     }, err => {
+  //       console.log('error ', err);
+  //     });
+  //   }
+  // }
+
+  copyIDCardSelected(event: Event, formRef: NgForm) {
     const input = event.target as HTMLInputElement;
+
     if (input.files && input.files.length > 0) {
-      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
-        let model: any = {};
-        model = data;
-        this.model.copyIDCard = model.imageUrl;
-        this.copyIDCardName = model.imageName;
-      }, err => {
-        console.log('error ', err);
-      });
+      this.fileuploadService.postFile("", input.files[0]).subscribe(
+        data => {
+          const model: any = data;
+          this.model.copyIDCard = model.imageUrl;
+          if (model.imageUrl != '') {
+            let resultArray = model.imageUrl.split('.');
+            let type = resultArray[resultArray.length - 1];
+            if (type == 'pdf') {
+              this.model.copyIDCardImg = 'assets/img/267px-PDF_file_icon.svg.png';
+            } else {
+              this.model.copyIDCardImg = model.imageUrl;
+            }
+          }
+          this.copyIDCardName = model.imageName;
+
+          this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
+        },
+        err => {
+          console.log('error', err);
+        }
+      );
     }
   }
 
-  copyHouseRegistrationSelected(event: Event) {
+  copyHouseRegistrationSelected(event: Event, formRef: NgForm) {
     const input = event.target as HTMLInputElement;
+
     if (input.files && input.files.length > 0) {
-      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
-        let model: any = {};
-        model = data;
-        this.model.copyHouseRegistration = model.imageUrl;
-        this.copyHouseRegistrationName = model.imageName;
-      }, err => {
-        console.log('error ', err);
-      });
+      this.fileuploadService.postFile("", input.files[0]).subscribe(
+        data => {
+          const model: any = data;
+          this.model.copyHouseRegistration = model.imageUrl;
+          this.copyHouseRegistrationName = model.imageName;
+          if (model.imageUrl != '') {
+            let resultArray = model.imageUrl.split('.');
+            let type = resultArray[resultArray.length - 1];
+            if (type == 'pdf') {
+              this.model.copyHouseRegistrationImg = 'assets/img/267px-PDF_file_icon.svg.png';
+            } else {
+              this.model.copyHouseRegistrationImg = model.imageUrl;
+            }
+          }
+
+          this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
+        },
+        err => {
+          console.log('error', err);
+        }
+      );
     }
   }
 
   nameChangeCertificateSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.fileuploadService.postFile("", input.files[0]).subscribe(data => {
+      this.fileuploadService.postFile("", input.files[0]).subscribe(async data => {
         let model: any = {};
         model = data;
-        this.model.nameChangeCertificate = model.imageUrl;
-        this.nameChangeCertificateName = model.imageName;
+        this.model.nameChangeCertificate = await model.imageUrl;
+        this.nameChangeCertificateName = await model.imageName;
+
+        if (model.imageUrl != '') {
+          let resultArray = model.imageUrl.split('.');
+          let type = resultArray[resultArray.length - 1];
+          if (type == 'pdf') {
+            this.model.nameChangeCertificateImg = 'assets/img/267px-PDF_file_icon.svg.png';
+          } else {
+            this.model.nameChangeCertificateImg = model.imageUrl;
+          }
+        }
       }, err => {
         console.log('error ', err);
       });
@@ -373,27 +432,32 @@ export class RegisterFormComponent {
       Object.values(formRef.controls).forEach((control) => {
         control.markAsTouched();
       });
+      this.isBtn = false;
       return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
     } else {
       let isValid = false;
-      if (this.model.copyIDCard == '' || this.model.copyIDCard == undefined) {
-        this.toastr.warning('กรุณาเพิ่มสำเนาบัตรประชาชน', 'แจ้งเตือน');
-        isValid = true;
-      }
-      if (this.model.copyHouseRegistration == '' || this.model.copyHouseRegistration == undefined) {
-        this.toastr.warning('กรุณาเพิ่มสำเนาทะเบียนบ้าน', 'แจ้งเตือน');
-        isValid = true;
-      }
-      if (this.model.onFilePhoto1_5 == '' || this.model.onFilePhoto1_5 == undefined) {
-        this.toastr.warning('กรุณาเพิ่มรูปถ่ายขนาด 1.5 นิ้ว', 'แจ้งเตือน');
+      if (((this.model.partyOldName ?? "") == "" || this.model.partyOldName == undefined) && this.model.partyRegisterHistory == 'ever') {
         isValid = true;
       }
       if (!this.model.acceptChk) {
-        this.toastr.warning('กรุณาติ๊กรับรองข้อมูล', 'แจ้งเตือน');
         isValid = true;
       }
-      if (isValid) return;
-      this.sendApi();
+      if ((this.model.copyIDCard ?? "") == "" || this.model.copyIDCard == undefined) {
+        isValid = true;
+      }
+      if ((this.model.copyHouseRegistration ?? "") == "" || this.model.copyHouseRegistration == undefined) {
+        isValid = true;
+      }
+      if ((this.model.onFilePhoto1_5 ?? "") == "" || this.model.onFilePhoto1_5 == undefined) {
+        isValid = true;
+      }
+      if (isValid) {
+        this.isBtn = false;
+        return;
+      } else {
+        this.isBtn = true;
+      }
+      // this.sendApi();
     }
   }
 
@@ -419,4 +483,27 @@ export class RegisterFormComponent {
       // skipLocationChange: true,
     });
   }
+
+  fileDelete(param: string) {
+    if (param == 'copyIDCard') {
+      this.model.copyIDCard = null
+    } else if (param == 'copyHouseRegistration') {
+      this.model.copyHouseRegistration = null
+    } else if (param == 'onFilePhoto1_5') {
+      this.model.onFilePhoto1_5 = null
+    }
+
+  }
+
+  async selectFile(param: string, event: Event, formRef: NgForm) {
+    if (param == 'copyIDCard') {
+      await this.copyIDCardSelected(event, formRef)
+    } else if (param == 'copyHouseRegistration') {
+      this.copyHouseRegistrationSelected(event, formRef)
+    } else if (param == 'onFilePhoto1_5') {
+      await this.onFilePhoto1_5(event, formRef)
+    }
+    // this.onSubmit(formRef)
+  }
+
 }

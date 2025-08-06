@@ -65,14 +65,14 @@ i {
   font-size: var(--font-16);
   color: var(--nevy);
   font-weight: 400;
-  width: 100%;
+  // width: 100%;
 }
 
 .div-input .label-photo1-5 {
   font-size: var(--font-16);
   color: var(--nevy);
   font-weight: 400;
-  width: 170px;
+  // width: 170px;
 }
 
 .div-input .sub-label {
@@ -100,8 +100,8 @@ i {
 }
 
 .div-file-doc {
-  height: 40px;
-  width: 160px;
+  height: 200px;
+  width: 200px;
   border-radius: 20px;
   border: 1px dashed var(--nevy);
   display: flex;
@@ -221,7 +221,7 @@ i {
 
 .div-img-file {
   width: -webkit-fill-available;
-  height: -webkit-fill-available;
+  height: 200px;
   overflow: hidden;
   border-radius: 20px;
   text-align: center;
@@ -285,6 +285,18 @@ i {
   font-weight: 600;
   font-size: var(--font-20);
   background-color: var(--nevy);
+  border: 0;
+  border-radius: 20px;
+  padding: 8px 24px;
+  width: fit-content;
+  min-width: 400px;
+}
+
+.btn-main-disabled {
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--font-20);
+  background-color: var(--bggrey);
   border: 0;
   border-radius: 20px;
   padding: 8px 24px;
