@@ -22,6 +22,7 @@ export class PartyExecutiveComponent {
   ) {}
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('party-executive');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callReadCategory();
     this.callRead();

@@ -23,6 +23,7 @@ export class IdeologyComponent implements OnInit {
   // };
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('ideology');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callRead();
     AOS.init({

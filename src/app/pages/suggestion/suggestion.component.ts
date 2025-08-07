@@ -23,6 +23,7 @@ export class SuggestionComponent {
   ) {}
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('suggestion');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callReadCategory();
   }

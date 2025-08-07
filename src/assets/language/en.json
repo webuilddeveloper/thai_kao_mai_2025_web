@@ -221,5 +221,10 @@
   "corporateIdentityNumber":"corporate identity number",
   "or": "or",
   "clickHere": "click here",
-  "toPrint": "to print the application form"
+  "toPrint": "to print the application form",
+  "visitorsAll": "All visitors",
+  "visitorsYear": "Year's visitors",
+  "visitorsMonth": "Month's visitors",
+  "visitorsWeek": "Week's visitors",
+  "visitorsToday": "Today's visitors"
 }

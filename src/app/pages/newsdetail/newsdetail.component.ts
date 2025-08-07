@@ -49,6 +49,7 @@ export class NewsDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('newsDetail');
     this.code = this.route.snapshot.paramMap.get('code')!;
     this.callRead();
   }

@@ -17,6 +17,7 @@ export class AboutComponent implements OnInit {
   aboutMeModel: any = {};
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('about');
     this.callRead();
     this.callReadCertificate();
     this.readAboutMe();

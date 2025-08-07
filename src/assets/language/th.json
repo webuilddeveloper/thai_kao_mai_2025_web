@@ -221,5 +221,9 @@
   "corporateIdentityNumber":"เลขนิติบุคคล",
   "or": "หรือ",
   "clickHere": "คลิกที่นี่",
-  "toPrint": "เพื่อพิมพ์ใบสมัคร"
+  "visitorsAll": "ผู้เข้าชมทั้งหมด",
+  "visitorsYear": "ผู้เข้าชมปีนี้",
+  "visitorsMonth": "ผู้เข้าชมเดือนนี้",
+  "visitorsWeek": "ผู้เข้าชมสัปดาห์นี้",
+  "visitorsToday": "ผู้เข้าชมวันนี้"
 }

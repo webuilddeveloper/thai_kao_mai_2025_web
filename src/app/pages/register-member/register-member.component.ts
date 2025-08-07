@@ -71,6 +71,7 @@ export class RegisterMemberComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('register-member');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
   }
 

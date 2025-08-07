@@ -14,7 +14,11 @@ export class ServiceProvider {
   constructor(private http: HttpClient) {}
 
   get(url: string) {
-    return this.http.get(url);
+        let headers = new HttpHeaders();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(this.server + url, { headers: headers });
   }
 
   post(url: string, param: any) {
@@ -34,7 +38,7 @@ export class ServiceProvider {
 
   SendIPAddress(page: string) {
     this.http.get('http://api.ipify.org/?format=json').subscribe((res: any) => {
-      this.post('ip/createCms', {
+      this.post('ip/create', {
         ipAddress: res.ip,
         page: page,
         userName: localStorage.getItem('username') ?? '',

@@ -20,6 +20,7 @@ export class EventCalendarDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('event-calendar-detail');
     this.code = this.route.snapshot.paramMap.get('code')!;
 
     this.callRead();

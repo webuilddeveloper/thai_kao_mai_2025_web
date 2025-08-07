@@ -45,6 +45,7 @@ export class PolicyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('policy-detail');
     this.code = this.route.snapshot.paramMap.get('code')!;
     this.callRead();
   }

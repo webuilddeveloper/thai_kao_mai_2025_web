@@ -42,6 +42,7 @@ export class ContactComponent {
 
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('contact');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,

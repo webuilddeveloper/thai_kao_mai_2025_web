@@ -1,10 +1,3 @@
-<!-- <div class="header-container" data-aos="zoom-in-up">
-  <div class="header-text">
-    <h1>{{ 'eventCalendar' | translate }} / {{ 'latestActivities' | translate }}</h1>
-    <p>{{ 'home' | translate }} // {{ 'newsAndEvent' | translate }} // <span style="color: #F4ED17;">{{ 'eventCalendar'
-        | translate }} / {{ 'latestActivities' | translate }}</span></p>
-  </div>
-</div> -->
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
@@ -14,14 +7,13 @@
         | translate }} / {{ 'latestActivities' | translate }}</span></p>
   </div>
 </div>
-<div class="div-calendar-container">
+<!-- <div class="div-calendar-container">
   <div class="calendar-container" data-aos="zoom-in-up">
     <div class="schedule-panel">
       <div class="date-display">
         <div class="day">{{ selectedDate | date:'dd' }}</div>
         <div class="month-year">
           <div>{{ getMonthName(selectedDate) }}</div>
-          <!-- <div>{{ selectedDate | date:'MMMM' | uppercase }}</div> -->
           <div *ngIf="translate.currentLang === 'en'">{{ selectedDate | date:'yyyy' }}</div>
           <div *ngIf="translate.currentLang === 'th'">{{ getBuddhistYear(selectedDate) }}</div>
         </div>
@@ -91,4 +83,8 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="overlay-main">
+  <app-coming-soon></app-coming-soon>
 </div>

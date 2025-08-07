@@ -64,6 +64,7 @@ export class EventCalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('event-calendar');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.callRead();
   }

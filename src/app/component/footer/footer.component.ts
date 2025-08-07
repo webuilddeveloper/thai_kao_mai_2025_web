@@ -5,49 +5,53 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import * as AOS from 'aos';
 import { gsap } from 'gsap';
 
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-
   isShow = 'false'; // เพิ่มตรงนี้
 
   aboutMeModel: any = {
-    location: "8819 Ohio St. South Gate, CA 90280",
-    email: "Ourstudio@hello.com",
-    tel: "+1 386-688-3295"
+    location: '8819 Ohio St. South Gate, CA 90280',
+    email: 'Ourstudio@hello.com',
+    tel: '+1 386-688-3295',
   };
   contact = {
-    address: 'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio',
+    address:
+      'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio',
     email: 'xxxxxxxx@gmail.com',
     phone: '02–123–4567',
     social: [
       { img: 'assets/img/icon_Line.png', url: '#' },
       { img: 'assets/img/icon_Facebook.png', url: '#' },
       { img: 'assets/img/icon_Ig.png', url: '#' },
-      { img: 'assets/img/icon_X.png', url: '#' }
-    ]
+      { img: 'assets/img/icon_X.png', url: '#' },
+    ],
   };
+
+  daily: number = 0;
+  weekly: number = 0;
+  monthly: number = 0;
+  yearly: number = 0;
+  all: number = 0;
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
     public translate: TranslateService
-  ) {
-  }
+  ) {}
 
   private animated = false;
 
-
   ngOnInit(): void {
     this.readAboutMe();
+    this.readCountIP();
     AOS.init({
       duration: 800,
       once: false,
       mirror: true,
-      offset: 10
+      offset: 10,
     });
 
     setTimeout(() => {
@@ -56,11 +60,10 @@ export class FooterComponent {
 
     // ✅ เรียกเช็ก localStorage แบบ real-time ทุก 500ms
     setInterval(() => {
-      this.isShow = localStorage.getItem("isShow") ?? 'false'; // default เป็น true ถ้าไม่มีค่า
+      this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
 
     this.checkAndAnimate();
-
   }
 
   @HostListener('window:scroll')
@@ -82,46 +85,49 @@ export class FooterComponent {
     }
   }
 
-
   startAnimation() {
-  const daily = this.randomInRange(10, 20);
-  const weekly = this.randomInRange(50, 120);
-  const monthly = this.randomInRange(300, 600);
-  const yearly = this.randomInRange(4000, 9000);
-  const total = daily + weekly + monthly + yearly;
 
-  this.animateCounter('#daily', daily, 0);
-  this.animateCounter('#weekly', weekly, 0.1);
-  this.animateCounter('#monthly', monthly, 0.2);
-  this.animateCounter('#yearly', yearly, 0.3);
-  this.animateCounter('#total', total, 0.4);
-}
+    this.animateCounter('#daily', this.daily, 0);
+    this.animateCounter('#weekly', this.weekly, 0.1);
+    this.animateCounter('#monthly', this.monthly, 0.2);
+    this.animateCounter('#yearly', this.yearly, 0.3);
+    this.animateCounter('#total', this.all, 0.4);
+  }
 
-animateCounter(selector: string, value: number, delay: number) {
-  const obj = { val: 0 };
-  gsap.to(obj, {
-    val: value,
-    duration: 1.5, // เร็วขึ้น
-    delay,
-    ease: 'power2.out',
-    onUpdate: () => {
-      const el = document.querySelector(selector);
-      if (el) el.textContent = Math.floor(obj.val).toLocaleString();
-    }
-  });
-}
+  animateCounter(selector: string, value: number, delay: number) {
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: value,
+      duration: 1.5, // เร็วขึ้น
+      delay,
+      ease: 'power2.out',
+      onUpdate: () => {
+        const el = document.querySelector(selector);
+        if (el) el.textContent = Math.floor(obj.val).toLocaleString();
+      },
+    });
+  }
 
   randomInRange(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   readAboutMe() {
-    this.serviceProvider
-      .post('m/aboutUs/read', {})
-      .subscribe((data) => {
-        let model: any = {};
-        model = data;
-        this.aboutMeModel = model.objectData;
-      });
+    this.serviceProvider.post('m/aboutUs/read', {}).subscribe((data) => {
+      let model: any = {};
+      model = data;
+      this.aboutMeModel = model.objectData;
+    });
+  }
+  readCountIP() {
+    this.serviceProvider.get('ip/readCount').subscribe((data) => {
+      let model: any = {};
+      model = data;
+      this.daily = model?.objectData?.countDay ?? 0;
+      this.weekly = model?.objectData?.countWeek ?? 0;
+      this.monthly = model?.objectData?.countMonth ?? 0;
+      this.yearly = model?.objectData?.countYear ?? 0;
+      this.all = model?.objectData?.countAll ?? 0;
+    });
   }
 }

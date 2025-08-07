@@ -101,6 +101,7 @@ export class RegisterFormComponent {
     private toastr: ToastrService,) { }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('register-form');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.readProvince();
   }

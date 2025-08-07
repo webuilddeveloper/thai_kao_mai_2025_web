@@ -1,11 +1,13 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'newsAndEvent' | translate }}</h1>
-    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }} // <span class="sub-title">{{ 'newsAndEvent' | translate }}</span></p>
+    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'newsAndEvent' |
+      translate }}</h1>
+    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }}
+      // <span class="sub-title">{{ 'newsAndEvent' | translate }}</span></p>
   </div>
 </div>
-<div class="vertical">
+<!-- <div class="vertical">
   <div class="news-section">
     <div class="section-header">
       <h3 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p32' : 'p36' " >{{ 'newsAndEvent' | translate }}</h3>
@@ -45,4 +47,7 @@
       </div>
     </div>
   </div>
+</div> -->
+<div class="overlay-main">
+  <app-coming-soon></app-coming-soon>
 </div>

@@ -19,6 +19,7 @@ export class PolicyComponent implements OnInit {
   model: any = [];
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('policy');
     this.callRead();
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({

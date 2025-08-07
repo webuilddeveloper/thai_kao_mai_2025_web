@@ -1,0 +1,31 @@
+.coming-soon-container {
+  // height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.coming-soon-image {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.coming-soon-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.coming-soon-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.overlay{
+  margin: 20px 0px;
+}

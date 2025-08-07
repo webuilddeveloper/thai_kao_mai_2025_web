@@ -43,6 +43,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('news');
     this.callRead();
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({

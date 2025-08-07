@@ -9,7 +9,7 @@
     <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
       <div class="sub-menu">
         <span class="heading" routerLink="">
-          Contact Us
+          {{ 'contactUs' | translate }}
         </span>
         <div class="box-menu">
           <div class="div-icon">
@@ -61,23 +61,23 @@
     <div class="col-12 col-md-6 col-lg-3">
       <div class="visitor-stats" id="visitorStats">
         <div class="stat-item total">
-          <div class="stat-label">ผู้เข้าชมทั้งหมด</div>
+          <div class="stat-label">{{ 'visitorsAll' | translate }}</div>
           <div class="stat-number" id="total">0</div>
         </div>
         <div class="stat-item">
-          <div class="stat-label">ผู้เข้าชมปีนี้</div>
+          <div class="stat-label">{{ 'visitorsYear' | translate }}</div>
           <div class="stat-number" id="yearly">0</div>
         </div>
         <div class="stat-item">
-          <div class="stat-label">ผู้เข้าชมเดือนนี้</div>
+          <div class="stat-label">{{ 'visitorsMonth' | translate }}</div>
           <div class="stat-number" id="monthly">0</div>
         </div>
         <div class="stat-item">
-          <div class="stat-label">ผู้เข้าชมสัปดาห์นี้</div>
+          <div class="stat-label">{{ 'visitorsWeek' | translate }}</div>
           <div class="stat-number" id="weekly">0</div>
         </div>
         <div class="stat-item">
-          <div class="stat-label">ผู้เข้าชมวันนี้</div>
+          <div class="stat-label">{{ 'visitorsToday' | translate }}</div>
           <div class="stat-number" id="daily">0</div>
         </div>
       </div>

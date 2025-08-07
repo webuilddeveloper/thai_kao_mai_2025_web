@@ -17,6 +17,7 @@ export class RegisterComponent {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('register');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,       // ความเร็ว animation

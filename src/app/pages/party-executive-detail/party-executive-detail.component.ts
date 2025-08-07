@@ -6,45 +6,40 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
-  selector: 'app-party-executive',
+  selector: 'app-party-executive-detail',
   templateUrl: './party-executive-detail.component.html',
-  styleUrls: ['./party-executive-detail.component.scss']
+  styleUrls: ['./party-executive-detail.component.scss'],
 })
 export class PartyExecutiveComponent {
-
   aboutMeModel: any = {};
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
     public translate: TranslateService
-  ) {
+  ) {}
 
-  }
-
- deputyLeaders = [
-  {
-    image: './assets/img/party_leader.png',
-    firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  },
-  {
-    image: './assets/img/party_leader.png',
-     firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  },
-  {
-    image: './assets/img/party_leader.png',
-     firstName: 'BBB',
-    lastName : 'BBB1',
-    position: 'รองหัวหน้าพรรค'
-  }
-];
-
+  deputyLeaders = [
+    {
+      image: './assets/img/party_leader.png',
+      firstName: 'BBB',
+      lastName: 'BBB1',
+      position: 'รองหัวหน้าพรรค',
+    },
+    {
+      image: './assets/img/party_leader.png',
+      firstName: 'BBB',
+      lastName: 'BBB1',
+      position: 'รองหัวหน้าพรรค',
+    },
+    {
+      image: './assets/img/party_leader.png',
+      firstName: 'BBB',
+      lastName: 'BBB1',
+      position: 'รองหัวหน้าพรรค',
+    },
+  ];
 
   ngOnInit(): void {
-
+    this.serviceProvider.SendIPAddress('party-executive-detail');
   }
-
 }

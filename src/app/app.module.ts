@@ -43,6 +43,7 @@ import { CookieBannerComponent } from './component/cookie-banner/cookie-banner.c
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
@@ -79,6 +80,7 @@ registerLocaleData(localeTh);
     First2Component,
     CookieBannerComponent,
     SuggestionComponent,
+    ComingSoonComponent,
   ],
   imports: [
     BrowserModule,

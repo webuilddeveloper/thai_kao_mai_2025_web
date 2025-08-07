@@ -77,6 +77,7 @@ export class DonateComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.serviceProvider.SendIPAddress('donate');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,
