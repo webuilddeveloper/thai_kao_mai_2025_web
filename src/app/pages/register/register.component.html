@@ -1,7 +1,7 @@
 <div class="main">
   <div class="div-main">
     <div class="div-content">
-      <span [ngClass]="deviceSize == 'm' ? 'p30' : deviceSize == 't' ? 'p30' : 'p38'"class="head-title" data-aos="fade-right">{{'partymembers'|translate}}</span>
+      <span [ngClass]="deviceSize == 'm' ? 'p30' : deviceSize == 't' ? 'p30' : 'p38'" class="head-title" data-aos="fade-right">{{'partymembers'|translate}}</span>
       <div class="spacer"></div>
       <div class="spacer"></div>
       <span class="sub-head-title p24" data-aos="fade-right">
@@ -37,9 +37,10 @@
       </ol>
       <div class="spacer"></div>
       <div class="spacer"></div>
-      <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+      <div class="d-flex flex-column justify-content-center align-items-center gap-3">
         <button class="btn-main p20 " (click)="gotoForm()" data-aos="flip-up">{{'proceed'|translate}}</button>
-        <button class="btn-second p20 " (click)="downloadRegisForm()" data-aos="flip-up">{{'download-doc'|translate}}</button>
+        <span class="title" [ngClass]="deviceSize == 'm' ? 'p12' : 'p16'" data-aos="fade-right">หรือ <a (click)="downloadRegisForm()" class="">{{'download-doc'|translate}}</a> เพื่อพิมพ์ใบสมัคร</span>
+        <!-- <button class="btn-second p20 " (click)="downloadRegisForm()" data-aos="flip-up">{{'download-doc'|translate}}</button> -->
       </div>
     </div>
   </div>

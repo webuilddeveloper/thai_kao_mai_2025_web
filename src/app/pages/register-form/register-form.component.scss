@@ -375,6 +375,9 @@ i {
     row-gap: 14px;
   }
 
+  .btn-main-disabled {
+    min-width: -webkit-fill-available !important;
+  }
 }
 
 .modal-backdrop {

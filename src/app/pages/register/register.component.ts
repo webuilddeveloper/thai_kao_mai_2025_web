@@ -17,6 +17,7 @@ export class RegisterComponent {
   }
 
   ngOnInit(): void {
+    this.deviceSize = localStorage.getItem('deviceSize') || '';
     AOS.init({
       duration: 800,       // ความเร็ว animation
       once: false,         // ❌ false = ให้เล่นซ้ำได้ ไม่ใช่ครั้งเดียว
@@ -48,7 +49,7 @@ export class RegisterComponent {
   }
 
   downloadRegisForm() {
-    (this.modelAboutUs.membershipApplication ?? "") == "" ? window.open(this.modelAboutUs.membershipApplication, '_blank') : null;
+    (this.modelAboutUs.membershipApplication ?? "") != "" ? window.open(this.modelAboutUs.membershipApplication, '_blank') : null;
   }
 
 }
