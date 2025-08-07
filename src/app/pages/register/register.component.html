@@ -39,7 +39,7 @@
       <div class="spacer"></div>
       <div class="d-flex flex-column justify-content-center align-items-center gap-3">
         <button class="btn-main p20 " (click)="gotoForm()" data-aos="flip-up">{{'proceed'|translate}}</button>
-        <span class="title" [ngClass]="deviceSize == 'm' ? 'p12' : 'p16'" data-aos="fade-right">หรือ <a (click)="downloadRegisForm()" class="">{{'download-doc'|translate}}</a> เพื่อพิมพ์ใบสมัคร</span>
+        <span class="title f-w-400" [ngClass]="deviceSize == 'm' ? 'p12' : 'p16'" data-aos="fade-right">{{'or'|translate}} <a (click)="downloadRegisForm()" class="f-w-600">{{'clickHere'|translate}}</a> {{'toPrint'|translate}}</span>
         <!-- <button class="btn-second p20 " (click)="downloadRegisForm()" data-aos="flip-up">{{'download-doc'|translate}}</button> -->
       </div>
     </div>

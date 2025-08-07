@@ -219,5 +219,7 @@
   "acceptPDPA":"Accept the Personal Data Protection Act",
   "idCardNumberIncorrect":"The ID card number is incorrect",
   "corporateIdentityNumber":"corporate identity number",
-  "or": "or"
+  "or": "or",
+  "clickHere": "click here",
+  "toPrint": "to print the application form"
 }
