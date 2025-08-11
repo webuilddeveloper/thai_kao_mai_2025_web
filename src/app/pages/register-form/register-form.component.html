@@ -60,13 +60,13 @@
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'birth'|translate}}</label>
             <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="date"
-              [(ngModel)]="model.birthDay" (ngModelChange)="model.birthDay" name="birthDay">
+              [(ngModel)]="model.birthDay" (ngModelChange)="calculateAge($event)" name="birthDay">
           </div>
           <div class="div-input col-lg-1 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'age'|translate}}</label>
             <input type="number" [(ngModel)]="model.age" (ngModelChange)="[model.age, onSubmit(registerForm)]"
-              name="age" class="form-control" #age="ngModel" [ngClass]="{
+              name="age" class="form-control" #age="ngModel" min="0" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -112,8 +112,14 @@
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
-                'is-invalid': idcard.invalid && idcard.touched
-              }" required>
+                'is-invalid': (idcard.invalid && idcard.touched) || !isValidNationalID(model.idcard)
+              }" (keypress)="allowOnlyNumber($event)" required>
+            <div class="invalid-feedback" *ngIf="idcard.invalid && idcard.touched">
+              {{'enterNationalID' |translate}}
+            </div>
+            <div class="invalid-feedback" *ngIf="model.idcard && !isValidNationalID(model.idcard)">
+              {{'idCardNumberIncorrect' | translate}}
+            </div>
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
@@ -206,7 +212,7 @@
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
               'is-invalid': road.invalid && road.touched
-            }" required>
+            }">
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
