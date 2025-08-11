@@ -60,6 +60,10 @@ constructor(
         localStorage.setItem("isShow", "true");
         this.router.navigate(['/register']);
         break;
+      case 'register-member':
+        localStorage.setItem("isShow", "true");
+        this.router.navigate(['/register-member']);
+        break;
       case 'donate':
         localStorage.setItem("isShow", "true");
         this.router.navigate(['/donate']);
