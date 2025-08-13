@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 import { FileUploadService } from 'src/app/shared/file-upload.service';
@@ -100,13 +101,21 @@ export class RegisterFormComponent {
     public translate: TranslateService,
     private router: Router,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
     this.serviceProvider.SendIPAddress('register-form');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.readProvince();
+      this.spinner.show();
+
+    // 2. จำลองการทำงานที่ใช้เวลา (เช่น การเรียก API)
+    setTimeout(() => {
+      // 3. เมื่อทำงานเสร็จ ให้ซ่อน Spinner
+      this.spinner.hide();
+    }, 3000); // <-- ให้แสดงเป็นเวลา 3 วินาที
   }
 
   async onFileProfileSelected(event: Event) {
