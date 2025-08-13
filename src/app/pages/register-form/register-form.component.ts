@@ -109,13 +109,11 @@ export class RegisterFormComponent {
     this.serviceProvider.SendIPAddress('register-form');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.readProvince();
-      this.spinner.show();
+    // this.spinner.show();
 
-    // 2. จำลองการทำงานที่ใช้เวลา (เช่น การเรียก API)
-    setTimeout(() => {
-      // 3. เมื่อทำงานเสร็จ ให้ซ่อน Spinner
-      this.spinner.hide();
-    }, 3000); // <-- ให้แสดงเป็นเวลา 3 วินาที
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 3000);
   }
 
   async onFileProfileSelected(event: Event) {
@@ -442,14 +440,19 @@ export class RegisterFormComponent {
   }
 
   sendApi() {
+    this.spinner.show();
     this.model.status = 'N';
-    this.serviceProvider
-      .post('partyMembers/create', this.model)
-      .subscribe((res) => {
+    this.serviceProvider.post('partyMembers/create', this.model).subscribe(
+      (res) => {
         let data: any = {};
         data = res;
+        this.spinner.hide();
         this.openModal();
-      });
+      },
+      (err) => {
+        this.spinner.hide();
+      }
+    );
   }
 
   partyRegisterHistoryChange(event: any) {
