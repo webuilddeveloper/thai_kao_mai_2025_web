@@ -35,14 +35,16 @@ export class RegisterFormComponent {
     provinceBirthCode: '',
     provinceBirth: '',
     membershipType: 'monthly',
-    provinceIssueCode: '',
-    districtIssueCode: '',
+    // provinceIssueCode: '',
+    // districtIssueCode: '',
     provinceCode: '',
     amphoeCode: '',
     tambonCode: '',
     postnoCode: '',
     partyRegisterHistory: 'never',
+    registerType: 'yearly',
     acceptChk: false,
+    acceptChk2: false,
   };
   deviceSize: string = '';
 
@@ -103,7 +105,7 @@ export class RegisterFormComponent {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.serviceProvider.SendIPAddress('register-form');
@@ -140,6 +142,23 @@ export class RegisterFormComponent {
         (data) => {
           const model: any = data;
           this.model.onFilePhoto1_5 = model.imageUrl; // ✅ ไม่ต้อง await
+          this.onSubmit(formRef);
+        },
+        (err) => {
+          console.log('error', err);
+        }
+      );
+    }
+  }
+
+  async onFileSlipPay(event: Event, formRef: NgForm) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile('', input.files[0]).subscribe(
+        (data) => {
+          const model: any = data;
+          this.model.slipPay = model.imageUrl; // ✅ ไม่ต้อง await
           this.onSubmit(formRef);
         },
         (err) => {
@@ -338,7 +357,7 @@ export class RegisterFormComponent {
           this.listProvince = model.objectData;
         }
       },
-      (err) => {}
+      (err) => { }
     );
   }
 
@@ -352,7 +371,7 @@ export class RegisterFormComponent {
           this.listDistrict = model.objectData;
           console.log(this.listDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -366,7 +385,7 @@ export class RegisterFormComponent {
           this.listSubDistrict = model.objectData;
           console.log(this.listSubDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -379,7 +398,7 @@ export class RegisterFormComponent {
           model = data;
           this.listDistrictIssue = model.objectData;
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -464,6 +483,14 @@ export class RegisterFormComponent {
     }
   }
 
+  partyRegisterTypeChange(event: any) {
+    if (event == 'yearly') {
+      this.model.registerType = 'yearly';
+    } else {
+      this.model.registerType = 'lifetime';
+    }
+  }
+
   onSubmit(formRef: NgForm) {
     if (formRef.invalid) {
       // mark ทุก field เป็น touched เพื่อให้แสดง error
@@ -484,6 +511,9 @@ export class RegisterFormComponent {
       if (!this.model.acceptChk) {
         isValid = true;
       }
+      if (!this.model.acceptChk2) {
+        isValid = true;
+      }
       if (
         (this.model.copyIDCard ?? '') == '' ||
         this.model.copyIDCard == undefined
@@ -502,6 +532,12 @@ export class RegisterFormComponent {
       ) {
         isValid = true;
       }
+      if (
+        (this.model.slipPay ?? '') == '' ||
+        this.model.slipPay == undefined
+      ) {
+        isValid = true;
+      }
       if (isValid) {
         this.isBtn = false;
         return;
@@ -512,9 +548,13 @@ export class RegisterFormComponent {
     }
   }
 
-  chkAccept(param: any) {
+  chkAccept(param: any, type: string) {
     const checkbox = param.target as HTMLInputElement;
-    this.model.acceptChk = checkbox.checked;
+    if (type == '1') {
+      this.model.acceptChk = checkbox.checked;
+    } else if (type == '2') {
+      this.model.acceptChk2 = checkbox.checked;
+    }
   }
 
   allowOnlyNumbers(event: KeyboardEvent) {
@@ -545,6 +585,8 @@ export class RegisterFormComponent {
       this.model.copyHouseRegistration = null;
     } else if (param == 'onFilePhoto1_5') {
       this.model.onFilePhoto1_5 = null;
+    } else if (param == 'slipPay') {
+      this.model.slipPay = null;
     }
   }
 
@@ -555,6 +597,8 @@ export class RegisterFormComponent {
       this.copyHouseRegistrationSelected(event, formRef);
     } else if (param == 'onFilePhoto1_5') {
       await this.onFilePhoto1_5(event, formRef);
+    } else if (param == 'slipPay') {
+      await this.onFileSlipPay(event, formRef);
     }
     // this.onSubmit(formRef)
   }

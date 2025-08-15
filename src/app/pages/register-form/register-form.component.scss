@@ -184,8 +184,8 @@ i {
 }
 
 .div-file-slip {
-  height: 400px;
-  width: 350px;
+  height: 320px;
+  width: 200px;
   border-radius: 20px;
   border: 1px dashed var(--nevy);
   display: flex;
@@ -221,7 +221,8 @@ i {
 
 .div-img-file {
   width: -webkit-fill-available;
-  height: 200px;
+  height: -webkit-fill-available;
+  // height: 200px;
   overflow: hidden;
   border-radius: 20px;
   text-align: center;
@@ -379,6 +380,11 @@ i {
 
   .btn-main-disabled {
     min-width: -webkit-fill-available !important;
+  }
+
+  .div-slip-pay {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
