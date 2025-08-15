@@ -306,8 +306,8 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">ID Line</label>
-            <input type="tel" pattern="0[0-9]{9}" maxlength="10" [(ngModel)]="model.lineID"
-              (ngModelChange)="[model.lineID, onSubmit(registerForm)]" name="lineID" inputmode="numeric"
+            <input type="text" [(ngModel)]="model.lineID"
+              (ngModelChange)="[model.lineID, onSubmit(registerForm)]" name="lineID"
               placeholder="{{'enter' | translate}} ID Line" (keydown)="allowOnlyNumbers($event)" class="form-control"
               [ngClass]="{
                 'p12': deviceSize === 'm',
