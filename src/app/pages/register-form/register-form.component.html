@@ -618,18 +618,18 @@
 
         <div class="div-input col-12">
           <div class="div-checkbox">
-            <input type="checkbox" id="" [(ngModel)]="model.acceptChk"
+            <input type="checkbox" id="certification" [(ngModel)]="model.acceptChk"
               (change)="[chkAccept($event, '1'), onSubmit(registerForm)]" />
-            <label
+            <label [attr.for]="'certification'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}
               <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
                 *ngIf="(model.acceptChk ?? false) == false">
             </label>
           </div>
           <div class="div-checkbox">
-            <input type="checkbox" id="" [(ngModel)]="model.acceptChk2"
+            <input type="checkbox" id="certification2" [(ngModel)]="model.acceptChk2"
               (change)="[chkAccept($event, '2'), onSubmit(registerForm)]" />
-            <label
+            <label [attr.for]="'certification2'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification2'|translate}}
               <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
                 *ngIf="(model.acceptChk2 ?? false) == false">
