@@ -466,7 +466,12 @@ export class RegisterFormComponent {
         let data: any = {};
         data = res;
         this.spinner.hide();
-        this.openModal();
+        if (data.status == 'N') {
+          this.toastr.warning(data.message, 'แจ้งเตือน');
+          return;
+        } else {
+          this.openModal();
+        }
       },
       (err) => {
         this.spinner.hide();
@@ -544,7 +549,6 @@ export class RegisterFormComponent {
       } else {
         this.isBtn = true;
       }
-      // this.sendApi();
     }
   }
 
