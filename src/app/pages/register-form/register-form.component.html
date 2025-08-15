@@ -308,7 +308,7 @@
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">ID Line</label>
             <input type="text" [(ngModel)]="model.lineID"
               (ngModelChange)="[model.lineID, onSubmit(registerForm)]" name="lineID"
-              placeholder="{{'enter' | translate}} ID Line" (keydown)="allowOnlyNumbers($event)" class="form-control"
+              placeholder="{{'enter' | translate}} ID Line" class="form-control"
               [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
