@@ -496,7 +496,7 @@
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'slip'|translate}}&nbsp;
                     <img src="./assets/icons/error.png" class="icon-err" alt=""
-                      *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
+                      *ngIf="(model.slipPay ?? '') == ''">
                   </label>
                   <label class="div-file-slip label-photo1-5">
                     <span class="p14" *ngIf="model.slipPay == null">* {{'select-photo'|translate}}</span>
