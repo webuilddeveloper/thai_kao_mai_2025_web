@@ -216,7 +216,7 @@
   "thinkTank": "คลังสมอง",
   "trainingThaiKaoMai": "อบรมยุวไทยก้าวใหม่",
   "applyPartyMembership": "สมัครสมาชิกพรรค",
-  "joinPartyActivities": "มีตวามประสงค์ร่วมงาน/กิจกรรมพรรค",
+  "joinPartyActivities": "มีความประสงค์ร่วมงาน/กิจกรรมพรรค",
   "acceptPDPA":"ยอมรับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล",
   "idCardNumberIncorrect":"เลขบัตรประชาชนไม่ถูกต้อง",
   "corporateIdentityNumber":"เลขนิติบุคคล",
@@ -231,5 +231,12 @@
   "registerType": "ข้าพเจ้ามีความประสงค์สมัครเป็นพรรคสมาชิกพรรคไทยก้าวใหม่",
   "yearly": "ประเภทรายปี (ค่าบำรุงพรรคจำนวน 20 บาท)",
   "lifetime": "ประเภทตลอดชีพ (ชำระค่าบำรุงพรรคจำนวน 200 บาท)",
-  "slip": "ใบเสร็จการโอนเงิน"
+  "slip": "ใบเสร็จการโอนเงิน",
+    "brainBank":"คลังสมอง / สนับสนุนงานวิชาการ",
+  "applySenator":"สนใจสมัคร สก.",
+  "applyMpConstituency":"สนใจสมัคร สส. เขต",
+  "applyMpPartylist":"สนใจสมัคร สส. บัญชีรายชื่อ",
+  "volunteerField":"อาสาสมัครลงพื้นที่",
+  "joinWorkshop":"ร่วม workshop หรือ event ของพรรค",
+  "other":"อื่นๆ"
 }

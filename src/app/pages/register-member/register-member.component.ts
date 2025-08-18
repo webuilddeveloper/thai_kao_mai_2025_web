@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
@@ -16,7 +17,8 @@ export class RegisterMemberComponent implements OnInit {
     private serviceProvider: ServiceProvider,
     public translate: TranslateService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
   deviceSize: string = '';
   isModalOpen = false;
@@ -42,19 +44,19 @@ export class RegisterMemberComponent implements OnInit {
       pdpaDetail:
         'รายละเอียด PDPA การลงทะเบียนสมาชิกพรรคในครั้งนี้ ข้าพเจ้ากระทำโดยความสมัครใจของข้าพเจ้าเองและเงินค่าบำรุงพรรคเป็นของข้าพเจ้า รวมทั้งข้าพเจ้าเป็นผู้มีคุณสมบัติและไม่มีลักษณะต้องห้ามตามมาตรา 24 แห่ง พรป.ว่าด้วยพรรคการเมือง พ.ศ. 2560 และหากพรรคตรวจสอบแล้วพบว่า ข้อมูล ดังกล่าวไม่เป็นความจริงพรรคอาจปฏิเสธการลงทะเบียนเป็นสมาชิกพรรค ของข้าพเจ้าได้',
     },
-    {
-      label: `ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับ
-ข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่
-เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ
-และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ
-และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค`,
-      checked: false,
-      pdpaDetail:
-        'ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่ เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค',
-    },
+    //     {
+    //       label: `ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับ
+    // ข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่
+    // เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ
+    // และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ
+    // และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค`,
+    //       checked: false,
+    //       pdpaDetail:
+    //         'ข้าพเจ้าตกลงยินยอมให้พรรคไทยก้าวใหม่สามารถเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลสำหรับข้อมูลภาพถ่ายบัตรประจำตัวประชาชนของข้าพเจ้าที่ทำการถ่ายภาพและข้อมูลต่าง ๆ ในภาพดังกล่าว ได้แก่ เลขบัตรประจำตัวประชาชน ชื่อ นามสกุล วันเดือนปีเกิด ที่อยู่ วันที่ออกบัตร วันบัตรหมดอายุ และรูปถ่ายของข้าพเจ้าในบัตรประจำตัวประชาชน และรูปถ่ายใบหน้าของข้าพเจ้า ทั้งนี้เพื่อเป็นการตรวจสอบ และยืนยันตัวตนในการลงทะเบียนและเป็นหลักฐานในการลงทะเบียนสมาชิกพรรค',
+    //     },
   ];
 
-  model: any = { prefixName: '', status: 'N' };
+  model: any = { prefixName: '', status: 'N', isOther: false };
   modelPrefix: any = [
     {
       value: 'นาย',
@@ -84,13 +86,24 @@ export class RegisterMemberComponent implements OnInit {
       this.toastr.warning('กรุณายินยอม Policy', 'แจ้งเตือน');
       return;
     }
-    this.serviceProvider
-      .post('partyFanClub/create', this.model)
-      .subscribe((res) => {
+    this.spinner.show();
+    this.serviceProvider.post('partyFanClub/create', this.model).subscribe(
+      (res) => {
         let data: any = {};
         data = res;
-        this.openModal();
-      });
+        // this.openModal();
+        this.spinner.hide();
+        if (data.status == 'N') {
+          this.toastr.warning(data.message, 'แจ้งเตือน');
+          return;
+        } else {
+          this.openModal();
+        }
+      },
+      (err) => {
+        this.spinner.hide();
+      }
+    );
   }
 
   openModal() {
@@ -152,17 +165,32 @@ export class RegisterMemberComponent implements OnInit {
     document.body.style.overflow = '';
   }
 
-    onSubmit(formRef: NgForm) {
-      debugger
-      if (formRef.invalid) {
-        // mark ทุก field เป็น touched เพื่อให้แสดง error
-        Object.values(formRef.controls).forEach((control) => {
-          control.markAsTouched();
-        });
+  onSubmit(formRef: NgForm) {
+    debugger;
+    if (formRef.invalid) {
+      // mark ทุก field เป็น touched เพื่อให้แสดง error
+      Object.values(formRef.controls).forEach((control) => {
+        control.markAsTouched();
+      });
 
-        return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
-      }
-
-      this.sendApi();
+      return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
     }
+
+    this.sendApi();
+  }
+
+   allowOnlyNumbers(event: KeyboardEvent) {
+    const allowedKeys = [
+      'Backspace',
+      'ArrowLeft',
+      'ArrowRight',
+      'Tab',
+      'Delete',
+    ];
+
+    // อนุญาตเฉพาะตัวเลข 0-9 และปุ่มที่จำเป็น
+    if (!/^[0-9]$/.test(event.key) && !allowedKeys.includes(event.key)) {
+      event.preventDefault(); // ❌ ป้องกันไม่ให้พิมพ์ตัวอักษร
+    }
+  }
 }

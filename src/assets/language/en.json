@@ -232,5 +232,12 @@
   "registerType": "I would like to apply to be a member of the Thai Kao Mai Party",
   "yearly": "Annual type (Party maintenance fee of 20 baht)",
   "lifetime": "Lifetime type (pay a party maintenance fee of 200 baht)",
-  "slip": "Transfer receipt"
+  "slip": "Transfer receipt",
+  "brainBank":"Think tank / Academic support",
+  "applySenator":"Interested in applying for senator",
+  "applyMpConstituency":"Interested in applying for constituency MP",
+  "applyMpPartylist":"Interested in applying for party-list MP",
+  "volunteerField":"Volunteer for field work",
+  "joinWorkshop":"Join party workshop or event",
+  "other":"Other"
 }
