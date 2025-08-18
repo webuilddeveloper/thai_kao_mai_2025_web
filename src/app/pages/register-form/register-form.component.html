@@ -306,10 +306,8 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">ID Line</label>
-            <input type="text" [(ngModel)]="model.lineID"
-              (ngModelChange)="model.lineID" name="lineID"
-              placeholder="{{'enter' | translate}} ID Line" class="form-control"
-              [ngClass]="{
+            <input type="text" [(ngModel)]="model.lineID" (ngModelChange)="model.lineID" name="lineID"
+              placeholder="{{'enter' | translate}} ID Line" class="form-control" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't'
@@ -489,9 +487,11 @@
           <div class="spacer"></div>
           <div class="col-12">
             <div class="row row-form-gap">
-              <div class="col-lg-6 col-md-6 col-12 d-flex column-gap-lg-5 div-slip-pay">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 d-flex column-gap-lg-5 div-slip-pay">
                 <img src="./assets/img/รายปี.jpg" alt="" class="qr-code" *ngIf="model.registerType == 'yearly'">
                 <img src="./assets/img/ตลอดชีพ.jpg" alt="" class="qr-code" *ngIf="model.registerType == 'lifetime'">
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'slip'|translate}}&nbsp;
@@ -523,31 +523,54 @@
 
         <span class="title">{{'applicationEvidence'|translate}}</span>
         <div class="row row-form-gap">
-          <div class="col-lg-6 col-md-6 col-12">
-            <div class="card-file">
-              <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-                for="">{{'photo1.5'|translate}}&nbsp;
-                <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
-                  *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
-              </label>
-              <label class="div-file-photo1-5 label-photo1-5">
-                <span class="p14" *ngIf="model.onFilePhoto1_5 == null">* {{'select-photo'|translate}}</span>
-                <div class="div-img-file" *ngIf="model.onFilePhoto1_5 != null">
-                  <img [src]="model.onFilePhoto1_5" />
-                  <div class="delete-img" *ngIf="model.onFilePhoto1_5 != null"
-                    (click)="[fileDelete('onFilePhoto1_5'), onSubmit(registerForm)]">
-                    <i class="material-icons">close</i>
-                  </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card-file">
+                  <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
+                    for="">{{'photo1.5'|translate}}&nbsp;
+                    <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                      *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
+                  </label>
+                  <label class="div-file-photo1-5 label-photo1-5">
+                    <span class="p14" *ngIf="model.onFilePhoto1_5 == null">* {{'select-photo'|translate}}</span>
+                    <div class="div-img-file" *ngIf="model.onFilePhoto1_5 != null">
+                      <img [src]="model.onFilePhoto1_5" />
+                      <div class="delete-img" *ngIf="model.onFilePhoto1_5 != null"
+                        (click)="[fileDelete('onFilePhoto1_5'), onSubmit(registerForm)]">
+                        <i class="material-icons">close</i>
+                      </div>
+                    </div>
+                    <input type="file" accept="image/*" (change)="selectFile('onFilePhoto1_5',$event, registerForm)">
+                  </label>
                 </div>
-                <input type="file" accept="image/*" (change)="selectFile('onFilePhoto1_5',$event, registerForm)">
-              </label>
-
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="card-file">
+                  <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
+                    for="">{{'photoSelfie'|translate}}&nbsp;
+                    <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                      *ngIf="(model.photoSelfie ?? '') == ''">
+                  </label>
+                  <label class="div-file-photo1-5 label-photo1-5">
+                    <span class="p14" *ngIf="model.photoSelfie == null">* {{'select-photo'|translate}}</span>
+                    <div class="div-img-file" *ngIf="model.photoSelfie != null">
+                      <img [src]="model.photoSelfie" />
+                      <div class="delete-img" *ngIf="model.photoSelfie != null"
+                        (click)="[fileDelete('photoSelfie'), onSubmit(registerForm)]">
+                        <i class="material-icons">close</i>
+                      </div>
+                    </div>
+                    <input type="file" accept="image/*" (change)="selectFile('photoSelfie',$event, registerForm)">
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for=""
-                class="d-flex m-2">{{'copyIDCard'| translate}} &nbsp;
+                class="d-flex">{{'copyIDCard'| translate}} &nbsp;
                 <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
                   *ngIf="(model.copyIDCard ?? '') == ''">
               </label>
@@ -567,7 +590,7 @@
 
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="">{{'copyHouseRegistration'| translate}} &nbsp;
@@ -589,7 +612,7 @@
 
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="">{{'nameChangeCertificate'| translate}}

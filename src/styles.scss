@@ -550,6 +550,7 @@ body {
   // color: #dc3545 !important;
   // font-size: var(--font-22);
   width: 22px;
+  height: fit-content;
 }
 
 .f-w-400 {
@@ -566,7 +567,8 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* สีเทาโปร่ง */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* สีเทาโปร่ง */
   display: flex;
   justify-content: center;
   align-items: center;

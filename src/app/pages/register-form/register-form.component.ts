@@ -151,6 +151,23 @@ export class RegisterFormComponent {
     }
   }
 
+  async onFilePhotoSelfie(event: Event, formRef: NgForm) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      this.fileuploadService.postFile('', input.files[0]).subscribe(
+        (data) => {
+          const model: any = data;
+          this.model.photoSelfie = model.imageUrl; // ✅ ไม่ต้อง await
+          this.onSubmit(formRef);
+        },
+        (err) => {
+          console.log('error', err);
+        }
+      );
+    }
+  }
+
   async onFileSlipPay(event: Event, formRef: NgForm) {
     const input = event.target as HTMLInputElement;
 
@@ -538,6 +555,12 @@ export class RegisterFormComponent {
         isValid = true;
       }
       if (
+        (this.model.photoSelfie ?? '') == '' ||
+        this.model.photoSelfie == undefined
+      ) {
+        isValid = true;
+      }
+      if (
         (this.model.slipPay ?? '') == '' ||
         this.model.slipPay == undefined
       ) {
@@ -591,6 +614,8 @@ export class RegisterFormComponent {
       this.model.onFilePhoto1_5 = null;
     } else if (param == 'slipPay') {
       this.model.slipPay = null;
+    } else if (param == 'photoSelfie') {
+      this.model.photoSelfie = null;
     }
   }
 
@@ -603,6 +628,8 @@ export class RegisterFormComponent {
       await this.onFilePhoto1_5(event, formRef);
     } else if (param == 'slipPay') {
       await this.onFileSlipPay(event, formRef);
+    } else if (param == 'photoSelfie') {
+      await this.onFilePhotoSelfie(event, formRef);
     }
     // this.onSubmit(formRef)
   }
