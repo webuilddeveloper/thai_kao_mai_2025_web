@@ -495,7 +495,7 @@
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'slip'|translate}}&nbsp;
-                    <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                    <img src="./assets/icons/error.png" class="icon-err" alt=""
                       *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
                   </label>
                   <label class="div-file-slip label-photo1-5">
@@ -529,7 +529,7 @@
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'photo1.5'|translate}}&nbsp;
-                    <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                    <img src="./assets/icons/error.png" class="icon-err" alt=""
                       *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
                   </label>
                   <label class="div-file-photo1-5 label-photo1-5">
@@ -549,7 +549,7 @@
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'photoSelfie'|translate}}&nbsp;
-                    <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                    <img src="./assets/icons/error.png" class="icon-err" alt=""
                       *ngIf="(model.photoSelfie ?? '') == ''">
                   </label>
                   <label class="div-file-photo1-5 label-photo1-5">
@@ -571,7 +571,7 @@
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for=""
                 class="d-flex">{{'copyIDCard'| translate}} &nbsp;
-                <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                <img src="./assets/icons/error.png" class="icon-err" alt=""
                   *ngIf="(model.copyIDCard ?? '') == ''">
               </label>
               <label class="div-file-doc">
@@ -594,7 +594,7 @@
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="">{{'copyHouseRegistration'| translate}} &nbsp;
-                <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+                <img src="./assets/icons/error.png" class="icon-err" alt=""
                   *ngIf="(model.copyHouseRegistration ?? '') == ''">
               </label>
               <label class="div-file-doc">
@@ -645,7 +645,7 @@
               (change)="[chkAccept($event, '1'), onSubmit(registerForm)]" />
             <label [attr.for]="'certification'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}
-              <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+              <img src="./assets/icons/error.png" class="icon-err" alt=""
                 *ngIf="(model.acceptChk ?? false) == false">
             </label>
           </div>
@@ -654,7 +654,7 @@
               (change)="[chkAccept($event, '2'), onSubmit(registerForm)]" />
             <label [attr.for]="'certification2'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification2'|translate}}
-              <img src="./../../../assets/icons/error.png" class="icon-err" alt=""
+              <img src="./assets/icons/error.png" class="icon-err" alt=""
                 *ngIf="(model.acceptChk2 ?? false) == false">
             </label>
           </div>
