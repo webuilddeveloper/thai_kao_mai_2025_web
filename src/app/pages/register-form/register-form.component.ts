@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -104,18 +104,52 @@ export class RegisterFormComponent {
     private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
-  ) { }
+    private spinner: NgxSpinnerService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.serviceProvider.SendIPAddress('register-form');
     this.deviceSize = localStorage.getItem('deviceSize') || '';
     this.readProvince();
+
     // this.spinner.show();
 
     // setTimeout(() => {
     //   this.spinner.hide();
     // }, 3000);
+  }
+
+  getParams() {
+    this.route.queryParams.subscribe((params) => {
+      if (params) {
+        // this.model = params;
+        this.model.idcard = params['idcard'];
+        this.model.prefixName = params['prefixName'];
+        this.model.firstName = params['firstName'];
+        this.model.lastName = params['lastName'];
+        this.model.birthDay = params['birthDay'];
+        if (this.model.birthDay) {
+          this.calculateAge(this.model.birthDay);
+        }
+        this.model.issueDate = params['issueDate'];
+        this.model.expiryDate = params['expiryDate'];
+        this.model.address = params['address'];
+        this.model.moo = params['moo'];
+        this.model.soi = params['soi'];
+        this.model.road = params['road'];
+        this.model.tambon = params['tambon'];
+        this.model.amphoe = params['amphoe'];
+        this.model.province = params['province'];
+        if (this.model.province) {
+          let provinceCode = this.listProvince.find(
+            (x: any) => x.title == this.model.province
+          )?.code;
+          this.model.provinceCode = provinceCode;
+          this.readDistrictParams(provinceCode);
+        }
+      }
+    });
   }
 
   async onFileProfileSelected(event: Event) {
@@ -372,9 +406,10 @@ export class RegisterFormComponent {
         model = data;
         if (model.status == 'S') {
           this.listProvince = model.objectData;
+          this.getParams();
         }
       },
-      (err) => { }
+      (err) => {}
     );
   }
 
@@ -386,9 +421,9 @@ export class RegisterFormComponent {
           let model: any = {};
           model = data;
           this.listDistrict = model.objectData;
-          console.log(this.listDistrict);
+          // console.log(this.listDistrict);
         },
-        (err) => { }
+        (err) => {}
       );
   }
 
@@ -400,9 +435,47 @@ export class RegisterFormComponent {
           let model: any = {};
           model = data;
           this.listSubDistrict = model.objectData;
-          console.log(this.listSubDistrict);
+          // console.log(this.listSubDistrict);
         },
-        (err) => { }
+        (err) => {}
+      );
+  }
+
+  readDistrictParams(code: string) {
+    this.serviceProvider
+      .post('route/district/read', { province: code })
+      .subscribe(
+        (data) => {
+          let model: any = {};
+          model = data;
+          this.listDistrict = model.objectData;
+          let amphoeCode = this.listDistrict.find(
+            (x: any) => x.title == this.model.amphoe
+          )?.code;
+          this.model.amphoeCode = amphoeCode;
+          this.readSubDistrictParams(amphoeCode);
+          // console.log(this.listDistrict);
+        },
+        (err) => {}
+      );
+  }
+
+  readSubDistrictParams(code: string) {
+    this.serviceProvider
+      .post('route/tambon/read', { district: code })
+      .subscribe(
+        (data) => {
+          let model: any = {};
+          model = data;
+          this.listSubDistrict = model.objectData;
+          let tambonCode = this.listSubDistrict.find(
+            (x: any) => x.title == this.model.tambon
+          );
+          this.model.tambonCode = tambonCode.code;
+          this.model.postnoCode = tambonCode.postCode;
+          // console.log(this.listSubDistrict);
+        },
+        (err) => {}
       );
   }
 
@@ -415,7 +488,7 @@ export class RegisterFormComponent {
           model = data;
           this.listDistrictIssue = model.objectData;
         },
-        (err) => { }
+        (err) => {}
       );
   }
 
@@ -560,10 +633,7 @@ export class RegisterFormComponent {
       ) {
         isValid = true;
       }
-      if (
-        (this.model.slipPay ?? '') == '' ||
-        this.model.slipPay == undefined
-      ) {
+      if ((this.model.slipPay ?? '') == '' || this.model.slipPay == undefined) {
         isValid = true;
       }
       if (isValid) {
