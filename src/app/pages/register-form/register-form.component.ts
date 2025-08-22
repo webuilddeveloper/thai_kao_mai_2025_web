@@ -138,9 +138,9 @@ export class RegisterFormComponent {
         this.model.moo = params['moo'];
         this.model.soi = params['soi'];
         this.model.road = params['road'];
-        this.model.tambon = params['tambon'];
+        this.model.tambon = params['tambon'].replace('ตำบล', '');
         this.model.amphoe = params['amphoe'];
-        this.model.province = params['province'];
+        this.model.province = params['province'].replace('จังหวัด', '');
         if (this.model.province) {
           let provinceCode = this.listProvince.find(
             (x: any) => x.title == this.model.province
