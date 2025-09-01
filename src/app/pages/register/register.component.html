@@ -1,7 +1,57 @@
 <div class="main">
   <div class="div-main">
-    <div class="div-content">
-      <span [ngClass]="deviceSize == 'm' ? 'p30' : deviceSize == 't' ? 'p30' : 'p38'" class="head-title" data-aos="fade-right">{{'partymembers'|translate}}</span>
+    <div class="div-content" *ngIf="!isInfoResiger">
+      <span class="title p18" data-aos="fade-right"> ถึงเวลาที่เราจะลุกขึ้นมาเปลี่ยนประเทศไทย
+        คุณรู้สึกหรือไม่ว่าประเทศเรากำลังเดินช้าเกินไป...ไม่ใช่เพราะเราขาดศักยภาพ
+        แต่เราขาดพลังที่จะขับเคลื่อนอย่างแท้จริง พรรคไทยก้าวใหม่
+        ขอเชิญชวนคุณมาร่วมเป็นส่วนหนึ่งของการเปลี่ยนแปลงครั้งสำคัญ เพื่อกอบกู้อนาคตและสร้างชาติให้กลับมา "สตรอง"
+        อีกครั้ง นำโดย ดร.เอ้ สุชัชวีร์ สุวรรณสวัสดิ์</span>
+
+      <div class="spacer"></div>
+
+      <span class="title p18" data-aos="fade-right">
+        ทำไมต้องเป็นพรรคไทยก้าวใหม่?
+      </span>
+      <div class="spacer"></div>
+
+      <span class="title p18" data-aos="fade-right">
+        สร้างคนด้วยการศึกษา: เราเชื่อว่า “การศึกษาพาชาติรุ่งเรือง” ด้วยนโยบาย “การศึกษาฟรี”
+        ที่จะยกระดับคนไทยให้พร้อมแข่งขันกับโลกในอนาคต
+      </span>
+      <div class="spacer"></div>
+
+      <span class="title p18" data-aos="fade-right">
+        สร้างเศรษฐกิจด้วยปัญญา: เราจะใช้ วิทยาศาสตร์และนวัตกรรม เป็นหัวใจหลักในการพัฒนาประเทศและสร้าง
+        “เศรษฐกิจชาตินิยมใหม่” ที่เข้มแข็งและยั่งยืน
+
+      </span>
+      <div class="spacer"></div>
+
+      <span class="title p18" data-aos="fade-right">
+        สร้างชาติที่โปร่งใส: เราจะปลูกฝังจิตสำนึกรักชาติ หยุดยั้งการทุจริต และปฏิรูประบบราชการให้ใสสะอาด
+
+      </span>
+      <div class="spacer"></div>
+
+      <span class="title p18" data-aos="fade-right">
+        สร้างคุณภาพชีวิตที่ดี: เรามุ่งมั่นที่จะสร้างเศรษฐกิจที่มั่งคั่ง สังคมที่มั่นคง และสิ่งแวดล้อมที่ยั่งยืนให้ทุกคน
+      </span>
+      <div class="spacer"></div>
+      <span class="title p18" data-aos="fade-right">
+        อนาคตของชาติอยู่ในมือเราทุกคน...มาร่วมกับเราสร้าง "ไทยก้าวใหม่"
+        ให้แข็งแกร่งและก้าวไปข้างหน้าอย่างมั่นคงไปพร้อมกัน
+      </span>
+
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+        <button class="btn-main p20 " (click)="gotoForm()" data-aos="flip-up">{{'proceed'|translate}}</button>
+      </div>
+    </div>
+    <div class="div-content" *ngIf="isInfoResiger">
+      <span [ngClass]="deviceSize == 'm' ? 'p30' : deviceSize == 't' ? 'p30' : 'p38'" class="head-title"
+        data-aos="fade-right">{{'partymembers'|translate}}</span>
       <div class="spacer"></div>
       <div class="spacer"></div>
       <span class="sub-head-title p24" data-aos="fade-right">
@@ -9,33 +59,34 @@
       </span>
       <div class="spacer"></div>
       <span class="title p18" data-aos="fade-right">{{'feature'|translate}}</span>
-        <ol data-aos="fade-right">
+      <ol data-aos="fade-right">
         <li class="p14">{{'feature1'|translate}}</li>
-        <li class="p14" >{{'feature2'|translate}}</li>
-        <li class="p14" >{{'feature3'|translate}}</li>
-        <li class="p14" >{{'feature4'|translate}}</li>
-        <li class="p14" >{{'feature5'|translate}}</li>
-        <li class="p14" >{{'feature6'|translate}}</li>
-        <li class="p14" >{{'feature7'|translate}}</li>
-        <li class="p14" >{{'feature8'|translate}}</li>
-        <li class="p14" >{{'feature9'|translate}}</li>
-        <li class="p14" >{{'feature10'|translate}}</li>
-        <li class="p14" >{{'feature11'|translate}}</li>
-        <li class="p14" >{{'feature12'|translate}}</li>
-        <li class="p14" >{{'feature13'|translate}}</li>
-        <li class="p14" >{{'feature14'|translate}}</li>
-        <li class="p14" >{{'feature15'|translate}}</li>
-        <li class="p14" >{{'feature16'|translate}}</li>
-        <li class="p14" >{{'feature17'|translate}}</li>
+        <li class="p14">{{'feature2'|translate}}</li>
+        <li class="p14">{{'feature3'|translate}}</li>
+        <li class="p14">{{'feature4'|translate}}</li>
+        <li class="p14">{{'feature5'|translate}}</li>
+        <li class="p14">{{'feature6'|translate}}</li>
+        <li class="p14">{{'feature7'|translate}}</li>
+        <li class="p14">{{'feature8'|translate}}</li>
+        <li class="p14">{{'feature9'|translate}}</li>
+        <li class="p14">{{'feature10'|translate}}</li>
+        <li class="p14">{{'feature11'|translate}}</li>
+        <li class="p14">{{'feature12'|translate}}</li>
+        <li class="p14">{{'feature13'|translate}}</li>
+        <li class="p14">{{'feature14'|translate}}</li>
+        <li class="p14">{{'feature15'|translate}}</li>
+        <li class="p14">{{'feature16'|translate}}</li>
+        <li class="p14">{{'feature17'|translate}}</li>
       </ol>
       <div class="spacer"></div>
       <div class="spacer"></div>
       <div class="d-flex flex-column justify-content-center align-items-center gap-3">
         <button class="btn-main p20 " (click)="gotoForm()" data-aos="flip-up">{{'proceed'|translate}}</button>
-        <span class="title f-w-400" [ngClass]="deviceSize == 'm' ? 'p12' : 'p16'" data-aos="fade-right">{{'or'|translate}} <a (click)="downloadRegisForm()" class="f-w-600">{{'clickHere'|translate}}</a> {{'toPrint'|translate}}</span>
+        <span class="title f-w-400" [ngClass]="deviceSize == 'm' ? 'p12' : 'p16'"
+          data-aos="fade-right">{{'or'|translate}} <a (click)="downloadRegisForm()"
+            class="f-w-600">{{'clickHere'|translate}}</a> {{'toPrint'|translate}}</span>
         <!-- <button class="btn-second p20 " (click)="downloadRegisForm()" data-aos="flip-up">{{'download-doc'|translate}}</button> -->
       </div>
     </div>
   </div>
 </div>
-
