@@ -61,6 +61,23 @@ i {
   }
 }
 
+select {
+  appearance: none;            /* เอาสไตล์ default ออก */
+  -webkit-appearance: none;    /* สำหรับ Safari */
+  -moz-appearance: none;       /* สำหรับ Firefox */
+
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+
+  /* ถ้าอยากซ่อนลูกศร default */
+  background-image: url('./../../../assets/icons/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
 .div-input label {
   font-size: var(--font-16);
   color: var(--nevy);
