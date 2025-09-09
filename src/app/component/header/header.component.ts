@@ -86,12 +86,12 @@ export class HeaderComponent {
   scrollPosition: boolean = false;
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    let docElement = document.documentElement;
-    let scTop = document.documentElement.clientHeight % 100;
-    let scrollTotal = docElement.scrollHeight - docElement.clientHeight;
-    let aaa =
-      docElement.scrollTop /
-      (docElement.scrollHeight - docElement.offsetHeight);
+    // let docElement = document.documentElement;
+    // let scTop = document.documentElement.clientHeight % 100;
+    // let scrollTotal = docElement.scrollHeight - docElement.clientHeight;
+    // let aaa =
+    //   docElement.scrollTop /
+    //   (docElement.scrollHeight - docElement.offsetHeight);
     // document.body.scrollHeight, document.documentElement.scrollHeight,
     // document.body.clientHeight, document.documentElement.clientHeight,
     // document.body.offsetHeight, document.documentElement.offsetHeight

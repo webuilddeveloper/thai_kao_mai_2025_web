@@ -177,7 +177,7 @@ a:hover {
 .div-sub-menu-nav {
   // position: relative;
   position: relative;
-  /* top: 0; */
+  // top: 0;
   right: 0;
   /* width: -webkit-fill-available; */
   // padding: 20px;
@@ -185,7 +185,7 @@ a:hover {
   // background-color: #2d294a;
 
   width: -webkit-fill-available;
-  height: -webkit-fill-available;
+  // height: -webkit-fill-available;
   // opacity: 0;
   transition: opacity 0.1s linear;
   // display: none;
@@ -267,6 +267,8 @@ a:hover {
 
   .div-header {
     // height: -webkit-fill-available;
+    position: sticky;
+    top: 0;
   }
 
 }
