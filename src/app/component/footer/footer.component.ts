@@ -130,4 +130,8 @@ export class FooterComponent {
       this.all = model?.objectData?.countAll ?? 0;
     });
   }
+
+  socialClick(link: string) {
+    (link ?? '') != '' ? window.open(link, '_blank', 'noopener,noreferrer') : null;
+  }
 }

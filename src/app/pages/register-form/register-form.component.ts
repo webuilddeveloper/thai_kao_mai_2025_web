@@ -615,12 +615,12 @@ export class RegisterFormComponent {
       ) {
         isValid = true;
       }
-      if (
-        (this.model.copyHouseRegistration ?? '') == '' ||
-        this.model.copyHouseRegistration == undefined
-      ) {
-        isValid = true;
-      }
+      // if (
+      //   (this.model.copyHouseRegistration ?? '') == '' ||
+      //   this.model.copyHouseRegistration == undefined
+      // ) {
+      //   isValid = true;
+      // }
       if (
         (this.model.onFilePhoto1_5 ?? '') == '' ||
         this.model.onFilePhoto1_5 == undefined

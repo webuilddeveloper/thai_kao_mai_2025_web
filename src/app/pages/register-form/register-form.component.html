@@ -594,11 +594,11 @@
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="">{{'copyHouseRegistration'| translate}} &nbsp;
-                <img src="./assets/icons/error.png" class="icon-err" alt=""
-                  *ngIf="(model.copyHouseRegistration ?? '') == ''">
+                <!-- <img src="./assets/icons/error.png" class="icon-err" alt=""
+                  *ngIf="(model.copyHouseRegistration ?? '') == ''"> -->
               </label>
               <label class="div-file-doc">
-                <span class="p14" *ngIf="model.copyHouseRegistration == null">* {{'select-file'|translate}}</span>
+                <span class="p14" *ngIf="model.copyHouseRegistration == null">{{'select-file'|translate}}</span>
                 <div class="div-img-file" *ngIf="model.copyHouseRegistration != null">
                   <img [src]="model.copyHouseRegistrationImg" />
                   <div class="delete-img" *ngIf="model.copyHouseRegistration != null"
