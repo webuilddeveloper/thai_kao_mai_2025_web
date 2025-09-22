@@ -176,14 +176,14 @@
         </div>
         <div class="form-row">
           <input class="form-control p16" type="text" [(ngModel)]="model.cardID" (ngModelChange)="model.cardID"
-            name="cardID" required #cardID="ngModel" maxlength="13" placeholder="{{'nationalid'|translate}}"
+            name="cardID" required #cardID="ngModel" maxlength="13" placeholder="{{ model.donateType === '1' ? ['taxid' | translate]  : ['nationalid' |translate]}}"
             [ngClass]="{ 'is-invalid': (cardID.invalid && cardID.touched) || !isValidNationalID(model.cardID) }"
             (keypress)="allowOnlyNumber($event)" />
           <div class="invalid-feedback" *ngIf="cardID.invalid && cardID.touched">
-            {{'enterNationalID' |translate}}
+            {{ model.donateType === '1' ? ['enterTexID' |translate] : ['enterNationalID' |translate]}}
           </div>
           <div class="invalid-feedback" *ngIf="model.cardID && !isValidNationalID(model.cardID)">
-            {{'idCardNumberIncorrect' | translate}}
+            {{ model.donateType === '1' ? ['idTexNumberIncorrect' | translate] : ['idCardNumberIncorrect' | translate]}}
           </div>
         </div>
 
