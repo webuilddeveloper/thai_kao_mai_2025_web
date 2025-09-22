@@ -172,7 +172,7 @@
           </div> -->
         </div>
         <div class="form-note p14">
-          * {{'eDonationPrompt'| translate}}
+          * {{ model.donateType === '1' ? ['eDonationPrompt'| translate] : ['eDonationPrompt2'| translate]}}
         </div>
         <div class="form-row">
           <input class="form-control p16" type="text" [(ngModel)]="model.cardID" (ngModelChange)="model.cardID"
