@@ -8,8 +8,8 @@ export class ServiceProvider {
 
   // ng build --base-href "/tkm/"
 
-  server: string = 'https://gateway.we-builds.com/thai-kao-mai-api/';
-  // server: string = 'http://localhost:8600/';
+  // server: string = 'https://gateway.we-builds.com/thai-kao-mai-api/';
+  server: string = 'https://www.thaikaomai.or.th/thai-kao-mai-api/';
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class ServiceProvider {
   }
 
   SendIPAddress(page: string) {
-    this.http.get('http://api.ipify.org/?format=json').subscribe((res: any) => {
+    this.http.get('https://api.ipify.org/?format=json').subscribe((res: any) => {
       this.post('ip/create', {
         ipAddress: res.ip,
         page: page,
