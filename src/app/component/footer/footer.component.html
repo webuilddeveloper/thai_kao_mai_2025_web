@@ -40,22 +40,22 @@
     <div class="col-12 col-md-6 col-lg-3 div-menu-footer">
       <div class="sub-menu div-social">
         <div class="row bs-x0 gap-3">
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.facebook)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.facebook)" *ngIf="(aboutMeModel.facebook ?? '') != ''">
             <img src="./assets/img/facebook.png" alt="Facebook" class="social-icon">
           </div>
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.ig)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.ig)" *ngIf="(aboutMeModel.ig ?? '') != ''">
             <img src="./assets/img/instagram.png" alt="instagram" class="social-icon">
           </div>
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.line)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.line)" *ngIf="(aboutMeModel.line ?? '') != ''">
             <img src="./assets/img/line.png" alt="line" class="social-icon">
           </div>
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.x)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.x)" *ngIf="(aboutMeModel.x ?? '') != ''">
             <img src="./assets/img/x-twitter.png" alt="x" class="social-icon">
           </div>
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.tiktok)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.tiktok)" *ngIf="(aboutMeModel.tiktok ?? '') != ''">
             <img src="./assets/img/icon-tiktok.png" alt="tiktok" class="social-icon">
           </div>
-          <div class="box-social pointer" (click)="socialClick(aboutMeModel.youtube)">
+          <div class="box-social pointer" (click)="socialClick(aboutMeModel.youtube)" *ngIf="(aboutMeModel.youtube ?? '') != ''">
             <img src="./assets/img/icon-youtube.png" alt="youtube" class="social-icon">
           </div>
         </div>

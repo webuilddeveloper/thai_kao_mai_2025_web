@@ -61,19 +61,30 @@
           <div class="div-input col-lg-2 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'birth'|translate}}</label>
-            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="date"
-              [(ngModel)]="model.birthDay" (ngModelChange)="calculateAge($event)" name="birthDay">
+            <input type="date" [(ngModel)]="model.birthDay"
+              (ngModelChange)="[model.birthDay, onSubmit(registerForm), calculateAge($event)]" name="birthDay"
+              class="form-control" [max]="maxDate" #birthDay="ngModel" [ngClass]="{
+              'p12': deviceSize === 'm',
+              'p14': deviceSize === 't',
+              'p16': deviceSize !== 'm' && deviceSize !== 't',
+              'is-invalid': birthDay.invalid && birthDay.touched
+            }" required>
+
           </div>
           <div class="div-input col-lg-1 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
               for="">{{'age'|translate}}</label>
-            <input type="number" [(ngModel)]="model.age" (ngModelChange)="[model.age, onSubmit(registerForm)]"
+            <!-- <input type="number" [(ngModel)]="model.age" (ngModelChange)="model.age"
               name="age" class="form-control" #age="ngModel" min="0" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
-                'p16': deviceSize !== 'm' && deviceSize !== 't',
-                'is-invalid': age.invalid && age.touched
-              }" required>
+                'p16': deviceSize !== 'm'
+
+              }"> -->
+
+            <input [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" type="number"
+              [(ngModel)]="model.age" (ngModelChange)="model.age" name="age" disabled>
+
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
@@ -495,8 +506,7 @@
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'slip'|translate}}&nbsp;
-                    <img src="./assets/icons/error.png" class="icon-err" alt=""
-                      *ngIf="(model.slipPay ?? '') == ''">
+                    <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.slipPay ?? '') == ''">
                   </label>
                   <label class="div-file-slip label-photo1-5">
                     <span class="p14" *ngIf="model.slipPay == null">* {{'select-photo'|translate}}</span>
@@ -549,8 +559,7 @@
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                     for="">{{'photoSelfie'|translate}}&nbsp;
-                    <img src="./assets/icons/error.png" class="icon-err" alt=""
-                      *ngIf="(model.photoSelfie ?? '') == ''">
+                    <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.photoSelfie ?? '') == ''">
                   </label>
                   <label class="div-file-photo1-5 label-photo1-5">
                     <span class="p14" *ngIf="model.photoSelfie == null">* {{'select-photo'|translate}}</span>
@@ -571,8 +580,7 @@
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for=""
                 class="d-flex">{{'copyIDCard'| translate}} &nbsp;
-                <img src="./assets/icons/error.png" class="icon-err" alt=""
-                  *ngIf="(model.copyIDCard ?? '') == ''">
+                <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.copyIDCard ?? '') == ''">
               </label>
               <label class="div-file-doc">
                 <span class="p14" *ngIf="model.copyIDCard == null">* {{'select-file'|translate}}</span>
@@ -626,7 +634,7 @@
                     <i class="material-icons">close</i>
                   </div>
                 </div>
-                <input type="file" accept="application/pdf,image/*"  (change)="nameChangeCertificateSelected($event)">
+                <input type="file" accept="application/pdf,image/*" (change)="nameChangeCertificateSelected($event)">
               </label>
 
             </div>
@@ -645,8 +653,7 @@
               (change)="[chkAccept($event, '1'), onSubmit(registerForm)]" />
             <label [attr.for]="'certification'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}
-              <img src="./assets/icons/error.png" class="icon-err" alt=""
-                *ngIf="(model.acceptChk ?? false) == false">
+              <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.acceptChk ?? false) == false">
             </label>
           </div>
           <div class="div-checkbox">
@@ -654,8 +661,7 @@
               (change)="[chkAccept($event, '2'), onSubmit(registerForm)]" />
             <label [attr.for]="'certification2'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification2'|translate}}
-              <img src="./assets/icons/error.png" class="icon-err" alt=""
-                *ngIf="(model.acceptChk2 ?? false) == false">
+              <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.acceptChk2 ?? false) == false">
             </label>
           </div>
         </div>

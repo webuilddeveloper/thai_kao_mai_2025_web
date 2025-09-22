@@ -30,6 +30,7 @@ export class RegisterFormComponent {
   copyIDCardName: string = '';
   copyHouseRegistrationName: string = '';
   nameChangeCertificateName: string = '';
+  maxDate: string = '';
   model: any = {
     prefixName: '',
     provinceBirthCode: '',
@@ -106,7 +107,14 @@ export class RegisterFormComponent {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    const today = new Date();
+    // ลบออก 20 ปี
+    today.setFullYear(today.getFullYear() - 20);
+
+    // แปลงเป็น yyyy-MM-dd
+    this.maxDate = today.toISOString().split('T')[0];
+  }
 
   ngOnInit(): void {
     this.serviceProvider.SendIPAddress('register-form');
@@ -726,6 +734,7 @@ export class RegisterFormComponent {
   }
 
   calculateAge(birthDateStr: string) {
+    debugger
     if (!birthDateStr) return;
 
     const today = new Date();
