@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
+import { EncryptionService } from 'src/app/shared/encryption.service';
 import { FileUploadService } from 'src/app/shared/file-upload.service';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
 
@@ -106,7 +107,7 @@ export class RegisterFormComponent {
     private fb: FormBuilder,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     const today = new Date();
     // ลบออก 20 ปี
@@ -558,8 +559,9 @@ export class RegisterFormComponent {
 
   sendApi() {
     this.spinner.show();
+
     this.model.status = 'N';
-    this.serviceProvider.post('partyMembers/create', this.model).subscribe(
+    this.serviceProvider.postXKey('partyMembers/create', this.model).subscribe(
       (res) => {
         let data: any = {};
         data = res;

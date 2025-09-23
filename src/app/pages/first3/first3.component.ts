@@ -68,6 +68,10 @@ constructor(
         localStorage.setItem("isShow", "true");
         this.router.navigate(['/donate']);
         break;
+      case 'home':
+        localStorage.setItem("isShow", "true");
+        this.router.navigate(['/home']);
+        break;
     }
   }
 }
