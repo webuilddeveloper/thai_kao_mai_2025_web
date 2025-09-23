@@ -5,6 +5,7 @@ import { ServiceProvider } from 'src/app/shared/service-provider.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as AOS from 'aos';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -15,10 +16,14 @@ import * as AOS from 'aos';
 export class ContactComponent {
   deviceSize: string = '';
   aboutMeModel: any = {};
+  lat: any = 0;
+  lng: any = 0;
+  safeMapUrl: SafeResourceUrl | undefined;
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private sanitizer: DomSanitizer
   ) {
 
   }
@@ -79,6 +84,7 @@ export class ContactComponent {
         let model: any = {};
         model = data;
         this.contact = model.objectData;
+        this.safeMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps?q=${model.objectData.latitude},${model.objectData.longitude}&hl=th&z=14&output=embed`);
       });
   }
 }
