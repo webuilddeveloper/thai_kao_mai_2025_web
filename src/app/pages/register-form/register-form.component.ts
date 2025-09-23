@@ -736,7 +736,6 @@ export class RegisterFormComponent {
   }
 
   calculateAge(birthDateStr: string) {
-    debugger
     if (!birthDateStr) return;
 
     const today = new Date();
