@@ -18,22 +18,23 @@ export class EventCalendarComponent implements OnInit {
     public translate: TranslateService
   ) {}
   months = [
-    { id: 1, code: 'JAN', en: 'January', th: 'มกราคม' },
-    { id: 2, code: 'FEB', en: 'February', th: 'กุมภาพันธ์' },
-    { id: 3, code: 'MAR', en: 'March', th: 'มีนาคม' },
-    { id: 4, code: 'APR', en: 'April', th: 'เมษายน' },
-    { id: 5, code: 'MAY', en: 'May', th: 'พฤษภาคม' },
-    { id: 6, code: 'JUN', en: 'June', th: 'มิถุนายน' },
-    { id: 7, code: 'JUL', en: 'July', th: 'กรกฎาคม' },
-    { id: 8, code: 'AUG', en: 'August', th: 'สิงหาคม' },
-    { id: 9, code: 'SEP', en: 'September', th: 'กันยายน' },
-    { id: 10, code: 'OCT', en: 'October', th: 'ตุลาคม' },
-    { id: 11, code: 'NOV', en: 'November', th: 'พฤศจิกายน' },
-    { id: 12, code: 'DEC', en: 'December', th: 'ธันวาคม' },
+    { id: 0, code: 'JAN', en: 'January', th: 'มกราคม' },
+    { id: 1, code: 'FEB', en: 'February', th: 'กุมภาพันธ์' },
+    { id: 2, code: 'MAR', en: 'March', th: 'มีนาคม' },
+    { id: 3, code: 'APR', en: 'April', th: 'เมษายน' },
+    { id: 4, code: 'MAY', en: 'May', th: 'พฤษภาคม' },
+    { id: 5, code: 'JUN', en: 'June', th: 'มิถุนายน' },
+    { id: 6, code: 'JUL', en: 'July', th: 'กรกฎาคม' },
+    { id: 7, code: 'AUG', en: 'August', th: 'สิงหาคม' },
+    { id: 8, code: 'SEP', en: 'September', th: 'กันยายน' },
+    { id: 9, code: 'OCT', en: 'October', th: 'ตุลาคม' },
+    { id: 10, code: 'NOV', en: 'November', th: 'พฤศจิกายน' },
+    { id: 11, code: 'DEC', en: 'December', th: 'ธันวาคม' },
   ];
   deviceSize: string = '';
   modelDataListCurrent: any[] = [];
   modelDataList: any[] = [];
+  modelDatalatest: any = null;
   selectedDate: Date = new Date(); // Set initial date
   highlightedDates = new Set<string>();
 
@@ -116,6 +117,17 @@ export class EventCalendarComponent implements OnInit {
       let data: any = {};
       data = res;
       this.modelDataList = data.objectData;
+      this.modelDatalatest =
+        this.modelDataList
+          .filter(
+            (f: any) => f.dateEnd && this.parseYYYYMMDD(f.dateEnd) <= new Date()
+          )
+          .sort(
+            (a: any, b: any) =>
+              this.parseYYYYMMDD(b.dateEnd).getTime() -
+              this.parseYYYYMMDD(a.dateEnd).getTime()
+          )[0] ?? null;
+
       this.modelDataList.forEach((event) => {
         const formattedStart = `${event.dateStart.slice(
           0,
@@ -148,5 +160,13 @@ export class EventCalendarComponent implements OnInit {
         this.getDataCurrent();
       });
     });
+  }
+
+  parseYYYYMMDD(dateNumber: number): Date {
+    const dateStr = dateNumber.toString();
+    const year = +dateStr.substring(0, 4);
+    const month = +dateStr.substring(4, 6) - 1; // JavaScript months are 0-indexed
+    const day = +dateStr.substring(6, 8);
+    return new Date(year, month, day);
   }
 }
