@@ -1,0 +1,87 @@
+
+<div *ngIf="!hidePopup" style="display: block">
+  <div class="main-popup">
+    <div class="main-popup-content" style="height: 80vh" #outMainPopup>
+      <div class="row">
+        <div data-ride="carousel" id="myCarousel">
+          <div class="carousel-item" style="
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+            " *ngFor="let i of modelMainPopup; let idx = index" [class.active]="selectedMainPopupIndex == idx">
+            <div class="col-md-1 d-none d-lg-block" style="height: 50vh">
+              <div class="main-popup-next-btn">
+                <a (click)="nextMinaPopup(idx - 1)">
+                  <img class="img-slide animate__animated animate__fadeInLeft" *ngIf="i.imageUrl != ''"
+                    src="./assets/img/arrow_left.png" width="100%" style="
+                      max-height: 450px;
+                      max-width: 800px;
+                      object-fit: contain;
+                    " />
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-1 d-block d-lg-none p-0" style="height: 100px">
+              <div class="main-popup-next-btn">
+                <a (click)="nextMinaPopup(idx - 1)">
+                  <img class="img-slide animate__animated animate__fadeInLeft" *ngIf="i.imageUrl != ''"
+                    src="./assets/img/arrow_left.png" width="100%" style="
+                      max-height: 450px;
+                      max-width: 100px;
+                      object-fit: contain;
+                    " />
+                </a>
+              </div>
+            </div>
+            <div class="col-md-10 col-xs-10" style="cursor: pointer;" (click)="openRef(i)">
+                <img class="img-slide animate__animated animate__fadeInLeft" *ngIf="i.imageUrl != ''"
+                  src="{{ i.imageUrl }}" width="100%" style="
+                  
+                    object-fit: contain;
+                  " />
+            </div>
+            <div class="col-md-1 d-none d-lg-block" style="height: 50vh">
+              <div class="main-popup-next-btn">
+                <a (click)="nextMinaPopup(idx + 1)">
+                  <img class="img-slide animate__animated animate__fadeInLeft" *ngIf="i.imageUrl != ''"
+                    src="./assets/img/arrow_right2.png" width="100%" style="
+                      max-height: 450px;
+                      max-width: 800px;
+                      object-fit: contain;
+                    " />
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-1 d-block d-lg-none p-0" style="height: 100px">
+              <div class="main-popup-next-btn">
+                <a (click)="nextMinaPopup(idx + 1)">
+                  <img class="img-slide animate__animated animate__fadeInLeft" *ngIf="i.imageUrl != ''"
+                    src="./assets/img/arrow_right2.png" width="100%" style="
+                      max-height: 450px;
+                      max-width: 100px;
+                      object-fit: contain;
+                    " />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-flex" style="align-items: center; z-index: 400">
+          <label class="custom-checkbox">
+            <input type="checkbox" [(ngModel)]="notShowAgain" (ngModelChange)="checkShowAgain($event)"
+              style="height: 30px; width: 30px" [ngModelOptions]="{ standalone: true }" />
+          </label>
+          <div
+            style="color: white !important;    font-family: 'Kanit', sans-serif;font-size: 18px;line-height: 1.2;">
+            ไม่แสดงอีกในวันนี้
+          </div>
+        </div>
+      </div>
+      <div class="main-popup-close">
+        <div class="main-popup-close-btn" (click)="setNotShowMainPopup()">
+          <img src="./assets/img/closemenu.png" alt="" style="height: 20px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

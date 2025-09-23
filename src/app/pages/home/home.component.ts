@@ -17,6 +17,9 @@ import { Utilities } from 'src/app/shared/utilities';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { MainDialogComponent } from 'src/app/component/popup/main-dialog/main-dialog.component';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -25,6 +28,7 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements AfterViewInit {
   aboutMeModel: any = {};
   showCookieBanner = !localStorage.getItem('cookieAccepted');
@@ -36,6 +40,7 @@ export class HomeComponent implements AfterViewInit {
   percentage = 0;
   finalNumber = '';
   countMember = 0;
+  model: any;
   digits = Array.from(this.finalNumber);
   @ViewChildren('digitRef') digitRefs!: QueryList<ElementRef>;
   @ViewChildren('underlineRef') underlineRefs!: QueryList<ElementRef>;
@@ -124,8 +129,11 @@ export class HomeComponent implements AfterViewInit {
     private renderer: Renderer2,
     private el: ElementRef,
     private utilities: Utilities,
-    private cdRef: ChangeDetectorRef
-  ) {}
+    private cdRef: ChangeDetectorRef,
+    private toastr: ToastrService,
+    private dialog: MatDialog
+
+  ) { }
 
   @ViewChild('animatedBox') box!: ElementRef;
   isVisible = false;
@@ -185,6 +193,8 @@ export class HomeComponent implements AfterViewInit {
     this.readNews();
     this.readPolicyParty();
     this.readMemberCount();
+    this.readMainPopup();
+
     this.serviceProvider.SendIPAddress('home');
   }
 
@@ -309,5 +319,30 @@ export class HomeComponent implements AfterViewInit {
     };
 
     requestAnimationFrame(animate);
+  }
+
+  readMainPopup() {
+    this.serviceProvider.post('mainpopup/read', {}).subscribe(
+      (data) => {
+        this.model = data;
+
+        this.openMainDialog(this.model.objectData);
+      },
+      (err) => {
+        this.toastr.error(err.message, 'แจ้งเตือนระบบ', {
+          titleClass: 'toast-msg',
+          messageClass: 'toast-msg',
+          positionClass: 'toast-bottom-right',
+          timeOut: 5000,
+        });
+      }
+    );
+  }
+
+    openMainDialog(param: any) {
+    this.dialog.open(MainDialogComponent, {
+      panelClass: 'custom-dialog',
+      data: param,
+    });
   }
 }
