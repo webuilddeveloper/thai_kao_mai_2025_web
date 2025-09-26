@@ -52,7 +52,7 @@ export class RegisterFormComponent {
 
   tempCheckboxElement: HTMLInputElement | null = null;
   tempCheckboxPrevChecked = false;
-  isBtn: boolean = false;
+  idClickBtn: boolean = false;
 
   checkboxItems = [
     {
@@ -418,7 +418,7 @@ export class RegisterFormComponent {
           this.getParams();
         }
       },
-      (err) => {}
+      (err) => { }
     );
   }
 
@@ -432,7 +432,7 @@ export class RegisterFormComponent {
           this.listDistrict = model.objectData;
           // console.log(this.listDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -446,7 +446,7 @@ export class RegisterFormComponent {
           this.listSubDistrict = model.objectData;
           // console.log(this.listSubDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -465,7 +465,7 @@ export class RegisterFormComponent {
           this.readSubDistrictParams(amphoeCode);
           // console.log(this.listDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -484,7 +484,7 @@ export class RegisterFormComponent {
           this.model.postnoCode = tambonCode.postCode;
           // console.log(this.listSubDistrict);
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -497,7 +497,7 @@ export class RegisterFormComponent {
           model = data;
           this.listDistrictIssue = model.objectData;
         },
-        (err) => {}
+        (err) => { }
       );
   }
 
@@ -596,13 +596,26 @@ export class RegisterFormComponent {
     }
   }
 
+  // onCheckInvalid(formRef: NgForm) {
+  //   if (formRef.invalid) {
+  //     // mark ทุก field เป็น touched เพื่อให้แสดง error
+  //     // Object.values(formRef.controls).forEach((control) => {
+  //     //   control.markAsTouched();
+  //     // });
+  //     this.isInvalid = true;
+  //     return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
+  //   } else {
+  //     this.isInvalid = true;
+  //   }
+  // }
+
   onSubmit(formRef: NgForm) {
     if (formRef.invalid) {
       // mark ทุก field เป็น touched เพื่อให้แสดง error
       Object.values(formRef.controls).forEach((control) => {
         control.markAsTouched();
       });
-      this.isBtn = false;
+      this.idClickBtn = true;
       return; // ไม่ให้ submit ต่อถ้า form ไม่ valid
     } else {
       let isValid = false;
@@ -646,12 +659,13 @@ export class RegisterFormComponent {
       if ((this.model.slipPay ?? '') == '' || this.model.slipPay == undefined) {
         isValid = true;
       }
+      this.idClickBtn = true
       if (isValid) {
-        // this.isBtn = false;
+        // this.isInvalid = true;
         return;
       } else {
         this.sendApi();
-        this.isBtn = true;
+        // this.isInvalid = false;
       }
     }
   }
@@ -725,15 +739,26 @@ export class RegisterFormComponent {
   }
 
   isValidNationalID(id: string): boolean {
-    if ((id ?? '') === '') return true;
-    if (!id || id.length !== 13) return false;
+    // if (id.length < 13) {
+    //   return true
+    // } else {
 
-    let sum = 0;
-    for (let i = 0; i < 12; i++) {
-      sum += parseInt(id.charAt(i), 10) * (13 - i);
+    // if ((id ?? '') === '') return true;
+    // if (!id || id.length !== 13) return false;
+
+    if (id != undefined && id.length == 13) {
+      let sum = 0;
+      for (let i = 0; i < 12; i++) {
+        sum += parseInt(id.charAt(i), 10) * (13 - i);
+      }
+      const checkDigit = (11 - (sum % 11)) % 10;
+      return checkDigit === parseInt(id.charAt(12), 10);
+    } else {
+      return true;
     }
-    const checkDigit = (11 - (sum % 11)) % 10;
-    return checkDigit === parseInt(id.charAt(12), 10);
+
+    // }
+
   }
 
   calculateAge(birthDateStr: string) {
