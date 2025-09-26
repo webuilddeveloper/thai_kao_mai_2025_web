@@ -1,13 +1,15 @@
 <div class="container-header" data-aos="zoom-in-up">
   <div class="header-container"></div>
   <div class="header-text">
-    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'eventCalendar' | translate }} / {{ 'latestActivities' | translate }}</h1>
-    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }} // {{ 'newsAndEvent' | translate }} // <span class="sub-title">{{
+    <h1 class="title" [ngClass]="deviceSize == 'm' ? 'p20' : deviceSize == 't' ? 'p30' : 'p50'">{{ 'eventCalendar' |
+      translate }} / {{ 'latestActivities' | translate }}</h1>
+    <p class="title" [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p20' : 'p20'">{{ 'home' | translate }}
+      // {{ 'newsAndEvent' | translate }} // <span class="sub-title">{{
         'eventCalendar'
         | translate }} / {{ 'latestActivities' | translate }}</span></p>
   </div>
 </div>
-<!-- <div class="div-calendar-container">
+<div class="div-calendar-container">
   <div class="calendar-container" data-aos="zoom-in-up">
     <div class="schedule-panel">
       <div class="date-display">
@@ -22,7 +24,24 @@
         <div *ngIf="translate.currentLang === 'th'" class="schedule-header">กำหนดการ</div>
         <div *ngIf="translate.currentLang === 'en'" class="schedule-header">SCHEDULE</div>
         <div class="schedule-item">{{ 'latestActivities' | translate }}</div>
-        <div class="schedule-item-empty"></div>
+        <div class="schedule-item-empty" *ngIf="modelDatalatest != null" [routerLink]="['/event-calendar-detail', modelDatalatest.code]">
+          <div class="card-image">
+            <img class="news-image" [src]="modelDatalatest.imageUrl" [alt]="modelDatalatest.title">
+            <div class="image-overlay"></div>
+          </div>
+          <div class="card-content">
+            <span class="news-date">{{ modelDatalatest.updateDate | date:'MMMM' | uppercase }} | {{modelDatalatest.createBy}}</span>
+            <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+              *ngIf="translate.currentLang === 'th'">{{ modelDatalatest.title }}</h4>
+            <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+              *ngIf="translate.currentLang === 'en'">{{ modelDatalatest.titleEN }}</h4>
+            <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+              [innerHTML]="modelDatalatest.description" *ngIf="translate.currentLang === 'th'">
+            </div>
+            <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+              [innerHTML]="modelDatalatest.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -37,7 +56,8 @@
 <div class="vertical" *ngIf="modelDataListCurrent.length > 0">
   <div class="news-section">
     <div class="section-header">
-      <h3 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p32' : 'p36' "  >{{ 'eventCalendar' | translate }}</h3>
+      <h3 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p32' : 'p36' ">{{ 'eventCalendar' | translate }}
+      </h3>
     </div>
 
     <div class="news-container" data-aos="fade-right">
@@ -49,11 +69,15 @@
         </div>
         <div class="card-content">
           <span class="news-date">{{ item.updateDate | date:'MMMM' | uppercase }} | {{item.createBy}}</span>
-          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' "  class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' "  class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+            *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+            *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+            [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
           </div>
-          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'"class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+            [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
         </div>
       </div>
     </div>
@@ -63,7 +87,8 @@
 <div class="vertical">
   <div class="news-section">
     <div class="section-header">
-      <h3 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p32' : 'p36' " >{{ 'eventCalendarAll' | translate }}</h3>
+      <h3 [ngClass]=" deviceSize == 'm' ? 'p24' : deviceSize == 't' ? 'p32' : 'p36' ">{{ 'eventCalendarAll' | translate
+        }}</h3>
     </div>
 
     <div class="news-container" data-aos="fade-right">
@@ -74,17 +99,21 @@
         </div>
         <div class="card-content">
           <span class="news-date">{{ item.updateDate | date:'MMMM' | uppercase }} | {{item.createBy}}</span>
-          <h4  [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' "  class="news-title" *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
-          <h4  [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' "class="news-title" *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
-          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'"class="news-description" [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
+          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+            *ngIf="translate.currentLang === 'th'">{{ item.title }}</h4>
+          <h4 [ngClass]=" deviceSize == 'm' ? 'p16' : deviceSize == 't' ? 'p18' : 'p20' " class="news-title"
+            *ngIf="translate.currentLang === 'en'">{{ item.titleEN }}</h4>
+          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+            [innerHTML]="item.description" *ngIf="translate.currentLang === 'th'">
           </div>
-          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'"class="news-description" [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
+          <div [ngClass]=" deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p13' : 'p14'" class="news-description"
+            [innerHTML]="item.descriptionEN" *ngIf="translate.currentLang === 'en'"></div>
         </div>
       </div>
     </div>
   </div>
-</div> -->
-
-<div class="overlay-main">
-  <app-coming-soon></app-coming-soon>
 </div>
+
+<!-- <div class="overlay-main">
+  <app-coming-soon></app-coming-soon>
+</div> -->

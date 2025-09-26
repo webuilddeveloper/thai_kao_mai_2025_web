@@ -46,6 +46,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { First3Component } from './pages/first3/first3.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MainDialogComponent } from './component/popup/main-dialog/main-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/language/', '.json');
@@ -84,6 +86,7 @@ registerLocaleData(localeTh);
     SuggestionComponent,
     ComingSoonComponent,
     First3Component,
+    MainDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,8 @@ registerLocaleData(localeTh);
     NgxSpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    FormsModule,
+    MatDialogModule
   ],
   exports: [GoToTopComponent, FooterComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'th-TH' }],
