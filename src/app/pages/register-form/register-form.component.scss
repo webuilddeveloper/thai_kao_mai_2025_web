@@ -545,3 +545,9 @@ select {
   width: fit-content;
   position: relative;
 }
+
+.valid-text {
+  color: var(--b81111-w-y);
+  font-size: var(--font-16);
+  font-weight: 600;
+}

@@ -185,7 +185,7 @@ export class RegisterFormComponent {
         (data) => {
           const model: any = data;
           this.model.onFilePhoto1_5 = model.imageUrl; // ✅ ไม่ต้อง await
-          this.onSubmit(formRef);
+          // this.onSubmit(formRef);
         },
         (err) => {
           console.log('error', err);
@@ -202,7 +202,7 @@ export class RegisterFormComponent {
         (data) => {
           const model: any = data;
           this.model.photoSelfie = model.imageUrl; // ✅ ไม่ต้อง await
-          this.onSubmit(formRef);
+          // this.onSubmit(formRef);
         },
         (err) => {
           console.log('error', err);
@@ -219,7 +219,7 @@ export class RegisterFormComponent {
         (data) => {
           const model: any = data;
           this.model.slipPay = model.imageUrl; // ✅ ไม่ต้อง await
-          this.onSubmit(formRef);
+          // this.onSubmit(formRef);
         },
         (err) => {
           console.log('error', err);
@@ -263,7 +263,7 @@ export class RegisterFormComponent {
           }
           this.copyIDCardName = model.imageName;
 
-          this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
+          // this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
         },
         (err) => {
           console.log('error', err);
@@ -292,7 +292,7 @@ export class RegisterFormComponent {
             }
           }
 
-          this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
+          // this.onSubmit(formRef); // ✅ เรียกหลังจากอัปโหลดเสร็จ
         },
         (err) => {
           console.log('error', err);
@@ -647,9 +647,10 @@ export class RegisterFormComponent {
         isValid = true;
       }
       if (isValid) {
-        this.isBtn = false;
+        // this.isBtn = false;
         return;
       } else {
+        this.sendApi();
         this.isBtn = true;
       }
     }

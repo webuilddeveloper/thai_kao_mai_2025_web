@@ -20,14 +20,14 @@
         <div class="row row-form-gap ">
           <div class="div-input  col-lg-2 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'prefix'|translate}}</label>
+              for="">*{{'prefix'|translate}}</label>
             <select name="" id="" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
                 'is-invalid': prefixName.invalid && prefixName.touched
-              }" [(ngModel)]="model.prefixName" (ngModelChange)="[model.prefixName, onSubmit(registerForm)]"
-              name="prefixName" class="form-control" #prefixName="ngModel" required>
+              }" [(ngModel)]="model.prefixName" (ngModelChange)="[model.prefixName]" name="prefixName"
+              class="form-control" #prefixName="ngModel" required>
               <option value="" selected disabled>{{'selectPrefixRequired' | translate}}</option>
               <option value="{{i.value}}" *ngFor="let i of listPrefixName ; let idx = index">{{ translate.currentLang
                 === 'th'
@@ -36,34 +36,31 @@
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'name'|translate}}</label>
+              for="">*{{'name'|translate}}</label>
             <input [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
                 'is-invalid': firstName.invalid && firstName.touched
-              }" type="text" [(ngModel)]="model.firstName" (ngModelChange)="[model.firstName, onSubmit(registerForm)]"
-              name="firstName" placeholder="{{'enterFirstName' | translate}}" class="form-control" #firstName="ngModel"
-              required>
+              }" type="text" [(ngModel)]="model.firstName" (ngModelChange)="[model.firstName]" name="firstName"
+              placeholder="{{'enterFirstName' | translate}}" class="form-control" #firstName="ngModel" required>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'surname'|translate}}</label>
+              for="">*{{'surname'|translate}}</label>
             <input [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
                 'is-invalid': lastName.invalid && lastName.touched
-              }" type="text" [(ngModel)]="model.lastName" (ngModelChange)="[model.lastName, onSubmit(registerForm)]"
-              name="lastName" placeholder="{{'enterLastName' | translate}}" class="form-control" #lastName="ngModel"
-              required>
+              }" type="text" [(ngModel)]="model.lastName" (ngModelChange)="[model.lastName]" name="lastName"
+              placeholder="{{'enterLastName' | translate}}" class="form-control" #lastName="ngModel" required>
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'birth'|translate}}</label>
-            <input type="date" [(ngModel)]="model.birthDay"
-              (ngModelChange)="[model.birthDay, onSubmit(registerForm), calculateAge($event)]" name="birthDay"
-              class="form-control" [max]="maxDate" #birthDay="ngModel" [ngClass]="{
+              for="">*{{'birth'|translate}}</label>
+            <input type="date" [(ngModel)]="model.birthDay" (ngModelChange)="[model.birthDay, calculateAge($event)]"
+              name="birthDay" class="form-control" [max]="maxDate" #birthDay="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -106,9 +103,8 @@
           </div>
           <div class="div-input col-lg-2 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'nationality'|translate}}</label>
-            <input type="text" [(ngModel)]="model.nationality"
-              (ngModelChange)="[model.nationality, onSubmit(registerForm)]" name="nationality"
+              for="">*{{'nationality'|translate}}</label>
+            <input type="text" [(ngModel)]="model.nationality" (ngModelChange)="[model.nationality]" name="nationality"
               placeholder="{{'enterNationality' | translate}}" class="form-control" #nationality="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
@@ -117,11 +113,10 @@
               }" required>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'nationalid'|
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">*{{'nationalid'|
               translate}}</label>
-            <input type="text" [(ngModel)]="model.idcard" (ngModelChange)="[model.idcard, onSubmit(registerForm)]"
-              name="idcard" maxlength="13" placeholder="{{'enterNationalID' | translate}}" class="form-control"
-              #idcard="ngModel" [ngClass]="{
+            <input type="text" [(ngModel)]="model.idcard" (ngModelChange)="[model.idcard]" name="idcard" maxlength="13"
+              placeholder="{{'enterNationalID' | translate}}" class="form-control" #idcard="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -136,9 +131,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'issueDate'|translate}}</label>
-            <input type="date" [(ngModel)]="model.issueDate" (ngModelChange)="[model.issueDate, onSubmit(registerForm)]"
-              name="issueDate" class="form-control" #issueDate="ngModel" [ngClass]="{
+              for="">*{{'issueDate'|translate}}</label>
+            <input type="date" [(ngModel)]="model.issueDate" (ngModelChange)="[model.issueDate]" name="issueDate"
+              class="form-control" #issueDate="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -147,10 +142,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'expiryDate'|translate}}</label>
-            <input type="date" [(ngModel)]="model.expiryDate"
-              (ngModelChange)="[model.expiryDate, onSubmit(registerForm)]" name="expiryDate" class="form-control"
-              #expiryDate="ngModel" [ngClass]="{
+              for="">*{{'expiryDate'|translate}}</label>
+            <input type="date" [(ngModel)]="model.expiryDate" (ngModelChange)="[model.expiryDate]" name="expiryDate"
+              class="form-control" #expiryDate="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -190,15 +184,15 @@
         <span class="title">{{'registeredAddress'|translate}}</span>
         <div class="row row-form-gap">
           <div class="div-input col-lg-2 col-md-6 col-12">
-            <label [ngClass]="[deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16']" for="">{{'number'|
+            <label [ngClass]="[deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16']" for="">*{{'number'|
               translate}}</label>
             <input [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
                 'is-invalid': address.invalid && address.touched
-              }" type="text" [(ngModel)]="model.address" (ngModelChange)="[model.address, onSubmit(registerForm)]"
-              name="address" placeholder="{{'enterNo' | translate}}" class="form-control" #address="ngModel" required>
+              }" type="text" [(ngModel)]="model.address" (ngModelChange)="[model.address]" name="address"
+              placeholder="{{'enterNo' | translate}}" class="form-control" #address="ngModel" required>
           </div>
           <!-- <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'bilding'|translate}}</label>
@@ -218,9 +212,9 @@
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'road'|translate}}</label>
-            <input type="text" [(ngModel)]="model.road" (ngModelChange)="[model.road, onSubmit(registerForm)]"
-              name="road" placeholder="{{'enterRoad' | translate}}" class="form-control" #road="ngModel" [ngClass]="{
+              for="">*{{'road'|translate}}</label>
+            <input type="text" [(ngModel)]="model.road" (ngModelChange)="[model.road]" name="road"
+              placeholder="{{'enterRoad' | translate}}" class="form-control" #road="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -229,10 +223,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'province'|translate}}</label>
+              for="">*{{'province'|translate}}</label>
             <select name="province" id="" (change)="selectProvince($event)" [(ngModel)]="model.provinceCode"
-              (ngModelChange)="[model.provinceCode, onSubmit(registerForm)]" class="form-control"
-              #provinceCode="ngModel" [ngClass]="{
+              (ngModelChange)="[model.provinceCode]" class="form-control" #provinceCode="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -246,10 +239,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'district'|translate}}</label>
+              for="">*{{'district'|translate}}</label>
             <select name="district" id="" (change)="selectDistrict($event)" [(ngModel)]="model.amphoeCode"
-              (ngModelChange)="[model.amphoeCode, onSubmit(registerForm)]" class="form-control" #amphoeCode="ngModel"
-              [ngClass]="{
+              (ngModelChange)="[model.amphoeCode]" class="form-control" #amphoeCode="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -263,10 +255,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'subdistrict'|translate}}</label>
+              for="">*{{'subdistrict'|translate}}</label>
             <select name="subDistrict" id="" (change)="selectSubDistrict($event)" [(ngModel)]="model.tambonCode"
-              (ngModelChange)="[model.tambonCode, onSubmit(registerForm)]" class="form-control" #tambonCode="ngModel"
-              [ngClass]="{
+              (ngModelChange)="[model.tambonCode]" class="form-control" #tambonCode="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -280,10 +271,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'code'|translate}}</label>
-            <input type="text" [(ngModel)]="model.postnoCode"
-              (ngModelChange)="[model.postnoCode, onSubmit(registerForm)]" name="postnoCode" maxlength="5"
-              inputmode="numeric" placeholder="{{'enterPostCode' | translate}}" class="form-control"
+              for="">*{{'code'|translate}}</label>
+            <input type="text" [(ngModel)]="model.postnoCode" (ngModelChange)="[model.postnoCode]" name="postnoCode"
+              maxlength="5" inputmode="numeric" placeholder="{{'enterPostCode' | translate}}" class="form-control"
               #postnoCode="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
@@ -293,9 +283,9 @@
           </div>
           <div class="div-input col-lg-3 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'phone'|translate}}</label>
+              for="">*{{'phone'|translate}}</label>
             <input type="tel" pattern="0[0-9]{9}" maxlength="10" [(ngModel)]="model.phone"
-              (ngModelChange)="[model.phone, onSubmit(registerForm)]" name="phone" inputmode="numeric"
+              (ngModelChange)="[model.phone]" name="phone" inputmode="numeric"
               placeholder="{{'enterPhone' | translate}}" (keydown)="allowOnlyNumbers($event)" class="form-control"
               #phone="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
@@ -306,9 +296,9 @@
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'email'|translate}}</label>
-            <input type="email" [(ngModel)]="model.email" (ngModelChange)="[model.email, onSubmit(registerForm)]"
-              name="email" placeholder="{{'enterEmail' | translate}}" class="form-control" #email="ngModel" [ngClass]="{
+              for="">*{{'email'|translate}}</label>
+            <input type="email" [(ngModel)]="model.email" (ngModelChange)="[model.email]" name="email"
+              placeholder="{{'enterEmail' | translate}}" class="form-control" #email="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -334,11 +324,10 @@
         <div class="row row-form-gap">
           <div class="div-input col-lg-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'highestLevelEducation'| translate}}</label>
-            <input type="text" [(ngModel)]="model.highestLevelEducation"
-              (ngModelChange)="[model.highestLevelEducation, onSubmit(registerForm)]" name="highestLevelEducation"
-              placeholder="{{'enter' | translate}}{{'highestLevelEducation' | translate}}" class="form-control"
-              #highestLevelEducation="ngModel" [ngClass]="{
+              for="">*{{'highestLevelEducation'| translate}}</label>
+            <input type="text" [(ngModel)]="model.highestLevelEducation" (ngModelChange)="[model.highestLevelEducation]"
+              name="highestLevelEducation" placeholder="{{'enter' | translate}}{{'highestLevelEducation' | translate}}"
+              class="form-control" #highestLevelEducation="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -346,12 +335,11 @@
             }" required>
           </div>
           <div class="div-input col-lg-6 col-12">
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'faculty/major'|
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">*{{'faculty/major'|
               translate}}</label>
-            <input type="text" [(ngModel)]="model.faculty_major"
-              (ngModelChange)="[model.faculty_major, onSubmit(registerForm)]" name="faculty_major"
-              placeholder="{{'enter' | translate}}{{'faculty/major' | translate}}" class="form-control"
-              #faculty_major="ngModel" [ngClass]="{
+            <input type="text" [(ngModel)]="model.faculty_major" (ngModelChange)="[model.faculty_major]"
+              name="faculty_major" placeholder="{{'enter' | translate}}{{'faculty/major' | translate}}"
+              class="form-control" #faculty_major="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -359,11 +347,11 @@
               }" required>
           </div>
           <div class="div-input col-lg-6 col-12">
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'institute'|
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">*{{'institute'|
               translate}}</label>
-            <input type="text" [(ngModel)]="model.institute" (ngModelChange)="[model.institute, onSubmit(registerForm)]"
-              name="institute" placeholder="{{'enter' | translate}}{{'institute' | translate}}" class="form-control"
-              #institute="ngModel" [ngClass]="{
+            <input type="text" [(ngModel)]="model.institute" (ngModelChange)="[model.institute]" name="institute"
+              placeholder="{{'enter' | translate}}{{'institute' | translate}}" class="form-control" #institute="ngModel"
+              [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -379,11 +367,10 @@
         <div class="row row-form-gap">
           <div class="div-input col-lg-4 col-md-6 col-12">
             <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-              for="">{{'currentOccupation'| translate}}</label>
-            <input type="text" [(ngModel)]="model.currentOccupation"
-              (ngModelChange)="[model.currentOccupation, onSubmit(registerForm)]" name="currentOccupation"
-              placeholder="{{'enter' | translate}}{{'currentOccupation' | translate}}" class="form-control"
-              #currentOccupation="ngModel" [ngClass]="{
+              for="">*{{'currentOccupation'| translate}}</label>
+            <input type="text" [(ngModel)]="model.currentOccupation" (ngModelChange)="[model.currentOccupation]"
+              name="currentOccupation" placeholder="{{'enter' | translate}}{{'currentOccupation' | translate}}"
+              class="form-control" #currentOccupation="ngModel" [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -391,11 +378,11 @@
             }" required>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'position'|
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">*{{'position'|
               translate}}</label>
-            <input type="text" [(ngModel)]="model.position" (ngModelChange)="[model.position, onSubmit(registerForm)]"
-              name="position" placeholder="{{'enter' | translate}}{{'position' | translate}}" class="form-control"
-              #position="ngModel" [ngClass]="{
+            <input type="text" [(ngModel)]="model.position" (ngModelChange)="[model.position]" name="position"
+              placeholder="{{'enter' | translate}}{{'position' | translate}}" class="form-control" #position="ngModel"
+              [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -403,11 +390,11 @@
             }" required>
           </div>
           <div class="div-input col-lg-4 col-md-6 col-12">
-            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">{{'workplace'|
+            <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for="">*{{'workplace'|
               translate}}</label>
-            <input type="text" [(ngModel)]="model.workplace" (ngModelChange)="[model.workplace, onSubmit(registerForm)]"
-              name="workplace" placeholder="{{'enter' | translate}}{{'workplace' | translate}}" class="form-control"
-              #workplace="ngModel" [ngClass]="{
+            <input type="text" [(ngModel)]="model.workplace" (ngModelChange)="[model.workplace]" name="workplace"
+              placeholder="{{'enter' | translate}}{{'workplace' | translate}}" class="form-control" #workplace="ngModel"
+              [ngClass]="{
               'p12': deviceSize === 'm',
               'p14': deviceSize === 't',
               'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -444,23 +431,20 @@
           <div class="radio-group">
             <div class="div-input-radio">
               <input type="radio" id="never" name="partyRegisterHistory" value="never"
-                [(ngModel)]="model.partyRegisterHistory"
-                (ngModelChange)="[partyRegisterHistoryChange($event), onSubmit(registerForm)]" />
+                [(ngModel)]="model.partyRegisterHistory" (ngModelChange)="[partyRegisterHistoryChange($event)]" />
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="never">{{'never'|translate}}</label>
             </div>
 
             <div class="div-input-radio">
               <input type="radio" id="ever" name="partyRegisterHistory" value="ever"
-                [(ngModel)]="model.partyRegisterHistory"
-                (ngModelChange)="[partyRegisterHistoryChange($event), onSubmit(registerForm)]" />
+                [(ngModel)]="model.partyRegisterHistory" (ngModelChange)="[partyRegisterHistoryChange($event)]" />
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                 for="ever">{{'ever'|translate}}</label>
               &nbsp;
               <input type="text" style="max-width: 300px;" [(ngModel)]="model.partyOldName"
-                (ngModelChange)="[model.partyOldName, onSubmit(registerForm)]" name="partyOldName"
-                placeholder="{{'everInput' | translate}}" *ngIf="model.partyRegisterHistory == 'ever'"
-                class="form-control" #partyOldName="ngModel" [ngClass]="{
+                (ngModelChange)="[model.partyOldName]" name="partyOldName" placeholder="*{{'everInput' | translate}}"
+                *ngIf="model.partyRegisterHistory == 'ever'" class="form-control" #partyOldName="ngModel" [ngClass]="{
                 'p12': deviceSize === 'm',
                 'p14': deviceSize === 't',
                 'p16': deviceSize !== 'm' && deviceSize !== 't',
@@ -482,16 +466,19 @@
             <div class="radio-group">
               <div class="div-input-radio">
                 <input type="radio" id="yearly" name="registerType" value="yearly" [(ngModel)]="model.registerType"
-                  (ngModelChange)="[partyRegisterTypeChange($event), onSubmit(registerForm)]" />
+                  (ngModelChange)="[partyRegisterTypeChange($event)]" />
                 <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                   for="yearly">{{'yearly'|translate}}</label>
               </div>
 
               <div class="div-input-radio">
                 <input type="radio" id="lifetime" name="registerType" value="lifetime" [(ngModel)]="model.registerType"
-                  (ngModelChange)="[partyRegisterTypeChange($event), onSubmit(registerForm)]" />
+                  (ngModelChange)="[partyRegisterTypeChange($event)]" />
                 <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
                   for="lifetime">{{'lifetime'|translate}}</label>
+              </div>
+              <div class="p16 valid-text">
+                *{{'validPay' |translate}}*
               </div>
             </div>
           </div>
@@ -505,19 +492,20 @@
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-                    for="">{{'slip'|translate}}&nbsp;
-                    <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.slipPay ?? '') == ''">
+                    for="">*{{'slip'|translate}}&nbsp;
+                    <img src="./assets/icons/error.png" class="icon-err" alt=""
+                      *ngIf="(model.slipPay ?? '') == '' && slipPay.invalid && registerForm.submitted">
                   </label>
                   <label class="div-file-slip label-photo1-5">
                     <span class="p14" *ngIf="model.slipPay == null">* {{'select-photo'|translate}}</span>
                     <div class="div-img-file" *ngIf="model.slipPay != null">
                       <img [src]="model.slipPay" />
-                      <div class="delete-img" *ngIf="model.slipPay != null"
-                        (click)="[fileDelete('slipPay'), onSubmit(registerForm)]">
+                      <div class="delete-img" *ngIf="model.slipPay != null" (click)="[fileDelete('slipPay')]">
                         <i class="material-icons">close</i>
                       </div>
                     </div>
-                    <input type="file" accept="image/*" (change)="selectFile('slipPay',$event, registerForm)">
+                    <input type="file" name="slipPay" required [(ngModel)]="model.fileSlipPay5" #slipPay="ngModel"
+                      accept="image/*" (change)="selectFile('slipPay',$event, registerForm)">
                   </label>
 
                 </div>
@@ -538,39 +526,42 @@
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-                    for="">{{'photo1.5'|translate}}&nbsp;
+                    for="">*{{'photo1.5'|translate}}&nbsp;
                     <img src="./assets/icons/error.png" class="icon-err" alt=""
-                      *ngIf="(model.onFilePhoto1_5 ?? '') == ''">
+                      *ngIf="(model.onFilePhoto1_5 ?? '') == '' && onFilePhoto1_5.invalid && registerForm.submitted">
                   </label>
                   <label class="div-file-photo1-5 label-photo1-5">
                     <span class="p14" *ngIf="model.onFilePhoto1_5 == null">* {{'select-photo'|translate}}</span>
                     <div class="div-img-file" *ngIf="model.onFilePhoto1_5 != null">
                       <img [src]="model.onFilePhoto1_5" />
                       <div class="delete-img" *ngIf="model.onFilePhoto1_5 != null"
-                        (click)="[fileDelete('onFilePhoto1_5'), onSubmit(registerForm)]">
+                        (click)="[fileDelete('onFilePhoto1_5')]">
                         <i class="material-icons">close</i>
                       </div>
                     </div>
-                    <input type="file" accept="image/*" (change)="selectFile('onFilePhoto1_5',$event, registerForm)">
+                    <input type="file" name="onFilePhoto1_5" required [(ngModel)]="model.fileOnFilePhoto1_5"
+                      #onFilePhoto1_5="ngModel" accept="image/*"
+                      (change)="selectFile('onFilePhoto1_5',$event, registerForm)">
                   </label>
                 </div>
               </div>
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="card-file">
                   <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'"
-                    for="">{{'photoSelfie'|translate}}&nbsp;
-                    <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.photoSelfie ?? '') == ''">
+                    for="">*{{'photoSelfie'|translate}}&nbsp;
+                    <img src="./assets/icons/error.png" class="icon-err" alt=""
+                      *ngIf="(model.photoSelfie ?? '') == '' && photoSelfie.invalid && registerForm.submitted">
                   </label>
                   <label class="div-file-photo1-5 label-photo1-5">
                     <span class="p14" *ngIf="model.photoSelfie == null">* {{'select-photo'|translate}}</span>
                     <div class="div-img-file" *ngIf="model.photoSelfie != null">
                       <img [src]="model.photoSelfie" />
-                      <div class="delete-img" *ngIf="model.photoSelfie != null"
-                        (click)="[fileDelete('photoSelfie'), onSubmit(registerForm)]">
+                      <div class="delete-img" *ngIf="model.photoSelfie != null" (click)="[fileDelete('photoSelfie')]">
                         <i class="material-icons">close</i>
                       </div>
                     </div>
-                    <input type="file" accept="image/*" (change)="selectFile('photoSelfie',$event, registerForm)">
+                    <input type="file" name="photoSelfie" required [(ngModel)]="model.filePhotoSelfie"
+                      #photoSelfie="ngModel" accept="image/*" (change)="selectFile('photoSelfie',$event, registerForm)">
                   </label>
                 </div>
               </div>
@@ -580,20 +571,20 @@
             <div class="card-file">
               <label [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'" for=""
                 class="d-flex">{{'copyIDCard'| translate}} &nbsp;
-                <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.copyIDCard ?? '') == ''">
+                <img src="./assets/icons/error.png" class="icon-err" alt=""
+                  *ngIf="(model.copyIDCard ?? '') == '' && copyIDCard.invalid && registerForm.submitted">
               </label>
               <label class="div-file-doc">
                 <span class="p14" *ngIf="model.copyIDCard == null">* {{'select-file'|translate}}</span>
                 <!-- <span class="p14" *ngIf="model.copyIDCard != null"><b>{{copyIDCardName}}</b></span> -->
                 <div class="div-img-file" *ngIf="model.copyIDCard != null">
                   <img [src]="model.copyIDCardImg" />
-                  <div class="delete-img" *ngIf="model.copyIDCard != null"
-                    (click)="[fileDelete('copyIDCard'), onSubmit(registerForm)]">
+                  <div class="delete-img" *ngIf="model.copyIDCard != null" (click)="[fileDelete('copyIDCard')]">
                     <i class="material-icons">close</i>
                   </div>
                 </div>
-                <input type="file" accept="application/pdf,image/*"
-                  (change)="selectFile('copyIDCard',$event, registerForm)">
+                <input type="file" name="copyIDCard" required [(ngModel)]="model.fileCopyIDCard" #copyIDCard="ngModel"
+                  accept="application/pdf,image/*" (change)="selectFile('copyIDCard',$event, registerForm)">
               </label>
 
             </div>
@@ -610,7 +601,7 @@
                 <div class="div-img-file" *ngIf="model.copyHouseRegistration != null">
                   <img [src]="model.copyHouseRegistrationImg" />
                   <div class="delete-img" *ngIf="model.copyHouseRegistration != null"
-                    (click)="[fileDelete('copyHouseRegistration'), onSubmit(registerForm)]">
+                    (click)="[fileDelete('copyHouseRegistration')]">
                     <i class="material-icons">close</i>
                   </div>
                 </div>
@@ -649,19 +640,22 @@
 
         <div class="div-input col-12">
           <div class="div-checkbox">
-            <input type="checkbox" id="certification" [(ngModel)]="model.acceptChk"
-              (change)="[chkAccept($event, '1'), onSubmit(registerForm)]" />
+            <input type="checkbox" id="certification" [(ngModel)]="model.acceptChk" (change)="[chkAccept($event, '1')]"
+              name="acceptChk" required [(ngModel)]="model.ChkAcceptChk" #acceptChk="ngModel" />
             <label [attr.for]="'certification'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification'|translate}}
-              <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.acceptChk ?? false) == false">
+              <img src="./assets/icons/error.png" class="icon-err" alt=""
+                *ngIf="(model.acceptChk ?? false) == false && acceptChk.invalid && registerForm.submitted">
             </label>
           </div>
           <div class="div-checkbox">
             <input type="checkbox" id="certification2" [(ngModel)]="model.acceptChk2"
-              (change)="[chkAccept($event, '2'), onSubmit(registerForm)]" />
+              (change)="[chkAccept($event, '2')]" name="acceptChk2" required [(ngModel)]="model.ChkAcceptChk2"
+              #acceptChk2="ngModel" />
             <label [attr.for]="'certification2'"
               [ngClass]="deviceSize == 'm' ? 'p12' : deviceSize == 't' ? 'p14' : 'p16'">{{'certification2'|translate}}
-              <img src="./assets/icons/error.png" class="icon-err" alt="" *ngIf="(model.acceptChk2 ?? false) == false">
+              <img src="./assets/icons/error.png" class="icon-err" alt=""
+                *ngIf="(model.acceptChk2 ?? false) == false && acceptChk2.invalid && registerForm.submitted">
             </label>
           </div>
         </div>
@@ -670,11 +664,12 @@
         <div class="spacer"></div>
         <div class="d-flex justify-content-center">
           <!-- <button class="btn-main p20" type="submit">{{'confirm-register'|translate}}</button> -->
-          <button type="button" (click)="isBtn ? sendApi() : null" class="p20" [ngClass]="{
+          <button type="submit" class="p20 btn-main">{{'confirm-register'|translate}}</button>
+        </div>
+        <!--[ngClass]="{
             'btn-main': isBtn,
             'btn-main-disabled': !isBtn
-          }">{{'confirm-register'|translate}}</button>
-        </div>
+          }" (click)="isBtn ? sendApi() : null" -->
       </form>
 
       <div class="modal-backdrop" *ngIf="isModalOpen">
