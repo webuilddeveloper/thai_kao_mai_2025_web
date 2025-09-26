@@ -660,6 +660,11 @@ export class RegisterFormComponent {
         isValid = true;
       }
       this.idClickBtn = true
+
+      //ถ้าเป็น false จะไม่ผ่าน
+      if (!this.isValidNationalID(this.model.idcard))
+        isValid = true;
+
       if (isValid) {
         // this.isInvalid = true;
         return;
@@ -746,7 +751,9 @@ export class RegisterFormComponent {
     // if ((id ?? '') === '') return true;
     // if (!id || id.length !== 13) return false;
 
-    if (id != undefined && id.length == 13) {
+
+
+    if (id != undefined) {
       let sum = 0;
       for (let i = 0; i < 12; i++) {
         sum += parseInt(id.charAt(i), 10) * (13 - i);
