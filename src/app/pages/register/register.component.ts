@@ -62,4 +62,8 @@ export class RegisterComponent {
       ? window.open(this.modelAboutUs.membershipApplication, '_blank')
       : null;
   }
+
+  chkRegis() {
+    window.open('https://party.ect.go.th/services/member-check', '_blank')
+  }
 }

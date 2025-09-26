@@ -583,3 +583,7 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+.text-no-wrap {
+  text-wrap-mode: nowrap;
+}

@@ -245,5 +245,8 @@
   "joinWorkshop":"Join party workshop or event",
   "other":"Other",
   "validPay": "The account name used for transferring money must match the applicant's name.",
-  "labelChkField": "Please fill in the information or attach files in the fields marked with * and click to accept both certifications."
+  "labelChkField": "Please fill in the information or attach files in the fields marked with * and click to accept both certifications.",
+  "warning": "Warning: ",
+  "registerMemberWarning": "If you are already a member of a political party (either the Thai Kao Mai Party or any other party), you will not be able to apply for party membership.",
+  "chkRegisterBtn": "To verify political party membership"
 }
