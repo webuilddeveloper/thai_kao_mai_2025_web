@@ -98,6 +98,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e76f51-b-b: #e76f51;
   --b81111-w-y: #b81111;
   --g-w-y: green;
+  --nevy-g-b: #2D294A;
 
   --y-w-y-icon: ;
   --filter: ;
@@ -197,6 +198,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e76f51-b-b: black;
   --b81111-w-y: white;
   --g-w-y: white;
+  --nevy-g-b: gray;
 
   --filter: grayscale(100%);
   --filter-w-y: brightness(100);
@@ -265,6 +267,7 @@ $wtm_web-theme: mat.define-light-theme((color: (primary: $wtm_web-primary,
   --e76f51-b-b: black;
   --b81111-w-y: #F4ED17;
   --g-w-y: #F4ED17;
+  --nevy-g-b: black;
 
   --filter: grayscale(100%);
   --filter-w-y: sepia(1) hue-rotate(24deg) saturate(3.5) brightness(5);

@@ -367,7 +367,7 @@ a:hover {
   a {
     text-decoration: none;
     padding: 10px;
-    color: --var(--nevy) !important;
+    // color: var(--nevy) !important;
     transition: color 0.3s;
 
     &:hover {
@@ -395,7 +395,7 @@ a:hover {
         display: block;
         padding: 10px 15px;
         white-space: nowrap;
-        color: --var(--nevy) !important;
+        color: var(--nevy) !important;
         border-bottom: 1px solid var(--ccc-w-y);
         transition: color 0.3s;
 
@@ -404,8 +404,10 @@ a:hover {
         }
 
         &:hover {
-          color: var(--link-hover);
+          // color: var(--link-hover);
           background-color: transparent;
+          color: var(--white) !important;
+          background-color: var(--nevy);
         }
       }
     }
@@ -596,7 +598,7 @@ li.has-submenu.open .submenu {
 .dropdown-content a {
   display: flex;
   align-items: center;
-  color: var(--nevy);
+  // color: var(--nevy);
   background-color: var(--white);
   padding: 12px 16px;
   text-decoration: none;
