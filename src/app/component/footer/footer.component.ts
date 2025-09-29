@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ServiceProvider } from 'src/app/shared/service-provider.service';
@@ -36,17 +36,23 @@ export class FooterComponent {
   monthly: number = 0;
   yearly: number = 0;
   all: number = 0;
+  @Input() showFooter!: boolean;
+  private firstChangeDone: number = 0;
+
   constructor(
     private serviceProvider: ServiceProvider,
     private router: Router,
     public translate: TranslateService
-  ) {}
+  ) {
+
+  }
 
   private animated = false;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.readAboutMe();
     this.readCountIP();
+    this.readView();
     AOS.init({
       duration: 800,
       once: false,
@@ -63,7 +69,23 @@ export class FooterComponent {
       this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
 
+    setInterval(() => {
+      this.readCountIP();
+      if (this.daily != Number(localStorage.getItem("daily") ?? 0)) {
+        this.readView()
+        this.startAnimation();
+      }
+    }, 5000);
+
     this.checkAndAnimate();
+  }
+
+  readView() {
+    this.daily = Number(localStorage.getItem("daily") ?? 0)
+    this.weekly = Number(localStorage.getItem("weekly") ?? 0)
+    this.monthly = Number(localStorage.getItem("monthly") ?? 0)
+    this.yearly = Number(localStorage.getItem("yearly") ?? 0)
+    this.all = Number(localStorage.getItem("all") ?? 0)
   }
 
   @HostListener('window:scroll')
@@ -86,12 +108,11 @@ export class FooterComponent {
   }
 
   startAnimation() {
-
     this.animateCounter('#daily', this.daily, 0);
     this.animateCounter('#weekly', this.weekly, 0.1);
     this.animateCounter('#monthly', this.monthly, 0.2);
     this.animateCounter('#yearly', this.yearly, 0.3);
-    this.animateCounter('#total', this.all, 0.4);
+    this.animateCounter('#all', this.all, 0.4);
   }
 
   animateCounter(selector: string, value: number, delay: number) {
@@ -119,19 +140,27 @@ export class FooterComponent {
       this.aboutMeModel = model.objectData;
     });
   }
+
   readCountIP() {
     this.serviceProvider.get('ip/readCount').subscribe((data) => {
       let model: any = {};
       model = data;
-      this.daily = model?.objectData?.countDay ?? 0;
-      this.weekly = model?.objectData?.countWeek ?? 0;
-      this.monthly = model?.objectData?.countMonth ?? 0;
-      this.yearly = model?.objectData?.countYear ?? 0;
-      this.all = model?.objectData?.countAll ?? 0;
+      localStorage.setItem("daily", model?.objectData?.countDay ?? "0")
+      localStorage.setItem("weekly", model?.objectData?.countWeek ?? "0")
+      localStorage.setItem("monthly", model?.objectData?.countMonth ?? "0")
+      localStorage.setItem("yearly", model?.objectData?.countYear ?? "0")
+      localStorage.setItem("all", model?.objectData?.countAll ?? "0")
+      // this.daily = model?.objectData?.countDay ?? 0;
+      // this.weekly = model?.objectData?.countWeek ?? 0;
+      // this.monthly = model?.objectData?.countMonth ?? 0;
+      // this.yearly = model?.objectData?.countYear ?? 0;
+      // this.all = model?.objectData?.countAll ?? 0;
     });
   }
 
   socialClick(link: string) {
     (link ?? '') != '' ? window.open(link, '_blank', 'noopener,noreferrer') : null;
   }
+
+
 }
