@@ -69,13 +69,13 @@ export class FooterComponent {
       this.isShow = localStorage.getItem('isShow') ?? 'false'; // default เป็น true ถ้าไม่มีค่า
     }, 500);
 
-    setInterval(() => {
-      this.readCountIP();
-      if (this.daily != Number(localStorage.getItem("daily") ?? 0)) {
-        this.readView()
-        this.startAnimation();
-      }
-    }, 5000);
+    // setInterval(() => {
+    //   this.readCountIP();
+    //   if (this.daily != Number(localStorage.getItem("daily") ?? 0)) {
+    //     this.readView()
+    //     this.startAnimation();
+    //   }
+    // }, 5000);
 
     this.checkAndAnimate();
   }
@@ -145,16 +145,16 @@ export class FooterComponent {
     this.serviceProvider.get('ip/readCount').subscribe((data) => {
       let model: any = {};
       model = data;
-      localStorage.setItem("daily", model?.objectData?.countDay ?? "0")
-      localStorage.setItem("weekly", model?.objectData?.countWeek ?? "0")
-      localStorage.setItem("monthly", model?.objectData?.countMonth ?? "0")
-      localStorage.setItem("yearly", model?.objectData?.countYear ?? "0")
-      localStorage.setItem("all", model?.objectData?.countAll ?? "0")
-      // this.daily = model?.objectData?.countDay ?? 0;
-      // this.weekly = model?.objectData?.countWeek ?? 0;
-      // this.monthly = model?.objectData?.countMonth ?? 0;
-      // this.yearly = model?.objectData?.countYear ?? 0;
-      // this.all = model?.objectData?.countAll ?? 0;
+      // localStorage.setItem("daily", model?.objectData?.countDay ?? "0")
+      // localStorage.setItem("weekly", model?.objectData?.countWeek ?? "0")
+      // localStorage.setItem("monthly", model?.objectData?.countMonth ?? "0")
+      // localStorage.setItem("yearly", model?.objectData?.countYear ?? "0")
+      // localStorage.setItem("all", model?.objectData?.countAll ?? "0")
+      this.daily = model?.objectData?.countDay ?? 0;
+      this.weekly = model?.objectData?.countWeek ?? 0;
+      this.monthly = model?.objectData?.countMonth ?? 0;
+      this.yearly = model?.objectData?.countYear ?? 0;
+      this.all = model?.objectData?.countAll ?? 0;
     });
   }
 
