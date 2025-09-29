@@ -52,7 +52,7 @@ export class FooterComponent {
   ngOnInit() {
     this.readAboutMe();
     this.readCountIP();
-    this.readView();
+    // this.readView();
     AOS.init({
       duration: 800,
       once: false,
